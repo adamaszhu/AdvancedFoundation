@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		424A8D0F1E9BB5C80031A760 /* AdvancedFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 424A8D051E9BB5C80031A760 /* AdvancedFoundation.framework */; };
-		424A8D141E9BB5C80031A760 /* AdvancedFoundationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424A8D131E9BB5C80031A760 /* AdvancedFoundationTests.swift */; };
-		424A8D161E9BB5C80031A760 /* AdvancedFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 424A8D081E9BB5C80031A760 /* AdvancedFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6DBF23D34481822FE24E7FC9 /* Pods_AdvancedFoundationTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A015ED66E1C83757F821BCD5 /* Pods_AdvancedFoundationTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,10 +23,8 @@
 
 /* Begin PBXFileReference section */
 		424A8D051E9BB5C80031A760 /* AdvancedFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AdvancedFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		424A8D081E9BB5C80031A760 /* AdvancedFoundation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdvancedFoundation.h; sourceTree = "<group>"; };
 		424A8D091E9BB5C80031A760 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		424A8D0E1E9BB5C80031A760 /* AdvancedFoundationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdvancedFoundationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		424A8D131E9BB5C80031A760 /* AdvancedFoundationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedFoundationTests.swift; sourceTree = "<group>"; };
 		424A8D151E9BB5C80031A760 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4DAEE6AF04A48155A7524367 /* Pods-AdvancedFoundationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdvancedFoundationTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AdvancedFoundationTests/Pods-AdvancedFoundationTests.release.xcconfig"; sourceTree = "<group>"; };
 		6528F6F8CF461CA6B29AEB07 /* Pods-AdvancedFoundationTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdvancedFoundationTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AdvancedFoundationTests/Pods-AdvancedFoundationTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -78,7 +74,6 @@
 		424A8D071E9BB5C80031A760 /* AdvancedFoundation */ = {
 			isa = PBXGroup;
 			children = (
-				424A8D081E9BB5C80031A760 /* AdvancedFoundation.h */,
 				424A8D091E9BB5C80031A760 /* Info.plist */,
 			);
 			path = AdvancedFoundation;
@@ -87,7 +82,6 @@
 		424A8D121E9BB5C80031A760 /* AdvancedFoundationTests */ = {
 			isa = PBXGroup;
 			children = (
-				424A8D131E9BB5C80031A760 /* AdvancedFoundationTests.swift */,
 				424A8D151E9BB5C80031A760 /* Info.plist */,
 			);
 			path = AdvancedFoundationTests;
@@ -117,7 +111,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				424A8D161E9BB5C80031A760 /* AdvancedFoundation.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,7 +273,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				424A8D141E9BB5C80031A760 /* AdvancedFoundationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,6 +391,7 @@
 		424A8D1A1E9BB5C80031A760 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = XN66S2NA25;
@@ -418,6 +411,7 @@
 		424A8D1B1E9BB5C80031A760 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = XN66S2NA25;
