@@ -2,8 +2,8 @@ class VersionHelperSpecs: QuickSpec {
     
     override func spec() {
         describe("Version helper") {
-            it("has no standard object") {
-                expect(VersionHelper.standard).to(beNil())
+            it("has standard object with valid version") {
+                expect(VersionHelper.standard?.compareToVersion("1.0.0")) == 0
             }
             it("is initialized with valid version") {
                 let versionHelper = VersionHelper(forVersion: "1.0.0")
@@ -31,9 +31,8 @@ class VersionHelperSpecs: QuickSpec {
                 it("with equal code") {
                     expect(versionHelper.compareToVersion("1.0.0")) == 0
                 }
-                
             }
-            describe("parse invalid version") {
+            describe("parses invalid version") {
                 let versionHelper = VersionHelper(forVersion: "1.0.0")
                 
                 it("with invalid character") {
