@@ -17,6 +17,9 @@ class PercentageFormatterSpecs: QuickSpec {
                 it("with original decimal") {
                     expect(number.convertToPercentageString(withPrecision: nil)) == "55.55%"
                 }
+                it("with default decimal") {
+                    expect(number.convertToPercentageString()) == "55.55%"
+                }
             }
             describe("renders percentage string") {
                 it("with valid content in string") {

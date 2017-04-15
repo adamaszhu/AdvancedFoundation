@@ -22,6 +22,10 @@
 		425FA3E51EA056980015E3C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 425FA3E31EA056980015E3C1 /* Main.storyboard */; };
 		425FA3E71EA056980015E3C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 425FA3E61EA056980015E3C1 /* Assets.xcassets */; };
 		425FA3EA1EA056980015E3C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 425FA3E81EA056980015E3C1 /* LaunchScreen.storyboard */; };
+		42622E8D1EA1D59A00E5D5E7 /* StringLocalizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42622E8C1EA1D59A00E5D5E7 /* StringLocalizer.swift */; };
+		42622E991EA1E51100E5D5E7 /* StringLocalizerSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42622E981EA1E51100E5D5E7 /* StringLocalizerSpecs.swift */; };
+		42622E9D1EA1ECB200E5D5E7 /* StringLocalizerSpecs.strings in Resources */ = {isa = PBXBuildFile; fileRef = 42622E9C1EA1ECB200E5D5E7 /* StringLocalizerSpecs.strings */; };
+		42622EA11EA1F6B900E5D5E7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 42622EA01EA1F6B900E5D5E7 /* Localizable.strings */; };
 		42F30E431E9E412900AC0249 /* AppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F30E411E9E412900AC0249 /* AppInfo.swift */; };
 		42F30E441E9E412900AC0249 /* VersionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F30E421E9E412900AC0249 /* VersionHelper.swift */; };
 		42F30E471E9E413400AC0249 /* VersionHelperSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F30E461E9E413400AC0249 /* VersionHelperSpecs.swift */; };
@@ -67,6 +71,10 @@
 		425FA3E61EA056980015E3C1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		425FA3E91EA056980015E3C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		425FA3EB1EA056980015E3C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		42622E8C1EA1D59A00E5D5E7 /* StringLocalizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringLocalizer.swift; sourceTree = "<group>"; };
+		42622E981EA1E51100E5D5E7 /* StringLocalizerSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringLocalizerSpecs.swift; sourceTree = "<group>"; };
+		42622E9C1EA1ECB200E5D5E7 /* StringLocalizerSpecs.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = StringLocalizerSpecs.strings; sourceTree = "<group>"; };
+		42622EA01EA1F6B900E5D5E7 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		42F30E411E9E412900AC0249 /* AppInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppInfo.swift; sourceTree = "<group>"; };
 		42F30E421E9E412900AC0249 /* VersionHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersionHelper.swift; sourceTree = "<group>"; };
 		42F30E461E9E413400AC0249 /* VersionHelperSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersionHelperSpecs.swift; sourceTree = "<group>"; };
@@ -128,6 +136,7 @@
 		2848AAED1E9D9E4C004C6A66 /* AdvancedFoundation */ = {
 			isa = PBXGroup;
 			children = (
+				42622E8B1EA1D54800E5D5E7 /* String */,
 				42F30E401E9E412900AC0249 /* App */,
 				420F3CA81EA06B1B00BAA0A4 /* Number */,
 				2848AB081E9DA039004C6A66 /* Log */,
@@ -139,9 +148,11 @@
 		2848AAF81E9D9E4C004C6A66 /* AdvancedFoundationTests */ = {
 			isa = PBXGroup;
 			children = (
+				42622E971EA1E50200E5D5E7 /* String */,
 				420F3CAF1EA0759500BAA0A4 /* Number */,
 				42F30E451E9E413400AC0249 /* App */,
 				2848AAFB1E9D9E4C004C6A66 /* Info.plist */,
+				42622E9C1EA1ECB200E5D5E7 /* StringLocalizerSpecs.strings */,
 			);
 			path = AdvancedFoundationTests;
 			sourceTree = "<group>";
@@ -185,8 +196,25 @@
 				425FA3E61EA056980015E3C1 /* Assets.xcassets */,
 				425FA3E81EA056980015E3C1 /* LaunchScreen.storyboard */,
 				425FA3EB1EA056980015E3C1 /* Info.plist */,
+				42622EA01EA1F6B900E5D5E7 /* Localizable.strings */,
 			);
 			path = AdvancedFoundationHost;
+			sourceTree = "<group>";
+		};
+		42622E8B1EA1D54800E5D5E7 /* String */ = {
+			isa = PBXGroup;
+			children = (
+				42622E8C1EA1D59A00E5D5E7 /* StringLocalizer.swift */,
+			);
+			path = String;
+			sourceTree = "<group>";
+		};
+		42622E971EA1E50200E5D5E7 /* String */ = {
+			isa = PBXGroup;
+			children = (
+				42622E981EA1E51100E5D5E7 /* StringLocalizerSpecs.swift */,
+			);
+			path = String;
 			sourceTree = "<group>";
 		};
 		42F30E401E9E412900AC0249 /* App */ = {
@@ -329,6 +357,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 2848AAE11E9D9E4C004C6A66;
 			productRefGroup = 2848AAEC1E9D9E4C004C6A66 /* Products */;
@@ -354,6 +383,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42622E9D1EA1ECB200E5D5E7 /* StringLocalizerSpecs.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,6 +392,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				425FA3EA1EA056980015E3C1 /* LaunchScreen.storyboard in Resources */,
+				42622EA11EA1F6B900E5D5E7 /* Localizable.strings in Resources */,
 				425FA3E71EA056980015E3C1 /* Assets.xcassets in Resources */,
 				425FA3E51EA056980015E3C1 /* Main.storyboard in Resources */,
 			);
@@ -425,6 +456,7 @@
 				2848AB0A1E9DA039004C6A66 /* Logger.swift in Sources */,
 				420F3CAA1EA06B1B00BAA0A4 /* CurrencyFormatter.swift in Sources */,
 				425336CA1EA0A9E700B6D6BF /* DecimalFormatter.swift in Sources */,
+				42622E8D1EA1D59A00E5D5E7 /* StringLocalizer.swift in Sources */,
 				42F30E431E9E412900AC0249 /* AppInfo.swift in Sources */,
 				420F3CAD1EA0721800BAA0A4 /* LongNumberFormatter.swift in Sources */,
 				42F30E441E9E412900AC0249 /* VersionHelper.swift in Sources */,
@@ -441,6 +473,7 @@
 				425336C81EA090E100B6D6BF /* LongNumberFormatterSpecs.swift in Sources */,
 				420F3CB11EA0798300BAA0A4 /* CurrencyFormatterSpecs.swift in Sources */,
 				425336CC1EA0ABE800B6D6BF /* DecimalFormatterSpecs.swift in Sources */,
+				42622E991EA1E51100E5D5E7 /* StringLocalizerSpecs.swift in Sources */,
 				42F30E471E9E413400AC0249 /* VersionHelperSpecs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -493,6 +526,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -547,6 +581,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -602,7 +637,7 @@
 				INFOPLIST_FILE = AdvancedFoundation/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.adamaszhu.AdvancedFoundation;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adamas.foundation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -621,7 +656,7 @@
 				INFOPLIST_FILE = AdvancedFoundation/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.adamaszhu.AdvancedFoundation;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adamas.foundation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -665,7 +700,7 @@
 				DEVELOPMENT_TEAM = XN66S2NA25;
 				INFOPLIST_FILE = AdvancedFoundationHost/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.adamaszhu.AdvancedFoundationHost;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adamas.foundationHost;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -678,7 +713,7 @@
 				DEVELOPMENT_TEAM = XN66S2NA25;
 				INFOPLIST_FILE = AdvancedFoundationHost/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.adamaszhu.AdvancedFoundationHost;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adamas.foundationHost;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

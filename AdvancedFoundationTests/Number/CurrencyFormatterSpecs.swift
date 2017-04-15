@@ -12,11 +12,17 @@ class CurrencyFormatterSpecs: QuickSpec {
                     it("without cent") {
                         expect(number.convertToMoneyString(withCent: false)) == "$999,999"
                     }
+                    it("with default cent") {
+                        expect(number.convertToMoneyString()) == "$999,999"
+                    }
                     it("with currency symbol") {
                         expect(number.convertToMoneyString(withCurrencySymbol: "&")) == "&999,999"
                     }
                     it("without currency symbol") {
                         expect(number.convertToMoneyString(withCurrencySymbol: "")) == "999,999"
+                    }
+                    it("with default currency symbol") {
+                        expect(number.convertToMoneyString()) == "$999,999"
                     }
                 }
                 describe("as int") {
@@ -28,11 +34,17 @@ class CurrencyFormatterSpecs: QuickSpec {
                     it("without cent") {
                         expect(number.convertToMoneyString(withCent: false)) == "$999,999"
                     }
+                    it("with default cent") {
+                        expect(number.convertToMoneyString()) == "$999,999"
+                    }
                     it("with currency symbol") {
                         expect(number.convertToMoneyString(withCurrencySymbol: "&")) == "&999,999"
                     }
                     it("without currency symbol") {
                         expect(number.convertToMoneyString(withCurrencySymbol: "")) == "999,999"
+                    }
+                    it("with default currency symbol") {
+                        expect(number.convertToMoneyString()) == "$999,999"
                     }
                 }
             }
