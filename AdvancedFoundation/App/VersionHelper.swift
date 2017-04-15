@@ -67,7 +67,6 @@ public class VersionHelper: AnyObject {
     
     /**
      * Create current version flag in the user default, indicating that current version has been opened once.
-     * - returns: Whether the flag has been settled or not. Nil will be returned if the flag cannot be created.
      */
     public func createVersionFlag() {
         let userDefaults = UserDefaults.standard
@@ -76,6 +75,19 @@ public class VersionHelper: AnyObject {
         }
         let versionKey = String(format: VersionHelper.versionKeyPattern, AppInfo.bundleName!)
         userDefaults.setValue(version, forKey: versionKey)
+    }
+    
+    /**
+     * Delete current version flag in the user default.
+     */
+    public func deleteVersionFlag() {
+        let userDefaults = UserDefaults.standard
+        if AppInfo.bundleName == nil {
+            return
+        }
+        let versionKey = String(format: VersionHelper.versionKeyPattern, AppInfo.bundleName!)
+        userDefaults.removeObject(forKey: versionKey)
+        userDefaults.synchronize()
     }
     
     /**
