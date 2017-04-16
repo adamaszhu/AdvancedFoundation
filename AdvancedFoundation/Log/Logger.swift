@@ -15,8 +15,6 @@ public class Logger {
     
     /**
      * Log an info.
-     * - version: 1.0.0
-     * - date: 11/04/2017
      * - parameter info: The info.
      * - parameter detail: The detail of the error.
      */
@@ -26,8 +24,6 @@ public class Logger {
     
     /**
      * Log an error.
-     * - version: 1.0.0
-     * - date: 11/04/2017
      * - parameter error: The error.
      * - parameter detail: The detail of the error.
      */
@@ -37,8 +33,6 @@ public class Logger {
     
     /**
      * Log a message.
-     * - version: 1.0.0
-     * - date: 11/04/2017
      * - parameter tag: The type of the message.
      * - parameter message: The message.
      */

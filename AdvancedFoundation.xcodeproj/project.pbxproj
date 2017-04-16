@@ -9,6 +9,15 @@
 /* Begin PBXBuildFile section */
 		2848AAF51E9D9E4C004C6A66 /* AdvancedFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2848AAEB1E9D9E4C004C6A66 /* AdvancedFoundation.framework */; };
 		2848AB0A1E9DA039004C6A66 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2848AB091E9DA039004C6A66 /* Logger.swift */; };
+		425FA3E01EA056980015E3C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425FA3DF1EA056980015E3C1 /* AppDelegate.swift */; };
+		425FA3E21EA056980015E3C1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425FA3E11EA056980015E3C1 /* ViewController.swift */; };
+		425FA3E51EA056980015E3C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 425FA3E31EA056980015E3C1 /* Main.storyboard */; };
+		425FA3E71EA056980015E3C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 425FA3E61EA056980015E3C1 /* Assets.xcassets */; };
+		425FA3EA1EA056980015E3C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 425FA3E81EA056980015E3C1 /* LaunchScreen.storyboard */; };
+		42F30E431E9E412900AC0249 /* AppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F30E411E9E412900AC0249 /* AppInfo.swift */; };
+		42F30E441E9E412900AC0249 /* VersionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F30E421E9E412900AC0249 /* VersionHelper.swift */; };
+		42F30E471E9E413400AC0249 /* VersionHelperSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F30E461E9E413400AC0249 /* VersionHelperSpecs.swift */; };
+		42F30E4B1E9E4CE200AC0249 /* AppInfoSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F30E4A1E9E4CE200AC0249 /* AppInfoSpecs.swift */; };
 		44288731CD0DB5D0FB861C8C /* Pods_AdvancedFoundationTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86FC5B98651D3B1381244FFD /* Pods_AdvancedFoundationTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -20,6 +29,13 @@
 			remoteGlobalIDString = 2848AAEA1E9D9E4C004C6A66;
 			remoteInfo = AdvancedFoundation;
 		};
+		425FA3EF1EA056B50015E3C1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2848AAE21E9D9E4C004C6A66 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 425FA3DC1EA056980015E3C1;
+			remoteInfo = AdvancedFoundationHost;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +44,17 @@
 		2848AAF41E9D9E4C004C6A66 /* AdvancedFoundationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdvancedFoundationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2848AAFB1E9D9E4C004C6A66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2848AB091E9DA039004C6A66 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		425FA3DD1EA056980015E3C1 /* AdvancedFoundationHost.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdvancedFoundationHost.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		425FA3DF1EA056980015E3C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		425FA3E11EA056980015E3C1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		425FA3E41EA056980015E3C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		425FA3E61EA056980015E3C1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		425FA3E91EA056980015E3C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		425FA3EB1EA056980015E3C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		42F30E411E9E412900AC0249 /* AppInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppInfo.swift; sourceTree = "<group>"; };
+		42F30E421E9E412900AC0249 /* VersionHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersionHelper.swift; sourceTree = "<group>"; };
+		42F30E461E9E413400AC0249 /* VersionHelperSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersionHelperSpecs.swift; sourceTree = "<group>"; };
+		42F30E4A1E9E4CE200AC0249 /* AppInfoSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppInfoSpecs.swift; sourceTree = "<group>"; };
 		57ED9B2EE2FA2F6771B7AD04 /* Pods-AdvancedFoundationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdvancedFoundationTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AdvancedFoundationTests/Pods-AdvancedFoundationTests.release.xcconfig"; sourceTree = "<group>"; };
 		86FC5B98651D3B1381244FFD /* Pods_AdvancedFoundationTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AdvancedFoundationTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D29E49528E53C08AF22ACA11 /* Pods-AdvancedFoundationTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdvancedFoundationTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AdvancedFoundationTests/Pods-AdvancedFoundationTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -50,6 +77,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		425FA3DA1EA056980015E3C1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -58,6 +92,7 @@
 			children = (
 				2848AAED1E9D9E4C004C6A66 /* AdvancedFoundation */,
 				2848AAF81E9D9E4C004C6A66 /* AdvancedFoundationTests */,
+				425FA3DE1EA056980015E3C1 /* AdvancedFoundationHost */,
 				2848AAEC1E9D9E4C004C6A66 /* Products */,
 				7DB45D186EA72BE2A52B00CE /* Pods */,
 				80D516811EEC4BCCD529B51B /* Frameworks */,
@@ -69,6 +104,7 @@
 			children = (
 				2848AAEB1E9D9E4C004C6A66 /* AdvancedFoundation.framework */,
 				2848AAF41E9D9E4C004C6A66 /* AdvancedFoundationTests.xctest */,
+				425FA3DD1EA056980015E3C1 /* AdvancedFoundationHost.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -76,6 +112,7 @@
 		2848AAED1E9D9E4C004C6A66 /* AdvancedFoundation */ = {
 			isa = PBXGroup;
 			children = (
+				42F30E401E9E412900AC0249 /* App */,
 				2848AB081E9DA039004C6A66 /* Log */,
 				2848AAEF1E9D9E4C004C6A66 /* Info.plist */,
 			);
@@ -85,6 +122,7 @@
 		2848AAF81E9D9E4C004C6A66 /* AdvancedFoundationTests */ = {
 			isa = PBXGroup;
 			children = (
+				42F30E451E9E413400AC0249 /* App */,
 				2848AAFB1E9D9E4C004C6A66 /* Info.plist */,
 			);
 			path = AdvancedFoundationTests;
@@ -96,6 +134,37 @@
 				2848AB091E9DA039004C6A66 /* Logger.swift */,
 			);
 			path = Log;
+			sourceTree = "<group>";
+		};
+		425FA3DE1EA056980015E3C1 /* AdvancedFoundationHost */ = {
+			isa = PBXGroup;
+			children = (
+				425FA3DF1EA056980015E3C1 /* AppDelegate.swift */,
+				425FA3E11EA056980015E3C1 /* ViewController.swift */,
+				425FA3E31EA056980015E3C1 /* Main.storyboard */,
+				425FA3E61EA056980015E3C1 /* Assets.xcassets */,
+				425FA3E81EA056980015E3C1 /* LaunchScreen.storyboard */,
+				425FA3EB1EA056980015E3C1 /* Info.plist */,
+			);
+			path = AdvancedFoundationHost;
+			sourceTree = "<group>";
+		};
+		42F30E401E9E412900AC0249 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				42F30E411E9E412900AC0249 /* AppInfo.swift */,
+				42F30E421E9E412900AC0249 /* VersionHelper.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		42F30E451E9E413400AC0249 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				42F30E461E9E413400AC0249 /* VersionHelperSpecs.swift */,
+				42F30E4A1E9E4CE200AC0249 /* AppInfoSpecs.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 		7DB45D186EA72BE2A52B00CE /* Pods */ = {
@@ -161,11 +230,29 @@
 			);
 			dependencies = (
 				2848AAF71E9D9E4C004C6A66 /* PBXTargetDependency */,
+				425FA3F01EA056B50015E3C1 /* PBXTargetDependency */,
 			);
 			name = AdvancedFoundationTests;
 			productName = AdvancedFoundationTests;
 			productReference = 2848AAF41E9D9E4C004C6A66 /* AdvancedFoundationTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		425FA3DC1EA056980015E3C1 /* AdvancedFoundationHost */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 425FA3EE1EA056980015E3C1 /* Build configuration list for PBXNativeTarget "AdvancedFoundationHost" */;
+			buildPhases = (
+				425FA3D91EA056980015E3C1 /* Sources */,
+				425FA3DA1EA056980015E3C1 /* Frameworks */,
+				425FA3DB1EA056980015E3C1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AdvancedFoundationHost;
+			productName = AdvancedFoundationHost;
+			productReference = 425FA3DD1EA056980015E3C1 /* AdvancedFoundationHost.app */;
+			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
@@ -186,6 +273,12 @@
 						CreatedOnToolsVersion = 8.3;
 						DevelopmentTeam = XN66S2NA25;
 						ProvisioningStyle = Automatic;
+						TestTargetID = 425FA3DC1EA056980015E3C1;
+					};
+					425FA3DC1EA056980015E3C1 = {
+						CreatedOnToolsVersion = 8.3.1;
+						DevelopmentTeam = XN66S2NA25;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -195,6 +288,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 2848AAE11E9D9E4C004C6A66;
 			productRefGroup = 2848AAEC1E9D9E4C004C6A66 /* Products */;
@@ -203,6 +297,7 @@
 			targets = (
 				2848AAEA1E9D9E4C004C6A66 /* AdvancedFoundation */,
 				2848AAF31E9D9E4C004C6A66 /* AdvancedFoundationTests */,
+				425FA3DC1EA056980015E3C1 /* AdvancedFoundationHost */,
 			);
 		};
 /* End PBXProject section */
@@ -219,6 +314,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		425FA3DB1EA056980015E3C1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				425FA3EA1EA056980015E3C1 /* LaunchScreen.storyboard in Resources */,
+				425FA3E71EA056980015E3C1 /* Assets.xcassets in Resources */,
+				425FA3E51EA056980015E3C1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,6 +383,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2848AB0A1E9DA039004C6A66 /* Logger.swift in Sources */,
+				42F30E431E9E412900AC0249 /* AppInfo.swift in Sources */,
+				42F30E441E9E412900AC0249 /* VersionHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +392,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42F30E4B1E9E4CE200AC0249 /* AppInfoSpecs.swift in Sources */,
+				42F30E471E9E413400AC0249 /* VersionHelperSpecs.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		425FA3D91EA056980015E3C1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				425FA3E21EA056980015E3C1 /* ViewController.swift in Sources */,
+				425FA3E01EA056980015E3C1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,7 +414,31 @@
 			target = 2848AAEA1E9D9E4C004C6A66 /* AdvancedFoundation */;
 			targetProxy = 2848AAF61E9D9E4C004C6A66 /* PBXContainerItemProxy */;
 		};
+		425FA3F01EA056B50015E3C1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 425FA3DC1EA056980015E3C1 /* AdvancedFoundationHost */;
+			targetProxy = 425FA3EF1EA056B50015E3C1 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		425FA3E31EA056980015E3C1 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				425FA3E41EA056980015E3C1 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		425FA3E81EA056980015E3C1 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				425FA3E91EA056980015E3C1 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		2848AAFD1E9D9E4C004C6A66 /* Debug */ = {
@@ -449,6 +591,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.adamaszhu.AdvancedFoundationTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AdvancedFoundationHost.app/AdvancedFoundationHost";
 			};
 			name = Debug;
 		};
@@ -461,6 +604,33 @@
 				INFOPLIST_FILE = AdvancedFoundationTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.adamaszhu.AdvancedFoundationTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AdvancedFoundationHost.app/AdvancedFoundationHost";
+			};
+			name = Release;
+		};
+		425FA3EC1EA056980015E3C1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = XN66S2NA25;
+				INFOPLIST_FILE = AdvancedFoundationHost/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.adamaszhu.AdvancedFoundationHost;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		425FA3ED1EA056980015E3C1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = XN66S2NA25;
+				INFOPLIST_FILE = AdvancedFoundationHost/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.adamaszhu.AdvancedFoundationHost;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -492,6 +662,15 @@
 			buildConfigurations = (
 				2848AB031E9D9E4C004C6A66 /* Debug */,
 				2848AB041E9D9E4C004C6A66 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		425FA3EE1EA056980015E3C1 /* Build configuration list for PBXNativeTarget "AdvancedFoundationHost" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				425FA3EC1EA056980015E3C1 /* Debug */,
+				425FA3ED1EA056980015E3C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
