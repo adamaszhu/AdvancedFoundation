@@ -32,12 +32,12 @@ public extension String {
     
     /**
      * Localize a string using the localization file as the class name within current framework.
-     * - parameter objectClass: The class used to find the localization file.
+     * - parameter any: Any structure or class used to find the localization file.
      * - returns: The localized string.
      */
-    func localizeWithinFramework(forClass objectClass: AnyClass) -> String {
+    func localizeWithinFramework(forAny any: Any) -> String {
         let bundle = Bundle(for: Logger.self)
-        return NSLocalizedString(self, tableName: String(describing: objectClass), bundle: bundle, comment: "")
+        return NSLocalizedString(self, tableName: String(describing: any), bundle: bundle, comment: "")
     }
     
 }

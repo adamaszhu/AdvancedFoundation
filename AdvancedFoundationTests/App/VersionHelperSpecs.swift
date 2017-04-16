@@ -2,7 +2,7 @@ class VersionHelperSpecs: QuickSpec {
     
     override func spec() {
         describe("Version helper") {
-            describe("has standard object") {
+            it("has standard object") {
                 expect(VersionHelper.standard?.compareToVersion("1.0.0")) == 0
             }
             describe("is initialized") {
