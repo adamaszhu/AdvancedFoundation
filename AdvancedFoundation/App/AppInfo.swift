@@ -4,7 +4,7 @@
  * - version: 1.0.0
  * - date: 12/04/2017
  */
-public class AppInfo {
+public class AppInfo: AnyObject {
     
     /**
      * System error.
