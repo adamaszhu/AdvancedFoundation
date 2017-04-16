@@ -3,10 +3,10 @@ class StringLocalizerSpecs: QuickSpec {
     override func spec() {
         describe("String") {
             describe("is localized for class") {
-                describe("as localizable string") {
+                it("as localizable string") {
                     expect("Test".localize(forClass: StringLocalizerSpecs.self)) == "Test string"
                 }
-                describe("as non localizable string") {
+                it("as non localizable string") {
                     expect("Test1".localize(forClass: StringLocalizerSpecs.self)) == "Test1"
                 }
             }
