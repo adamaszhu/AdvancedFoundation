@@ -18,6 +18,9 @@ class DecimalFormatterSpecs: QuickSpec {
                     it("with original decimal") {
                         expect(number.convertToDecimalString(withPrecision: nil)) == "100.55"
                     }
+                    it("with default decimal") {
+                        expect(number.convertToDecimalString()) == "100.55"
+                    }
                 }
                 describe("as int") {
                     let number = NSNumber(value: 100)
@@ -31,6 +34,9 @@ class DecimalFormatterSpecs: QuickSpec {
                     }
                     it("with original decimal") {
                         expect(number.convertToDecimalString(withPrecision: nil)) == "100"
+                    }
+                    it("with default decimal") {
+                        expect(number.convertToDecimalString()) == "100"
                     }
                 }
             }
