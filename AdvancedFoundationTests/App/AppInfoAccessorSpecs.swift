@@ -1,12 +1,12 @@
-class AppInfoSpecs: QuickSpec {
+class AppInfoAccessorSpecs: QuickSpec {
     
     override func spec() {
         describe("App info") {
             it("has bundle name") {
-                expect(AppInfo.bundleName) == "AdvancedFoundationHost"
+                expect(AppInfoAccessor.bundleName) == "AdvancedFoundationHost"
             }
             it("has version") {
-                expect(AppInfo.version) == "1.0.0"
+                expect(AppInfoAccessor.version) == "1.0.0"
             }
         }
     }

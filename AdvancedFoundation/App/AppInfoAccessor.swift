@@ -1,10 +1,10 @@
 /**
- * AppInfo provide the information about the app.
+ * AppInfoAccessor provide the information about the app.
  * - author: Adamas
  * - version: 1.0.0
  * - date: 12/04/2017
  */
-public class AppInfo {
+public class AppInfoAccessor: AnyObject {
     
     /**
      * System error.

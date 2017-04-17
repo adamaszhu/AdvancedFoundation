@@ -10,10 +10,10 @@ public class VersionHelper: AnyObject {
      * The default helper that presents current version. It will be nil if the version cannot be retrieved.
      */
     public static let standard: VersionHelper? = {
-        if AppInfo.version == nil {
+        if AppInfoAccessor.version == nil {
             return nil
         }
-        return VersionHelper(forVersion: AppInfo.version!)
+        return VersionHelper(forVersion: AppInfoAccessor.version!)
     }()
 
     /**
@@ -54,10 +54,10 @@ public class VersionHelper: AnyObject {
      */
     public func checkVersionFlag() -> Bool? {
         let userDefaults = UserDefaults.standard
-        if AppInfo.bundleName == nil {
+        if AppInfoAccessor.bundleName == nil {
             return nil
         }
-        let versionKey = String(format: VersionHelper.versionKeyPattern, AppInfo.bundleName!)
+        let versionKey = String(format: VersionHelper.versionKeyPattern, AppInfoAccessor.bundleName!)
         let storedAppVersion = userDefaults.string(forKey: versionKey)
         if storedAppVersion == nil {
             return false
@@ -70,10 +70,10 @@ public class VersionHelper: AnyObject {
      */
     public func createVersionFlag() {
         let userDefaults = UserDefaults.standard
-        if AppInfo.bundleName == nil {
+        if AppInfoAccessor.bundleName == nil {
             return
         }
-        let versionKey = String(format: VersionHelper.versionKeyPattern, AppInfo.bundleName!)
+        let versionKey = String(format: VersionHelper.versionKeyPattern, AppInfoAccessor.bundleName!)
         userDefaults.setValue(version, forKey: versionKey)
     }
     
@@ -82,10 +82,10 @@ public class VersionHelper: AnyObject {
      */
     public func deleteVersionFlag() {
         let userDefaults = UserDefaults.standard
-        if AppInfo.bundleName == nil {
+        if AppInfoAccessor.bundleName == nil {
             return
         }
-        let versionKey = String(format: VersionHelper.versionKeyPattern, AppInfo.bundleName!)
+        let versionKey = String(format: VersionHelper.versionKeyPattern, AppInfoAccessor.bundleName!)
         userDefaults.removeObject(forKey: versionKey)
         userDefaults.synchronize()
     }
