@@ -4,7 +4,7 @@
  * - version: 1.0.0
  * - date: 16/04/2017
  */
-public class FileInfoAccessor: AnyObject {
+public class FileInfoAccessor {
     
     /**
      * System error.
@@ -39,7 +39,7 @@ public class FileInfoAccessor: AnyObject {
     /**
      * Get the file name.
      */
-    public var filename: String? {
+    public var filename: String {
         let lastPathComponent = url.lastPathComponent
         if fileExtension.isEmpty != false {
             return lastPathComponent
