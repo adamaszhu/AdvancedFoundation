@@ -1,19 +1,20 @@
 class AppInfoAccessorSpecs: QuickSpec {
     
     override func spec() {
-        describe("have shared") {
+        let appInfoAccessor = AppInfoAccessor.shared
+        describe("has shared") {
             it("is not nil") {
-                expect(AppInfoAccessor.shared).toNot(beNil())
+                expect(appInfoAccessor).toNot(beNil())
             }
         }
-        describe("have bundle name") {
+        describe("has bundle name") {
             it("is correct bundle name") {
-                expect(AppInfoAccessor.shared.bundleName) == "AdvancedFoundationHost"
+                expect(appInfoAccessor.bundleName) == "AdvancedFoundationHost"
             }
         }
-        describe("have version") {
+        describe("has version") {
             it("is correct version") {
-                expect(AppInfoAccessor.shared.version) == "1.0.0"
+                expect(appInfoAccessor.version) == "1.0.0"
             }
         }
     }

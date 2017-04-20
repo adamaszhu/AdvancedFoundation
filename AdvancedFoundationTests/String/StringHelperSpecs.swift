@@ -1,26 +1,26 @@
 class StringHelperSpecs: QuickSpec {
     
     override func spec() {
-        describe("call removeSuffix(_)") {
+        describe("calls removeSuffix(_)") {
             context("with existing suffix") {
-                it("return suffix removed string") {
+                it("returns suffix removed string") {
                     expect("TestSuffix".removeSuffix("Suffix")) == "Test"
                 }
             }
             context("without existing suffix") {
-                it("return nil") {
+                it("returns doesn't exit result") {
                     expect("TestSuffix".removeSuffix("Suffix1")).to(beNil())
                 }
             }
         }
-        describe("call removePrefix(_)") {
+        describe("calls removePrefix(_)") {
             context("with existing prefix") {
-                it("return prefix removed string") {
+                it("returns prefix removed string") {
                     expect("PrefixTest".removePrefix("Prefix")) == "Test"
                 }
             }
             context("without existing prefix") {
-                it("return nil") {
+                it("returns doesn't exit result") {
                     expect("PrefixTest".removePrefix("Prefix1")).to(beNil())
                 }
             }
