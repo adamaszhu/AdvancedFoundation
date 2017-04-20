@@ -1,5 +1,5 @@
 /**
- * StringLocalizer is used to localize a string within the class.
+ * StringLocalizer is used to localize a string.
  * - author: Adamas
  * - version: 1.0.0
  * - date: 15/04/2017
@@ -12,7 +12,7 @@ public extension String {
     private static let defaultLocalizationFile = "Localizable"
     
     /**
-     * Localize a string within the class using the main bundle.
+     * Localize a string within the class using a localization file in the main bundle.
      * - parameter filename: The string file used to localize the string.
      * - returns: The localized string.
      */
@@ -21,7 +21,7 @@ public extension String {
     }
     
     /**
-     * Localize a string using the localization file as the class name within the bundle of a class.
+     * Localize a string using the the class name as the localization file within the bundle of a class.
      * - parameter anyClass: The class used to find the localization file.
      * - returns: The localized string.
      */

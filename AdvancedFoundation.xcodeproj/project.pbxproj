@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		281881D61EA86AB800E8C85E /* StringHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281881D51EA86AB800E8C85E /* StringHelper.swift */; };
 		2848AAF51E9D9E4C004C6A66 /* AdvancedFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2848AAEB1E9D9E4C004C6A66 /* AdvancedFoundation.framework */; };
 		2848AB0A1E9DA039004C6A66 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2848AB091E9DA039004C6A66 /* Logger.swift */; };
 		420F3CAA1EA06B1B00BAA0A4 /* CurrencyFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420F3CA91EA06B1B00BAA0A4 /* CurrencyFormatter.swift */; };
@@ -54,6 +55,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		281881D51EA86AB800E8C85E /* StringHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringHelper.swift; sourceTree = "<group>"; };
 		2848AAEB1E9D9E4C004C6A66 /* AdvancedFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AdvancedFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2848AAEF1E9D9E4C004C6A66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2848AAF41E9D9E4C004C6A66 /* AdvancedFoundationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdvancedFoundationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -214,6 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				42622E8C1EA1D59A00E5D5E7 /* StringLocalizer.swift */,
+				281881D51EA86AB800E8C85E /* StringHelper.swift */,
 			);
 			path = String;
 			sourceTree = "<group>";
@@ -488,6 +491,7 @@
 				42F30E431E9E412900AC0249 /* AppInfoAccessor.swift in Sources */,
 				420F3CAD1EA0721800BAA0A4 /* LongNumberFormatter.swift in Sources */,
 				42F30E441E9E412900AC0249 /* VersionHelper.swift in Sources */,
+				281881D61EA86AB800E8C85E /* StringHelper.swift in Sources */,
 				420F3CAE1EA0721800BAA0A4 /* PercentageFormatter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
