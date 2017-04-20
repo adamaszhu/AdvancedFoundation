@@ -1,5 +1,5 @@
 /**
- * StringLocalizer is used to localize a string.
+ * StringLocalizer localizes a string.
  * - author: Adamas
  * - version: 1.0.0
  * - date: 15/04/2017
