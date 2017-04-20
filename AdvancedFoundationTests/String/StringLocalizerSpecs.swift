@@ -1,46 +1,72 @@
 class StringLocalizerSpecs: QuickSpec {
     
     override func spec() {
-        describe("String") {
-            describe("is localized for class") {
-                it("as localizable string") {
-                    expect("Test".localize(forClass: StringLocalizerSpecs.self)) == "Test string"
+            describe("call localize(withLocalizationFile)") {
+                context("as localizable string") {
+                    context("with default localization file") {
+                        it("return localized string") {
+                            expect("Test".localize()) == "Test string"
+                        }
+                    }
+                    context("with correct localization file") {
+                        it("return localized string") {
+                            expect("Test".localize(withLocalizationFile: "Localizable")) == "Test string"
+                        }
+                    }
+                    context("with incorrect localization file") {
+                        it("return original string") {
+                            expect("Test".localize(withLocalizationFile: "Localizable1")) == "Test"
+                        }
+                    }
                 }
-                it("as non localizable string") {
-                    expect("Test1".localize(forClass: StringLocalizerSpecs.self)) == "Test1"
+                context("as non localizable string") {
+                    context("with default localization file") {
+                        it("return original string") {
+                            expect("Test1".localize()) == "Test1"
+                        }
+                    }
+                    context("with correct localization file") {
+                        it("return original string") {
+                            expect("Test1".localize(withLocalizationFile: "Localizable")) == "Test1"
+                        }
+                    }
+                    context("with incorrect localization file") {
+                        it("return original string") {
+                            expect("Test1".localize(withLocalizationFile: "Localizable1")) == "Test1"
+                        }
+                    }
                 }
             }
-            describe("is localized") {
-                describe("as localizable string") {
-                    it("with localization file") {
-                        expect("Test".localize(withLocalizationFile: "Localizable")) == "Test string"
+            describe("call localize(forClass)") {
+                context("as localizable string") {
+                    context("with correct class") {
+                        it("return localized string") {
+                            expect("Test".localize(forClass: StringLocalizerSpecs.self)) == "Test string"
+                        }
                     }
-                    it("with default localization file") {
-                        expect("Test".localize()) == "Test string"
+                    context("with incorrect class") {
+                        it("return original string") {
+                            expect("Test".localize(forClass: Logger.self)) == "Test"
+                        }
                     }
                 }
-                describe("as non localizable string") {
-                    it("with localization file") {
-                        expect("Test1".localize(withLocalizationFile: "Localizable")) == "Test1"
+                context("as non localizable string") {
+                    context("with correct class") {
+                        it("return original string") {
+                            expect("Test1".localize(forClass: StringLocalizerSpecs.self)) == "Test1"
+                        }
                     }
-                    it("with default localization file") {
-                        expect("Test1".localize()) == "Test1"
+                    context("with incorrect class") {
+                        it("return original string") {
+                            expect("Test1".localize(forClass: Logger.self)) == "Test1"
+                        }
                     }
                 }
             }
         }
-    }
     
 }
 
 import Quick
 import Nimble
 @testable import AdvancedFoundation
-
-
-
-
-
-
-
-

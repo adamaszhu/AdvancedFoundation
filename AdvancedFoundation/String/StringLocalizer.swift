@@ -22,22 +22,22 @@ public extension String {
     
     /**
      * Localize a string using the localization file as the class name within the bundle of a class.
-     * - parameter objectClass: The class used to find the localization file.
+     * - parameter anyClass: The class used to find the localization file.
      * - returns: The localized string.
      */
-    public func localize(forClass objectClass: AnyClass) -> String {
-        let bundle = Bundle(for: objectClass)
-        return NSLocalizedString(self, tableName: String(describing: objectClass), bundle: bundle, comment: "")
+    public func localize(forClass anyClass: AnyClass) -> String {
+        let bundle = Bundle(for: anyClass)
+        return NSLocalizedString(self, tableName: String(describing: anyClass), bundle: bundle, comment: "")
     }
     
     /**
      * Localize a string using the localization file as the class name within current framework.
-     * - parameter any: Any structure or class used to find the localization file.
+     * - parameter anyType: Any structure or class used to find the localization file.
      * - returns: The localized string.
      */
-    func localizeWithinFramework(forAny any: Any) -> String {
+    func localizeWithinFramework(forType anyType: Any) -> String {
         let bundle = Bundle(for: Logger.self)
-        return NSLocalizedString(self, tableName: String(describing: any), bundle: bundle, comment: "")
+        return NSLocalizedString(self, tableName: String(describing: anyType), bundle: bundle, comment: "")
     }
     
 }
