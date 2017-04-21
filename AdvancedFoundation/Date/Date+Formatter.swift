@@ -1,5 +1,5 @@
 /**
- * DateFormatter is used to provide additional format function for a date object.
+ * Date+Formatter provides additional format function for a date object.
  * - author: Adamas
  * - version: 1.0.0
  * - date: 15/04/2017
