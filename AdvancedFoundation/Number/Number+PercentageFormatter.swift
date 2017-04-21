@@ -1,5 +1,5 @@
 /**
- * PercentageFormatter is used to format a number into a percentage format.
+ * Number+PercentageFormatter is used to format a number into a percentage format.
  * - author: Adamas
  * - version: 1.0.0
  * - date: 14/04/2017
@@ -20,7 +20,7 @@ public extension NSNumber {
      */
     public func convertToPercentageString(withPrecision precision: Int? = nil) -> String? {
         if (precision != nil) && (precision! < 0) {
-            Logger.logError(NSNumber.precisionError, withDetail: precision)
+            Logger.standard.logError(NSNumber.precisionError, withDetail: precision)
             return nil
         }
         let number = NSNumber(value: doubleValue * Double(100))
@@ -38,7 +38,7 @@ public extension NSNumber {
      */
     public static func renderPercentageString(_ percentageString: String) -> NSNumber? {
         if !percentageString.contains("%") {
-            Logger.logError(NSNumber.formatError, withDetail: percentageString)
+            Logger.standard.logError(NSNumber.formatError, withDetail: percentageString)
             return nil
         }
         let formattedPercentageString = percentageString.replacingOccurrences(of: "%", with: "")
@@ -46,7 +46,7 @@ public extension NSNumber {
         formatter.numberStyle = NumberFormatter.Style.decimal
         let number = formatter.number(from: formattedPercentageString)
         if number == nil {
-            Logger.logError(NSNumber.formatError, withDetail: percentageString)
+            Logger.standard.logError(NSNumber.formatError, withDetail: percentageString)
             return nil
         }
         return NSNumber(value: number!.doubleValue / Double(100))

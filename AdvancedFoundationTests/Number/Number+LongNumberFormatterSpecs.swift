@@ -1,21 +1,29 @@
 class LongNumberFormatterSpecs: QuickSpec {
     
     override func spec() {
-        describe("Number") {
-            describe("renders long number string") {
-                it("with invalid character in string") {
+        describe("calls renderLongNumberString(_)") {
+            context("with invalid character in string") {
+                it("returns invalid number") {
                     expect(NSNumber.renderLongNumberString("@1")).to(beNil())
                 }
-                it("with invalid format in string") {
+            }
+            context("with invalid format in string") {
+                it("returns invalid number") {
                     expect(NSNumber.renderLongNumberString("10000.00.1")).to(beNil())
                 }
-                it("with decimal in string") {
+            }
+            context("with decimal in string") {
+                it("returns number with correct value") {
                     expect(NSNumber.renderLongNumberString("10,000.55")) == 10000.55
                 }
-                it("with large value in string") {
+            }
+            context("with large value in string") {
+                it("returns number with correct value") {
                     expect(NSNumber.renderLongNumberString("10,000")) == 10000
                 }
-                it("with small value in string") {
+            }
+            context("with small value in string") {
+                it("returns number with correct value") {
                     expect(NSNumber.renderLongNumberString("100")) == 100
                 }
             }

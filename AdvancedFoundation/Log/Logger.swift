@@ -7,18 +7,25 @@
 public class Logger {
     
     /**
+ * The default logger.
+ */
+    public static let standard: Logger = {
+        return Logger()
+    }()
+    
+    /**
      * Message tag.
      */
-    private static let errorTag = "Error"
-    private static let infoTag = "Info"
-    private static let detailSeperator = "=========="
+    private let errorTag = "Error"
+    private let infoTag = "Info"
+    private let detailSeperator = "=========="
     
     /**
      * Log an info.
      * - parameter info: The info.
      * - parameter detail: The detail of the error.
      */
-    public static func logInfo(_ info: String, withDetail detail: Any? = nil) {
+    public func logInfo(_ info: String, withDetail detail: Any? = nil) {
         logMessage(info, withTag: infoTag, withDetail: detail)
     }
     
@@ -27,7 +34,7 @@ public class Logger {
      * - parameter error: The error.
      * - parameter detail: The detail of the error.
      */
-    public static func logError(_ error: String, withDetail detail: Any? = nil) {
+    public func logError(_ error: String, withDetail detail: Any? = nil) {
         logMessage(error, withTag: errorTag, withDetail: detail)
     }
     
@@ -36,7 +43,7 @@ public class Logger {
      * - parameter tag: The type of the message.
      * - parameter message: The message.
      */
-    private static func logMessage(_ message: String, withTag tag: String, withDetail detail: Any? = nil) {
+    private func logMessage(_ message: String, withTag tag: String, withDetail detail: Any? = nil) {
         let date = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy/MM/dd HH:mm:ss.SSS"
