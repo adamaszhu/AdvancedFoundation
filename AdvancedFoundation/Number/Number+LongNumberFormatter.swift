@@ -1,5 +1,5 @@
 /**
- * LongNumberFormatter is used to format a number into a long number string.
+ * Number+LongNumberFormatter is used to format a number into a long number string.
  * - author: Adamas
  * - version: 1.0.0
  * - date: 14/04/2017
@@ -24,7 +24,7 @@ public extension NSNumber {
         formatter.numberStyle = NumberFormatter.Style.decimal
         let number = formatter.number(from: formattedLongNumberString)
         if number == nil  {
-            Logger.logError(formatError, withDetail: longNumberString)
+            Logger.standard.logError(formatError, withDetail: longNumberString)
             return nil
         }
         return number!
