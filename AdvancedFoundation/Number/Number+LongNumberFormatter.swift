@@ -22,12 +22,11 @@ public extension NSNumber {
         let formattedLongNumberString = longNumberString.replacingOccurrences(of: ",", with: "")
         let formatter = NumberFormatter()
         formatter.numberStyle = NumberFormatter.Style.decimal
-        let number = formatter.number(from: formattedLongNumberString)
-        if number == nil  {
+        guard let number = formatter.number(from: formattedLongNumberString) else {
             Logger.standard.logError(formatError, withDetail: longNumberString)
             return nil
         }
-        return number!
+        return number
     }
     
 }

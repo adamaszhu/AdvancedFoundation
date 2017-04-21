@@ -21,19 +21,18 @@ public extension NSNumber {
         let numberFormatter = NumberFormatter()
         numberFormatter.currencySymbol = currencySymbol
         numberFormatter.numberStyle = NumberFormatter.Style.currency
-        var moneyString = numberFormatter.string(from: self)
-        if moneyString == nil {
+        guard var moneyString = numberFormatter.string(from: self) else {
             Logger.standard.logError(NSNumber.formatError, withDetail: self)
             return nil
         }
         if moneyString == "+∞" {
-            moneyString = "∞"
+            return "∞"
         }
-        if !shouldDisplayCent && moneyString!.contains(".") {
-            let dotIndex = moneyString!.range(of: ".")!.lowerBound
-            moneyString = moneyString!.substring(to: dotIndex)
+        if !shouldDisplayCent && moneyString.contains(".") {
+            let dotIndex = moneyString.range(of: ".")!.lowerBound
+            moneyString = moneyString.substring(to: dotIndex)
         }
-        return moneyString!
+        return moneyString
     }
     
 }

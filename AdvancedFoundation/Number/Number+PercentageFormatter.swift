@@ -24,11 +24,10 @@ public extension NSNumber {
             return nil
         }
         let number = NSNumber(value: doubleValue * Double(100))
-        let decimalString = number.convertToDecimalString(withPrecision: precision)
-        if decimalString == nil {
+        guard let decimalString = number.convertToDecimalString(withPrecision: precision) else {
             return nil
         }
-        return decimalString! + "%"
+        return decimalString + "%"
     }
     
     /**
@@ -44,12 +43,11 @@ public extension NSNumber {
         let formattedPercentageString = percentageString.replacingOccurrences(of: "%", with: "")
         let formatter = NumberFormatter()
         formatter.numberStyle = NumberFormatter.Style.decimal
-        let number = formatter.number(from: formattedPercentageString)
-        if number == nil {
+        guard let number = formatter.number(from: formattedPercentageString) else {
             Logger.standard.logError(NSNumber.formatError, withDetail: percentageString)
             return nil
         }
-        return NSNumber(value: number!.doubleValue / Double(100))
+        return NSNumber(value: number.doubleValue / Double(100))
     }
     
 }
