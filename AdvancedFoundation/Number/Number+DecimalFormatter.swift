@@ -1,5 +1,5 @@
 /**
- * DecimalFormatter is used to format a number into a decimal format.
+ * Number+DecimalFormatter is used to format a number into a decimal format.
  * - author: Adamas
  * - version: 1.0.0
  * - date: 14/04/2017
@@ -21,7 +21,7 @@ public extension NSNumber {
      */
     public func convertToDecimalString(withPrecision precision: Int? = nil) -> String? {
         if (precision != nil) && (precision! < 0) {
-            Logger.logError(NSNumber.precisionError, withDetail: precision)
+            Logger.standard.logError(NSNumber.precisionError, withDetail: precision)
             return nil
         }
         let numberFormatter = NumberFormatter()
@@ -32,7 +32,7 @@ public extension NSNumber {
         }
         let decimalString = numberFormatter.string(from: self)
         if decimalString == nil {
-            Logger.logError(NSNumber.formatError)
+            Logger.standard.logError(NSNumber.formatError)
             return nil
         }
         return decimalString!

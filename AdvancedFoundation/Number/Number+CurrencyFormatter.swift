@@ -1,5 +1,5 @@
 /**
- * CurrencyFormatter is used to format a number into currency string.
+ * Number+CurrencyFormatter is used to format a number into currency string.
  * - author: Adamas
  * - version: 1.0.0
  * - date: 14/04/2017
@@ -23,7 +23,7 @@ public extension NSNumber {
         numberFormatter.numberStyle = NumberFormatter.Style.currency
         var moneyString = numberFormatter.string(from: self)
         if moneyString == nil {
-            Logger.logError(NSNumber.formatError, withDetail: self)
+            Logger.standard.logError(NSNumber.formatError, withDetail: self)
             return nil
         }
         if moneyString == "+∞" {
