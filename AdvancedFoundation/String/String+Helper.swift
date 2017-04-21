@@ -1,5 +1,5 @@
 /**
- * StringHelper provides additional functions for a string object.
+ * String+Helper provides additional functions for a string object.
  * - author: Adamas
  * - version: 1.0.0
  * - date: 20/04/2017
