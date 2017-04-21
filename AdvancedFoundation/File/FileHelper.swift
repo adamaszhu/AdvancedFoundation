@@ -7,19 +7,14 @@
 public class FileHelper: FileManager {
     
     /**
- * The default manager.
- */
-    public static var standard: FileHelper = {
-        return FileHelper()
-    }()
-    
-    /**
      * System error.
      */
-    private let pathError = "The file path is invalid."
-    private let directoryNonExistanceInfo = "The directory doesn't exist in the file system."
-    private let fileExistanceInfo = "The file exists in the file system."
-    private let fileNonExistanceInfo = "The file doesn't exist."
+//    private let pathError = "The file path is invalid."
+//    private let directoryNonExistanceInfo = "The directory doesn't exist in the file system."
+//    private let fileExistanceInfo = "The file exists in the file system."
+//    private let fileNonExistanceInfo = "The file doesn't exist."
+    
+//    private var 
     
     
     /**
@@ -28,7 +23,6 @@ public class FileHelper: FileManager {
      * - returns: The absolute path.
      */
     public func getAbsolutePath(ofPath path: String) -> String {
-        
         let homeDirectory = NSHomeDirectory()
         let absolutePath = path.hasPrefix("/") ? path : "\(homeDirectory)/\(path)"
         return absolutePath
