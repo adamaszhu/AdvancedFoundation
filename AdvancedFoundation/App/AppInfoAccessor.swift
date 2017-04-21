@@ -26,7 +26,7 @@ public class AppInfoAccessor {
         let bundle = Bundle.main
         let name = bundle.infoDictionary?["CFBundleName"] as? String
         if name == nil {
-            Logger.logError(bundleNameError)
+            Logger.standard.logError(bundleNameError)
         }
         return name
     }()
@@ -38,7 +38,7 @@ public class AppInfoAccessor {
         let bundle = Bundle.main
         let version = bundle.infoDictionary?["CFBundleShortVersionString"] as? String
         if version == nil {
-            Logger.logError(currentVersionError)
+            Logger.standard.logError(currentVersionError)
         }
         return version
     }()

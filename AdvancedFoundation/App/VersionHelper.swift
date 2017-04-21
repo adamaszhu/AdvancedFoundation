@@ -106,7 +106,7 @@ public class VersionHelper {
         for versionComponent in versionComponents {
             parsedVersionComponent = Int(versionComponent)
             if parsedVersionComponent == nil {
-                Logger.logError(versionFormatError, withDetail: version)
+                Logger.standard.logError(versionFormatError, withDetail: version)
                 return nil
             }
             parsedVersionComponents.append(parsedVersionComponent!)
