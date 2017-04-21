@@ -1,15 +1,15 @@
 /**
- * IDGenerator is used to generate a unique id.
+ * IDGenerator generates a unique id.
  * - author: Adamas
  * - version: 1.0.0
  * - date: 16/04/2017
  */
-public class IDGenerator: AnyObject {
+public class IDGenerator {
     
     /**
      * The singleton instance.
      */
-    public static var shared: IDGenerator = {
+    public static var standard: IDGenerator = {
         return IDGenerator()
     }()
     
