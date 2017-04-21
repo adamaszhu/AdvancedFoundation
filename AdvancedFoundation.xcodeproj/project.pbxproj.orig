@@ -31,7 +31,13 @@
 		42622EA41EA1FE3500E5D5E7 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42622EA31EA1FE3500E5D5E7 /* DateFormatter.swift */; };
 		42622EA71EA2182000E5D5E7 /* Date.strings in Resources */ = {isa = PBXBuildFile; fileRef = 42622EA91EA2182000E5D5E7 /* Date.strings */; };
 		42622EAD1EA237F900E5D5E7 /* DateFormatterSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42622EAC1EA237F900E5D5E7 /* DateFormatterSpecs.swift */; };
+<<<<<<< HEAD
+		42DAF4DD1EA3849D00DE6B70 /* IDGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DAF4DC1EA3849D00DE6B70 /* IDGenerator.swift */; };
+		42DAF4DF1EA388BE00DE6B70 /* IDGeneratorSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DAF4DE1EA388BE00DE6B70 /* IDGeneratorSpecs.swift */; };
+		42F30E431E9E412900AC0249 /* AppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F30E411E9E412900AC0249 /* AppInfo.swift */; };
+=======
 		42F30E431E9E412900AC0249 /* AppInfoAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F30E411E9E412900AC0249 /* AppInfoAccessor.swift */; };
+>>>>>>> develop
 		42F30E441E9E412900AC0249 /* VersionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F30E421E9E412900AC0249 /* VersionHelper.swift */; };
 		42F30E471E9E413400AC0249 /* VersionHelperSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F30E461E9E413400AC0249 /* VersionHelperSpecs.swift */; };
 		42F30E4B1E9E4CE200AC0249 /* AppInfoAccessorSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F30E4A1E9E4CE200AC0249 /* AppInfoAccessorSpecs.swift */; };
@@ -86,9 +92,13 @@
 		42622EA81EA2182000E5D5E7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Date.strings; sourceTree = "<group>"; };
 		42622EAA1EA2182200E5D5E7 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Date.strings"; sourceTree = "<group>"; };
 		42622EAC1EA237F900E5D5E7 /* DateFormatterSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatterSpecs.swift; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		42DAF4DC1EA3849D00DE6B70 /* IDGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDGenerator.swift; sourceTree = "<group>"; };
 		42DAF4DE1EA388BE00DE6B70 /* IDGeneratorSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDGeneratorSpecs.swift; sourceTree = "<group>"; };
+		42F30E411E9E412900AC0249 /* AppInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppInfo.swift; sourceTree = "<group>"; };
+=======
 		42F30E411E9E412900AC0249 /* AppInfoAccessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppInfoAccessor.swift; sourceTree = "<group>"; };
+>>>>>>> develop
 		42F30E421E9E412900AC0249 /* VersionHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersionHelper.swift; sourceTree = "<group>"; };
 		42F30E461E9E413400AC0249 /* VersionHelperSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersionHelperSpecs.swift; sourceTree = "<group>"; };
 		42F30E4A1E9E4CE200AC0249 /* AppInfoAccessorSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppInfoAccessorSpecs.swift; sourceTree = "<group>"; };
@@ -386,18 +396,18 @@
 				TargetAttributes = {
 					2848AAEA1E9D9E4C004C6A66 = {
 						CreatedOnToolsVersion = 8.3;
-						DevelopmentTeam = XN66S2NA25;
+						DevelopmentTeam = KRWL8TEY2W;
 						ProvisioningStyle = Automatic;
 					};
 					2848AAF31E9D9E4C004C6A66 = {
 						CreatedOnToolsVersion = 8.3;
-						DevelopmentTeam = XN66S2NA25;
+						DevelopmentTeam = KRWL8TEY2W;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 425FA3DC1EA056980015E3C1;
 					};
 					425FA3DC1EA056980015E3C1 = {
 						CreatedOnToolsVersion = 8.3.1;
-						DevelopmentTeam = XN66S2NA25;
+						DevelopmentTeam = KRWL8TEY2W;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -508,6 +518,7 @@
 			files = (
 				42622EA41EA1FE3500E5D5E7 /* DateFormatter.swift in Sources */,
 				2848AB0A1E9DA039004C6A66 /* Logger.swift in Sources */,
+				42DAF4DD1EA3849D00DE6B70 /* IDGenerator.swift in Sources */,
 				420F3CAA1EA06B1B00BAA0A4 /* CurrencyFormatter.swift in Sources */,
 				425336CA1EA0A9E700B6D6BF /* DecimalFormatter.swift in Sources */,
 				42622E8D1EA1D59A00E5D5E7 /* StringLocalizer.swift in Sources */,
@@ -523,7 +534,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< HEAD
+				42F30E4B1E9E4CE200AC0249 /* AppInfoSpecs.swift in Sources */,
+				42DAF4DF1EA388BE00DE6B70 /* IDGeneratorSpecs.swift in Sources */,
+=======
 				42F30E4B1E9E4CE200AC0249 /* AppInfoAccessorSpecs.swift in Sources */,
+>>>>>>> develop
 				425336CE1EA1AB3B00B6D6BF /* PercentageFormatterSpecs.swift in Sources */,
 				425336C81EA090E100B6D6BF /* LongNumberFormatterSpecs.swift in Sources */,
 				42622EAD1EA237F900E5D5E7 /* DateFormatterSpecs.swift in Sources */,
@@ -696,7 +712,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = XN66S2NA25;
+				DEVELOPMENT_TEAM = KRWL8TEY2W;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -715,7 +731,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = XN66S2NA25;
+				DEVELOPMENT_TEAM = KRWL8TEY2W;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -734,7 +750,7 @@
 			baseConfigurationReference = D29E49528E53C08AF22ACA11 /* Pods-AdvancedFoundationTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
-				DEVELOPMENT_TEAM = XN66S2NA25;
+				DEVELOPMENT_TEAM = KRWL8TEY2W;
 				INFOPLIST_FILE = AdvancedFoundationTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.adamaszhu.AdvancedFoundationTests;
@@ -749,7 +765,7 @@
 			baseConfigurationReference = 57ED9B2EE2FA2F6771B7AD04 /* Pods-AdvancedFoundationTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
-				DEVELOPMENT_TEAM = XN66S2NA25;
+				DEVELOPMENT_TEAM = KRWL8TEY2W;
 				INFOPLIST_FILE = AdvancedFoundationTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.adamaszhu.AdvancedFoundationTests;
@@ -763,7 +779,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = XN66S2NA25;
+				DEVELOPMENT_TEAM = KRWL8TEY2W;
 				INFOPLIST_FILE = AdvancedFoundationHost/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.adamas.foundationHost;
@@ -776,7 +792,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = XN66S2NA25;
+				DEVELOPMENT_TEAM = KRWL8TEY2W;
 				INFOPLIST_FILE = AdvancedFoundationHost/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.adamas.foundationHost;

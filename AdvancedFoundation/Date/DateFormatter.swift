@@ -43,10 +43,10 @@ public extension Date {
             timeOffset = Int(Date().timeIntervalSince1970 - timeIntervalSince1970 - 1)
         }
         if timeOffset == 0 {
-            return Date.now.localizeWithinFramework(forAny: Date.self)
+            return Date.now.localizeWithinFramework(forType: Date.self)
         }
         var differTag = timeOffset > 0 ? Date.ago : Date.later
-        differTag = Date.space.localizeWithinFramework(forAny: Date.self) + differTag.localizeWithinFramework(forAny: Date.self)
+        differTag = Date.space.localizeWithinFramework(forType: Date.self) + differTag.localizeWithinFramework(forType: Date.self)
         timeOffset = abs(timeOffset)
         let year = timeOffset / (365 * 24 * 60 * 60)
         timeOffset = timeOffset - year * 365 * 24 * 60 * 60
@@ -82,7 +82,7 @@ public extension Date {
         }
         var unitTag = unit == 1 ? singleTag : doubleTag
         unitTag = unitTag + abbreviationTag
-        return Date.space.localizeWithinFramework(forAny:Date.self) + "\(unit)" + Date.space.localizeWithinFramework(forAny:Date.self) + unitTag.localizeWithinFramework(forAny: Date.self)
+        return Date.space.localizeWithinFramework(forType:Date.self) + "\(unit)" + Date.space.localizeWithinFramework(forType:Date.self) + unitTag.localizeWithinFramework(forType: Date.self)
     }
     
 }
