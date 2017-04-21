@@ -72,11 +72,11 @@ public class FileHelper: FileManager {
 //        return directoryPath
     }
     
-    private func formalizeDirectoryPath(_ path: String) -> String {
-        if path.hasSuffix("/") {
-            return path.
-        }
-    }
+//    private func formalizeDirectoryPath(_ path: String) -> String {
+//        if path.hasSuffix("/") {
+//            return path.
+//        }
+//    }
     
 //    /**
 //     * Copy a file to a destination. It is usually used to move a tempory file.

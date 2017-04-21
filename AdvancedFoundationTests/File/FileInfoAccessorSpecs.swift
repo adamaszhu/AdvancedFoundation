@@ -1,54 +1,72 @@
 class FileInfoAccessorSpecs: QuickSpec {
     
     override func spec() {
-        describe("File info accessor") {
-            describe("has file extension") {
-                it("as valid file with special file name") {
+            describe("has fileExtension") {
+                context("as valid file with special file name") {
                     let fileInfoAccessor = FileInfoAccessor(withPath: "/test/.png")
+                    it("is empty") {
                     expect(fileInfoAccessor.fileExtension) == ""
+                    }
                 }
-                it("as valid file without extension") {
+                context("as valid file without extension") {
                     let fileInfoAccessor = FileInfoAccessor(withPath: "/test/file")
+                    it("is empty") {
                     expect(fileInfoAccessor.fileExtension) == ""
+                    }
                 }
-                it("as valid file with extension") {
+                context("as valid file with extension") {
                     let fileInfoAccessor = FileInfoAccessor(withPath: "/test/file.txt")
+                    it("is correct extension") {
                     expect(fileInfoAccessor.fileExtension) == "txt"
+                    }
                 }
             }
-            describe("has file name") {
-                it("as valid file with special file name") {
+            describe("has filename") {
+                context("as valid file with special file name") {
                     let fileInfoAccessor = FileInfoAccessor(withPath: "/test/.png")
+                    it("is correct filename") {
                     expect(fileInfoAccessor.filename) == ".png"
+                    }
                 }
-                it("as valid file without extension") {
+                context("as valid file without extension") {
                     let fileInfoAccessor = FileInfoAccessor(withPath: "/test/file")
+                    it("is correct filename") {
                     expect(fileInfoAccessor.filename) == "file"
+                    }
                 }
-                it("as valid file with extension") {
+                context("as valid file with extension") {
                     let fileInfoAccessor = FileInfoAccessor(withPath: "/test/file.txt")
+                    it("is correct filename") {
                     expect(fileInfoAccessor.filename) == "file"
+                    }
                 }
             }
-            describe("has mime type") {
-                it("as valid file with special file name") {
+            describe("has mimeType") {
+                context("as valid file with special file name") {
                     let fileInfoAccessor = FileInfoAccessor(withPath: "/test/.png")
+                    it("is default type") {
                     expect(fileInfoAccessor.mimeType) == "application/octet-stream"
+                    }
                 }
-                it("as valid file without extension") {
+                context("as valid file without extension") {
                     let fileInfoAccessor = FileInfoAccessor(withPath: "/test/file")
+                    it("is default type") {
                     expect(fileInfoAccessor.mimeType) == "application/octet-stream"
+                    }
                 }
-                it("as valid file with known extension") {
+                context("as valid file with known extension") {
                     let fileInfoAccessor = FileInfoAccessor(withPath: "/test/file.txt")
+                    it("is correct type") {
                     expect(fileInfoAccessor.mimeType) == "text/plain"
+                    }
                 }
-                it("as valid file with unknown extension") {
+                context("as valid file with unknown extension") {
                     let fileInfoAccessor = FileInfoAccessor(withPath: "/test/file.ttxt")
+                    it("is default type") {
                     expect(fileInfoAccessor.mimeType) == "application/octet-stream"
+                    }
                 }
             }
-        }
     }
     
 }
