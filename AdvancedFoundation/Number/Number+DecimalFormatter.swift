@@ -13,7 +13,6 @@ public extension NSNumber {
     private static let formatError = "The string doesn't have correct format."
     private static let precisionError = "The precision parameter is incorrect."
     
-    
     /**
      * Print the decimal number with specific precision. For example, 12.3.
      * - parameter precision: The precision spedified. If it is nil, the original value will be returned.
@@ -30,12 +29,11 @@ public extension NSNumber {
             numberFormatter.maximumFractionDigits = precision!
             numberFormatter.roundingMode = .down
         }
-        let decimalString = numberFormatter.string(from: self)
-        if decimalString == nil {
+        guard let decimalString = numberFormatter.string(from: self) else {
             Logger.standard.logError(NSNumber.formatError)
             return nil
         }
-        return decimalString!
+        return decimalString
     }
     
 }
