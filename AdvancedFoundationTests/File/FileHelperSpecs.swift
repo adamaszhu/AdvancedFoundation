@@ -1,4 +1,4 @@
-class FileManagerSpecs: QuickSpec {
+class FileHelperSpecs: QuickSpec {
     
     override func spec() {
         let fileHelper = FileHelper.standard

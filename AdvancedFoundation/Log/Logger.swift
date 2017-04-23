@@ -7,8 +7,8 @@
 public class Logger {
     
     /**
- * The default logger.
- */
+     * The default logger.
+     */
     public static let standard: Logger = {
         return Logger()
     }()
