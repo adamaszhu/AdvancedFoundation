@@ -4,7 +4,7 @@
  * - date: 26/10/2016
  * - author: Adamas
  */
-public class FileHelper: FileManager {
+public class FileHelper: PathHelper {
     
     /**
      * System error.
@@ -15,67 +15,11 @@ public class FileHelper: FileManager {
     //    private let fileNonExistanceInfo = "The file doesn't exist."
     
     /**
-     * The path of the file.
-     */
-    private var path: String
-    
-    /**
      * Initialize the helper.
      * - parameter path: The path that the helper should hold.
      */
-    init(withPath path: String) {
-        // COMMENT: Remove the directory appendix, such as "/temp/".
-        self.path = path.hasSuffix("/") ? path.removeSuffix("/") : path
-        super.init()
-    }
-    
-    /**
-     * Get the real file or directory path.
-     * - parameter path: The path of a file or directory.
-     * - returns: The absolute path.
-     */
-    public func getAbsolutePath(ofPath path: String) -> String {
-        let homeDirectory = NSHomeDirectory()
-        let absolutePath = path.hasPrefix("/") ? path : "\(homeDirectory)/\(path)"
-        return absolutePath
-    }
-    
-    /**
-     * Get the parent directory of a file.
-     * - parameter path: The path of a file or directory.
-     * - returns: The parent directory path. Nil if the path is the root directory.
-     */
-    public func getParentDirectory(ofPath path: String) -> String? {
-        if path == "/" {
-            return nil
-        }
-        //        if path.hasSuffix("/") {
-        //            path.substring(to: path.endIndex)
-        //            return nil
-        //        }
-        let url = URL(fileURLWithPath: path)
-        var parentDirectoryPath = path
-        return url.lastPathComponent
-        
-        
-        
-        
-        //        let fullFileExtension = ".\(fileExtension)"
-        //        let fileExtensionIndex = lastPathComponent.index(lastPathComponent.endIndex, offsetBy: String.IndexDistance(-fullFileExtension.characters.count))
-        //        return lastPathComponent.substring(to: fileExtensionIndex)
-        
-        
-        
-        //        let url = URL(fileURLWithPath: path)
-        //        var directoryPath = path
-        //        var fileComponentRange = path.range(of: url.lastPathComponent)
-        //        if fileComponentRange == nil {
-        //            logError(FileHelper.FilePathError, withDetail: path)
-        //            return nil
-        //        }
-        //        fileComponentRange!.lowerBound = <#T##Collection corresponding to your index##Collection#>.index(before: fileComponentRange!.lowerBound)
-        //        directoryPath.removeSubrange(fileComponentRange!)
-        //        return directoryPath
+    public init(withPath path: String) {
+        super.init(withPath: path)
     }
     
     //    /**
