@@ -7,32 +7,37 @@
 public class FileHelper: PathHelper {
     
     /**
-     * System error.
+     * Create a file in the path.
+     * - parameter data: The data used to create the file.
+     * - returns: whether the file has been created or not. Nil if there is an error.
      */
-    //    private let pathError = "The file path is invalid."
-    //    private let directoryNonExistanceInfo = "The directory doesn't exist in the file system."
-    //    private let fileExistanceInfo = "The file exists in the file system."
-    //    private let fileNonExistanceInfo = "The file doesn't exist."
-    
-    /**
-     * Initialize the helper.
-     * - parameter path: The path that the helper should hold.
-     */
-    public init(withPath path: String) {
-        super.init(withPath: path)
-    }
-    
-
-
-  
-    
     public func create(withData data: Data) -> Bool? {
-        return nil
+        if isExisted {
+            return false
+        }
+        do {
+            try createFile(atPath: path, contents: data)
+            return true
+        } catch let error {
+            Logger.standard.logError(error)
+            return nil
+        }
     }
     
     /**
-    * PathHelperAction.
-    */
+     * Get the content of a file or directory.
+     * - returns: The data of a file. Nil if the file doesn't exists or there is an error.
+     */
+    public func getContent() -> Data? {
+        if !isExisted {
+            return nil
+        }
+        return contents(atPath: path)
+    }
+    
+    /**
+     * PathHelper.
+     */
     public override var isExisted: Bool {
         get {
             if !super.isExisted {
@@ -45,47 +50,24 @@ public class FileHelper: PathHelper {
     }
     
     /**
-     * PathHelperAction.
-     */
-    public override func copy(toPath path: String) -> Bool? {
-        return nil
-    }
-    
-    /**
-     * PathHelperAction.
-     */
-    public override func remove() -> Bool? {
-        return nil
-    }
-    
-    /**
-     * PathHelperAction.
-     */
-    public override func getContent() -> Any? {
-        //
-        //    /**
-        //     * Load the content of a file.
-        //     * - version: 0.2.0
-        //     * - date: 26/10/2016
-        //     * - parameter path: The path of the file.
-        //     * - returns: The content of the file. Nil if the file doesn't exist.
-        //     */
-        //    open func getFile(atPath path: String) -> Data? {
-        //        let absolutePath = FileHelper.getAbsolutePath(ofPath: path)
-        //        if !isFileExisted(atPath: absolutePath) {
-        //            logInfo(FileHelper.FileNonExistanceInfo, withDetail: path)
-        //            return nil
-        //        }
-        //        return contents(atPath: absolutePath)
-        //    }
-        return nil
-    }
-    
-    /**
      * PathHelper.
      */
     public override init(withPath path: String) {
         super.init(withPath: path)
+    }
+    
+    /**
+     * PathHelperAction.
+     */
+    public override func copy(toPath path: String) -> Bool? {
+        if !isExisted {
+            return false
+        }
+        let fileHelper = FileHelper(withPath: path)
+        if fileHelper.isExisted {
+            return false
+        }
+        return super.copy(toPath: path)
     }
     
 }

@@ -39,6 +39,14 @@ public class Logger {
     }
     
     /**
+     * Log an error.
+     * - parameter error: The error.
+     */
+    public func logError(_ error: Error) {
+        logMessage(error.localizedDescription, withTag: errorTag)
+    }
+    
+    /**
      * Log a message.
      * - parameter tag: The type of the message.
      * - parameter message: The message.

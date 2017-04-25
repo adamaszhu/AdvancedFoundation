@@ -17,24 +17,24 @@ public class VersionHelper {
     }()
     
     /**
-     * The key format settled in the default user, which is used to identify whether the version is newly installed or not.
-     */
-    private let versionKeyPattern = "v%@"
-    
-    /**
      * System error.
      */
     private let versionFormatError = "The version is not well formatted."
     
     /**
-     * The version binded to the helper.
+     * The key format settled in the default user, which is used to identify whether the version is newly installed or not.
      */
-    private let version: String
+    private let versionKeyPattern = "v%@"
     
     /**
      * The accessor used to get app information.
      */
-    private let appInfoAccessor: AppInfoAccessor = AppInfoAccessor.shared
+    private let appInfoAccessor = AppInfoAccessor.shared
+    
+    /**
+     * The version binded to the helper.
+     */
+    private let version: String
     
     /**
      * Initialize the helper.
