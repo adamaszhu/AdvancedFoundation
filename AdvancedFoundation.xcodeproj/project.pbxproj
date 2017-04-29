@@ -21,7 +21,7 @@
 		425336CA1EA0A9E700B6D6BF /* Number+DecimalFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425336C91EA0A9E700B6D6BF /* Number+DecimalFormatter.swift */; };
 		425336CC1EA0ABE800B6D6BF /* Number+DecimalFormatterSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425336CB1EA0ABE800B6D6BF /* Number+DecimalFormatterSpecs.swift */; };
 		425336CE1EA1AB3B00B6D6BF /* Number+PercentageFormatterSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425336CD1EA1AB3B00B6D6BF /* Number+PercentageFormatterSpecs.swift */; };
-		425EAD531EAEDC1D001F1F81 /* DirectoryHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425EAD521EAEDC1D001F1F81 /* DirectoryHelper.swift */; };
+		425EAD531EAEDC1D001F1F81 /* DirectoryHelperSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425EAD521EAEDC1D001F1F81 /* DirectoryHelperSpecs.swift */; };
 		425FA3E01EA056980015E3C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425FA3DF1EA056980015E3C1 /* AppDelegate.swift */; };
 		425FA3E21EA056980015E3C1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425FA3E11EA056980015E3C1 /* ViewController.swift */; };
 		425FA3E51EA056980015E3C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 425FA3E31EA056980015E3C1 /* Main.storyboard */; };
@@ -77,7 +77,7 @@
 		425336C91EA0A9E700B6D6BF /* Number+DecimalFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Number+DecimalFormatter.swift"; sourceTree = "<group>"; };
 		425336CB1EA0ABE800B6D6BF /* Number+DecimalFormatterSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Number+DecimalFormatterSpecs.swift"; sourceTree = "<group>"; };
 		425336CD1EA1AB3B00B6D6BF /* Number+PercentageFormatterSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Number+PercentageFormatterSpecs.swift"; sourceTree = "<group>"; };
-		425EAD521EAEDC1D001F1F81 /* DirectoryHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectoryHelper.swift; sourceTree = "<group>"; };
+		425EAD521EAEDC1D001F1F81 /* DirectoryHelperSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectoryHelperSpecs.swift; sourceTree = "<group>"; };
 		425FA3DD1EA056980015E3C1 /* AdvancedFoundationHost.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdvancedFoundationHost.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		425FA3DF1EA056980015E3C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		425FA3E11EA056980015E3C1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -277,7 +277,7 @@
 			children = (
 				42DAF4E61EA43D8800DE6B70 /* FileInfoAccessorSpecs.swift */,
 				4278038F1EA78676007AF7DF /* FileHelperSpecs.swift */,
-				425EAD521EAEDC1D001F1F81 /* DirectoryHelper.swift */,
+				425EAD521EAEDC1D001F1F81 /* DirectoryHelperSpecs.swift */,
 			);
 			path = File;
 			sourceTree = "<group>";
@@ -543,7 +543,7 @@
 				425336C81EA090E100B6D6BF /* Number+LongNumberFormatterSpecs.swift in Sources */,
 				42622EAD1EA237F900E5D5E7 /* Date+FormatterSpecs.swift in Sources */,
 				420F3CB11EA0798300BAA0A4 /* Number+CurrencyFormatterSpecs.swift in Sources */,
-				425EAD531EAEDC1D001F1F81 /* DirectoryHelper.swift in Sources */,
+				425EAD531EAEDC1D001F1F81 /* DirectoryHelperSpecs.swift in Sources */,
 				425336CC1EA0ABE800B6D6BF /* Number+DecimalFormatterSpecs.swift in Sources */,
 				281881D81EA86EEC00E8C85E /* String+HelperSpecs.swift in Sources */,
 				42622E991EA1E51100E5D5E7 /* String+LocalizerSpecs.swift in Sources */,
