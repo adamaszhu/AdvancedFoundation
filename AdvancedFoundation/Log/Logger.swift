@@ -4,7 +4,7 @@
  * - version: 1.0.0
  * - date: 11/04/2017
  */
-public class Logger {
+public class Logger: AnyObject {
     
     /**
      * The default logger.
