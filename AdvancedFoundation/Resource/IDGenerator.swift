@@ -9,9 +9,7 @@ public class IDGenerator {
     /**
      * The singleton instance.
      */
-    public static var standard: IDGenerator = {
-        return IDGenerator()
-    }()
+    public static let standard = IDGenerator()
     
     /**
      * Used as the base part of an identification. It is the seconds that have pasted since 1970.

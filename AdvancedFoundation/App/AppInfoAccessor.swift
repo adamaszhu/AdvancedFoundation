@@ -9,9 +9,7 @@ public class AppInfoAccessor {
     /**
      * The singleton instance in the system.
      */
-    public static let shared: AppInfoAccessor = {
-        return AppInfoAccessor()
-    }()
+    public static let shared: AppInfoAccessor = AppInfoAccessor()
     
     /**
      * System error.
