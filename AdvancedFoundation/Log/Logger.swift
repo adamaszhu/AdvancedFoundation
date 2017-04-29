@@ -7,8 +7,8 @@
 public class Logger {
     
     /**
- * The default logger.
- */
+     * The default logger.
+     */
     public static let standard: Logger = {
         return Logger()
     }()
@@ -36,6 +36,14 @@ public class Logger {
      */
     public func logError(_ error: String, withDetail detail: Any? = nil) {
         logMessage(error, withTag: errorTag, withDetail: detail)
+    }
+    
+    /**
+     * Log an error.
+     * - parameter error: The error.
+     */
+    public func logError(_ error: Error) {
+        logMessage(error.localizedDescription, withTag: errorTag)
     }
     
     /**

@@ -1,0 +1,102 @@
+class FileHelperSpecs: QuickSpec {
+    
+    override func spec() {
+        let fileHelper = FileHelper(withPath: "temp.tmp")
+        afterEach {
+            let pathHelper = PathHelper(withPath: "temp.tmp")
+            _ = pathHelper.remove()
+        }
+        describe("has isExisted") {
+            context("if the file exists") {
+                it("is true") {
+                    _ = fileHelper.create(withData: Data())
+                    expect(fileHelper.isExisted) == true
+                }
+            }
+            context("if the path doesn't exist") {
+                it("is false") {
+                    expect(fileHelper.isExisted) == false
+                }
+            }
+            context("if the path is a directory") {
+                it("is false") {
+                    let directoryHelper = DirectoryHelper(withPath: "temp.tmp")
+                    _ = directoryHelper.create()
+                    expect(fileHelper.isExisted) == false
+                    _ = fileHelper.remove()
+                }
+            }
+        }
+        describe("call create(withData)") {
+            context("if the file exists") {
+                it("returns false") {
+                    _ = fileHelper.create(withData: Data())
+                    let result = fileHelper.create(withData: Data())
+                    expect(result) == false
+                }
+            }
+            context("if the file doesn't exist") {
+                it("returns true") {
+                    let result = fileHelper.create(withData: Data())
+                    expect(result) == true
+                }
+            }
+        }
+        describe("call getContent()") {
+            context("if the file exists") {
+                it("returns the content") {
+                    let data = "Temp".data(using: .utf8)!
+                    _ = fileHelper.create(withData: data)
+                    let content = fileHelper.getContent()
+                    expect(content?.count) == data.count
+                }
+            }
+            context("if the file doesn't exist") {
+                it("returns nil") {
+                    let content = fileHelper.getContent()
+                    expect(content).to(beNil())
+                }
+            }
+        }
+        describe("calls copy(toPath)") {
+            afterEach {
+                let destinationPathHelper = PathHelper(withPath: "temp1.tmp")
+                _ = destinationPathHelper.remove()
+            }
+            context("if the file exists and the destination doesn't exist") {
+                it("returns true") {
+                    _ = fileHelper.create(withData: Data())
+                    expect(fileHelper.copy(toPath: "temp1.tmp")) == true
+                }
+            }
+            context("if the directory exists and the destionation directory exists") {
+                it("returns false") {
+                    _ = fileHelper.create(withData: Data())
+                    let destinationDirectoryHelper = DirectoryHelper(withPath: "temp1.tmp")
+                    _ = destinationDirectoryHelper.create()
+                    expect(fileHelper.copy(toPath: "temp1.tmp")) == false
+                }
+            }
+            context("if the directory exists and the destionation file exists") {
+                it("returns false") {
+                    _ = fileHelper.create(withData: Data())
+                    let destinationFileHelper = FileHelper(withPath: "temp1.tmp")
+                    _ = destinationFileHelper.create(withData: Data())
+                    expect(fileHelper.copy(toPath: "temp1.tmp")) == false
+                }
+            }
+            context("if the file doesn't exists") {
+                it("returns false") {
+                    expect(fileHelper.copy(toPath: "temp1.tmp")) == false
+                }
+            }
+        }
+    }
+    
+}
+
+import Quick
+import Nimble
+@testable import AdvancedFoundation
+
+
