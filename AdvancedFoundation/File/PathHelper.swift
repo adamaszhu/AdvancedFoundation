@@ -10,41 +10,43 @@ public class PathHelper: FileManager {
      * Whether the file or a directory exists or not.
      */
     public var isExisted: Bool {
-        get {
-            return fileExists(atPath: path)
-        }
+        return fileExists(atPath: path)
     }
     
     /**
      * The path of the file.
      */
-    var path: String
+    public private(set) var path: String
     
     /**
      * Initialize the helper.
      * - parameter path: The path that the helper should hold.
      */
     public init(withPath path: String) {
-        self.path = ""
+        self.path = path
         super.init()
-        let formalizedPath = formalizePath(path)
-        self.path = getAbsolutePath(ofPath: formalizedPath)
+        formalizePath()
+        updateAbsolutePath()
     }
     
     /**
-     * Copy current path to a destination. 
+     * Copy current path to a destination.
      * - parameter newPath: The destination file path. It should start with "/"
      * - return: Whether the file has been copyed or not.
      */
     public func copy(toPath path: String) -> Bool? {
-        let formalizedPath = formalizePath(path)
-        let destinationPath = getAbsolutePath(ofPath: formalizedPath)
-        guard let parentDirectory = getParentDirectoryPath(ofPath: destinationPath) else {
+        if !isExisted {
+            return false
+        }
+        let pathHelper = PathHelper(withPath: path)
+        if pathHelper.isExisted {
+            return false
+        }
+        if pathHelper.createParentDirectory() != true {
             return nil
         }
         do {
-            try createDirectory(atPath: parentDirectory, withIntermediateDirectories: true)
-            try copyItem(atPath: self.path, toPath: destinationPath)
+            try copyItem(atPath: self.path, toPath: pathHelper.path)
             return true
         } catch let error {
             Logger.standard.logError(error)
@@ -70,39 +72,49 @@ public class PathHelper: FileManager {
     }
     
     /**
-     * Formalize the path. Such as change "/temp/" to "/temp"
-     * - parameter path: The path to be formalized.
-     * - returns: The formalized path.
+     * Create the parent directory for a create action or copy action.
+     * - returns: Whether the directory has been created or not. Nil if there is an error.
      */
-    private func formalizePath(_ path: String) -> String {
-        return path.removeSuffix("/") ?? path
+    func createParentDirectory() -> Bool? {
+        guard let parentDirectory = getParentDirectoryPath() else {
+            return nil
+        }
+        do {
+            try createDirectory(atPath: parentDirectory, withIntermediateDirectories: true)
+            return true
+        } catch let error {
+            Logger.standard.logError(error)
+            return nil
+        }
     }
     
     /**
-     * Get the real path.
-     * - parameter path: The path of a file or directory.
-     * - returns: The absolute path.
+     * Formalize the path. Such as change "/temp/" to "/temp"
      */
-    private func getAbsolutePath(ofPath path: String) -> String {
+    private func formalizePath() {
+        path = path.removeSuffix("/") ?? path
+    }
+    
+    /**
+     * Update the path to the real path.
+     */
+    private func updateAbsolutePath() {
         let homeDirectory = NSHomeDirectory()
-        let absolutePath = path.hasPrefix("/") ? path : "\(homeDirectory)/\(path)"
-        return absolutePath
+        path = path.hasPrefix("/") ? path : "\(homeDirectory)/\(path)"
     }
     
     /**
      * Get the parent directory path of a formalized path.
-     * - parameter path: The path of a file or directory.
      * - returns: The formalized parent directory path. Nil if the path is the root directory.
      */
-    private func getParentDirectoryPath(ofPath path: String) -> String? {
+    private func getParentDirectoryPath() -> String? {
         if path == "/" {
             // COMMENT: The path is the root path.
             return nil
         }
         let url = URL(fileURLWithPath: path)
         // COMMENT: The path must contain the last component.
-        let parentDirectoryPath = path.removeSuffix(url.lastPathComponent)!
-        return formalizePath(parentDirectoryPath)
+        return path.removeSuffix(url.lastPathComponent)!
     }
     
 }

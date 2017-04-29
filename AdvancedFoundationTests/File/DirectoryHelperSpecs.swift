@@ -3,7 +3,8 @@ class DirectoryHelperSpecs: QuickSpec {
     override func spec() {
         let directoryHelper = DirectoryHelper(withPath: "temp")
         afterEach {
-            _ = directoryHelper.remove()
+            let pathHelper = PathHelper(withPath: "temp")
+            _ = pathHelper.remove()
         }
         describe("has isExisted") {
             context("if the directory exists") {
@@ -20,9 +21,8 @@ class DirectoryHelperSpecs: QuickSpec {
             context("if the path is a file") {
                 it("returns false") {
                     let fileHelper = FileHelper(withPath: "temp")
-                    fileHelper.create(withData: Data())
+                    _ = fileHelper.create(withData: Data())
                     expect(directoryHelper.isExisted) == false
-                    fileHelper.remove()
                 }
             }
         }
@@ -52,7 +52,7 @@ class DirectoryHelperSpecs: QuickSpec {
                 it("returns the file list") {
                     _ = directoryHelper.create()
                     let fileHelper = FileHelper(withPath: "temp/temp.tmp")
-                    fileHelper.create(withData: Data())
+                    _ = fileHelper.create(withData: Data())
                     expect(directoryHelper.getContent()?.count) == 1
                 }
             }
@@ -76,9 +76,9 @@ class DirectoryHelperSpecs: QuickSpec {
             }
         }
         describe("calls copy(toPath)") {
-            beforeEach {
+            afterEach {
                 let destinationPathHelper = PathHelper(withPath: "temp1")
-                destinationPathHelper.remove()
+                _ = destinationPathHelper.remove()
             }
             context("if the directory exists and the destination doesn't exist") {
                 it("returns true") {
@@ -115,21 +115,3 @@ class DirectoryHelperSpecs: QuickSpec {
 import Quick
 import Nimble
 @testable import AdvancedFoundation
-//    
-//    /**
-//     * PathHelperAction.
-//     */
-//    public override func copy(toPath path: String) -> Bool? {
-//        if !isExisted {
-//            return false
-//        }
-//        let directoryHelper = DirectoryHelper(withPath: path)
-//        if directoryHelper.isExisted {
-//            return false
-//        }
-//        return super.copy(toPath: path)
-//    }
-//    
-//}
-//
-//import Foundation

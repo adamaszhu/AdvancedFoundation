@@ -11,7 +11,7 @@ public class DirectoryHelper: PathHelper {
      * - returns: Whether the directory has been created or not. Nil if there is an error.
      */
     public func create() -> Bool? {
-        if isExisted {
+        if super.isExisted {
             return false
         }
         do {
@@ -46,35 +46,12 @@ public class DirectoryHelper: PathHelper {
      * PathHelperAction.
      */
     public override var isExisted: Bool {
-        get {
-            if !super.isExisted {
-                return false
-            }
-            var isDictory: ObjCBool = false
-            fileExists(atPath: path, isDirectory: &isDictory)
-            return isDictory.boolValue
-        }
-    }
-    
-    /**
-     * PathHelper.
-     */
-    public override init(withPath path: String) {
-        super.init(withPath: path)
-    }
-    
-    /**
-     * PathHelperAction.
-     */
-    public override func copy(toPath path: String) -> Bool? {
-        if !isExisted {
+        if !super.isExisted {
             return false
         }
-        let pathHelper = PathHelper(withPath: path)
-        if pathHelper.isExisted {
-            return false
-        }
-        return super.copy(toPath: path)
+        var isDictory: ObjCBool = false
+        fileExists(atPath: path, isDirectory: &isDictory)
+        return isDictory.boolValue
     }
     
 }

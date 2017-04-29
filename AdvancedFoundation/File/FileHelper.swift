@@ -12,16 +12,13 @@ public class FileHelper: PathHelper {
      * - returns: whether the file has been created or not. Nil if there is an error.
      */
     public func create(withData data: Data) -> Bool? {
-        if isExisted {
+        if super.isExisted {
             return false
         }
-        do {
-            try createFile(atPath: path, contents: data)
-            return true
-        } catch let error {
-            Logger.standard.logError(error)
+        if createParentDirectory() != true {
             return nil
         }
+        return createFile(atPath: path, contents: data)
     }
     
     /**
@@ -39,35 +36,12 @@ public class FileHelper: PathHelper {
      * PathHelper.
      */
     public override var isExisted: Bool {
-        get {
-            if !super.isExisted {
-                return false
-            }
-            var isDictory: ObjCBool = false
-            fileExists(atPath: path, isDirectory: &isDictory)
-            return !isDictory.boolValue
-        }
-    }
-    
-    /**
-     * PathHelper.
-     */
-    public override init(withPath path: String) {
-        super.init(withPath: path)
-    }
-    
-    /**
-     * PathHelperAction.
-     */
-    public override func copy(toPath path: String) -> Bool? {
-        if !isExisted {
+        if !super.isExisted {
             return false
         }
-        let fileHelper = FileHelper(withPath: path)
-        if fileHelper.isExisted {
-            return false
-        }
-        return super.copy(toPath: path)
+        var isDictory: ObjCBool = false
+        fileExists(atPath: path, isDirectory: &isDictory)
+        return !isDictory.boolValue
     }
     
 }
