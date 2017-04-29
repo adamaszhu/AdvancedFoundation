@@ -70,8 +70,8 @@ public class DirectoryHelper: PathHelper {
         if !isExisted {
             return false
         }
-        let directoryHelper = DirectoryHelper(withPath: path)
-        if directoryHelper.isExisted {
+        let pathHelper = PathHelper(withPath: path)
+        if pathHelper.isExisted {
             return false
         }
         return super.copy(toPath: path)

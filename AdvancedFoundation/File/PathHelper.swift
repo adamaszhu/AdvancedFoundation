@@ -44,7 +44,7 @@ public class PathHelper: FileManager {
         }
         do {
             try createDirectory(atPath: parentDirectory, withIntermediateDirectories: true)
-            try copyItem(atPath: path, toPath: destinationPath)
+            try copyItem(atPath: self.path, toPath: destinationPath)
             return true
         } catch let error {
             Logger.standard.logError(error)

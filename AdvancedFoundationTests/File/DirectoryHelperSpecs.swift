@@ -2,10 +2,31 @@ class DirectoryHelperSpecs: QuickSpec {
     
     override func spec() {
         let directoryHelper = DirectoryHelper(withPath: "temp")
-        describe("calls create()") {
-            afterEach {
-                _ = directoryHelper.remove()
+        afterEach {
+            _ = directoryHelper.remove()
+        }
+        describe("has isExisted") {
+            context("if the directory exists") {
+                it("returns true") {
+                    _ = directoryHelper.create()
+                    expect(directoryHelper.isExisted) == true
+                }
             }
+            context("if the path doesn't exist") {
+                it("returns false") {
+                    expect(directoryHelper.isExisted) == false
+                }
+            }
+            context("if the path is a file") {
+                it("returns false") {
+                    let fileHelper = FileHelper(withPath: "temp")
+                    fileHelper.create(withData: Data())
+                    expect(directoryHelper.isExisted) == false
+                    fileHelper.remove()
+                }
+            }
+        }
+        describe("calls create()") {
             context("if the directory doesn't exist") {
                 it("returns true") {
                     let result = directoryHelper.create()
@@ -20,6 +41,73 @@ class DirectoryHelperSpecs: QuickSpec {
                 }
             }
         }
+        describe("calls getContent()") {
+            context("if the directory is empty") {
+                it("returns empty array") {
+                    _ = directoryHelper.create()
+                    expect(directoryHelper.getContent()?.count) == 0
+                }
+            }
+            context("if the directory is not empty") {
+                it("returns the file list") {
+                    _ = directoryHelper.create()
+                    let fileHelper = FileHelper(withPath: "temp/temp.tmp")
+                    fileHelper.create(withData: Data())
+                    expect(directoryHelper.getContent()?.count) == 1
+                }
+            }
+            context("if the directory doesn't exist") {
+                it("returns nil") {
+                    expect(directoryHelper.getContent()).to(beNil())
+                }
+            }
+        }
+        describe("calls remove()") {
+            context("if the directory exists") {
+                it("returns true") {
+                    _ = directoryHelper.create()
+                    expect(directoryHelper.remove()) == true
+                }
+            }
+            context("if the directory doesn't exist") {
+                it("returns false") {
+                    expect(directoryHelper.remove()) == false
+                }
+            }
+        }
+        describe("calls copy(toPath)") {
+            beforeEach {
+                let destinationPathHelper = PathHelper(withPath: "temp1")
+                destinationPathHelper.remove()
+            }
+            context("if the directory exists and the destination doesn't exist") {
+                it("returns true") {
+                    _ = directoryHelper.create()
+                    expect(directoryHelper.copy(toPath: "temp1")) == true
+                }
+            }
+            context("if the directory exists and the destionation directory exists") {
+                it("returns false") {
+                    _ = directoryHelper.create()
+                    let destinationDirectoryHelper = DirectoryHelper(withPath: "temp1")
+                    _ = destinationDirectoryHelper.create()
+                    expect(directoryHelper.copy(toPath: "temp1")) == false
+                }
+            }
+            context("if the directory exists and the destionation file exists") {
+                it("returns false") {
+                    _ = directoryHelper.create()
+                    let destinationFileHelper = FileHelper(withPath: "temp1")
+                    _ = destinationFileHelper.create(withData: Data())
+                    expect(directoryHelper.copy(toPath: "temp1")) == false
+                }
+            }
+            context("if the directory doesn't exists") {
+                it("returns false") {
+                    expect(directoryHelper.copy(toPath: "temp1")) == false
+                }
+            }
+        }
     }
     
 }
@@ -27,72 +115,6 @@ class DirectoryHelperSpecs: QuickSpec {
 import Quick
 import Nimble
 @testable import AdvancedFoundation
-//
-//
-///**
-// * DiretoryHelper provides actions for an directory.
-// * - author: Adamas
-// * - version: 1.0.0
-// * - date: 24/04/2017
-// */
-//public class DirectoryHelper: PathHelper {
-//    
-//    /**
-//     * Create the directory recrusively.
-//     * - returns: Whether the directory has been created or not. Nil if there is an error.
-//     */
-//    public func create() -> Bool? {
-//        if isExisted {
-//            return false
-//        }
-//        do {
-//            try createDirectory(atPath: path, withIntermediateDirectories: true)
-//            return true
-//        } catch let error {
-//            Logger.standard.logError(error)
-//            return nil
-//        }
-//    }
-//    
-//    /**
-//     * Get the content of a file or directory.
-//     * - returns: The path list of all contents in a directory. Nil if the data doesn't exist or there is an error.
-//     */
-//    public func getContent() -> Array<String>? {
-//        if !isExisted {
-//            return nil
-//        }
-//        do {
-//            let paths = try contentsOfDirectory(atPath: path)
-//            return paths.map({ (path) -> String in
-//                "\(self.path)/\(path)"
-//            })
-//        } catch let error {
-//            Logger.standard.logError(error)
-//            return nil
-//        }
-//    }
-//    
-//    /**
-//     * PathHelperAction.
-//     */
-//    public override var isExisted: Bool {
-//        get {
-//            if !super.isExisted {
-//                return false
-//            }
-//            var isDictory: ObjCBool = false
-//            fileExists(atPath: path, isDirectory: &isDictory)
-//            return isDictory.boolValue
-//        }
-//    }
-//    
-//    /**
-//     * PathHelper.
-//     */
-//    public override init(withPath path: String) {
-//        super.init(withPath: path)
-//    }
 //    
 //    /**
 //     * PathHelperAction.
