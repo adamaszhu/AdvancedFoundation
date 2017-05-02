@@ -299,8 +299,8 @@
 			isa = PBXGroup;
 			children = (
 				42622E981EA1E51100E5D5E7 /* String+LocalizerSpecs.swift */,
-				42622E9C1EA1ECB200E5D5E7 /* StringLocalizerSpecs.strings */,
 				281881D71EA86EEC00E8C85E /* String+HelperSpecs.swift */,
+				42622E9C1EA1ECB200E5D5E7 /* StringLocalizerSpecs.strings */,
 			);
 			path = String;
 			sourceTree = "<group>";

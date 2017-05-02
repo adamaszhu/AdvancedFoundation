@@ -1,6 +1,10 @@
 class CoreDataHelperSpecs: QuickSpec {
     
     override func spec() {
+        let coreDataHelper = CoreDataHelper(withName: AppInfoAccessor.shared.bundleName!)
+        afterEach {
+            _ = coreDataHelper.deleteAllObjects(withType: Test.self)
+        }
         describe("has standard helper") {
             let coreDataHelper = CoreDataHelper.standard
             it("is not nil") {
@@ -25,10 +29,29 @@ class CoreDataHelperSpecs: QuickSpec {
             }
         }
         describe("call createObject(withType)") {
-            let coreDataHelper = CoreDataHelper(withName: AppInfoAccessor.shared.bundleName!)
             context("with valid type") {
-                it("test") {
+                it("returns new object") {
                     expect(coreDataHelper.createObject(withType: Test.self)).notTo(beNil())
+                }
+            }
+            context("with invalid type") {
+                it("throws exception") {
+                    expect(coreDataHelper.createObject(withType: CoreDataHelperSpecs.self)).to(raiseException())
+                }
+            }
+            context("and saves") {
+                it("can be retrieved") {
+                    let object = coreDataHelper.createObject(withType: Test.self) as? Test
+                    object?.title = "Test"
+                    _ = coreDataHelper.save()
+                    expect(coreDataHelper.getObjects(withType: Test.self)?.count) == 1
+                }
+            }
+            context("and doesn't save") {
+                it("cannot be retrieved") {
+                    let object = coreDataHelper.createObject(withType: Test.self) as? Test
+                    object?.title = "Test"
+                    expect(coreDataHelper.getObjects(withType: Test.self)?.count) == 1
                 }
             }
         }
@@ -44,22 +67,6 @@ import Nimble
 
 
 
-
-
-//    
-//    /**
-//     * Prepare an object for inserting to the core data.
-//     * - parameter type: The class of the object that need to be inserted.
-//     * - returns: The object for insertion. Nil will be returned if there has been an error.
-//     */
-//    public func createObject(withType type: AnyClass) -> NSManagedObject? {
-//        guard let context = context else {
-//            return nil
-//        }
-//        let object = NSEntityDescription.insertNewObject(forEntityName: String(describing: type), into: context)
-//        return object
-//    }
-//    
 //    /**
 //     * Get the object list of a specific class type of object.
 //     * - parameter type: The type of class need to be retrieved.
