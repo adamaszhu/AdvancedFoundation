@@ -182,22 +182,6 @@ public class CoreDataHelper {
         context?.persistentStoreCoordinator = coordinator
     }
     
-    
-    
-    
-    //    /**
-    //     * System error.
-    //     */
-    //    private static let bundleNameError = "The bundle name cannot be retrieved."
-    //    private static let operationError = "The operation can not be finished."
-    //
-    //
-    
-    //
-    //
-    //
-    //
-    //
 }
 
 import Foundation
