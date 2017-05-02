@@ -13,6 +13,8 @@
 		2848AB0A1E9DA039004C6A66 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2848AB091E9DA039004C6A66 /* Logger.swift */; };
 		28525CB41EAD7C20006F6FDE /* PathHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28525CB31EAD7C20006F6FDE /* PathHelper.swift */; };
 		28525CB61EAD7C2B006F6FDE /* DirectoryHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28525CB51EAD7C2B006F6FDE /* DirectoryHelper.swift */; };
+		28CC3FE21EB812DB00C632A5 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CC3FE11EB812DB00C632A5 /* CoreDataHelper.swift */; };
+		28CC3FE41EB8130A00C632A5 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28CC3FE31EB8130A00C632A5 /* CoreData.framework */; };
 		420F3CAA1EA06B1B00BAA0A4 /* Number+CurrencyFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420F3CA91EA06B1B00BAA0A4 /* Number+CurrencyFormatter.swift */; };
 		420F3CAD1EA0721800BAA0A4 /* Number+LongNumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420F3CAB1EA0721800BAA0A4 /* Number+LongNumberFormatter.swift */; };
 		420F3CAE1EA0721800BAA0A4 /* Number+PercentageFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420F3CAC1EA0721800BAA0A4 /* Number+PercentageFormatter.swift */; };
@@ -80,6 +82,8 @@
 		2848AB091E9DA039004C6A66 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		28525CB31EAD7C20006F6FDE /* PathHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PathHelper.swift; sourceTree = "<group>"; };
 		28525CB51EAD7C2B006F6FDE /* DirectoryHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectoryHelper.swift; sourceTree = "<group>"; };
+		28CC3FE11EB812DB00C632A5 /* CoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
+		28CC3FE31EB8130A00C632A5 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		420F3CA91EA06B1B00BAA0A4 /* Number+CurrencyFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Number+CurrencyFormatter.swift"; sourceTree = "<group>"; };
 		420F3CAB1EA0721800BAA0A4 /* Number+LongNumberFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Number+LongNumberFormatter.swift"; sourceTree = "<group>"; };
 		420F3CAC1EA0721800BAA0A4 /* Number+PercentageFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Number+PercentageFormatter.swift"; sourceTree = "<group>"; };
@@ -133,6 +137,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28CC3FE41EB8130A00C632A5 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,6 +185,7 @@
 		2848AAED1E9D9E4C004C6A66 /* AdvancedFoundation */ = {
 			isa = PBXGroup;
 			children = (
+				28CC3FE01EB812CA00C632A5 /* Data */,
 				42DAF4DA1EA3846600DE6B70 /* Resource */,
 				42DAF4E21EA3A07D00DE6B70 /* File */,
 				42622EA21EA1FD8100E5D5E7 /* Date */,
@@ -213,6 +219,14 @@
 				2848AB091E9DA039004C6A66 /* Logger.swift */,
 			);
 			path = Log;
+			sourceTree = "<group>";
+		};
+		28CC3FE01EB812CA00C632A5 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				28CC3FE11EB812DB00C632A5 /* CoreDataHelper.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		420F3CA81EA06B1B00BAA0A4 /* Number */ = {
@@ -362,6 +376,7 @@
 		80D516811EEC4BCCD529B51B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				28CC3FE31EB8130A00C632A5 /* CoreData.framework */,
 				86FC5B98651D3B1381244FFD /* Pods_AdvancedFoundationTests.framework */,
 			);
 			name = Frameworks;
@@ -584,6 +599,7 @@
 				42D342641EB4A66300064B1C /* TextHelper.swift in Sources */,
 				42622E8D1EA1D59A00E5D5E7 /* String+Localizer.swift in Sources */,
 				42F30E431E9E412900AC0249 /* AppInfoAccessor.swift in Sources */,
+				28CC3FE21EB812DB00C632A5 /* CoreDataHelper.swift in Sources */,
 				28525CB41EAD7C20006F6FDE /* PathHelper.swift in Sources */,
 				420F3CAD1EA0721800BAA0A4 /* Number+LongNumberFormatter.swift in Sources */,
 				42F30E441E9E412900AC0249 /* VersionHelper.swift in Sources */,
