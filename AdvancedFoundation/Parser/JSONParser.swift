@@ -90,6 +90,9 @@ public class JSONParser {
         guard let jsonPath = JSONPath.parseString(realPath) else {
             return nil
         }
+        if jsonPath.isEmpty {
+            return nil
+        }
         return getNode(atPath: jsonPath, fromNode: realNode)
     }
     

@@ -13,6 +13,9 @@ extension JSONPath {
      */
     static func parseString(_ string: String) -> JSONPath? {
         var nodes = Array<JSONNode>()
+        if string.isEmpty {
+            return JSONPath(nodes: nodes)
+        }
         for nodeComponent in string.components(separatedBy: "/") {
             guard let node = JSONNode.parseString(nodeComponent) else {
                 return nil
