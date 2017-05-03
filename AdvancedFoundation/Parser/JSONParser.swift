@@ -40,7 +40,7 @@ public class JSONParser {
     
     /**
      * Get an array element.
-     * - parameter path: The json path.
+     * - parameter path: The json path. Absolute path is equals to where the node is nil.
      * - parameter node: Current node.
      */
     public func getArray(atPath path: String, fromNode node: Any? = nil) -> Array<Any>? {
@@ -49,7 +49,7 @@ public class JSONParser {
     
     /**
      * Get a string element.
-     * - parameter path: The json path.
+     * - parameter path: The json path. Absolute path is equals to where the node is nil.
      * - parameter element: Current element.
      */
     public func getString(atPath path: String, fromNode node: Any? = nil) -> String? {
@@ -58,7 +58,7 @@ public class JSONParser {
     
     /**
      * Get a double element.
-     * - parameter path: The json path.
+     * - parameter path: The json path. Absolute path is equals to where the node is nil.
      * - parameter element: Current element.
      */
     public func getDouble(atPath path: String, fromNode node: Any? = nil) -> Double? {
@@ -67,7 +67,7 @@ public class JSONParser {
     
     /**
      * Get a dictionary element.
-     * - parameter path: The json path.
+     * - parameter path: The json path. Absolute path is equals to where the node is nil.
      * - parameter element: Current element.
      */
     public func getDictionary(atPath path: String, fromNode node: Any? = nil) -> Dictionary<String, Any>? {
@@ -77,14 +77,20 @@ public class JSONParser {
     
     /**
      * Get a node.
-     * - parameter path: The json path.
+     * - parameter path: The json path. Absolute path is equals to where the node is nil.
      * - parameter node: Current node.
      */
     private func getNode(atPath path: String, fromNode node: Any?) -> Any? {
-        guard let jsonPath = JSONPath.parseString(path) else {
+        var realPath = path
+        var realNode = node
+        if path.hasPrefix("/") {
+            realPath = realPath.removePrefix("/")!
+            realNode = json
+        }
+        guard let jsonPath = JSONPath.parseString(realPath) else {
             return nil
         }
-        return getNode(atPath: jsonPath, fromNode: node)
+        return getNode(atPath: jsonPath, fromNode: realNode)
     }
     
     /**
@@ -100,39 +106,26 @@ public class JSONParser {
         }
         // COMMENT: If the path is empty, the method shouldn't even be called.
         let pathNode = path.firstNode!
-        if pathNode.isCurrentNode {
-            // COMMENT: Return current node.
-            return node ?? json
+        var realNode = node ?? json
+        if !pathNode.isCurrentNode {
+            // COMMENT: Get real current node from the dictionary node.
+            guard let dictionaryNode = realNode as? Dictionary<String, AnyObject> else {
+                // COMMENT: The node presented by the path doesn't exist.
+                return nil
+            }
+            realNode = dictionaryNode[pathNode.name]
         }
-        guard let currentNode = (node ?? json) as? Dictionary<String, AnyObject> else {
-            // COMMENT: The node presented by the path doesn't exist.
-            return nil
+        if pathNode.index != nil {
+            // COMMENT: Get real current node from the array node.
+            guard let arrayNode = realNode as? Array<Any> else {
+                // COMMENT: The node name doesn't exist.
+                return nil
+            }
+            realNode = arrayNode[pathNode.index!]
         }
         var newPath = path
         newPath.removeFirstNode()
-        if newPath.isEmpty && (pathNode.index == nil) {
-            // COMMENT: Return current node.
-            return currentNode[pathNode.name]
-        } else if newPath.isEmpty && (pathNode.index != nil) {
-            // COMMENT: Return an element of current array node.
-            return currentNode[pathNode.name] as? Array<Any>
-        } else if !newPath.isEmpty && (pathNode.index == nil) {
-            guard let dictionaryNode = currentNode[pathNode.name] as? Dictionary<String, Any> else {
-                // COMMENT: The node name doesn't exist.
-                return nil
-            }
-            return getNode(atPath: newPath, fromNode: dictionaryNode)
-        } else {
-            guard let arrayNode = currentNode[pathNode.name] as? Array<Any> else {
-                // COMMENT: The node name doesn't exist.
-                return nil
-            }
-            guard let subNode = arrayNode[pathNode.index!] as? Dictionary<String, Any> else {
-                // COMMENT: The node name doesn't exist.
-                return nil
-            }
-            return getNode(atPath: newPath, fromNode: subNode)
-        }
+        return newPath.isEmpty ? realNode : getNode(atPath: newPath, fromNode: realNode)
     }
     
 }

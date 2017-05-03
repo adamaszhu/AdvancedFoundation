@@ -13,7 +13,7 @@ struct JSONNode {
      * Whether the node represent current node or not. Which is a dot character.
      */
     var isCurrentNode: Bool {
-        return (name == ".") && (index  == nil)
+        return name == "."
     }
     
     /**

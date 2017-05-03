@@ -33,29 +33,51 @@ class JSONParserSpecs: QuickSpec {
         describe("calls getString(atPath:fromNode)") {
             context("with incorrect path") {
                 it("returns nil") {
-                    expect(jsonParser.getDictionary(atPath: "////")).to(beNil())
+                    expect(jsonParser.getString(atPath: "////")).to(beNil())
+                }
+            }
+            context("with non existing path") {
+                it("returns nil") {
+                    expect(jsonParser.getString(atPath: "attribute5")).to(beNil())
                 }
             }
             context("with correct path but wrong type") {
-                
+                it("returns nil") {
+                    expect(jsonParser.getString(atPath: "attribute2")).to(beNil())
+                }
             }
             context("with correct absolute path and correct type") {
-                
+                it("returns value1") {
+                    expect(jsonParser.getString(atPath: "/attribute1")) == "value1"
+                }
             }
             context("with correct relative path and correct type") {
-                
-            }
-            context("with default node") {
-                
+                it("returns value1") {
+                    expect(jsonParser.getString(atPath: "attribute1")) == "value1"
+                }
             }
             context("with invalid node") {
-                
+                it("returns nil") {
+                    expect(jsonParser.getString(atPath: "attribute1", fromNode: 1)).to(beNil())
+                }
+            }
+            context("with non existing path and correct node") {
+                it("returns nil") {
+                    let arrayNode = jsonParser.getArray(atPath: "attribute2")
+                    expect(jsonParser.getString(atPath: "arrayAttribute1", fromNode: arrayNode)).to(beNil())
+                }
             }
             context("with correct absolute path, correct type and node") {
-                
+                it("returns arrayValue1") {
+                    let arrayNode = jsonParser.getArray(atPath: "attribute2")
+                    expect(jsonParser.getString(atPath: ".[0]/arrayAttribute1", fromNode: arrayNode)) == "arrayValue1"
+                }
             }
             context("with correct relative path, correct type and node") {
-                
+                it("returns arrayValue1 working as absolute path only") {
+                    let arrayNode = jsonParser.getArray(atPath: "attribute2")
+                    expect(jsonParser.getString(atPath: "/attribute2[0]/arrayAttribute1", fromNode: arrayNode)) == "arrayValue1"
+                }
             }
         }
     }
@@ -71,13 +93,6 @@ import Nimble
 
 //
 //    func testGetString() {
-//        var string = jsonParser.getString(atPath: "attribute2")
-//        XCTAssertNil(string)
-//        string = jsonParser.getString(atPath: "attribute5")
-//        XCTAssertNil(string)
-//        // COMMENT: Get the first segment.
-//        string = jsonParser.getString(atPath: "")
-//        XCTAssertNil(string)
 //        string = jsonParser.getString(atPath: "/")
 //        XCTAssertNil(string)
 //        string = jsonParser.getString(atPath: "/attribute1")
