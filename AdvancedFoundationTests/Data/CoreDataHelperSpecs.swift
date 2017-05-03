@@ -16,7 +16,6 @@ class CoreDataHelperSpecs: QuickSpec {
         }
         describe("calls init(withName)") {
             context("with existing name") {
-                let coreDataHelper = CoreDataHelper(withName: AppInfoAccessor.shared.bundleName!)
                 it("return useable helper") {
                     expect(coreDataHelper.save()).notTo(beNil())
                 }
@@ -52,6 +51,35 @@ class CoreDataHelperSpecs: QuickSpec {
                     let object = coreDataHelper.createObject(withType: Test.self) as? Test
                     object?.title = "Test"
                     expect(coreDataHelper.getObjects(withType: Test.self)?.count) == 1
+                }
+            }
+        }
+        describe("call getObjects(withType:withCondition:withArguments)") {
+            beforeEach {
+                var object = coreDataHelper.createObject(withType: Test.self) as? Test
+                object?.title = "Test1"
+                object = coreDataHelper.createObject(withType: Test.self) as? Test
+                object?.title = "Test2"
+                _ = coreDataHelper.save()
+            }
+            context("with invalid type") {
+                it("returns nil") {
+                    expect(coreDataHelper.getObjects(withType: CoreDataHelperSpecs.self)).to(raiseException())
+                }
+            }
+            context("with valid type") {
+                it("returns 2 objects") {
+                    expect(coreDataHelper.getObjects(withType: Test.self)?.count) == 2
+                }
+            }
+            context("with existing condition and arguments") {
+                it("returns 1 objects") {
+                    expect(coreDataHelper.getObjects(withType: Test.self, withCondition: "title=%@", withArguments: "Test1")?.count) == 1
+                }
+            }
+            context("with non existing condition and arguments") {
+                it("returns 0 objects") {
+                    expect(coreDataHelper.getObjects(withType: Test.self, withCondition: "title=%@", withArguments: "Test3")?.count) == 0
                 }
             }
         }
@@ -94,7 +122,7 @@ import Nimble
 //            return nil
 //        }
 //    }
-//    
+//
 //    /**
 //     * Judge whether an object with spedific condition exists or not.
 //     * - parameter type: The type of class need to be retrieved.
@@ -108,7 +136,7 @@ import Nimble
 //        }
 //        return objects.count > 0
 //    }
-//    
+//
 //    /**
 //     * Delete a spedific object.
 //     * - parameter object: The object to be deleted.
@@ -121,7 +149,7 @@ import Nimble
 //        context.delete(object)
 //        return save()
 //    }
-//    
+//
 //    /**
 //     * Delete all objects belonging to a specific class type.
 //     * - parameter type: The type of objects should be deleted.
@@ -140,8 +168,8 @@ import Nimble
 //        }
 //        return true
 //    }
-//    
-//    
+//
+//
 //    /**
 //     * Save any unsaved change.
 //     * returns: Whether new changes have been saved or not. Nil if there is an error.
@@ -161,7 +189,7 @@ import Nimble
 //            return nil
 //        }
 //    }
-//    
+//
 //    /**
 //     * Get the core data context according to the name of the model.
 //     * - parameter name: The name of the model.
@@ -195,10 +223,10 @@ import Nimble
 //        context = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
 //        context?.persistentStoreCoordinator = coordinator
 //    }
-//    
-//    
-//    
-//    
+//
+//
+//
+//
 //    //    /**
 //    //     * System error.
 //    //     */
@@ -206,7 +234,7 @@ import Nimble
 //    //    private static let operationError = "The operation can not be finished."
 //    //
 //    //
-//    
+//
 //    //
 //    //
 //    //
