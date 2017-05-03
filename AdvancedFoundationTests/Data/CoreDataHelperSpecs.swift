@@ -32,34 +32,25 @@ class CoreDataHelperSpecs: QuickSpec {
                 it("returns new object") {
                     expect(coreDataHelper.createObject(withType: Test.self)).notTo(beNil())
                 }
+                it("can be retrieved") {
+                    let object = coreDataHelper.createObject(withType: Test.self)
+                    object?.testTitle = "Test"
+                    _ = coreDataHelper.save()
+                    expect(coreDataHelper.getObjects(withType: Test.self)?.first?.testTitle) == "Test"
+                }
             }
             context("with invalid type") {
                 it("throws exception") {
                     expect(coreDataHelper.createObject(withType: CoreDataHelperSpecs.self)).to(raiseException())
                 }
             }
-            context("and saves") {
-                it("can be retrieved") {
-                    let object = coreDataHelper.createObject(withType: Test.self) as? Test
-                    object?.title = "Test"
-                    _ = coreDataHelper.save()
-                    expect(coreDataHelper.getObjects(withType: Test.self)?.count) == 1
-                }
-            }
-            context("and doesn't save") {
-                it("cannot be retrieved") {
-                    let object = coreDataHelper.createObject(withType: Test.self) as? Test
-                    object?.title = "Test"
-                    expect(coreDataHelper.getObjects(withType: Test.self)?.count) == 1
-                }
-            }
         }
         describe("call getObjects(withType:withCondition:withArguments)") {
             beforeEach {
-                var object = coreDataHelper.createObject(withType: Test.self) as? Test
-                object?.title = "Test1"
-                object = coreDataHelper.createObject(withType: Test.self) as? Test
-                object?.title = "Test2"
+                var object = coreDataHelper.createObject(withType: Test.self)
+                object?.testTitle = "Test1"
+                object = coreDataHelper.createObject(withType: Test.self)
+                object?.testTitle = "Test2"
                 _ = coreDataHelper.save()
             }
             context("with invalid type") {
