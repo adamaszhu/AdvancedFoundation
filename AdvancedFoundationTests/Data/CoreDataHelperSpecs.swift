@@ -74,12 +74,12 @@ class CoreDataHelperSpecs: QuickSpec {
             }
             context("with existing condition and arguments") {
                 it("returns 1 objects") {
-                    expect(coreDataHelper.getObjects(withType: Test.self, withCondition: "title=%@", withArguments: "Test1")?.count) == 1
+                    expect(coreDataHelper.getObjects(withType: Test.self, withCondition: "title=%@", withArguments: ["Test1"])?.count) == 1
                 }
             }
             context("with non existing condition and arguments") {
                 it("returns 0 objects") {
-                    expect(coreDataHelper.getObjects(withType: Test.self, withCondition: "title=%@", withArguments: "Test3")?.count) == 0
+                    expect(coreDataHelper.getObjects(withType: Test.self, withCondition: "title=%@", withArguments: ["Test3"])?.count) == 0
                 }
             }
         }
