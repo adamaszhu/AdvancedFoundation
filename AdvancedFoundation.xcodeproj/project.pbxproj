@@ -30,6 +30,7 @@
 		28E703B51EBADFE3002BEDFC /* NetworkHelper+URLSessionDataDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E703B41EBADFE3002BEDFC /* NetworkHelper+URLSessionDataDelegate.swift */; };
 		28E703B71EBAE000002BEDFC /* NetworkHelper+URLSessionTaskDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E703B61EBAE000002BEDFC /* NetworkHelper+URLSessionTaskDelegate.swift */; };
 		28E703B91EBAE017002BEDFC /* NetworkHelper+URLSessionDownloadDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E703B81EBAE017002BEDFC /* NetworkHelper+URLSessionDownloadDelegate.swift */; };
+		28E703BC1EBAE504002BEDFC /* NetworkHelperSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E703BB1EBAE504002BEDFC /* NetworkHelperSpecs.swift */; };
 		420F3CAA1EA06B1B00BAA0A4 /* Number+CurrencyFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420F3CA91EA06B1B00BAA0A4 /* Number+CurrencyFormatter.swift */; };
 		420F3CAD1EA0721800BAA0A4 /* Number+LongNumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420F3CAB1EA0721800BAA0A4 /* Number+LongNumberFormatter.swift */; };
 		420F3CAE1EA0721800BAA0A4 /* Number+PercentageFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420F3CAC1EA0721800BAA0A4 /* Number+PercentageFormatter.swift */; };
@@ -123,6 +124,7 @@
 		28E703B41EBADFE3002BEDFC /* NetworkHelper+URLSessionDataDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NetworkHelper+URLSessionDataDelegate.swift"; sourceTree = "<group>"; };
 		28E703B61EBAE000002BEDFC /* NetworkHelper+URLSessionTaskDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NetworkHelper+URLSessionTaskDelegate.swift"; sourceTree = "<group>"; };
 		28E703B81EBAE017002BEDFC /* NetworkHelper+URLSessionDownloadDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NetworkHelper+URLSessionDownloadDelegate.swift"; sourceTree = "<group>"; };
+		28E703BB1EBAE504002BEDFC /* NetworkHelperSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkHelperSpecs.swift; sourceTree = "<group>"; };
 		420F3CA91EA06B1B00BAA0A4 /* Number+CurrencyFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Number+CurrencyFormatter.swift"; sourceTree = "<group>"; };
 		420F3CAB1EA0721800BAA0A4 /* Number+LongNumberFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Number+LongNumberFormatter.swift"; sourceTree = "<group>"; };
 		420F3CAC1EA0721800BAA0A4 /* Number+PercentageFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Number+PercentageFormatter.swift"; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 		2848AAF81E9D9E4C004C6A66 /* AdvancedFoundationTests */ = {
 			isa = PBXGroup;
 			children = (
+				28E703BA1EBAE4F9002BEDFC /* Network */,
 				28E703A81EBAD76B002BEDFC /* Location */,
 				42D342741EB4D54600064B1C /* Parser */,
 				28CC3FE51EB81FEF00C632A5 /* Data */,
@@ -317,6 +320,14 @@
 				28E703B81EBAE017002BEDFC /* NetworkHelper+URLSessionDownloadDelegate.swift */,
 				28E703B41EBADFE3002BEDFC /* NetworkHelper+URLSessionDataDelegate.swift */,
 				28E703B61EBAE000002BEDFC /* NetworkHelper+URLSessionTaskDelegate.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		28E703BA1EBAE4F9002BEDFC /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				28E703BB1EBAE504002BEDFC /* NetworkHelperSpecs.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -746,6 +757,7 @@
 				28CC3FE71EB8200200C632A5 /* CoreDataHelperSpecs.swift in Sources */,
 				42F30E4B1E9E4CE200AC0249 /* AppInfoAccessorSpecs.swift in Sources */,
 				425336CE1EA1AB3B00B6D6BF /* Number+PercentageFormatterSpecs.swift in Sources */,
+				28E703BC1EBAE504002BEDFC /* NetworkHelperSpecs.swift in Sources */,
 				42D3427C1EB5502900064B1C /* JSONPath+Parser.swift in Sources */,
 				425336C81EA090E100B6D6BF /* Number+LongNumberFormatterSpecs.swift in Sources */,
 				42D342541EB4968100064B1C /* TextResourceHelperSpecs.swift in Sources */,
