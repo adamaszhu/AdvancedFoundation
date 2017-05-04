@@ -9,9 +9,9 @@ extension LocationHelper: CLLocationManagerDelegate {
     public func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         switch authorizingStatus {
         case .authorizedAlways:
-            locationHelperDelegate?.locationHelper(self, didAuthorizeAlwaysAuthorization: isAlwaysAuthorizationAuthorized)
+            locationHelperDelegate?.locationHelper(self, didAuthorizeAlwaysAuthorization: LocationHelper.isAlwaysAuthorizationAuthorized)
         case .authorizedWhenInUse:
-            locationHelperDelegate?.locationHelper(self, didAuthorizeWhenInUseAuthorization: isWhenInUseAuthorizationAuthorized)
+            locationHelperDelegate?.locationHelper(self, didAuthorizeWhenInUseAuthorization: LocationHelper.isWhenInUseAuthorizationAuthorized)
         default:
             break
         }
