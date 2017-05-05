@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		281881D61EA86AB800E8C85E /* String+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281881D51EA86AB800E8C85E /* String+Helper.swift */; };
 		281881D81EA86EEC00E8C85E /* String+HelperSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281881D71EA86EEC00E8C85E /* String+HelperSpecs.swift */; };
+		28451A131EBC3D0400793441 /* NetworkHelperDelegate+Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28451A121EBC3D0400793441 /* NetworkHelperDelegate+Optional.swift */; };
+		28451A151EBC3E7800793441 /* NetworkRequestType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28451A141EBC3E7800793441 /* NetworkRequestType.swift */; };
+		28451A171EBC45FA00793441 /* NetworkTaskType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28451A161EBC45FA00793441 /* NetworkTaskType.swift */; };
+		28451A191EBC463300793441 /* NetworkTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28451A181EBC463300793441 /* NetworkTask.swift */; };
 		2848AAF51E9D9E4C004C6A66 /* AdvancedFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2848AAEB1E9D9E4C004C6A66 /* AdvancedFoundation.framework */; };
 		2848AB0A1E9DA039004C6A66 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2848AB091E9DA039004C6A66 /* Logger.swift */; };
 		28525CB41EAD7C20006F6FDE /* PathHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28525CB31EAD7C20006F6FDE /* PathHelper.swift */; };
@@ -31,6 +35,10 @@
 		28E703B71EBAE000002BEDFC /* NetworkHelper+URLSessionTaskDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E703B61EBAE000002BEDFC /* NetworkHelper+URLSessionTaskDelegate.swift */; };
 		28E703B91EBAE017002BEDFC /* NetworkHelper+URLSessionDownloadDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E703B81EBAE017002BEDFC /* NetworkHelper+URLSessionDownloadDelegate.swift */; };
 		28E703BC1EBAE504002BEDFC /* NetworkHelperSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E703BB1EBAE504002BEDFC /* NetworkHelperSpecs.swift */; };
+		28E703BE1EBBF1BA002BEDFC /* NetworkBodyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E703BD1EBBF1BA002BEDFC /* NetworkBodyType.swift */; };
+		28E703C01EBBF237002BEDFC /* NetworkHelperDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E703BF1EBBF237002BEDFC /* NetworkHelperDelegate.swift */; };
+		28E703C41EBC30EC002BEDFC /* NetworkResponseHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E703C31EBC30EC002BEDFC /* NetworkResponseHeader.swift */; };
+		28E703C61EBC3103002BEDFC /* NetworkRequestHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E703C51EBC3103002BEDFC /* NetworkRequestHeader.swift */; };
 		420F3CAA1EA06B1B00BAA0A4 /* Number+CurrencyFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420F3CA91EA06B1B00BAA0A4 /* Number+CurrencyFormatter.swift */; };
 		420F3CAD1EA0721800BAA0A4 /* Number+LongNumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420F3CAB1EA0721800BAA0A4 /* Number+LongNumberFormatter.swift */; };
 		420F3CAE1EA0721800BAA0A4 /* Number+PercentageFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420F3CAC1EA0721800BAA0A4 /* Number+PercentageFormatter.swift */; };
@@ -99,6 +107,10 @@
 /* Begin PBXFileReference section */
 		281881D51EA86AB800E8C85E /* String+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Helper.swift"; sourceTree = "<group>"; };
 		281881D71EA86EEC00E8C85E /* String+HelperSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+HelperSpecs.swift"; sourceTree = "<group>"; };
+		28451A121EBC3D0400793441 /* NetworkHelperDelegate+Optional.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NetworkHelperDelegate+Optional.swift"; sourceTree = "<group>"; };
+		28451A141EBC3E7800793441 /* NetworkRequestType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRequestType.swift; sourceTree = "<group>"; };
+		28451A161EBC45FA00793441 /* NetworkTaskType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTaskType.swift; sourceTree = "<group>"; };
+		28451A181EBC463300793441 /* NetworkTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTask.swift; sourceTree = "<group>"; };
 		2848AAEB1E9D9E4C004C6A66 /* AdvancedFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AdvancedFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2848AAEF1E9D9E4C004C6A66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2848AAF41E9D9E4C004C6A66 /* AdvancedFoundationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdvancedFoundationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -125,6 +137,10 @@
 		28E703B61EBAE000002BEDFC /* NetworkHelper+URLSessionTaskDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NetworkHelper+URLSessionTaskDelegate.swift"; sourceTree = "<group>"; };
 		28E703B81EBAE017002BEDFC /* NetworkHelper+URLSessionDownloadDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NetworkHelper+URLSessionDownloadDelegate.swift"; sourceTree = "<group>"; };
 		28E703BB1EBAE504002BEDFC /* NetworkHelperSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkHelperSpecs.swift; sourceTree = "<group>"; };
+		28E703BD1EBBF1BA002BEDFC /* NetworkBodyType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkBodyType.swift; sourceTree = "<group>"; };
+		28E703BF1EBBF237002BEDFC /* NetworkHelperDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkHelperDelegate.swift; sourceTree = "<group>"; };
+		28E703C31EBC30EC002BEDFC /* NetworkResponseHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkResponseHeader.swift; sourceTree = "<group>"; };
+		28E703C51EBC3103002BEDFC /* NetworkRequestHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRequestHeader.swift; sourceTree = "<group>"; };
 		420F3CA91EA06B1B00BAA0A4 /* Number+CurrencyFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Number+CurrencyFormatter.swift"; sourceTree = "<group>"; };
 		420F3CAB1EA0721800BAA0A4 /* Number+LongNumberFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Number+LongNumberFormatter.swift"; sourceTree = "<group>"; };
 		420F3CAC1EA0721800BAA0A4 /* Number+PercentageFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Number+PercentageFormatter.swift"; sourceTree = "<group>"; };
@@ -315,11 +331,19 @@
 		28E703AB1EBADEB5002BEDFC /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				28E703B01EBADF23002BEDFC /* NetworkHelper.strings */,
 				28E703B21EBADF62002BEDFC /* NetworkHelper.swift */,
 				28E703B81EBAE017002BEDFC /* NetworkHelper+URLSessionDownloadDelegate.swift */,
 				28E703B41EBADFE3002BEDFC /* NetworkHelper+URLSessionDataDelegate.swift */,
 				28E703B61EBAE000002BEDFC /* NetworkHelper+URLSessionTaskDelegate.swift */,
+				28E703BF1EBBF237002BEDFC /* NetworkHelperDelegate.swift */,
+				28451A121EBC3D0400793441 /* NetworkHelperDelegate+Optional.swift */,
+				28E703BD1EBBF1BA002BEDFC /* NetworkBodyType.swift */,
+				28451A141EBC3E7800793441 /* NetworkRequestType.swift */,
+				28E703C31EBC30EC002BEDFC /* NetworkResponseHeader.swift */,
+				28E703C51EBC3103002BEDFC /* NetworkRequestHeader.swift */,
+				28451A181EBC463300793441 /* NetworkTask.swift */,
+				28451A161EBC45FA00793441 /* NetworkTaskType.swift */,
+				28E703B01EBADF23002BEDFC /* NetworkHelper.strings */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -726,6 +750,8 @@
 				42D3426F1EB4CFAD00064B1C /* JSONPath.swift in Sources */,
 				42D342631EB4A66300064B1C /* CSVHelper.swift in Sources */,
 				28525CB61EAD7C2B006F6FDE /* DirectoryHelper.swift in Sources */,
+				28E703BE1EBBF1BA002BEDFC /* NetworkBodyType.swift in Sources */,
+				28451A171EBC45FA00793441 /* NetworkTaskType.swift in Sources */,
 				2848AB0A1E9DA039004C6A66 /* Logger.swift in Sources */,
 				420F3CAA1EA06B1B00BAA0A4 /* Number+CurrencyFormatter.swift in Sources */,
 				425DCD171EB43DE200A0ED26 /* FileHelper.swift in Sources */,
@@ -735,14 +761,20 @@
 				28E703A31EBAAD23002BEDFC /* LocationHelper.swift in Sources */,
 				28E703B51EBADFE3002BEDFC /* NetworkHelper+URLSessionDataDelegate.swift in Sources */,
 				42D342641EB4A66300064B1C /* TextHelper.swift in Sources */,
+				28451A151EBC3E7800793441 /* NetworkRequestType.swift in Sources */,
+				28451A191EBC463300793441 /* NetworkTask.swift in Sources */,
 				28E703A51EBAAE68002BEDFC /* LocationHelper+LocationManagerDelegate.swift in Sources */,
 				42622E8D1EA1D59A00E5D5E7 /* String+Localizer.swift in Sources */,
 				28E703B91EBAE017002BEDFC /* NetworkHelper+URLSessionDownloadDelegate.swift in Sources */,
 				42F30E431E9E412900AC0249 /* AppInfoAccessor.swift in Sources */,
+				28E703C61EBC3103002BEDFC /* NetworkRequestHeader.swift in Sources */,
 				28CC3FE21EB812DB00C632A5 /* CoreDataHelper.swift in Sources */,
 				28525CB41EAD7C20006F6FDE /* PathHelper.swift in Sources */,
+				28E703C01EBBF237002BEDFC /* NetworkHelperDelegate.swift in Sources */,
 				42D3427A1EB54E7E00064B1C /* JSONPath+Parser.swift in Sources */,
+				28451A131EBC3D0400793441 /* NetworkHelperDelegate+Optional.swift in Sources */,
 				28E703A71EBAAF99002BEDFC /* LocationHelperDelegate.swift in Sources */,
+				28E703C41EBC30EC002BEDFC /* NetworkResponseHeader.swift in Sources */,
 				420F3CAD1EA0721800BAA0A4 /* Number+LongNumberFormatter.swift in Sources */,
 				42F30E441E9E412900AC0249 /* VersionHelper.swift in Sources */,
 				281881D61EA86AB800E8C85E /* String+Helper.swift in Sources */,

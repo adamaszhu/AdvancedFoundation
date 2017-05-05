@@ -4,8 +4,43 @@
  * - version: 1.0.0
  * - date: 04/05/2017
  */
-public class NetworkHelper  {
+public class NetworkHelper {
     
+    /**
+     * System document directory. Which is used to store downloaded files.
+     */
+    private let documentDirectory = "Documents/"
+    
+    /**
+     * The delegate of the NetworkHelper.
+     */
+    public var networkHelperDelegate: NetworkHelperDelegate?
+    
+    
+        /**
+         * The task list.
+         */
+        private var tasks: Array<NetworkHelperTask>
+    //
+    //    /**
+    //     * The session connecting to the network.
+    //     */
+    //    fileprivate var normalSession: Foundation.URLSession
+    //
+    //    /**
+    //     * The session used to download or upload in background mode.
+    //     */
+    //    fileprivate var backgroundSession: Foundation.URLSession
+    //
+    //    /**
+    //     * The cache used in the app.
+    //     */
+    //    fileprivate var cache: URLCache
+    //
+    //    /**
+    //     * Move the downloaded file.
+    //     */
+    //    fileprivate var fileHelper: FileHelper
     
     /**
      * Whether the network is available or not. This method is referenced from http://stackoverflow.com/questions/39558868/check-internet-connection-ios-10
@@ -43,59 +78,8 @@ public class NetworkHelper  {
     //    fileprivate static let TaskTypeError = "The task type has not been supported yet."
     //    fileprivate static let FileMoveError = "The downloaded file cannot be moved to the temp directory."
     //
-    //    /**
-    //     * System document directory.
-    //     */
-    //    fileprivate static let DocumentFolder = "Documents/"
-    //
-    //    /**
-    //     * HTTP methods.
-    //     */
-    //    fileprivate static let PostMethod = "POST"
-    //    fileprivate static let GetMethod = "GET"
-    //    fileprivate static let DeleteMethod = "DELETE"
-    //    fileprivate static let PutMethod = "PUT"
-    //
-    //    /**
-    //     * HTTP headers.
-    //     */
-    //    fileprivate static let ContentTypeHeader = "Content-Type"
-    //    fileprivate static let ContentLengthHeader = "Content-Length"
-    //    fileprivate static let LastModifiedHeader = "Last-Modified"
-    //    fileprivate static let ETagHeader = "ETag"
-    //    fileprivate static let IfModifiedSinceHeader = "If-Modified-Since"
-    //    fileprivate static let IfNoneMatchHeader = "If-None-Match"
-    //
-    //
-    //    /**
-    //     * The delegate of the NetworkHelper.
-    //     */
-    //    open var networkHelperDelegate: NetworkHelperDelegate?
-    //
-    //    /**
-    //     * The task list.
-    //     */
-    //    fileprivate var networkHelperTaskList: Array<NetworkHelperTask>
-    //
-    //    /**
-    //     * The session connecting to the network.
-    //     */
-    //    fileprivate var normalSession: Foundation.URLSession
-    //
-    //    /**
-    //     * The session used to download or upload in background mode.
-    //     */
-    //    fileprivate var backgroundSession: Foundation.URLSession
-    //
-    //    /**
-    //     * The cache used in the app.
-    //     */
-    //    fileprivate var cache: URLCache
-    //
-    //    /**
-    //     * Move the downloaded file.
-    //     */
-    //    fileprivate var fileHelper: FileHelper
+    
+
     //
     //    /**
     //     * Initialize the object.
