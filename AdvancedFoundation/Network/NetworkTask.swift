@@ -15,45 +15,37 @@ class NetworkTask {
      * The task type of the task.
      */
     var type: NetworkHelperTaskType {
-        /**
-         * - version: 0.0.1
-         * - date: 09/06/2016
-         */
-        get {
-            if task.isKind(of: URLSessionDownloadTask.self) {
-                return NetworkHelperTaskType.download
-            } else if task.isKind(of: URLSessionUploadTask.self) {
-                return NetworkHelperTaskType.upload
-            } else if task.isKind(of: URLSessionDataTask.self) {
-                return NetworkHelperTaskType.data
-            } else {
-                return NetworkHelperTaskType.unknown
-            }
+        if task is URLSessionDownloadTask {
+            return .download
+        } else if task is URLSessionUploadTask {
+            return .upload
+        } else if task is URLSessionStreamTask {
+            return .stream
+        } else {
+            return .data
         }
     }
     
     /**
      * The id of the task.
      */
-    fileprivate (set) var identifier: String
+    private (set) var identifier: String
     
     /**
      * The task.
      */
-    fileprivate (set) var task: URLSessionTask
-    
+    private (set) var task: URLSessionTask
+
     /**
      * Initialize the object.
-     * - version: 0.0.1
-     * - date: 09/06/2016
      * - parameter task: The task object.
      */
     init(withTask task: URLSessionTask) {
         self.task = task
-        identifier = IDGenerator.sharedGenerator.generateID()
+        identifier = IDGenerator.standard.generateID()
         cache = NSMutableData()
-        super.init()
     }
+    
 }
 
 import Foundation

@@ -9,29 +9,29 @@ public extension NetworkHelperDelegate {
     /**
      * NetworkHelperDelegate.
      */
-    func networkHelperShouldReceiveData(_ networkHelper: NetworkHelper, withIdentity identity: String) -> Bool {
+    func networkHelperShouldReceiveData(_ networkHelper: NetworkHelper, withIdentifier identifier: String) -> Bool {
         return true
     }
     
     /**
      * NetworkHelperDelegate.
      */
-    func networkHelper(_ networkHelper: NetworkHelper, withIdentity identity: String, didReceiveData data: Data) { }
+    func networkHelper(_ networkHelper: NetworkHelper, withIdentifier identifier: String, didReceiveData data: Data) { }
     
     /**
      * NetworkHelperDelegate.
      */
-    func networkHelper(_ networkHelper: NetworkHelper, withIdentity identity: String, didDownloadToURL urlString: String) { }
+    func networkHelper(_ networkHelper: NetworkHelper, withIdentifier identifier: String, didDownloadToURL urlString: String) { }
     
     /**
      * NetworkHelperDelegate.
      */
-    func networkHelper(_ networkHelper: NetworkHelper, withIdentity identity: String, didReceiveResponse responseHeader: NetworkResponseHeader) { }
+    func networkHelper(_ networkHelper: NetworkHelper, withIdentifier identifier: String, didReceiveResponse responseHeader: NetworkResponseHeader, withStatusCode statusCode: Int) { }
     
     /**
      * NetworkHelperDelegate.
      */
-    func networkHelper(_ networkHelper: NetworkHelper, withIdentity identity: String, didDownloadPercentage percentage: Double) { }
+    func networkHelper(_ networkHelper: NetworkHelper, withIdentifier identifier: String, didDownloadPercentage percentage: Double) { }
     
 }
 

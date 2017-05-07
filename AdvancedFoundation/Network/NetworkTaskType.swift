@@ -9,5 +9,6 @@ enum NetworkHelperTaskType {
     case data
     case download
     case upload
+    case stream
     
 }

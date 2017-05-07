@@ -4,7 +4,13 @@
  * - version: 1.0.0
  * - date: 04/05/2017
  */
-public class NetworkHelper {
+public class NetworkHelper: NSObject {
+    
+    /**
+     * System error.
+     */
+    private let urlError = "The url address is invalid."
+    private let taskError = "The task doesn't exist."
     
     /**
      * System document directory. Which is used to store downloaded files.
@@ -16,31 +22,25 @@ public class NetworkHelper {
      */
     public var networkHelperDelegate: NetworkHelperDelegate?
     
+    /**
+     * The task list.
+     */
+    private var tasks: Array<NetworkTask>
     
-        /**
-         * The task list.
-         */
-        private var tasks: Array<NetworkHelperTask>
-    //
-    //    /**
-    //     * The session connecting to the network.
-    //     */
-    //    fileprivate var normalSession: Foundation.URLSession
-    //
-    //    /**
-    //     * The session used to download or upload in background mode.
-    //     */
-    //    fileprivate var backgroundSession: Foundation.URLSession
-    //
-    //    /**
-    //     * The cache used in the app.
-    //     */
-    //    fileprivate var cache: URLCache
-    //
-    //    /**
-    //     * Move the downloaded file.
-    //     */
-    //    fileprivate var fileHelper: FileHelper
+    /**
+     * The session connecting to the network.
+     */
+    private var normalSession: URLSession
+    
+    /**
+     * The session used to download or upload in background mode.
+     */
+    private var backgroundSession: URLSession
+    
+    /**
+     * The cache used in the app.
+     */
+    private var cache: URLCache
     
     /**
      * Whether the network is available or not. This method is referenced from http://stackoverflow.com/questions/39558868/check-internet-connection-ios-10
@@ -63,6 +63,121 @@ public class NetworkHelper {
         return (isReachable && !needsConnection)
     }
     
+    /**
+     * Initialize the object.
+     * - parameter identifier: The identifier used to identify the URL session running in the background.
+     */
+    public init(withIdentifier identifier: String) {
+        tasks = []
+        cache = URLCache.shared
+        normalSession = URLSession()
+        backgroundSession = URLSession()
+        super.init()
+        var configuration = URLSessionConfiguration.default
+        normalSession = URLSession(configuration: configuration, delegate: self, delegateQueue: nil)
+        configuration = URLSessionConfiguration.background(withIdentifier: identifier)
+        configuration.sessionSendsLaunchEvents = true
+        configuration.isDiscretionary = true
+        backgroundSession = URLSession(configuration: configuration, delegate: self, delegateQueue: nil)
+    }
+    
+    /**
+     * Reset the internet, which will cancel all the current internet connections.
+     */
+    public func reset() {
+        for task in tasks {
+            task.task.cancel()
+        }
+        tasks.removeAll()
+    }
+    
+    /**
+     * Clear all cache data.
+     */
+    public func clearCache() {
+        cache.removeAllCachedResponses()
+    }
+    
+    /**
+     * Clear the cache for a specific request.
+     * - parameter urlString: The address of the destination.
+     */
+    public func clearCache(forURL urlString: String) {
+        guard let parsedURLString = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
+            Logger.standard.logError(urlError, withDetail: urlString)
+            return
+        }
+        guard let url = URL(string: parsedURLString) else {
+            Logger.standard.logError(urlError, withDetail: urlString)
+            return
+        }
+        let request = URLRequest(url: url)
+        cache.removeCachedResponse(for: request)
+    }
+    
+    /**
+     * Create a new request.
+     * - parameter url: The url address.
+     * - parameter method: The method of the request.
+     * - parameter header: The HTTP header.
+     * - returns: The request.
+     */
+    private func createRequest(withURL urlString: String, withHeader header: NetworkRequestHeader? = nil, withMethod method: NetworkRequestType) -> URLRequest? {
+        guard let parsedURLString = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
+            Logger.standard.logError(urlError, withDetail: urlString)
+            return nil
+        }
+        guard let url = URL(string: parsedURLString) else {
+            Logger.standard.logError(urlError, withDetail: urlString)
+            return nil
+        }
+        var header = header ?? NetworkRequestHeader()
+        var request = URLRequest(url: url)
+        if !NetworkHelper.isNetworkAvailable {
+            // COMMENT: Support offline mode.
+            request.cachePolicy = URLRequest.CachePolicy.returnCacheDataElseLoad
+        }
+        // COMMENT: Read cache related information and put it into the header
+        let cachedResponse = cache.cachedResponse(for: request)
+        if cachedResponse != nil {
+            let networkResponse = NetworkResponseHeader.parseResponse(cachedResponse!.response)
+            header.ifModifiedSince = networkResponse?.lastModified
+            header.ifNoneMatch = networkResponse?.eTag
+        }
+        request.allHTTPHeaderFields = header.convertToDictionary()
+        request.httpMethod = method.rawValue
+        return request
+    }
+    
+    /**
+     * Get the identifier of a task.
+     * - parameter sessionTask: The task.
+     * - returns: The task. Nil would be returned if no task is found, which shouldn't happen.
+     */
+    private func findTask(_ sessionTask: URLSessionTask) -> NetworkTask? {
+        for task in tasks {
+            if task.task === sessionTask {
+                return task
+            }
+        }
+        Logger.standard.logError(taskError, withDetail: sessionTask.originalRequest?.url?.absoluteString)
+        return nil
+    }
+    
+        /**
+         * Remove a task from the task stack.
+         * - parameter task: The task.
+         */
+        private func removeTask(_ task: NetworkTask) {
+            task.task.cancel()
+            guard let index = tasks.index(of: task) else {
+                Logger.standard.logError(taskError, withDetail: task.task.originalRequest?.url?.absoluteString)
+                return
+            }
+            tasks.remove(at: index)
+        }
+    
+    
     //    /**
     //     * User error.
     //     */
@@ -70,37 +185,11 @@ public class NetworkHelper {
     //    fileprivate static let ServerError = "ServerError"
     //    fileprivate static let AppError = "AppError"
     //
-    //    /**
-    //     * System error.
-    //     */
-    //    fileprivate static let APIAddressError = "The API address is invalid."
     //    fileprivate static let TaskExistanceError = "The task doesn't exist."
     //    fileprivate static let TaskTypeError = "The task type has not been supported yet."
     //    fileprivate static let FileMoveError = "The downloaded file cannot be moved to the temp directory."
     //
     
-
-    //
-    //    /**
-    //     * Initialize the object.
-    //     * - version: 0.1.6
-    //     * - date: 08/09/2016
-    //     * - parameter identifier: The identifier used to identify the URL session running in the background.
-    //     */
-    //    public init(withIdentifier identifier: String) {
-    //        networkHelperTaskList = []
-    //        fileHelper = FileHelper()
-    //        cache = URLCache.shared
-    //        normalSession = Foundation.URLSession()
-    //        backgroundSession = Foundation.URLSession()
-    //        super.init()
-    //        var configuration = URLSessionConfiguration.default
-    //        normalSession = Foundation.URLSession(configuration: configuration, delegate: self, delegateQueue: nil)
-    //        configuration = URLSessionConfiguration.background(withIdentifier: identifier)
-    //        configuration.sessionSendsLaunchEvents = true
-    //        configuration.isDiscretionary = true
-    //        backgroundSession = Foundation.URLSession(configuration: configuration, delegate: self, delegateQueue: nil)
-    //    }
     //
     //    /**
     //     * Send a asychoronous post request.
@@ -211,92 +300,8 @@ public class NetworkHelper {
     //        return sendRequest(request, asType: NetworkHelperTaskType.data)
     //    }
     //
-    //    /**
-    //     * Reset the internet, which will cancel all the current internet connections.
-    //     * - version: 0.1.7
-    //     * - date: 07/10/2016
-    //     */
-    //    open func reset() {
-    //        for networkHelperTask in networkHelperTaskList {
-    //            networkHelperTask.task.cancel()
-    //        }
-    //        networkHelperTaskList.removeAll()
-    //    }
     //
-    //    /**
-    //     * Clear the cache for a specific request.
-    //     * - version: 0.1.7
-    //     * - date: 07/10/2016
-    //     * - parameter path: The address of the destination.
-    //     */
-    //    open func clearCache(forRequest path: String) {
-    //        let parsedPath = path.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
-    //        if parsedPath == nil {
-    //            logError(NetworkHelper.APIAddressError, withDetail: path)
-    //            return
-    //        }
-    //        let url = URL(string: parsedPath!)
-    //        if url == nil {
-    //            logError(NetworkHelper.APIAddressError, withDetail: path)
-    //            return
-    //        }
-    //        let request = NSMutableURLRequest(url: url!)
-    //        cache.removeCachedResponse(for: request)
-    //    }
     //
-    //    /**
-    //     * Clear all cache data.
-    //     * - version: 0.1.7
-    //     * - date: 07/10/2016
-    //     */
-    //    open func clearCache() {
-    //        cache.removeAllCachedResponses()
-    //    }
-    //
-    //    /**
-    //     * Create a new request.
-    //     * - version: 0.1.7
-    //     * - date: 07/10/2016
-    //     * - parameter path: The url address.
-    //     * - parameter method: The method of the request.
-    //     * - parameter headerList: The header list.
-    //     * - returns: The request.
-    //     */
-    //    fileprivate func createRequest(withPath path: String, withHeaderList headerList: Dictionary<String, String>? = nil, withMethod method: String) -> NSMutableURLRequest? {
-    //        let parsedPath = path.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
-    //        if parsedPath == nil {
-    //            logError(NetworkHelper.APIAddressError, withDetail: path)
-    //            return nil
-    //        }
-    //        let url = URL(string: parsedPath!)
-    //        if url == nil {
-    //            logError(NetworkHelper.APIAddressError, withDetail: path)
-    //            return nil
-    //        }
-    //        let request = NSMutableURLRequest(url: url!)
-    //        if !NetworkHelper.isNetworkAvailable {
-    //            // COMMENT: Support offline mode.
-    //            request.cachePolicy = NSURLRequest.CachePolicy.returnCacheDataElseLoad
-    //        }
-    //        request.httpMethod = method
-    //        if headerList != nil {
-    //            for header in headerList!.keys {
-    //                request.addValue(headerList![header]!, forHTTPHeaderField: header)
-    //            }
-    //        }
-    //        // COMMENT: Read cache related information and put it into the header
-    //        let cachedResponse = cache.cachedResponse(for: request)
-    //        let httpResponse = cachedResponse?.response as? HTTPURLResponse
-    //        let cacheDate = httpResponse?.allHeaderFields[NetworkHelper.LastModifiedHeader] as? String
-    //        let cacheETag = httpResponse?.allHeaderFields[NetworkHelper.ETagHeader] as? String
-    //        if (cacheDate != nil) {
-    //            request.addValue(cacheDate!, forHTTPHeaderField: NetworkHelper.IfModifiedSinceHeader)
-    //        }
-    //        if (cacheETag != nil) {
-    //            request.addValue(cacheETag!, forHTTPHeaderField: NetworkHelper.IfNoneMatchHeader)
-    //        }
-    //        return request
-    //    }
     //
     //    /**
     //     * Send a request.
@@ -330,22 +335,6 @@ public class NetworkHelper {
     //    }
     //
     //    /**
-    //     * Get the identifier of a task.
-    //     * - version: 0.1.7
-    //     * - date: 07/10/2016
-    //     * - parameter sessionTask: The task.
-    //     * - returns: The task.
-    //     */
-    //    fileprivate func findTask(_ sessionTask: URLSessionTask) -> NetworkHelperTask? {
-    //        for networkHelperTask in networkHelperTaskList {
-    //            if networkHelperTask.task === sessionTask {
-    //                return networkHelperTask
-    //            }
-    //        }
-    //        return nil
-    //    }
-    //
-    //    /**
     //     * Report an error back to the main thread.
     //     * - version: 0.1.7
     //     * - date: 07/10/2016
@@ -355,22 +344,6 @@ public class NetworkHelper {
     //    fileprivate func dispatchError(forTask task: NetworkHelperTask, withMessage message: String) {
     //        DispatchQueue.main.async{
     //            self.networkHelperDelegate?.networkHelper(self, withIdentifier: task.identifier, didCatchError: message.localizeInBundle(forClass: self.classForCoder))
-    //        }
-    //    }
-    //
-    //    /**
-    //     * Remove a task from the task stack.
-    //     * - version: 0.1.7
-    //     * - date: 07/10/2016
-    //     * - parameter task: The task.
-    //     */
-    //    fileprivate func removeTask(_ task: NetworkHelperTask) {
-    //        task.task.cancel()
-    //        let index = networkHelperTaskList.index(of: task)
-    //        if index != nil {
-    //            networkHelperTaskList.remove(at: index!)
-    //        } else {
-    //            logError(NetworkHelper.AppError)
     //        }
     //    }
     //

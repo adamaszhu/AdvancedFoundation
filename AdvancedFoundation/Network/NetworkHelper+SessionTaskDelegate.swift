@@ -1,15 +1,14 @@
-////
-////  NetworkHelper+URLSessionTaskDelegate.swift
-////  AdvancedFoundation
-////
-////  Created by Adamas Zhu on 4/5/17.
-////  Copyright © 2017 Adamas. All rights reserved.
-////
-//extension NetworkHelper: URLSessionTaskDelegate {
-//    
-//}
-//
-//import Foundation
+/**
+ * NetworkHelper+SessionTaskDelegate delegates the action for a task.
+ * - author: Adamas
+ * - version: 1.0.0
+ * - date: 06/05/2017
+ */
+extension NetworkHelper: URLSessionTaskDelegate {
+    
+}
+
+import Foundation
 
 
 
