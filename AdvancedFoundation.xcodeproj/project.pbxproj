@@ -66,6 +66,7 @@
 		42C13A711EBE9F41000D2E50 /* NetworkResponseHeader+Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C13A701EBE9F41000D2E50 /* NetworkResponseHeader+Parser.swift */; };
 		42C13A731EBEA04F000D2E50 /* NetworkRequestHeader+Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C13A721EBEA04F000D2E50 /* NetworkRequestHeader+Parser.swift */; };
 		42C13A751EBEC130000D2E50 /* NetworkTask+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C13A741EBEC130000D2E50 /* NetworkTask+Equatable.swift */; };
+		42C13A771EBF527E000D2E50 /* WWWForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C13A761EBF527E000D2E50 /* WWWForm.swift */; };
 		42D3424F1EB4792E00064B1C /* ResourceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D3424E1EB4792E00064B1C /* ResourceHelper.swift */; };
 		42D342501EB48E8E00064B1C /* FileInfoAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DAF4E41EA3A0C300DE6B70 /* FileInfoAccessor.swift */; };
 		42D342521EB48FBA00064B1C /* TextResourceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D342511EB48FBA00064B1C /* TextResourceHelper.swift */; };
@@ -174,6 +175,7 @@
 		42C13A701EBE9F41000D2E50 /* NetworkResponseHeader+Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NetworkResponseHeader+Parser.swift"; sourceTree = "<group>"; };
 		42C13A721EBEA04F000D2E50 /* NetworkRequestHeader+Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NetworkRequestHeader+Parser.swift"; sourceTree = "<group>"; };
 		42C13A741EBEC130000D2E50 /* NetworkTask+Equatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NetworkTask+Equatable.swift"; sourceTree = "<group>"; };
+		42C13A761EBF527E000D2E50 /* WWWForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WWWForm.swift; sourceTree = "<group>"; };
 		42D3424E1EB4792E00064B1C /* ResourceHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceHelper.swift; sourceTree = "<group>"; };
 		42D342511EB48FBA00064B1C /* TextResourceHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextResourceHelper.swift; sourceTree = "<group>"; };
 		42D342531EB4968100064B1C /* TextResourceHelperSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextResourceHelperSpecs.swift; sourceTree = "<group>"; };
@@ -354,6 +356,7 @@
 				42C13A741EBEC130000D2E50 /* NetworkTask+Equatable.swift */,
 				28451A161EBC45FA00793441 /* NetworkTaskType.swift */,
 				28E703B01EBADF23002BEDFC /* NetworkHelper.strings */,
+				42C13A761EBF527E000D2E50 /* WWWForm.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -763,6 +766,7 @@
 				42C13A731EBEA04F000D2E50 /* NetworkRequestHeader+Parser.swift in Sources */,
 				42C13A711EBE9F41000D2E50 /* NetworkResponseHeader+Parser.swift in Sources */,
 				28E703BE1EBBF1BA002BEDFC /* NetworkBodyType.swift in Sources */,
+				42C13A771EBF527E000D2E50 /* WWWForm.swift in Sources */,
 				28451A171EBC45FA00793441 /* NetworkTaskType.swift in Sources */,
 				2848AB0A1E9DA039004C6A66 /* Logger.swift in Sources */,
 				420F3CAA1EA06B1B00BAA0A4 /* Number+CurrencyFormatter.swift in Sources */,

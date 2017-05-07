@@ -11,6 +11,7 @@ public class NetworkHelper: NSObject {
      */
     private let urlError = "The url address is invalid."
     private let taskError = "The task doesn't exist."
+    private let taskTypeError = "The task type hasn't been supported yet."
     
     /**
      * System document directory. Which is used to store downloaded files.
@@ -82,6 +83,50 @@ public class NetworkHelper: NSObject {
     }
     
     /**
+     * Send a asychoronous post request.
+     * - parameter urlString: The url of the destination.
+     * - parameter header: The header of the post.
+     * - parameter content: The content of the request.
+     * - parameter type: The type of the request.
+     * - returns: The identifier of the task.
+     */
+    public func post(toURL urlString: String, withHeader header: NetworkRequestHeader? = nil, withContent content: String, asType type: NetworkBodyType) -> String? {
+        var header = header
+        header?.contentType = type.rawValue
+        guard var request = createRequest(withURL: urlString, withHeader: header, withMethod: .post) else {
+            // COMMENT: The error has been logged.
+            return nil
+        }
+        request.httpBody = content.data(using: .utf8)
+        return sendRequest(request, asType: .data)
+    }
+    
+    
+        /**
+         * Send a get request.
+         * - parameter urlString: The url of the destination.
+         * - parameter header: The header of the get.
+         * - parameter isDownloadTask: Whether current task is a download task or not.
+         * - returns: The task identifier.
+         */
+        public func get(fromURL urlString: String, withHeader header: NetworkRequestHeader? = nil, asDownloadTask isDownloadTask: Bool = false) -> String? {
+            let request = createRequest(withURL: urlString, withHeader: header, withMethod: .get)
+            let type = isDownloadTask ? NetworkTaskType.download : NetworkTaskType.data
+            return sendRequest(request, asType: type)
+        }
+    
+        /**
+         * Send a delete request.
+         * - parameter urlString: The address of the destination.
+         * - parameter header: The header of the delete.
+         * - returns: The identifier of the new task.
+         */
+        public func deleteResource(atURL urlString: String, withHeader header: NetworkRequestHeader? = nil) -> String? {
+            let request = createRequest(withURL: urlString, withHeader: header, withMethod: .delete)
+            return sendRequest(request, asType: .data)
+        }
+    
+    /**
      * Reset the internet, which will cancel all the current internet connections.
      */
     public func reset() {
@@ -150,6 +195,35 @@ public class NetworkHelper: NSObject {
     }
     
     /**
+     * Send a request.
+     * - parameter request: The request to be sent.
+     * - parameter type: The type of the request.
+     * - returns: The identifier of the task.
+     */
+    private func sendRequest(_ request: URLRequest?, asType type: NetworkTaskType) -> String? {
+        guard let request = request else {
+            // COMMENT: The error has been logged while creating the request.
+            return nil
+        }
+        var task: NetworkTask
+        switch type {
+        case .download:
+            task = NetworkTask(withTask: backgroundSession.downloadTask(with: request))
+        case .data:
+            task = NetworkTask(withTask: normalSession.dataTask(with: request))
+        case .upload:
+            let data = request.httpBody ?? Data()
+            task = NetworkTask(withTask: normalSession.uploadTask(with: request, from: data))
+        default:
+            Logger.standard.logError(taskTypeError, withDetail: type)
+            return nil
+        }
+        tasks.append(task)
+        task.task.resume()
+        return task.identifier
+    }
+    
+    /**
      * Get the identifier of a task.
      * - parameter sessionTask: The task.
      * - returns: The task. Nil would be returned if no task is found, which shouldn't happen.
@@ -164,18 +238,31 @@ public class NetworkHelper: NSObject {
         return nil
     }
     
-        /**
-         * Remove a task from the task stack.
-         * - parameter task: The task.
-         */
-        private func removeTask(_ task: NetworkTask) {
-            task.task.cancel()
-            guard let index = tasks.index(of: task) else {
-                Logger.standard.logError(taskError, withDetail: task.task.originalRequest?.url?.absoluteString)
-                return
-            }
-            tasks.remove(at: index)
+    /**
+     * Remove a task from the task stack.
+     * - parameter task: The task.
+     */
+    private func removeTask(_ task: NetworkTask) {
+        task.task.cancel()
+        guard let index = tasks.index(of: task) else {
+            Logger.standard.logError(taskError, withDetail: task.task.originalRequest?.url?.absoluteString)
+            return
         }
+        tasks.remove(at: index)
+    }
+    
+        /**
+         * Report an error back to the main thread.
+         * - parameter task: The task.
+         * - parameter message: The error message.
+         */
+        private func dispatchError(forTask task: NetworkTask, withMessage message: String) {
+            let localizedMessage = message.localizeWithinFramework(forType: NetworkHelper.self)
+            DispatchQueue.main.async{
+                self.networkHelperDelegate?.networkHelper(self, withIdentifier: task.identifier, didCatchError: localizedMessage)
+            }
+        }
+    
     
     
     //    /**
@@ -191,22 +278,6 @@ public class NetworkHelper: NSObject {
     //
     
     //
-    //    /**
-    //     * Send a asychoronous post request.
-    //     * - version: 0.1.7
-    //     * - date: 07/10/2016
-    //     * - parameter path: The url of the destination.
-    //     * - parameter headerList: The header of the post.
-    //     * - parameter type: The type of the request.
-    //     * - parameter content: The content of the request.
-    //     * - returns: The identifier of the task.
-    //     */
-    //    open func postRawData(toURL path: String, withHeaderList headerList: Dictionary<String, String>? = nil, withContent content: String, asType type: NetworkBodyType = NetworkBodyType.Text) -> String? {
-    //        let request = createRequest(withPath: path, withHeaderList: headerList, withMethod: NetworkHelper.PostMethod)
-    //        request?.addValue(type.rawValue, forHTTPHeaderField: NetworkHelper.ContentTypeHeader)
-    //        request?.httpBody = content.data(using: String.Encoding.utf8)
-    //        return sendRequest(request, asType: NetworkHelperTaskType.data)
-    //    }
     //
     //    /**
     //     * Send a request as a form data.
@@ -255,97 +326,10 @@ public class NetworkHelper: NSObject {
     //        return sendRequest(request, asType: NetworkHelperTaskType.upload)
     //    }
     //
-    //    /**
-    //     * Send a get request.
-    //     * - version: 0.1.7
-    //     * - date: 07/10/2016
-    //     * - parameter path: The url of the destination.
-    //     * - parameter headerList: The header of the get.
-    //     * - parameter download: Whether current task is a download task or not.
-    //     * - returns: The task identifier.
-    //     */
-    //    open func getResource(fromURL path: String, withHeaderList headerList: Dictionary<String, String>? = nil, asDownloadTask download: Bool = false) -> String? {
-    //        let request = createRequest(withPath: path, withHeaderList: headerList, withMethod: NetworkHelper.GetMethod)
-    //        let type = download ? NetworkHelperTaskType.download : NetworkHelperTaskType.data
-    //        return sendRequest(request, asType: type)
-    //    }
     //
-    //    /**
-    //     * Send a asychoronous put request.
-    //     * - version: 0.1.7
-    //     * - date: 07/10/2016
-    //     * - parameter path: The url of the destination.
-    //     * - parameter headerList: The header of the post.
-    //     * - parameter type: The type of the request.
-    //     * - parameter content: The content of the request.
-    //     * - returns: The identifier of the new task.
-    //     */
-    //    open func putRawData(toURL path: String, withHeaderList headerList: Dictionary<String, String>? = nil, withContent content: String, asType type: NetworkBodyType = NetworkBodyType.Text) -> String? {
-    //        let request = createRequest(withPath: path, withHeaderList: headerList, withMethod: NetworkHelper.PutMethod)
-    //        request?.addValue(type.rawValue, forHTTPHeaderField: NetworkHelper.ContentTypeHeader)
-    //        request?.httpBody = content.data(using: String.Encoding.utf8)
-    //        return sendRequest(request, asType: NetworkHelperTaskType.data)
-    //    }
-    //
-    //    /**
-    //     * Send an asynchronous delete request.
-    //     * - version: 0.1.7
-    //     * - date: 07/10/2016
-    //     * - parameter path: The address of the destination.
-    //     * - parameter headerList: The header of the delete.
-    //     * - returns: The identifier of the new task.
-    //     */
-    //    open func deleteResource(atURL path: String, withHeaderList headerList: Dictionary<String, String>? = nil) -> String? {
-    //        let request = createRequest(withPath: path, withHeaderList: headerList, withMethod: NetworkHelper.DeleteMethod)
-    //        return sendRequest(request, asType: NetworkHelperTaskType.data)
-    //    }
+
     //
     //
-    //
-    //
-    //    /**
-    //     * Send a request.
-    //     * - version: 0.1.7
-    //     * - date: 07/10/2016
-    //     * - parameter request: The request to be sent.
-    //     * - parameter type: The type of the request.
-    //     * - returns: The identifier of the task.
-    //     */
-    //    fileprivate func sendRequest(_ request: URLRequest?, asType type: NetworkHelperTaskType) -> String? {
-    //        if request == nil {
-    //            // COMMENT: The error has been logged while creating the request.
-    //            return nil
-    //        }
-    //        var networkHelperTask: NetworkHelperTask
-    //        switch type {
-    //        case .download:
-    //            networkHelperTask = NetworkHelperTask(withTask: backgroundSession.downloadTask(with: request!))
-    //        case .data:
-    //            networkHelperTask = NetworkHelperTask(withTask: normalSession.dataTask(with: request!))
-    //        case .upload:
-    //            let data = request!.httpBody == nil ? Data() : request!.httpBody!
-    //            networkHelperTask = NetworkHelperTask(withTask: normalSession.uploadTask(with: request!, from: data))
-    //        default:
-    //            logError(NetworkHelper.TaskTypeError)
-    //            return nil
-    //        }
-    //        networkHelperTaskList.append(networkHelperTask)
-    //        networkHelperTask.task.resume()
-    //        return networkHelperTask.identifier
-    //    }
-    //
-    //    /**
-    //     * Report an error back to the main thread.
-    //     * - version: 0.1.7
-    //     * - date: 07/10/2016
-    //     * - parameter task: The task.
-    //     * - parameter message: The error message.
-    //     */
-    //    fileprivate func dispatchError(forTask task: NetworkHelperTask, withMessage message: String) {
-    //        DispatchQueue.main.async{
-    //            self.networkHelperDelegate?.networkHelper(self, withIdentifier: task.identifier, didCatchError: message.localizeInBundle(forClass: self.classForCoder))
-    //        }
-    //    }
     //
     
 }

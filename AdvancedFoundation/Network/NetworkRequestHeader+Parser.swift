@@ -11,6 +11,7 @@ extension NetworkRequestHeader {
      */
     private static let ifModifiedSinceHeader = "If-Modified-Since"
     private static let ifNoneMatchHeader = "If-None-Match"
+    private static let contentTypeHeader = "Content-Type"
     
     /**
      * Convert the header to a dictionary.
@@ -23,6 +24,9 @@ extension NetworkRequestHeader {
         }
         if ifNoneMatch != nil {
             dictionary[NetworkRequestHeader.ifNoneMatchHeader] = ifNoneMatch!
+        }
+        if contentType != nil {
+            dictionary[NetworkRequestHeader.contentTypeHeader] = contentType!
         }
         return dictionary
     }

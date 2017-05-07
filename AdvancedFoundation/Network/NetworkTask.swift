@@ -14,7 +14,7 @@ class NetworkTask {
     /**
      * The task type of the task.
      */
-    var type: NetworkHelperTaskType {
+    var type: NetworkTaskType {
         if task is URLSessionDownloadTask {
             return .download
         } else if task is URLSessionUploadTask {
