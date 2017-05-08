@@ -6,6 +6,10 @@
  */
 public protocol WWWFormFieldParsable {
     
+    /**
+     * Convert the field to a data object.
+     * - returns: The data object.
+     */
     func convertToData() -> Data
     
 }
