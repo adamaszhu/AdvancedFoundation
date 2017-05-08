@@ -19,7 +19,7 @@ public extension NSNumber {
      * - returns: The formatted string.
      */
     public func convertToPercentageString(withPrecision precision: Int? = nil) -> String? {
-        if (precision != nil) && (precision! < 0) {
+        guard !((precision != nil) && (precision! < 0)) else {
             Logger.standard.logError(NSNumber.precisionError, withDetail: precision)
             return nil
         }
@@ -36,7 +36,7 @@ public extension NSNumber {
      * - returns: The string.
      */
     public static func renderPercentageString(_ percentageString: String) -> NSNumber? {
-        if !percentageString.contains("%") {
+        guard percentageString.contains("%") else {
             Logger.standard.logError(NSNumber.formatError, withDetail: percentageString)
             return nil
         }
