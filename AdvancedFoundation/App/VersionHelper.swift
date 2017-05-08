@@ -63,10 +63,10 @@ public class VersionHelper {
             return nil
         }
         let versionKey = String(format: versionKeyPattern, bundleName)
-        guard let storedAppVersion = userDefaults.string(forKey: versionKey) else {
+        guard let storedVersion = userDefaults.string(forKey: versionKey) else {
             return false
         }
-        return storedAppVersion == version
+        return storedVersion == version
     }
     
     /**
@@ -120,23 +120,24 @@ public class VersionHelper {
      * - returns: 1 if the first version is larger. 0 if versions equals to each other. -1 if the first version is smaller. nil if one of the versions is not correct. Nil will be returned if one of the versions is not formatted.
      */
     private func compareVersion(_ firstVersion: String, toVersion secondVersion: String) -> Int? {
-        var firstVersionComponents = parseVersion(firstVersion)
-        var secondVersionComponents = parseVersion(secondVersion)
-        if (firstVersionComponents == nil) || (secondVersionComponents == nil) {
+        guard var firstVersionComponents = parseVersion(firstVersion) else {
+            return nil
+        }
+        guard var secondVersionComponents = parseVersion(secondVersion) else {
             return nil
         }
         // COMMENT: Make the component amount of two list to be equal.
-        while firstVersionComponents!.count > secondVersionComponents!.count {
-            secondVersionComponents!.append(0)
+        while firstVersionComponents.count > secondVersionComponents.count {
+            secondVersionComponents.append(0)
         }
-        while firstVersionComponents!.count < secondVersionComponents!.count {
-            firstVersionComponents!.append(0)
+        while firstVersionComponents.count < secondVersionComponents.count {
+            firstVersionComponents.append(0)
         }
-        for index in 0 ..< firstVersionComponents!.count {
-            if firstVersionComponents![index] < secondVersionComponents![index] {
+        for index in 0 ..< firstVersionComponents.count {
+            if firstVersionComponents[index] < secondVersionComponents[index] {
                 return -1
             }
-            if firstVersionComponents![index] > secondVersionComponents![index] {
+            if firstVersionComponents[index] > secondVersionComponents[index] {
                 return 1
             }
         }
