@@ -19,7 +19,7 @@ public extension NSNumber {
      * - returns: The formatted string.
      */
     public func convertToDecimalString(withPrecision precision: Int? = nil) -> String? {
-        if (precision != nil) && (precision! < 0) {
+        guard !((precision != nil) && (precision! < 0)) else {
             Logger.standard.logError(NSNumber.precisionError, withDetail: precision)
             return nil
         }
