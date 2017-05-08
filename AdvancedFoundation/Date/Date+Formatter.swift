@@ -77,7 +77,7 @@ public extension Date {
      * - returns: The unit tag.
      */
     private func getTag(forUnit unit: Int, withSingleTag singleTag: String, withDoubleTag doubleTag: String, withAbbreviationTag abbreviationTag: String) -> String {
-        if unit == 0 {
+        guard unit != 0 else {
             return ""
         }
         var unitTag = unit == 1 ? singleTag : doubleTag

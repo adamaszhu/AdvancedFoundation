@@ -14,8 +14,8 @@ public class LocationHelper: CLLocationManager {
     /**
      * Which authorization is
      */
-    public var isAlwaysAuthorizationAuthorized: Bool {
-        switch CLLocationManager.authorizationStatus() {
+    public static var isAlwaysAuthorizationAuthorized: Bool {
+        switch authorizationStatus() {
         case .authorizedAlways:
             return true
         default:
@@ -26,8 +26,8 @@ public class LocationHelper: CLLocationManager {
     /**
      * Whether the when in use authorization is authorized or not.
      */
-    public var isWhenInUseAuthorizationAuthorized: Bool {
-        switch CLLocationManager.authorizationStatus() {
+    public static var isWhenInUseAuthorizationAuthorized: Bool {
+        switch authorizationStatus() {
         case .authorizedWhenInUse:
             return true
         default:
