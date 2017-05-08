@@ -1,4 +1,4 @@
-extension WWWForm: WWWFormParser {
+extension WWWForm {
     
     static let boundary = "----WWWForm"
     
