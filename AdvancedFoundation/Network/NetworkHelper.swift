@@ -101,7 +101,7 @@ public class NetworkHelper: NSObject {
         return sendRequest(request, asType: .data)
     }
     
-    public func postWWWForm(toURL urlString: String, withHeader header: NetworkRequestHeader? = nil, withWWWForm wwwForm: WWWForm) -> String? {
+    public func postWWWForm(toURL urlString: String, withHeader header: NetworkRequestHeader? = nil, withWWWForm wwwForm: FormData) -> String? {
         
         return post(toURL: urlString, withHeader: header, withContent: Data(), asType: .wwwForm)
     }

@@ -1,10 +1,10 @@
 /**
- * WWWFormFileField+Parsable implements how a file field should be convert to a data.
+ * FormDataFileField+Parsable implements how a file field should be convert to a data.
  * - author: Adamas
  * - version: 1.0.0
  * - date: 08/05/2017
  */
-extension WWWFormFileField: WWWFormFieldParsable {
+extension FormDataFileField: FormDataFieldParsable {
     
     /**
      * WWWFormFieldParsable

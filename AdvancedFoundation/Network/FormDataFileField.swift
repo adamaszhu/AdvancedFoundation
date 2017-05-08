@@ -1,10 +1,10 @@
 /**
- * WWWFormFileField contains the information about a file field.
+ * FormDataFileField contains the information about a file field.
  * - author: Adamas
  * - version: 1.0.0
  * - date: 08/05/2017
  */
-public struct WWWFormFileField {
+public struct FormDataFileField {
     
     /**
      * The name of the field.

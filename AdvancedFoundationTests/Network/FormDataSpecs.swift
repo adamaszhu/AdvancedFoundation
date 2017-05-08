@@ -1,11 +1,11 @@
-class WWWFormSpecs: QuickSpec {
+class FormDataSpecs: QuickSpec {
     
     override func spec() {
         describe("calls init(fields)") {
-            let field = WWWFormTextField(name: "Test", value: "Test")
-            let wwwForm = WWWForm(fields: [field])
+            let field = FormDataTextField(name: "Test", value: "Test")
+            let formData = FormData(fields: [field])
             it("returns form with fields") {
-                expect(wwwForm.fields.count) == 1
+                expect(formData.fields.count) == 1
             }
         }
     }

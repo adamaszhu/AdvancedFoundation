@@ -1,10 +1,10 @@
 /**
- * WWWFormTextField+Parsable implements how a text field should be convert to a data.
+ * FormDataTextField+Parsable implements how a text field should be convert to a data.
  * - author: Adamas
  * - version: 1.0.0
  * - date: 08/05/2017
  */
-extension WWWFormTextField: WWWFormFieldParsable {
+extension FormDataTextField: FormDataFieldParsable {
     
     /**
      * WWWFormFieldParsable
