@@ -90,15 +90,20 @@ public class NetworkHelper: NSObject {
      * - parameter type: The type of the request.
      * - returns: The identifier of the task.
      */
-    public func post(toURL urlString: String, withHeader header: NetworkRequestHeader? = nil, withContent content: String, asType type: NetworkBodyType) -> String? {
-        var header = header
-        header?.contentType = type.rawValue
+    public func post(toURL urlString: String, withHeader header: NetworkRequestHeader? = nil, withContent content: Data, asType type: NetworkBodyType) -> String? {
+        var header = header ?? NetworkRequestHeader()
+        header.contentType = type.rawValue
         guard var request = createRequest(withURL: urlString, withHeader: header, withMethod: .post) else {
             // COMMENT: The error has been logged.
             return nil
         }
-        request.httpBody = content.data(using: .utf8)
+        request.httpBody = content
         return sendRequest(request, asType: .data)
+    }
+    
+    public func postWWWForm(toURL urlString: String, withHeader header: NetworkRequestHeader? = nil, withWWWForm wwwForm: WWWForm) -> String? {
+        
+        return post(toURL: urlString, withHeader: header, withContent: Data(), asType: .wwwForm)
     }
     
     
@@ -278,7 +283,6 @@ public class NetworkHelper: NSObject {
     //
     
     //
-    //
     //    /**
     //     * Send a request as a form data.
     //     * - version: 0.1.7
@@ -290,45 +294,17 @@ public class NetworkHelper: NSObject {
     //     */
     //    open func postFormData(toURL path: String, withHeaderList headerList: Dictionary<String, String>? = nil, withValues valueList: Dictionary<String, AnyObject> = [:]) -> String? {
     //        let request = createRequest(withPath: path, withHeaderList: headerList, withMethod: NetworkHelper.PostMethod)
-    //        let boundary = "----NetworkHelper"
+    
     //        let contentType = "multipart/form-data; boundary=" + boundary
     //        request?.addValue(contentType, forHTTPHeaderField: NetworkHelper.ContentTypeHeader)
-    //        // COMMENT: Body
-    //        let body = NSMutableData();
-    //        let seperator = ("--" + boundary + "\r\n").data(using: String.Encoding.utf8)!
-    //        let endSeperator = ("--" + boundary + "--\r\n").data(using: String.Encoding.utf8)!
-    //        for key in valueList.keys {
-    //            body.append(seperator)
-    //            if valueList[key]!.isKind(of: Data) {
-    //                // COMMENT: The value is a file.
-    //                let data = valueList[key]! as! Data
-    //                let fileInfo = FileInfoAccessor(withPath: key)
-    //                let filename = fileInfo.filename == nil ? "" : fileInfo.filename!
-    //                let mimeType = fileInfo.mimeType == nil ? "" : fileInfo.mimeType!
-    //                let field = "Content-Disposition: form-data; name=\"" + filename + "\"; filename=\"" + key + "\"\r\nContent-Type:" + mimeType + "\r\n\r\n"
-    //                body.append(field.data(using: String.Encoding.utf8)!)
-    //                body.append(data)
-    //            } else if valueList[key]!.isKind(of: NSString) {
-    //                // COMMENT: The value is a string.
-    //                let value = valueList[key]! as! String
-    //                let field = "Content-Disposition: form-data; name=\"" + key + "\"\r\n\r\n" + value
-    //                body.append(field.data(using: String.Encoding.utf8)!)
-    //            } else {
-    //                // TODO: Deal with other variable type.
-    //            }
-    //            body.append("\r\n".data(using: String.Encoding.utf8)!)
-    //        }
-    //        body.append(endSeperator)
+    
+    
     //        request?.httpBody = body
     //        // COMMENT: Body length
     //        let bodyLength = String(body.length)
     //        request?.addValue(bodyLength, forHTTPHeaderField: NetworkHelper.ContentLengthHeader)
     //        return sendRequest(request, asType: NetworkHelperTaskType.upload)
     //    }
-    //
-    //
-
-    //
     //
     //
     

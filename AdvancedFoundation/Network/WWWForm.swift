@@ -1,6 +1,6 @@
 public struct WWWForm {
     
-    var fields: Dictionary<String, Any>
+    var fields: Array<WWWFormParser>
     
 }
 
