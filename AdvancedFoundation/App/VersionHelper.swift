@@ -102,14 +102,12 @@ public class VersionHelper {
     private func parseVersion(_ version: String) -> Array<Int>? {
         let versionComponents = version.components(separatedBy: ".")
         var parsedVersionComponents = Array<Int>()
-        var parsedVersionComponent: Int?
         for versionComponent in versionComponents {
-            parsedVersionComponent = Int(versionComponent)
-            if parsedVersionComponent == nil {
+            guard let parsedVersionComponent = Int(versionComponent) else {
                 Logger.standard.logError(versionFormatError, withDetail: version)
                 return nil
             }
-            parsedVersionComponents.append(parsedVersionComponent!)
+            parsedVersionComponents.append(parsedVersionComponent)
         }
         return parsedVersionComponents
     }
