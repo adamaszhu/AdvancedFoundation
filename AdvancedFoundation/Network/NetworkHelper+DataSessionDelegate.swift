@@ -6,61 +6,54 @@
  */
 extension NetworkHelper: URLSessionDataDelegate {
     
-    //    /**
-    //     * - version: 0.1.6
-    //     * - date: 08/09/2016
-    //     */
-    //    open func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
-    //        let networkHelperTask = findTask(dataTask)
-    //        if networkHelperTask == nil {
-    //            logError(NetworkHelper.TaskExistanceError)
-    //            return
-    //        }
-    //        networkHelperTask!.cache.append(data)
-    //    }
+    /**
+     * URLSessionDataDelegate
+     */
+    public func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
+        guard let task = findTask(of: dataTask) else {
+            return
+        }
+        task.cache.append(data)
+    }
     
-    //
-    //    /**
-    //     * - version: 0.1.6
-    //     * - date: 08/09/2016
-    //     */
-    //    open func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive response: URLResponse, completionHandler: @escaping (URLSession.ResponseDisposition) -> Void) {
-    //        let networkHelperTask = findTask(dataTask)
-    //        if networkHelperTask == nil {
-    //            logError(NetworkHelper.TaskExistanceError)
-    //            return
-    //        }
-    //        if !response.isKind(of: HTTPURLResponse.classForCoder()) {
-    //            removeTask(networkHelperTask!)
-    //            logError(NetworkHelper.ServerError)
-    //            dispatchError(forTask: networkHelperTask!, withMessage: NetworkHelper.ServerError)
-    //            return
-    //        }
-    //        let httpResponse = response as! HTTPURLResponse
-    //        if httpResponse.statusCode == 404 {
-    //            removeTask(networkHelperTask!)
-    //            logError(NetworkHelper.ServerError)
-    //            dispatchError(forTask: networkHelperTask!, withMessage: NetworkHelper.ServerError)
-    //            return
-    //        }
-    //        DispatchQueue.main.async{
-    //            var headerFieldList = Dictionary<String, String>()
-    //            for header in httpResponse.allHeaderFields.keys {
-    //                if (header.isKind(of: NSString.self) && httpResponse.allHeaderFields[header]!.isKind(of: NSString)) {
-    //                    headerFieldList.updateValue(httpResponse.allHeaderFields[header] as! String, forKey: header as! String)
-    //                }
-    //            }
-    //            self.networkHelperDelegate?.networkHelper?(self, withIdentifier: networkHelperTask!.identifier, didReceiveResponse: headerFieldList, withStatusCode: httpResponse.statusCode)
-    //        }
-    //        let shouldContinue = self.networkHelperDelegate?.networkHelperShouldReceiveData?(self, withIdentifier: networkHelperTask!.identifier)
-    //        if shouldContinue == false {
-    //            // COMMENT: Only the response is required.
-    //            removeTask(networkHelperTask!)
-    //            completionHandler(Foundation.URLSession.ResponseDisposition.cancel)
-    //        } else {
-    //            completionHandler(Foundation.URLSession.ResponseDisposition.allow)
-    //        }
-    //    }
+    /**
+     * URLSessionDataDelegate
+     */
+    public func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive response: URLResponse, completionHandler: @escaping (URLSession.ResponseDisposition) -> Void) {
+        guard let task = findTask(of: dataTask) else {
+            return
+        }
+        guard let httpResponse = response as? HTTPURLResponse else {
+            remove(task)
+            Logger.standard.logError(responseTypeError)
+            dispatchError(for: task, withMessage: serverError)
+            return
+        }
+        guard (httpResponse.statusCode >= 200) && (httpResponse.statusCode < 400) else {
+            remove(task)
+            Logger.standard.logError(serverSideError)
+            dispatchError(for: task, withMessage: serverError)
+            return
+        }
+        guard let responseHeader = NetworkResponseHeader.parse(response) else {
+            remove(task)
+            Logger.standard.logError(serverSideError)
+            dispatchError(for: task, withMessage: serverError)
+            return 
+        }
+        DispatchQueue.main.async{
+            self.networkHelperDelegate?.networkHelper(self, withIdentifier: task.identifier, didReceiveResponse: responseHeader, withStatusCode: httpResponse.statusCode)
+        }
+        let shouldContinue = self.networkHelperDelegate?.networkHelperShouldReceiveData(self, withIdentifier: task.identifier)
+        if shouldContinue == false {
+            // COMMENT: Only the response is required.
+            remove(task)
+            completionHandler(.cancel)
+        } else {
+            completionHandler(.allow)
+        }
+    }
+    
 }
 
 import Foundation

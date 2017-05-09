@@ -6,37 +6,33 @@
  */
 extension NetworkHelper: URLSessionTaskDelegate {
     
-    
-        /**
-         * URLSessionTaskDelegate
-         */
-        public func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
-//            let networkHelperTask = findTask(task)
-//            if networkHelperTask == nil {
-//                logError(NetworkHelper.TaskExistanceError)
-//                return
-//            }
-//            removeTask(networkHelperTask!)
-//            if error != nil {
-//                logError(error!.localizedDescription)
-//                dispatchError(forTask: networkHelperTask!, withMessage: NetworkHelper.InternetError)
-//                return
-//            }
-//            DispatchQueue.main.async{
-//                switch networkHelperTask!.type {
-//                case .download:
-//                    // COMMENT: The url has been returned
-//                    break
-//                case .upload, .data:
-//                    self.networkHelperDelegate?.networkHelper?(self, withIdentifier: networkHelperTask!.identifier, didReceiveData: networkHelperTask!.cache)
-//                default:
-//                    self.logError(NetworkHelper.TaskTypeError)
-//                    self.networkHelperDelegate?.networkHelper(self, withIdentifier: networkHelperTask!.identifier, didCatchError: NetworkHelper.AppError.localizeInBundle(forClass: self.classForCoder))
-//                }
-//            }
+    /**
+     * URLSessionTaskDelegate
+     */
+    public func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
+        guard let task = findTask(of: task) else {
+            return
         }
-    
-    
+        remove(task)
+        guard error != nil else {
+            Logger.standard.logError(error!)
+            dispatchError(for: task, withMessage: internetError)
+            return
+        }
+        DispatchQueue.main.async{
+            switch task.type {
+            case .download:
+                // COMMENT: The url has been returned.
+                break
+            case .upload, .data:
+                self.networkHelperDelegate?.networkHelper(self, withIdentifier: task.identifier, didReceiveData: task.cache)
+                break
+            default:
+                // COMMENT: The unsupport task won't be send.
+                break
+            }
+        }
+    }
     
 }
 

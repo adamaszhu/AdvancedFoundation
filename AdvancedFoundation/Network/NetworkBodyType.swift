@@ -12,5 +12,6 @@ public enum NetworkBodyType: String {
     case xml = "text/xml"
     case html = "text/html"
     case wwwForm = "application/x-www-form-urlencoded"
+    case formData = "multipart/form-data; boundary=----FormData"
     
 }

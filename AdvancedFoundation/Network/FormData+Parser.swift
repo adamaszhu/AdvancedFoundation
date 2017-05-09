@@ -7,7 +7,7 @@
 extension FormData {
     
     /**
-     * The boundary of the form.
+     * The boundary of the form. If this is changed, then the NetworkBodyType should be changed as well.
      */
     static let boundary = "----FormData"
     

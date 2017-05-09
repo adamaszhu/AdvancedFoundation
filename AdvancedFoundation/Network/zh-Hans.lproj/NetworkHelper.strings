@@ -1,2 +1,3 @@
 "InternetError" = "无网络连接";
 "ServerError" = "访问服务器失败";
+"AppError" = "应用程序发生错误";

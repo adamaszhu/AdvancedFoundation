@@ -7,7 +7,7 @@
 extension NetworkTask: Equatable {
     
     /**
-     * Equatable.
+     * Equatable
      */
     public static func ==(lhs: NetworkTask, rhs: NetworkTask) -> Bool {
         return lhs.identifier == rhs.identifier

@@ -6,9 +6,24 @@
  */
 public struct NetworkResponseHeader {
     
+    /**
+     * The content type of the response.
+     */
     let contentType: String
-    let contentLength: String
+    
+    /**
+     * The content length of the response.
+     */
+    let contentLength: Int
+    
+    /**
+     * The data that the resource is modified, it is only obtainable if the server apply HTTP cache mechanism.
+     */
     let lastModified: String?
+    
+    /**
+     * The tag of the resource, it is only obtainable if the server apply HTTP cache mechanism.
+     */
     let eTag: String?
     
     /**
@@ -18,7 +33,7 @@ public struct NetworkResponseHeader {
      * - parameter lastModified: Support the HTTP cache, which is the date of the modified timestamp.
      * - parameter eTag: The tag recorded about the responsed data.
      */
-    init(contentType: String, contentLength: String, lastModified: String? = nil, eTag: String? = nil) {
+    init(contentType: String, contentLength: Int, lastModified: String? = nil, eTag: String? = nil) {
         self.contentType = contentType
         self.contentLength = contentLength
         self.lastModified = lastModified

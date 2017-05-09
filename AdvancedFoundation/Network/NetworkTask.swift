@@ -9,7 +9,7 @@ class NetworkTask {
     /**
      * The cache of the task.
      */
-    var cache: NSMutableData
+    var cache: Data
     
     /**
      * The task type of the task.
@@ -40,10 +40,10 @@ class NetworkTask {
      * Initialize the object.
      * - parameter task: The task object.
      */
-    init(withTask task: URLSessionTask) {
+    init(with task: URLSessionTask) {
         self.task = task
         identifier = IDGenerator.standard.generateID()
-        cache = NSMutableData()
+        cache = Data()
     }
     
 }
