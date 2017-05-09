@@ -23,6 +23,10 @@
 		284EEFE01EC029050022EB6B /* FormDataFileField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284EEFDF1EC029050022EB6B /* FormDataFileField.swift */; };
 		284EEFE21EC04B560022EB6B /* FormDataSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284EEFE11EC04B560022EB6B /* FormDataSpecs.swift */; };
 		284EEFE41EC04D640022EB6B /* FormData+Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284EEFE31EC04D640022EB6B /* FormData+Parser.swift */; };
+		284EEFE61EC137390022EB6B /* FormDataTextFieldParsableSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284EEFE51EC137390022EB6B /* FormDataTextFieldParsableSpecs.swift */; };
+		284EEFE81EC137500022EB6B /* FormDataFileFieldParsableSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284EEFE71EC137500022EB6B /* FormDataFileFieldParsableSpecs.swift */; };
+		284EEFEA1EC13C780022EB6B /* FormDataTextFieldSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284EEFE91EC13C780022EB6B /* FormDataTextFieldSpecs.swift */; };
+		284EEFEC1EC13CF20022EB6B /* FormDataFileFieldSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284EEFEB1EC13CF20022EB6B /* FormDataFileFieldSpecs.swift */; };
 		28525CB41EAD7C20006F6FDE /* PathHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28525CB31EAD7C20006F6FDE /* PathHelper.swift */; };
 		28525CB61EAD7C2B006F6FDE /* DirectoryHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28525CB51EAD7C2B006F6FDE /* DirectoryHelper.swift */; };
 		286247231EB994DF007D531D /* NSManagedObject+Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286247221EB994DF007D531D /* NSManagedObject+Test.swift */; };
@@ -137,6 +141,10 @@
 		284EEFDF1EC029050022EB6B /* FormDataFileField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormDataFileField.swift; sourceTree = "<group>"; };
 		284EEFE11EC04B560022EB6B /* FormDataSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormDataSpecs.swift; sourceTree = "<group>"; };
 		284EEFE31EC04D640022EB6B /* FormData+Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FormData+Parser.swift"; sourceTree = "<group>"; };
+		284EEFE51EC137390022EB6B /* FormDataTextFieldParsableSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormDataTextFieldParsableSpecs.swift; sourceTree = "<group>"; };
+		284EEFE71EC137500022EB6B /* FormDataFileFieldParsableSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormDataFileFieldParsableSpecs.swift; sourceTree = "<group>"; };
+		284EEFE91EC13C780022EB6B /* FormDataTextFieldSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormDataTextFieldSpecs.swift; sourceTree = "<group>"; };
+		284EEFEB1EC13CF20022EB6B /* FormDataFileFieldSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormDataFileFieldSpecs.swift; sourceTree = "<group>"; };
 		28525CB31EAD7C20006F6FDE /* PathHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PathHelper.swift; sourceTree = "<group>"; };
 		28525CB51EAD7C2B006F6FDE /* DirectoryHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectoryHelper.swift; sourceTree = "<group>"; };
 		286247221EB994DF007D531D /* NSManagedObject+Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+Test.swift"; sourceTree = "<group>"; };
@@ -375,10 +383,10 @@
 				42C13A761EBF527E000D2E50 /* FormData.swift */,
 				284EEFD31EBFF3790022EB6B /* FormData+Parser.swift */,
 				284EEFD51EBFFEE30022EB6B /* FormDataFieldParsable.swift */,
-				284EEFDF1EC029050022EB6B /* FormDataFileField.swift */,
-				284EEFDD1EC001CF0022EB6B /* FormDataFileField+Parsable.swift */,
 				284EEFD91EC001A50022EB6B /* FormDataTextField.swift */,
 				284EEFDB1EC001C30022EB6B /* FormDataTextField+Parsable.swift */,
+				284EEFDF1EC029050022EB6B /* FormDataFileField.swift */,
+				284EEFDD1EC001CF0022EB6B /* FormDataFileField+Parsable.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -389,6 +397,10 @@
 				28E703BB1EBAE504002BEDFC /* NetworkHelperSpecs.swift */,
 				284EEFE11EC04B560022EB6B /* FormDataSpecs.swift */,
 				284EEFE31EC04D640022EB6B /* FormData+Parser.swift */,
+				284EEFE91EC13C780022EB6B /* FormDataTextFieldSpecs.swift */,
+				284EEFE51EC137390022EB6B /* FormDataTextFieldParsableSpecs.swift */,
+				284EEFEB1EC13CF20022EB6B /* FormDataFileFieldSpecs.swift */,
+				284EEFE71EC137500022EB6B /* FormDataFileFieldParsableSpecs.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -849,14 +861,18 @@
 				425EAD531EAEDC1D001F1F81 /* DirectoryHelperSpecs.swift in Sources */,
 				42D3426A1EB4AB3800064B1C /* TextHelperSpecs.swift in Sources */,
 				286247231EB994DF007D531D /* NSManagedObject+Test.swift in Sources */,
+				284EEFEC1EC13CF20022EB6B /* FormDataFileFieldSpecs.swift in Sources */,
 				425336CC1EA0ABE800B6D6BF /* Number+DecimalFormatterSpecs.swift in Sources */,
 				281881D81EA86EEC00E8C85E /* String+HelperSpecs.swift in Sources */,
 				425DCD181EB43DE700A0ED26 /* FileHelperSpecs.swift in Sources */,
+				284EEFE81EC137500022EB6B /* FormDataFileFieldParsableSpecs.swift in Sources */,
 				42D342681EB4AB2200064B1C /* CSVHelperSpecs.swift in Sources */,
 				28E703A01EBAA2DA002BEDFC /* JSONNodeSpecs.swift in Sources */,
 				42622E991EA1E51100E5D5E7 /* String+LocalizerSpecs.swift in Sources */,
 				28E7039E1EBAA0A3002BEDFC /* JSONPathSpecs.swift in Sources */,
+				284EEFE61EC137390022EB6B /* FormDataTextFieldParsableSpecs.swift in Sources */,
 				284EEFE21EC04B560022EB6B /* FormDataSpecs.swift in Sources */,
+				284EEFEA1EC13C780022EB6B /* FormDataTextFieldSpecs.swift in Sources */,
 				42F30E471E9E413400AC0249 /* VersionHelperSpecs.swift in Sources */,
 				28E703AA1EBAD77A002BEDFC /* LocationHelperSpecs.swift in Sources */,
 				42D342781EB4D56100064B1C /* JSONNode+ParserSpecs.swift in Sources */,

@@ -14,7 +14,7 @@ extension FormDataFileField: FormDataFieldParsable {
         let fileInfo = FileInfoAccessor.init(withPath: path)
         let filename = fileInfo.filename
         let mimeType = fileInfo.mimeType ?? ""
-        let field = "Content-Disposition: form-data; name=\"\(name)\"; filename=\"\(filename)\"\r\nContent-Type:\(mimeType)\r\n\r\n"
+        let field = "Content-Disposition: form-data; name=\"\(name)\"; filename=\"\(filename)\"\r\nContent-Type: \(mimeType)\r\n\r\n"
         // COMMENT: The data converted from a string cannot be nil.
         data.append(field.data(using: .utf8)!)
         data.append(content)
