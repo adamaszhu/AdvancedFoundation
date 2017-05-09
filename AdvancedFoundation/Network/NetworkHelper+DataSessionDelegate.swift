@@ -35,14 +35,14 @@ extension NetworkHelper: URLSessionDataDelegate {
             dispatchError(for: task, withMessage: serverError)
             return
         }
-        guard let responseHeader = NetworkResponseHeader.parse(response) else {
+        guard let header = NetworkResponseHeader.parse(response) else {
             remove(task)
-            Logger.standard.logError(serverSideError)
+            Logger.standard.logError(responseHeaderError)
             dispatchError(for: task, withMessage: serverError)
             return 
         }
         DispatchQueue.main.async{
-            self.networkHelperDelegate?.networkHelper(self, withIdentifier: task.identifier, didReceiveResponse: responseHeader, withStatusCode: httpResponse.statusCode)
+            self.networkHelperDelegate?.networkHelper(self, withIdentifier: task.identifier, didReceive: header, withStatusCode: httpResponse.statusCode)
         }
         let shouldContinue = self.networkHelperDelegate?.networkHelperShouldReceiveData(self, withIdentifier: task.identifier)
         if shouldContinue == false {

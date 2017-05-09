@@ -16,7 +16,7 @@ public extension NetworkHelperDelegate {
     /**
      * NetworkHelperDelegate.
      */
-    func networkHelper(_ networkHelper: NetworkHelper, withIdentifier identifier: String, didReceiveData data: Data) { }
+    func networkHelper(_ networkHelper: NetworkHelper, withIdentifier identifier: String, didReceive data: Data) { }
     
     /**
      * NetworkHelperDelegate.
@@ -26,7 +26,7 @@ public extension NetworkHelperDelegate {
     /**
      * NetworkHelperDelegate.
      */
-    func networkHelper(_ networkHelper: NetworkHelper, withIdentifier identifier: String, didReceiveResponse responseHeader: NetworkResponseHeader, withStatusCode statusCode: Int) { }
+    func networkHelper(_ networkHelper: NetworkHelper, withIdentifier identifier: String, didReceive header: NetworkResponseHeader, withStatusCode statusCode: Int) { }
     
     /**
      * NetworkHelperDelegate.

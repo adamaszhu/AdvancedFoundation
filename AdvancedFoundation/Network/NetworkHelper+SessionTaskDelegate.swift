@@ -25,7 +25,7 @@ extension NetworkHelper: URLSessionTaskDelegate {
                 // COMMENT: The url has been returned.
                 break
             case .upload, .data:
-                self.networkHelperDelegate?.networkHelper(self, withIdentifier: task.identifier, didReceiveData: task.cache)
+                self.networkHelperDelegate?.networkHelper(self, withIdentifier: task.identifier, didReceive: task.cache)
                 break
             default:
                 // COMMENT: The unsupport task won't be send.

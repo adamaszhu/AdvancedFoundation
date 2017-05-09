@@ -25,7 +25,7 @@ public protocol NetworkHelperDelegate {
      * - parameter identifier: The id of the task.
      * - parameter data: The data retrieved.
      */
-     func networkHelper(_ networkHelper: NetworkHelper, withIdentifier identifier: String, didReceiveData data: Data)
+     func networkHelper(_ networkHelper: NetworkHelper, withIdentifier identifier: String, didReceive data: Data)
     
     /**
      * Did download the data from the server.
@@ -37,10 +37,10 @@ public protocol NetworkHelperDelegate {
     /**
      * Receive a response from the server including all the attributes
      * - parameter identifier: The id of the task.
-     * - parameter responseHeader: The attribute list in the header responsed.
+     * - parameter header: The attribute list in the header responsed.
      * - parameter statusCode: The status code of the response.
      */
-    func networkHelper(_ networkHelper: NetworkHelper, withIdentifier identifier: String, didReceiveResponse responseHeader: NetworkResponseHeader, withStatusCode statusCode: Int)
+    func networkHelper(_ networkHelper: NetworkHelper, withIdentifier identifier: String, didReceive header: NetworkResponseHeader, withStatusCode statusCode: Int)
     
     /**
      * Receive how many percentage of the file.
