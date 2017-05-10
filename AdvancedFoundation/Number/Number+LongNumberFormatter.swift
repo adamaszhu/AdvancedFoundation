@@ -13,13 +13,18 @@ public extension NSNumber {
     private static let formatError = "The string doesn't have correct format."
     
     /**
+     * Symbols.
+     */
+    private static let commaSymbol = ","
+    
+    /**
      * Read a long number string.
      * - parameter longNumberString: The string to be rendered.
      * - returns: The number.
      */
     public static func renderLongNumberString(_ longNumberString: String) -> NSNumber? {
         // TODO: Validate the comma format.
-        let formattedLongNumberString = longNumberString.replacingOccurrences(of: ",", with: "")
+        let formattedLongNumberString = longNumberString.replacingOccurrences(of: NSNumber.commaSymbol, with: "")
         let formatter = NumberFormatter()
         formatter.numberStyle = NumberFormatter.Style.decimal
         guard let number = formatter.number(from: formattedLongNumberString) else {
