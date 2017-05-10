@@ -18,11 +18,17 @@ public class AppInfoAccessor {
     private static let currentVersionError = "The version cannot be retrieved."
     
     /**
+     * Dictionary key.
+     */
+    private static let bundleNameKey = "CFBundleName"
+    private static let versionKey = "CFBundleShortVersionString"
+    
+    /**
      * The name of current bundle. It will be nil if the bundle name cannot be retireved.
      */
     public let bundleName: String? = {
         let bundle = Bundle.main
-        guard let name = bundle.infoDictionary?["CFBundleName"] as? String else {
+        guard let name = bundle.infoDictionary?[bundleNameKey] as? String else {
             Logger.standard.logError(bundleNameError)
             return nil
         }
@@ -34,7 +40,7 @@ public class AppInfoAccessor {
      */
     public let version: String? = {
         let bundle = Bundle.main
-        guard let version = bundle.infoDictionary?["CFBundleShortVersionString"] as? String else {
+        guard let version = bundle.infoDictionary?[versionKey] as? String else {
             Logger.standard.logError(currentVersionError)
             return nil
         }
