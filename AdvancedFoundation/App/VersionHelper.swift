@@ -13,7 +13,7 @@ public class VersionHelper {
         guard let version = AppInfoAccessor.shared.version else {
             return nil
         }
-        return VersionHelper(withVersion: version)
+        return VersionHelper(version: version)
     }()
     
     /**
@@ -40,7 +40,7 @@ public class VersionHelper {
      * Initialize the helper.
      * - parameter version: The version binded to the helper.
      */
-    public init(withVersion version: String) {
+    public init(version: String) {
         self.version = version
     }
     
