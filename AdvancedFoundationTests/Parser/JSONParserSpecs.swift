@@ -2,31 +2,31 @@ class JSONParserSpecs: QuickSpec {
     
     override func spec() {
         let json = "{\"attribute1\":\"value1\",\"attribute2\":[{\"arrayAttribute1\":\"arrayValue1\"},{\"arrayAttribute2\":\"arrayValue2\"}],\"attribute3\":0,\"attribute4\":{\"subAttribute1\":\"subValue1\"}}"
-        let jsonParser = JSONParser(withString: json)
-        describe("calls init(withString)") {
+        let jsonParser = JSONParser(string: json)!
+        describe("calls init(string)") {
             context("with valid string") {
                 it("returns parser with json") {
                     expect(jsonParser.getDictionary(atPath: ".")).notTo(beNil())
                 }
             }
             context("with invalid string") {
-                let jsonParser = JSONParser(withString: "test")
+                let jsonParser = JSONParser(string: "test")
                 it("returns parser with empty json") {
-                    expect(jsonParser.getDictionary(atPath: ".")).to(beNil())
+                    expect(jsonParser).to(beNil())
                 }
             }
         }
-        describe("calls init(withData)") {
+        describe("calls init(data)") {
             context("with valid data") {
-                let jsonParser = JSONParser(withData: json.data(using: .utf8)!)
+                let jsonParser = JSONParser(data: json.data(using: .utf8)!)!
                 it("returns parser with json") {
                     expect(jsonParser.getDictionary(atPath: ".")).notTo(beNil())
                 }
             }
             context("with invalid data") {
-                let jsonParser = JSONParser(withData: "test".data(using: .utf8)!)
+                let jsonParser = JSONParser(data: "test".data(using: .utf8)!)
                 it("returns parser with empty json") {
-                    expect(jsonParser.getDictionary(atPath: ".")).to(beNil())
+                    expect(jsonParser).to(beNil())
                 }
             }
         }
