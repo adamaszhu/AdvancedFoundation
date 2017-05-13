@@ -1,5 +1,15 @@
 class DateFormatterSpecs: QuickSpec {
     
+    /**
+     * All unit in second.
+     */
+    private static let yearLength = 365 * dayLength
+    private static let monthLength = yearLength / 12
+    private static let dayLength = 24 * hourLength
+    private static let hourLength = 60 * minuteLength
+    private static let minuteLength = 60 * secondLength
+    private static let secondLength = 1
+    
     // COMMENT: Cannot extract date declaration since the test should be done right after the decleration.
     override func spec() {
         describe("calls convertToTimeOffsetString(withAbbreviation)") {
@@ -86,127 +96,133 @@ class DateFormatterSpecs: QuickSpec {
                 }
             }
             context("as 1 second before") {
+                let timeOffset = TimeInterval(-1 * DateFormatterSpecs.secondLength)
                 context("with abbreviation") {
                     it("returns correct timeoffset") {
-                        let date = Date().addingTimeInterval(-1)
+                        let date = Date().addingTimeInterval(timeOffset)
                         expect(date.convertToTimeOffsetString(withAbbreviation: true)) == "1 Sec Ago"
                     }
                 }
                 context("without abbreviation") {
                     it("returns correct timeoffset") {
-                        let date = Date().addingTimeInterval(-1)
+                        let date = Date().addingTimeInterval(timeOffset)
                         expect(date.convertToTimeOffsetString(withAbbreviation: false)) == "1 Second Ago"
                     }
                 }
                 context("with default abbreviation") {
                     it("returns correct timeoffset") {
-                        let date = Date().addingTimeInterval(-1)
+                        let date = Date().addingTimeInterval(timeOffset)
                         expect(date.convertToTimeOffsetString()) == "1 Second Ago"
                     }
                 }
             }
             context("as 2 seconds before") {
+                let timeOffset = TimeInterval(-2 * DateFormatterSpecs.secondLength)
                 context("with abbreviation") {
                     it("returns correct timeoffset") {
-                        let date = Date().addingTimeInterval(-2)
+                        let date = Date().addingTimeInterval(timeOffset)
                         expect(date.convertToTimeOffsetString(withAbbreviation: true)) == "2 Secs Ago"
                     }
                 }
                 context("without abbreviation") {
                     it("returns correct timeoffset") {
-                        let date = Date().addingTimeInterval(-2)
+                        let date = Date().addingTimeInterval(timeOffset)
                         expect(date.convertToTimeOffsetString(withAbbreviation: false)) == "2 Seconds Ago"
                     }
                 }
                 context("with default abbreviation") {
                     it("returns correct timeoffset") {
-                        let date = Date().addingTimeInterval(-2)
+                        let date = Date().addingTimeInterval(timeOffset)
                         expect(date.convertToTimeOffsetString()) == "2 Seconds Ago"
                     }
                 }
             }
             context("as 1 minute before") {
+                let timeOffset = TimeInterval(-1 * DateFormatterSpecs.minuteLength)
                 context("with abbreviation") {
                     it("returns correct timeoffset") {
-                        let date = Date().addingTimeInterval(-60)
+                        let date = Date().addingTimeInterval(timeOffset)
                         expect(date.convertToTimeOffsetString(withAbbreviation: true)) == "1 Min Ago"
                     }
                 }
                 context("without abbreviation") {
                     it("returns correct timeoffset") {
-                        let date = Date().addingTimeInterval(-60)
+                        let date = Date().addingTimeInterval(timeOffset)
                         expect(date.convertToTimeOffsetString(withAbbreviation: false)) == "1 Minute Ago"
                     }
                 }
                 context("with default abbreviation") {
                     it("returns correct timeoffset") {
-                        let date = Date().addingTimeInterval(-60)
+                        let date = Date().addingTimeInterval(timeOffset)
                         expect(date.convertToTimeOffsetString()) == "1 Minute Ago"
                     }
                 }
             }
             context("as 2 minutes before") {
+                let timeOffset = TimeInterval(-2 * DateFormatterSpecs.minuteLength)
                 context("with abbreviation") {
                     it("returns correct timeoffset") {
-                        let date = Date().addingTimeInterval(-120)
+                        let date = Date().addingTimeInterval(timeOffset)
                         expect(date.convertToTimeOffsetString(withAbbreviation: true)) == "2 Mins Ago"
                     }
                 }
                 context("without abbreviation") {
                     it("returns correct timeoffset") {
-                        let date = Date().addingTimeInterval(-120)
+                        let date = Date().addingTimeInterval(timeOffset)
                         expect(date.convertToTimeOffsetString(withAbbreviation: false)) == "2 Minutes Ago"
                     }
                 }
                 context("with default abbreviation") {
                     it("returns correct timeoffset") {
-                        let date = Date().addingTimeInterval(-120)
+                        let date = Date().addingTimeInterval(timeOffset)
                         expect(date.convertToTimeOffsetString()) == "2 Minutes Ago"
                     }
                 }
             }
             context("as 1 hour before") {
+                let timeOffset = TimeInterval(-1 * DateFormatterSpecs.hourLength)
                 context("with abbreviation") {
                     it("returns correct timeoffset") {
-                        let date = Date().addingTimeInterval(-3600)
+                        let date = Date().addingTimeInterval(timeOffset)
                         expect(date.convertToTimeOffsetString(withAbbreviation: true)) == "1 Hr Ago"
                     }
                 }
                 context("without abbreviation") {
                     it("returns correct timeoffset") {
-                        let date = Date().addingTimeInterval(-3600)
+                        let date = Date().addingTimeInterval(timeOffset)
                         expect(date.convertToTimeOffsetString(withAbbreviation: false)) == "1 Hour Ago"
                     }
                 }
                 context("with default abbreviation") {
                     it("returns correct timeoffset") {
-                        let date = Date().addingTimeInterval(-3600)
+                        let date = Date().addingTimeInterval(timeOffset)
                         expect(date.convertToTimeOffsetString()) == "1 Hour Ago"
                     }
                 }
             }
             context("as 2 hours before") {
+                let timeOffset = TimeInterval(-2 * DateFormatterSpecs.hourLength)
                 context("with abbreviation") {
                     it("returns correct timeoffset") {
-                        let date = Date().addingTimeInterval(-7200)
+                        let date = Date().addingTimeInterval(timeOffset)
                         expect(date.convertToTimeOffsetString(withAbbreviation: true)) == "2 Hrs Ago"
                     }
                 }
                 context("without abbreviation") {
                     it("returns correct timeoffset") {
-                        let date = Date().addingTimeInterval(-7200)
+                        let date = Date().addingTimeInterval(timeOffset)
                         expect(date.convertToTimeOffsetString(withAbbreviation: false)) == "2 Hours Ago"
                     }
                 }
                 context("with default abbreviation") {
                     it("returns correct timeoffset") {
-                        let date = Date().addingTimeInterval(-7200)
+                        let date = Date().addingTimeInterval(timeOffset)
                         expect(date.convertToTimeOffsetString()) == "2 Hours Ago"
                     }
                 }
             }
             context("as 1 day before") {
-                let timeOffset = TimeInterval(-24 * 3600)
+                let timeOffset = TimeInterval(-1 * DateFormatterSpecs.dayLength)
                 context("with abbreviation") {
                     it("returns correct timeoffset") {
                         let date = Date().addingTimeInterval(timeOffset)
@@ -227,7 +243,7 @@ class DateFormatterSpecs: QuickSpec {
                 }
             }
             context("as 2 days before") {
-                let timeOffset = TimeInterval(-48 * 3600)
+                let timeOffset = TimeInterval(-2 * DateFormatterSpecs.dayLength)
                 context("with abbreviation") {
                     it("returns correct timeoffset") {
                         let date = Date().addingTimeInterval(timeOffset)
@@ -248,7 +264,7 @@ class DateFormatterSpecs: QuickSpec {
                 }
             }
             context("as 1 month before") {
-                let timeOffset = TimeInterval(-365 * 24 * 3600 / 12)
+                let timeOffset = TimeInterval(-1 * DateFormatterSpecs.monthLength)
                 context("with abbreviation") {
                     it("returns correct timeoffset") {
                         let date = Date().addingTimeInterval(timeOffset)
@@ -269,7 +285,7 @@ class DateFormatterSpecs: QuickSpec {
                 }
             }
             context("as 2 months before") {
-                let timeOffset = TimeInterval(-365 * 24 * 3600 / 6)
+                let timeOffset = TimeInterval(-2 * DateFormatterSpecs.monthLength)
                 context("with abbreviation") {
                     it("returns correct timeoffset") {
                         let date = Date().addingTimeInterval(timeOffset)
@@ -290,7 +306,7 @@ class DateFormatterSpecs: QuickSpec {
                 }
             }
             context("as 1 year before") {
-                let timeOffset = TimeInterval(-365 * 24 * 3600)
+                let timeOffset = TimeInterval(-1 * DateFormatterSpecs.yearLength)
                 context("with abbreviation") {
                     it("returns correct timeoffset") {
                         let date = Date().addingTimeInterval(timeOffset)
@@ -311,7 +327,7 @@ class DateFormatterSpecs: QuickSpec {
                 }
             }
             context("as 2 years before") {
-                let timeOffset = TimeInterval(-2 * 365 * 24 * 3600)
+                let timeOffset = TimeInterval(-2 * DateFormatterSpecs.yearLength)
                 context("with abbreviation") {
                     it("returns correct timeoffset") {
                         let date = Date().addingTimeInterval(timeOffset)

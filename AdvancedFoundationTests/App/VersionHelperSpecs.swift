@@ -6,28 +6,28 @@ class VersionHelperSpecs: QuickSpec {
                 expect(VersionHelper.standard?.compareToVersion("1.0.0")) == 0
             }
         }
-        describe("calls init(withVersion)") {
+        describe("calls init(version)") {
             context("with valid version") {
-                let versionHelper = VersionHelper(withVersion: "1.0.0")
+                let versionHelper = VersionHelper(version: "1.0.0")
                 it("returns helper with correct version") {
                     expect(versionHelper.compareToVersion("1.0.0")) == 0
                 }
             }
             context("with invalid character in version") {
-                let versionHelper = VersionHelper(withVersion: "1.c")
+                let versionHelper = VersionHelper(version: "1.c")
                 it("returns helper with invalid version") {
                     expect(versionHelper.compareToVersion("1.0.0")).to(beNil())
                 }
             }
             context("with invalid format in version") {
-                let versionHelper = VersionHelper(withVersion: "1..0")
+                let versionHelper = VersionHelper(version: "1..0")
                 it("returns helper with invalid version") {
                     expect(versionHelper.compareToVersion("1.0.0")).to(beNil())
                 }
             }
         }
         describe("calls compareToVersion(_)") {
-            let versionHelper = VersionHelper(withVersion: "1.0.0")
+            let versionHelper = VersionHelper(version: "1.0.0")
             context("with earlier version") {
                 it("returns bigger result") {
                     expect(versionHelper.compareToVersion("0.9.9")) == 1
@@ -66,8 +66,8 @@ class VersionHelperSpecs: QuickSpec {
                 }
             }
             context("with version flag saved") {
-                versionHelper?.createVersionFlag()
                 it("finds flag") {
+                    versionHelper?.createVersionFlag()
                     versionHelper?.createVersionFlag()
                     expect(versionHelper?.checkVersionFlag()) == true
                 }
@@ -88,8 +88,8 @@ class VersionHelperSpecs: QuickSpec {
                 }
             }
             context("with version flag saved") {
-                versionHelper?.createVersionFlag()
                 it("misses flag") {
+                    versionHelper?.createVersionFlag()
                     versionHelper?.deleteVersionFlag()
                     expect(versionHelper?.checkVersionFlag()) == false
                 }
