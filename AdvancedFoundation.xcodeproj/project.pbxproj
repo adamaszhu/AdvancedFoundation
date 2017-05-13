@@ -36,8 +36,9 @@
 		42622EA41EA1FE3500E5D5E7 /* Date+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42622EA31EA1FE3500E5D5E7 /* Date+Formatter.swift */; };
 		42622EA71EA2182000E5D5E7 /* Date.strings in Resources */ = {isa = PBXBuildFile; fileRef = 42622EA91EA2182000E5D5E7 /* Date.strings */; };
 		42622EAD1EA237F900E5D5E7 /* Date+FormatterSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42622EAC1EA237F900E5D5E7 /* Date+FormatterSpecs.swift */; };
+		429202711EC7358200C4E909 /* FileInfoAccessorSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DAF4E61EA43D8800DE6B70 /* FileInfoAccessorSpecs.swift */; };
+		429202721EC735DD00C4E909 /* FileInfoAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DAF4E41EA3A0C300DE6B70 /* FileInfoAccessor.swift */; };
 		42D3424F1EB4792E00064B1C /* ResourceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D3424E1EB4792E00064B1C /* ResourceHelper.swift */; };
-		42D342501EB48E8E00064B1C /* FileInfoAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DAF4E41EA3A0C300DE6B70 /* FileInfoAccessor.swift */; };
 		42D342521EB48FBA00064B1C /* TextResourceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D342511EB48FBA00064B1C /* TextResourceHelper.swift */; };
 		42D342541EB4968100064B1C /* TextResourceHelperSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D342531EB4968100064B1C /* TextResourceHelperSpecs.swift */; };
 		42D342561EB49C0A00064B1C /* Avatar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 42D342551EB49C0A00064B1C /* Avatar.jpg */; };
@@ -571,6 +572,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				429202721EC735DD00C4E909 /* FileInfoAccessor.swift in Sources */,
 				42D342521EB48FBA00064B1C /* TextResourceHelper.swift in Sources */,
 				42D3424F1EB4792E00064B1C /* ResourceHelper.swift in Sources */,
 				42622EA41EA1FE3500E5D5E7 /* Date+Formatter.swift in Sources */,
@@ -599,6 +601,7 @@
 				42F30E4B1E9E4CE200AC0249 /* AppInfoAccessorSpecs.swift in Sources */,
 				425336CE1EA1AB3B00B6D6BF /* Number+PercentageFormatterSpecs.swift in Sources */,
 				425336C81EA090E100B6D6BF /* Number+LongNumberFormatterSpecs.swift in Sources */,
+				429202711EC7358200C4E909 /* FileInfoAccessorSpecs.swift in Sources */,
 				42D342541EB4968100064B1C /* TextResourceHelperSpecs.swift in Sources */,
 				42622EAD1EA237F900E5D5E7 /* Date+FormatterSpecs.swift in Sources */,
 				420F3CB11EA0798300BAA0A4 /* Number+CurrencyFormatterSpecs.swift in Sources */,
