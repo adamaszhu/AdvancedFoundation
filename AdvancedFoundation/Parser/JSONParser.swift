@@ -14,17 +14,18 @@ public class JSONParser {
     /**
      * The content of the json file.
      */
-    private var json: Any?
+    private var json: Any
     
     /**
      * Initialize the parser.
      * - parameter data: The JSON data.
      */
-    public init(withData data: Data) {
+    public init?(data: Data) {
         do {
             json = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions())
         } catch let error {
             Logger.standard.logError(error)
+            return nil
         }
     }
     
@@ -32,10 +33,10 @@ public class JSONParser {
      * Initialize the parser.
      * - parameter string: The string data.
      */
-    public convenience init(withString string: String) {
+    public convenience init?(string: String) {
         // COMMENT: String should always be able to transfer to data.
         let data = string.data(using: .utf8)!
-        self.init(withData: data)
+        self.init(data: data)
     }
     
     /**
@@ -90,10 +91,10 @@ public class JSONParser {
         guard let jsonPath = JSONPath.parseString(realPath) else {
             return nil
         }
-        if jsonPath.isEmpty {
+        guard !jsonPath.isEmpty else {
             return nil
         }
-        return getNode(atPath: jsonPath, fromNode: realNode)
+        return getNode(at: jsonPath, fromNode: realNode)
     }
     
     /**
@@ -102,11 +103,7 @@ public class JSONParser {
      * - parameter node: Current node node. If it is nil, the root node will be regarded as current node.
      * - returns: The element. Nil if it cannot be found.
      */
-    private func getNode(atPath path: JSONPath, fromNode node: Any?) -> Any? {
-        if json == nil {
-            // COMMENT: JsonParser.InvalidJsonError. It should be logged in the constructor.
-            return nil
-        }
+    private func getNode(at path: JSONPath, fromNode node: Any?) -> Any? {
         // COMMENT: If the path is empty, the method shouldn't even be called.
         let pathNode = path.firstNode!
         var realNode = node ?? json
@@ -116,7 +113,7 @@ public class JSONParser {
                 // COMMENT: The node presented by the path doesn't exist.
                 return nil
             }
-            realNode = dictionaryNode[pathNode.name]
+            realNode = dictionaryNode[pathNode.name] as Any
         }
         if pathNode.index != nil {
             // COMMENT: Get real current node from the array node.
@@ -128,7 +125,7 @@ public class JSONParser {
         }
         var newPath = path
         newPath.removeFirstNode()
-        return newPath.isEmpty ? realNode : getNode(atPath: newPath, fromNode: realNode)
+        return newPath.isEmpty ? realNode : getNode(at: newPath, fromNode: realNode)
     }
     
 }
