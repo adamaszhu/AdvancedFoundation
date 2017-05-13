@@ -11,7 +11,7 @@ public class DirectoryHelper: PathHelper {
      * - returns: Whether the directory has been created or not. Nil if there is an error.
      */
     public func create() -> Bool? {
-        if super.isExisted {
+        guard !super.isExisted else {
             return false
         }
         do {
@@ -28,7 +28,7 @@ public class DirectoryHelper: PathHelper {
      * - returns: The path list of all contents in a directory. Nil if the data doesn't exist or there is an error.
      */
     public func getContent() -> Array<String>? {
-        if !isExisted {
+        guard isExisted else {
             return nil
         }
         do {
@@ -46,7 +46,7 @@ public class DirectoryHelper: PathHelper {
      * PathHelperAction.
      */
     public override var isExisted: Bool {
-        if !super.isExisted {
+        guard super.isExisted else {
             return false
         }
         var isDictory: ObjCBool = false

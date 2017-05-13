@@ -36,6 +36,8 @@
 		42622EA41EA1FE3500E5D5E7 /* Date+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42622EA31EA1FE3500E5D5E7 /* Date+Formatter.swift */; };
 		42622EA71EA2182000E5D5E7 /* Date.strings in Resources */ = {isa = PBXBuildFile; fileRef = 42622EA91EA2182000E5D5E7 /* Date.strings */; };
 		42622EAD1EA237F900E5D5E7 /* Date+FormatterSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42622EAC1EA237F900E5D5E7 /* Date+FormatterSpecs.swift */; };
+		429202711EC7358200C4E909 /* FileInfoAccessorSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DAF4E61EA43D8800DE6B70 /* FileInfoAccessorSpecs.swift */; };
+		429202721EC735DD00C4E909 /* FileInfoAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DAF4E41EA3A0C300DE6B70 /* FileInfoAccessor.swift */; };
 		42F30E431E9E412900AC0249 /* AppInfoAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F30E411E9E412900AC0249 /* AppInfoAccessor.swift */; };
 		42F30E441E9E412900AC0249 /* VersionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F30E421E9E412900AC0249 /* VersionHelper.swift */; };
 		42F30E471E9E413400AC0249 /* VersionHelperSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F30E461E9E413400AC0249 /* VersionHelperSpecs.swift */; };
@@ -521,6 +523,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				429202721EC735DD00C4E909 /* FileInfoAccessor.swift in Sources */,
 				42622EA41EA1FE3500E5D5E7 /* Date+Formatter.swift in Sources */,
 				28525CB61EAD7C2B006F6FDE /* DirectoryHelper.swift in Sources */,
 				2848AB0A1E9DA039004C6A66 /* Logger.swift in Sources */,
@@ -544,6 +547,7 @@
 				42F30E4B1E9E4CE200AC0249 /* AppInfoAccessorSpecs.swift in Sources */,
 				425336CE1EA1AB3B00B6D6BF /* Number+PercentageFormatterSpecs.swift in Sources */,
 				425336C81EA090E100B6D6BF /* Number+LongNumberFormatterSpecs.swift in Sources */,
+				429202711EC7358200C4E909 /* FileInfoAccessorSpecs.swift in Sources */,
 				42622EAD1EA237F900E5D5E7 /* Date+FormatterSpecs.swift in Sources */,
 				420F3CB11EA0798300BAA0A4 /* Number+CurrencyFormatterSpecs.swift in Sources */,
 				425EAD531EAEDC1D001F1F81 /* DirectoryHelperSpecs.swift in Sources */,
