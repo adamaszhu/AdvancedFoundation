@@ -31,7 +31,7 @@ public class ResourceHelper {
      * - parameter name: The name of the resource.
      */
     private func parseURL(ofResource name: String) {
-        let fileInfoAccessor = FileInfoAccessor(withPath: name)
+        let fileInfoAccessor = FileInfoAccessor(path: name)
         guard let path = Bundle.main.path(forResource: fileInfoAccessor.filename, ofType: fileInfoAccessor.fileExtension) else {
             return
         }

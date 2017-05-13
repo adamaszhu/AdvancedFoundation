@@ -19,7 +19,7 @@ struct JSONPath {
      * The first node in the path.
      */
     var firstNode: JSONNode? {
-        if nodes.count == 0 {
+        guard !isEmpty else {
             return nil
         }
         return nodes.first!
@@ -29,7 +29,7 @@ struct JSONPath {
      * Consume the first node in the path.
      */
     mutating func removeFirstNode() {
-        if nodes.count == 0 {
+        guard !isEmpty else {
             return
         }
         nodes.remove(at: 0)
