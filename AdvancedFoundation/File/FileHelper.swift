@@ -11,11 +11,11 @@ public class FileHelper: PathHelper {
      * - parameter data: The data used to create the file.
      * - returns: whether the file has been created or not. Nil if there is an error.
      */
-    public func create(withData data: Data) -> Bool? {
-        if super.isExisted {
+    public func create(with data: Data) -> Bool? {
+        guard !super.isExisted else {
             return false
         }
-        if createParentDirectory() != true {
+        guard createParentDirectory() == true else {
             return nil
         }
         return createFile(atPath: path, contents: data)
@@ -26,7 +26,7 @@ public class FileHelper: PathHelper {
      * - returns: The data of a file. Nil if the file doesn't exists or there is an error.
      */
     public func getContent() -> Data? {
-        if !isExisted {
+        guard isExisted else {
             return nil
         }
         return contents(atPath: path)
@@ -36,7 +36,7 @@ public class FileHelper: PathHelper {
      * PathHelper.
      */
     public override var isExisted: Bool {
-        if !super.isExisted {
+        guard super.isExisted else {
             return false
         }
         var isDictory: ObjCBool = false

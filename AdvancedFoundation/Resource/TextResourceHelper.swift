@@ -11,11 +11,8 @@ public class TextResourceHelper: ResourceHelper {
      * - returns: The string content. Nil if the resource doesn't exist. Or it is not a string file.
      */
     public func getContent() -> String? {
-        if !isExisted {
-            return nil
-        }
         do {
-            return try String(contentsOf: url!)
+            return try String(contentsOf: url)
         } catch let error {
             Logger.standard.logError(error)
             return nil

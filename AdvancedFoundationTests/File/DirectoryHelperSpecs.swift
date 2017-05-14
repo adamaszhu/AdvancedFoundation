@@ -1,9 +1,9 @@
 class DirectoryHelperSpecs: QuickSpec {
     
     override func spec() {
-        let directoryHelper = DirectoryHelper(withPath: "temp")
+        let directoryHelper = DirectoryHelper(path: "temp")
         afterEach {
-            let pathHelper = PathHelper(withPath: "temp")
+            let pathHelper = PathHelper(path: "temp")
             _ = pathHelper.remove()
         }
         describe("has isExisted") {
@@ -20,8 +20,8 @@ class DirectoryHelperSpecs: QuickSpec {
             }
             context("if the path is a file") {
                 it("returns false") {
-                    let fileHelper = FileHelper(withPath: "temp")
-                    _ = fileHelper.create(withData: Data())
+                    let fileHelper = FileHelper(path: "temp")
+                    _ = fileHelper.create(with: Data())
                     expect(directoryHelper.isExisted) == false
                 }
             }
@@ -51,8 +51,8 @@ class DirectoryHelperSpecs: QuickSpec {
             context("if the directory is not empty") {
                 it("returns the file list") {
                     _ = directoryHelper.create()
-                    let fileHelper = FileHelper(withPath: "temp/temp.tmp")
-                    _ = fileHelper.create(withData: Data())
+                    let fileHelper = FileHelper(path: "temp/temp.tmp")
+                    _ = fileHelper.create(with: Data())
                     expect(directoryHelper.getContent()?.count) == 1
                 }
             }
@@ -77,7 +77,7 @@ class DirectoryHelperSpecs: QuickSpec {
         }
         describe("calls copy(toPath)") {
             afterEach {
-                let destinationPathHelper = PathHelper(withPath: "temp1")
+                let destinationPathHelper = PathHelper(path: "temp1")
                 _ = destinationPathHelper.remove()
             }
             context("if the directory exists and the destination doesn't exist") {
@@ -89,7 +89,7 @@ class DirectoryHelperSpecs: QuickSpec {
             context("if the directory exists and the destionation directory exists") {
                 it("returns false") {
                     _ = directoryHelper.create()
-                    let destinationDirectoryHelper = DirectoryHelper(withPath: "temp1")
+                    let destinationDirectoryHelper = DirectoryHelper(path: "temp1")
                     _ = destinationDirectoryHelper.create()
                     expect(directoryHelper.copy(toPath: "temp1")) == false
                 }
@@ -97,8 +97,8 @@ class DirectoryHelperSpecs: QuickSpec {
             context("if the directory exists and the destionation file exists") {
                 it("returns false") {
                     _ = directoryHelper.create()
-                    let destinationFileHelper = FileHelper(withPath: "temp1")
-                    _ = destinationFileHelper.create(withData: Data())
+                    let destinationFileHelper = FileHelper(path: "temp1")
+                    _ = destinationFileHelper.create(with: Data())
                     expect(directoryHelper.copy(toPath: "temp1")) == false
                 }
             }

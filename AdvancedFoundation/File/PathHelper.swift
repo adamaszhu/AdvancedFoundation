@@ -22,7 +22,7 @@ public class PathHelper: FileManager {
      * Initialize the helper.
      * - parameter path: The path that the helper should hold.
      */
-    public init(withPath path: String) {
+    public init(path: String) {
         self.path = path
         super.init()
         formalizePath()
@@ -35,14 +35,14 @@ public class PathHelper: FileManager {
      * - return: Whether the file has been copyed or not.
      */
     public func copy(toPath path: String) -> Bool? {
-        if !isExisted {
+        guard isExisted else {
             return false
         }
-        let pathHelper = PathHelper(withPath: path)
-        if pathHelper.isExisted {
+        let pathHelper = PathHelper(path: path)
+        guard !pathHelper.isExisted else {
             return false
         }
-        if pathHelper.createParentDirectory() != true {
+        guard pathHelper.createParentDirectory() == true else {
             return nil
         }
         do {
@@ -59,7 +59,7 @@ public class PathHelper: FileManager {
      * - returns: Whether the file or directory has been removed or not. Nil if there is an error.
      */
     public func remove() -> Bool? {
-        if !isExisted {
+        guard isExisted else {
             return false
         }
         do {
@@ -108,7 +108,7 @@ public class PathHelper: FileManager {
      * - returns: The formalized parent directory path. Nil if the path is the root directory.
      */
     private func getParentDirectoryPath() -> String? {
-        if path == "/" {
+        guard path != "/" else {
             // COMMENT: The path is the root path.
             return nil
         }
