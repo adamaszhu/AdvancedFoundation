@@ -40,7 +40,7 @@ class NetworkTask {
      * Initialize the object.
      * - parameter task: The task object.
      */
-    init(with task: URLSessionTask) {
+    init(task: URLSessionTask) {
         self.task = task
         identifier = IDGenerator.standard.generateID()
         cache = Data()

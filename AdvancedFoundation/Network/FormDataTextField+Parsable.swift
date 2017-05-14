@@ -7,7 +7,7 @@
 extension FormDataTextField: FormDataFieldParsable {
     
     /**
-     * WWWFormFieldParsable
+     * FormDataFieldParsable
      */
     public func convertToData() -> Data {
         var data = Data()

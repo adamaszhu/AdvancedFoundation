@@ -7,11 +7,11 @@
 extension FormDataFileField: FormDataFieldParsable {
     
     /**
-     * WWWFormFieldParsable
+     * FormData FieldParsable
      */
     public func convertToData() -> Data {
         var data = Data()
-        let fileInfo = FileInfoAccessor.init(withPath: path)
+        let fileInfo = FileInfoAccessor.init(path: path)
         let filename = fileInfo.filename
         let mimeType = fileInfo.mimeType ?? ""
         let field = "Content-Disposition: form-data; name=\"\(name)\"; filename=\"\(filename)\"\r\nContent-Type: \(mimeType)\r\n\r\n"

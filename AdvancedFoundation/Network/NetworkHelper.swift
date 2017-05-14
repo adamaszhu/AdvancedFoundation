@@ -38,17 +38,17 @@ public class NetworkHelper: NSObject {
     /**
      * The session connecting to the network.
      */
-    private var normalSession: URLSession
+    private var normalSession: URLSession!
     
     /**
      * The session used to download or upload in background mode.
      */
-    private var backgroundSession: URLSession
+    private var backgroundSession: URLSession!
     
     /**
      * The cache used in the app.
      */
-    private var cache: URLCache
+    private var cache: URLCache!
     
     /**
      * Whether the network is available or not. This method is referenced from http://stackoverflow.com/questions/39558868/check-internet-connection-ios-10
@@ -63,7 +63,7 @@ public class NetworkHelper: NSObject {
             }
         }
         var flags = SCNetworkReachabilityFlags()
-        if !SCNetworkReachabilityGetFlags(defaultRouteReachability!, &flags) {
+        guard SCNetworkReachabilityGetFlags(defaultRouteReachability!, &flags) else {
             return false
         }
         let isReachable = (flags.rawValue & UInt32(kSCNetworkFlagsReachable)) != 0
@@ -74,12 +74,10 @@ public class NetworkHelper: NSObject {
     /**
      * Initialize the object.
      * - parameter identifier: The identifier used to identify the URL session running in the background.
+     * - parameter cache: The cache to cache all request. Nil means use the default one.
      */
-    public init(withIdentifier identifier: String) {
+    public init(identifier: String, cache: URLCache? = nil) {
         tasks = []
-        cache = URLCache.shared
-        normalSession = URLSession()
-        backgroundSession = URLSession()
         super.init()
         var configuration = URLSessionConfiguration.default
         normalSession = URLSession(configuration: configuration, delegate: self, delegateQueue: nil)
@@ -87,6 +85,7 @@ public class NetworkHelper: NSObject {
         configuration.sessionSendsLaunchEvents = true
         configuration.isDiscretionary = true
         backgroundSession = URLSession(configuration: configuration, delegate: self, delegateQueue: nil)
+        self.cache = cache ?? URLCache.shared
     }
     
     /**
@@ -274,12 +273,12 @@ public class NetworkHelper: NSObject {
         var task: NetworkTask
         switch type {
         case .download:
-            task = NetworkTask(with: backgroundSession.downloadTask(with: request))
+            task = NetworkTask(task: backgroundSession.downloadTask(with: request))
         case .data:
-            task = NetworkTask(with: normalSession.dataTask(with: request))
+            task = NetworkTask(task: normalSession.dataTask(with: request))
         case .upload:
             let data = request.httpBody ?? Data()
-            task = NetworkTask(with: normalSession.uploadTask(with: request, from: data))
+            task = NetworkTask(task: normalSession.uploadTask(with: request, from: data))
         default:
             Logger.standard.logError(taskTypeError, withDetail: type)
             return nil

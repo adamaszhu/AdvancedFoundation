@@ -12,7 +12,7 @@ extension NetworkResponseHeader {
     private static let contentTypeHeader = "Content-Type"
     private static let contentLengthHeader = "Content-Length"
     private static let lastModifiedHeader = "Last-Modified"
-    private static let eTagHeader = "ETag"
+    private static let eTagHeader = "Etag"
     
     /**
      * Parse the header of a url response.
