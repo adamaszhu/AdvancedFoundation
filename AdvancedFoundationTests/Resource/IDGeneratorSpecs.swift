@@ -8,15 +8,16 @@ class IDGeneratorSpecs: QuickSpec {
             }
         }
         describe("calls generateID()") {
-            let timeSeed = Int(Date().timeIntervalSince1970)
             context("for the first time") {
                 it("returns id ending with 0") {
-                expect(idGenerator.generateID()) == "\(timeSeed)0"
+                    let timeSeed = Int(Date().timeIntervalSince1970)
+                    expect(idGenerator.generateID()) == "\(timeSeed)0"
                 }
             }
             context("for the second time") {
                 it("returns id ending with 1") {
-                expect(idGenerator.generateID()) == "\(timeSeed)1"
+                    let timeSeed = Int(Date().timeIntervalSince1970)
+                    expect(idGenerator.generateID()) == "\(timeSeed)1"
                 }
             }
         }

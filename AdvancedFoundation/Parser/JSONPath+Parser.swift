@@ -13,7 +13,7 @@ extension JSONPath {
      */
     static func parseString(_ string: String) -> JSONPath? {
         var nodes = Array<JSONNode>()
-        if string.isEmpty {
+        guard !string.isEmpty else {
             return JSONPath(nodes: nodes)
         }
         for nodeComponent in string.components(separatedBy: "/") {

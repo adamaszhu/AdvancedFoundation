@@ -14,6 +14,11 @@ public extension NSNumber {
     private static let precisionError = "The precision parameter is incorrect."
     
     /**
+     * Symbols.
+     */
+    private static let percentageSymbol = "%"
+    
+    /**
      * Print the number as a percentage. For example, 12.3%.
      * - parameter precision: The precision spedified. If it is nil, the original value will be returned.
      * - returns: The formatted string.
@@ -27,7 +32,7 @@ public extension NSNumber {
         guard let decimalString = number.convertToDecimalString(withPrecision: precision) else {
             return nil
         }
-        return decimalString + "%"
+        return decimalString + NSNumber.percentageSymbol
     }
     
     /**
@@ -36,11 +41,11 @@ public extension NSNumber {
      * - returns: The string.
      */
     public static func renderPercentageString(_ percentageString: String) -> NSNumber? {
-        guard percentageString.contains("%") else {
+        guard percentageString.contains(NSNumber.percentageSymbol) else {
             Logger.standard.logError(NSNumber.formatError, withDetail: percentageString)
             return nil
         }
-        let formattedPercentageString = percentageString.replacingOccurrences(of: "%", with: "")
+        let formattedPercentageString = percentageString.replacingOccurrences(of: NSNumber.percentageSymbol, with: "")
         let formatter = NumberFormatter()
         formatter.numberStyle = NumberFormatter.Style.decimal
         guard let number = formatter.number(from: formattedPercentageString) else {

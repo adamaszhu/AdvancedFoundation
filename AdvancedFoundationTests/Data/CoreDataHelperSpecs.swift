@@ -1,7 +1,7 @@
 class CoreDataHelperSpecs: QuickSpec {
     
     override func spec() {
-        let coreDataHelper = CoreDataHelper(withName: AppInfoAccessor.shared.bundleName!)
+        let coreDataHelper = CoreDataHelper(name: AppInfoAccessor.shared.bundleName!)!
         afterEach {
             _ = coreDataHelper.deleteAllObjects(withType: Test.self)
         }
@@ -14,16 +14,16 @@ class CoreDataHelperSpecs: QuickSpec {
                 expect(coreDataHelper?.save()).notTo(beNil())
             }
         }
-        describe("calls init(withName)") {
+        describe("calls init(name)") {
             context("with existing name") {
-                it("return useable helper") {
+                it("return helper") {
                     expect(coreDataHelper.save()).notTo(beNil())
                 }
             }
             context("with not existing name") {
-                let coreDataHelper = CoreDataHelper(withName: "Test")
-                it("return unuseable helper") {
-                    expect(coreDataHelper.save()).to(beNil())
+                let coreDataHelper = CoreDataHelper(name: "Test")
+                it("return nil") {
+                    expect(coreDataHelper).to(beNil())
                 }
             }
         }
@@ -34,7 +34,7 @@ class CoreDataHelperSpecs: QuickSpec {
                 }
                 it("can be retrieved") {
                     let object = coreDataHelper.createObject(withType: Test.self)
-                    object?.testTitle = "Test"
+                    object.testTitle = "Test"
                     _ = coreDataHelper.save()
                     expect(coreDataHelper.getObjects(withType: Test.self)?.first?.testTitle) == "Test"
                 }
@@ -48,9 +48,9 @@ class CoreDataHelperSpecs: QuickSpec {
         describe("calls getObjects(withType:withCondition:withArguments)") {
             beforeEach {
                 var object = coreDataHelper.createObject(withType: Test.self)
-                object?.testTitle = "Test1"
+                object.testTitle = "Test1"
                 object = coreDataHelper.createObject(withType: Test.self)
-                object?.testTitle = "Test2"
+                object.testTitle = "Test2"
                 _ = coreDataHelper.save()
             }
             context("with invalid type") {
@@ -77,9 +77,9 @@ class CoreDataHelperSpecs: QuickSpec {
         describe("calls isObjectExisted(withType:withCondition:withArguments)") {
             beforeEach {
                 var object = coreDataHelper.createObject(withType: Test.self)
-                object?.testTitle = "Test1"
+                object.testTitle = "Test1"
                 object = coreDataHelper.createObject(withType: Test.self)
-                object?.testTitle = "Test2"
+                object.testTitle = "Test2"
                 _ = coreDataHelper.save()
             }
             context("with invalid type") {
@@ -106,7 +106,7 @@ class CoreDataHelperSpecs: QuickSpec {
         describe("calls deleteObject(_)") {
             beforeEach {
                 let object = coreDataHelper.createObject(withType: Test.self)
-                object?.testTitle = "Test"
+                object.testTitle = "Test"
                 _ = coreDataHelper.save()
             }
             context("with existing object") {
@@ -124,7 +124,7 @@ class CoreDataHelperSpecs: QuickSpec {
         describe("calls deleteAllObjects(withType)") {
             beforeEach {
                 let object = coreDataHelper.createObject(withType: Test.self)
-                object?.testTitle = "Test"
+                object.testTitle = "Test"
                 _ = coreDataHelper.save()
             }
             context("with existing type") {
@@ -142,7 +142,7 @@ class CoreDataHelperSpecs: QuickSpec {
             context("if changes have been made") {
                 it("returns true") {
                     let object = coreDataHelper.createObject(withType: Test.self)
-                    object?.testTitle = "Test"
+                    object.testTitle = "Test"
                     expect(coreDataHelper.save()) == true
                 }
             }

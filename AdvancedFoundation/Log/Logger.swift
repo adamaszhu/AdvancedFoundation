@@ -4,14 +4,12 @@
  * - version: 1.0.0
  * - date: 11/04/2017
  */
-public class Logger: AnyObject {
+public class Logger {
     
     /**
      * The default logger.
      */
-    public static let standard: Logger = {
-        return Logger()
-    }()
+    public static let standard: Logger = Logger()
     
     /**
      * Message tag.
@@ -19,6 +17,11 @@ public class Logger: AnyObject {
     private let errorTag = "Error"
     private let infoTag = "Info"
     private let detailSeperator = "=========="
+    
+    /**
+     * The date format.
+     */
+    private let dateFormat = "yyyy/MM/dd HH:mm:ss.SSS"
     
     /**
      * Log an info.
@@ -54,7 +57,7 @@ public class Logger: AnyObject {
     private func logMessage(_ message: String, withTag tag: String, withDetail detail: Any? = nil) {
         let date = Date()
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy/MM/dd HH:mm:ss.SSS"
+        dateFormatter.dateFormat = dateFormat
         let dateString = dateFormatter.string(from: date)
         if detail == nil {
             print("\(tag) \(dateString): \(message)")

@@ -28,6 +28,16 @@ public extension Date {
     private static let now = "Now"
     
     /**
+     * All unit in second.
+     */
+    private static let yearLength = 365 * dayLength
+    private static let monthLength = yearLength / 12
+    private static let dayLength = 24 * hourLength
+    private static let hourLength = 60 * minuteLength
+    private static let minuteLength = 60 * secondLength
+    private static let secondLength = 1
+    
+    /**
      * Convert the time gap between the time specified and the current time to a simple time offset string. Such as "3 Hrs Ago".
      * - parameter shouldUseAbbreviation: Whether the time description should be abbreviation or not.
      * - returns: The time offset string.
@@ -48,16 +58,16 @@ public extension Date {
         var differTag = timeOffset > 0 ? Date.ago : Date.later
         differTag = Date.space.localizeWithinFramework(forType: Date.self) + differTag.localizeWithinFramework(forType: Date.self)
         timeOffset = abs(timeOffset)
-        let year = timeOffset / (365 * 24 * 60 * 60)
-        timeOffset = timeOffset - year * 365 * 24 * 60 * 60
-        let month = timeOffset / (365 * 24 * 60 * 60 / 12)
-        timeOffset = timeOffset - month * 365 * 24 * 60 * 60 / 12
-        let day = timeOffset / (24 * 60 * 60)
-        timeOffset = timeOffset - day * 24 * 60 * 60
-        let hour = timeOffset / (60 * 60)
-        timeOffset = timeOffset - hour * 60 * 60
-        let minute = timeOffset / 60
-        let second = timeOffset - minute * 60
+        let year = timeOffset / Date.yearLength
+        timeOffset = timeOffset - year * Date.yearLength
+        let month = timeOffset / Date.monthLength
+        timeOffset = timeOffset - month * Date.monthLength
+        let day = timeOffset / Date.dayLength
+        timeOffset = timeOffset - day * Date.dayLength
+        let hour = timeOffset / Date.hourLength
+        timeOffset = timeOffset - hour *  Date.hourLength
+        let minute = timeOffset / Date.minuteLength
+        let second = timeOffset - minute * Date.minuteLength
         let abbrTag = shouldUseAbbreviation ? Date.abbr : ""
         let yearTag = getTag(forUnit: year, withSingleTag: Date.year, withDoubleTag: Date.years, withAbbreviationTag: abbrTag)
         let monthTag = getTag(forUnit: month, withSingleTag: Date.month, withDoubleTag: Date.months, withAbbreviationTag: abbrTag)
