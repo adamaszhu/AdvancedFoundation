@@ -24,31 +24,54 @@ public class CoreDataHelper {
         guard let bundleName = AppInfoAccessor.shared.bundleName else {
             return nil
         }
-        return CoreDataHelper(withName: bundleName)
+        return CoreDataHelper(name: bundleName)
     }()
     
     /**
      * The context of the core data.
      */
-    private var context: NSManagedObjectContext?
+    private var context: NSManagedObjectContext
     
     /**
      * Initialize the object.
      * - parameter name: The name of the model.
      */
-    public init(withName name: String) {
-        updateContext(fromModel: name)
+    public init?(name: String) {
+        // COMMENT: The directory used to store the Core Data store file. This code uses a directory in the application's documents Application Support directory.
+        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        guard let url = urls.last?.appendingPathComponent(name).appendingPathExtension(sqlAppendix) else {
+            Logger.standard.logError(modelNameError, withDetail: name)
+            return nil
+        }
+        // COMMENT: The managed object model for the application. This property is not optional. It is a fatal error for the application not to be able to find and load its model.
+        guard let modelURL = Bundle.main.url(forResource: name, withExtension: "momd") else {
+            Logger.standard.logError(modelNameError, withDetail: name)
+            return nil
+        }
+        guard let model = NSManagedObjectModel(contentsOf: modelURL) else {
+            Logger.standard.logError(modelNameError, withDetail: name)
+            return nil
+        }
+        // COMMENT: The persistent store coordinator for the application. This implementation creates and returns a coordinator, having added the store for the application to it. This property is optional since there are legitimate error conditions that could cause the creation of the store to fail. Create the coordinator and store
+        let coordinator = NSPersistentStoreCoordinator(managedObjectModel: model)
+        // COMMENT: Add automatic version migration.
+        let options = [NSInferMappingModelAutomaticallyOption: true, NSMigratePersistentStoresAutomaticallyOption: true]
+        do {
+            try coordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: url, options: options)
+        } catch let error {
+            Logger.standard.logError(error)
+            return nil
+        }
+        context = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
+        context.persistentStoreCoordinator = coordinator
     }
     
     /**
      * Prepare an object for inserting to the core data.
      * - parameter type: The class of the object that need to be inserted.
-     * - returns: The object for insertion. Nil will be returned if there has been an error.
+     * - returns: The object for insertion.
      */
-    public func createObject(withType type: AnyClass) -> NSManagedObject? {
-        guard let context = context else {
-            return nil
-        }
+    public func createObject(withType type: AnyClass) -> NSManagedObject {
         let object = NSEntityDescription.insertNewObject(forEntityName: String(describing: type), into: context)
         return object
     }
@@ -61,9 +84,6 @@ public class CoreDataHelper {
      * - returns: A list of object. Nil will be returned if there has been an error.
      */
     public func getObjects(withType type: AnyClass, withCondition condition: String? = nil, withArguments arguments: Array<Any>? = nil) -> Array<NSManagedObject>? {
-        guard let context = context else {
-            return nil
-        }
         do {
             let request = NSFetchRequest<NSFetchRequestResult>(entityName: String(describing: type))
             if condition != nil {
@@ -101,9 +121,6 @@ public class CoreDataHelper {
      * - returns: Whether the object has been deleted or not. Nil will be returned if there has been an error.
      */
     public func deleteObject(_ object: NSManagedObject) -> Bool? {
-        guard let context = context else {
-            return nil
-        }
         context.delete(object)
         return save()
     }
@@ -133,10 +150,7 @@ public class CoreDataHelper {
      * returns: Whether new changes have been saved or not. Nil if there is an error.
      */
     public func save() -> Bool? {
-        guard let context = context else {
-            return nil
-        }
-        if !context.hasChanges {
+        guard context.hasChanges else {
             return false
         }
         do {
@@ -146,40 +160,6 @@ public class CoreDataHelper {
             Logger.standard.logError(error)
             return nil
         }
-    }
-    
-    /**
-     * Get the core data context according to the name of the model.
-     * - parameter name: The name of the model.
-     */
-    private func updateContext(fromModel name: String) {
-        // COMMENT: The directory used to store the Core Data store file. This code uses a directory in the application's documents Application Support directory.
-        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        guard let url = urls.last?.appendingPathComponent(name).appendingPathExtension(sqlAppendix) else {
-            Logger.standard.logError(modelNameError, withDetail: name)
-            return
-        }
-        // COMMENT: The managed object model for the application. This property is not optional. It is a fatal error for the application not to be able to find and load its model.
-        guard let modelURL = Bundle.main.url(forResource: name, withExtension: "momd") else {
-            Logger.standard.logError(modelNameError, withDetail: name)
-            return
-        }
-        guard let model = NSManagedObjectModel(contentsOf: modelURL) else {
-            Logger.standard.logError(modelNameError, withDetail: name)
-            return
-        }
-        // COMMENT: The persistent store coordinator for the application. This implementation creates and returns a coordinator, having added the store for the application to it. This property is optional since there are legitimate error conditions that could cause the creation of the store to fail. Create the coordinator and store
-        let coordinator = NSPersistentStoreCoordinator(managedObjectModel: model)
-        // COMMENT: Add automatic version migration.
-        let options = [NSInferMappingModelAutomaticallyOption: true, NSMigratePersistentStoresAutomaticallyOption: true]
-        do {
-            try coordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: url, options: options)
-        } catch let error {
-            Logger.standard.logError(error)
-            return
-        }
-        context = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
-        context?.persistentStoreCoordinator = coordinator
     }
     
 }
