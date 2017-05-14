@@ -48,6 +48,7 @@
 		429202721EC735DD00C4E909 /* FileInfoAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DAF4E41EA3A0C300DE6B70 /* FileInfoAccessor.swift */; };
 		429202731EC73B3400C4E909 /* IDGeneratorSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DAF4DE1EA388BE00DE6B70 /* IDGeneratorSpecs.swift */; };
 		429202741EC73B7700C4E909 /* IDGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DAF4DC1EA3849D00DE6B70 /* IDGenerator.swift */; };
+		429202761EC7DDFB00C4E909 /* ResourceHelperSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429202751EC7DDFB00C4E909 /* ResourceHelperSpecs.swift */; };
 		42D3424F1EB4792E00064B1C /* ResourceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D3424E1EB4792E00064B1C /* ResourceHelper.swift */; };
 		42D342521EB48FBA00064B1C /* TextResourceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D342511EB48FBA00064B1C /* TextResourceHelper.swift */; };
 		42D342541EB4968100064B1C /* TextResourceHelperSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D342531EB4968100064B1C /* TextResourceHelperSpecs.swift */; };
@@ -133,6 +134,7 @@
 		42622EAA1EA2182200E5D5E7 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Date.strings"; sourceTree = "<group>"; };
 		42622EAC1EA237F900E5D5E7 /* Date+FormatterSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+FormatterSpecs.swift"; sourceTree = "<group>"; };
 		4278038F1EA78676007AF7DF /* FileHelperSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileHelperSpecs.swift; sourceTree = "<group>"; };
+		429202751EC7DDFB00C4E909 /* ResourceHelperSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceHelperSpecs.swift; sourceTree = "<group>"; };
 		42D3424E1EB4792E00064B1C /* ResourceHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceHelper.swift; sourceTree = "<group>"; };
 		42D342511EB48FBA00064B1C /* TextResourceHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextResourceHelper.swift; sourceTree = "<group>"; };
 		42D342531EB4968100064B1C /* TextResourceHelperSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextResourceHelperSpecs.swift; sourceTree = "<group>"; };
@@ -385,6 +387,7 @@
 			isa = PBXGroup;
 			children = (
 				42DAF4DE1EA388BE00DE6B70 /* IDGeneratorSpecs.swift */,
+				429202751EC7DDFB00C4E909 /* ResourceHelperSpecs.swift */,
 				42D342531EB4968100064B1C /* TextResourceHelperSpecs.swift */,
 			);
 			path = Resource;
@@ -710,6 +713,7 @@
 				42622E991EA1E51100E5D5E7 /* String+LocalizerSpecs.swift in Sources */,
 				28E7039E1EBAA0A3002BEDFC /* JSONPathSpecs.swift in Sources */,
 				42F30E471E9E413400AC0249 /* VersionHelperSpecs.swift in Sources */,
+				429202761EC7DDFB00C4E909 /* ResourceHelperSpecs.swift in Sources */,
 				42D342781EB4D56100064B1C /* JSONNode+ParserSpecs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
