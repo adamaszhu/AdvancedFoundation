@@ -1,6 +1,11 @@
 class FileInfoAccessorSpecs: QuickSpec {
     
     override func spec() {
+        describe("calls init(path)") {
+            it("return valid accessor") {
+                expect(FileInfoAccessor(path: "")).notTo(beNil())
+            }
+        }
         describe("has fileExtension") {
             context("as valid file with special file name") {
                 let fileInfoAccessor = FileInfoAccessor(path: "/test/.png")

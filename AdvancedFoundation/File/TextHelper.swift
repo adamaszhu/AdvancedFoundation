@@ -20,7 +20,7 @@ public class TextHelper {
      * Initialize the helper.
      * - parameter content: The content of the text file.
      */
-    public init(withContent content: String) {
+    public init(content: String) {
         self.content = content
         lines = []
         parseLines()

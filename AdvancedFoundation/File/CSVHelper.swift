@@ -27,9 +27,9 @@ public class CSVHelper: TextHelper {
     /**
      * TextHelper
      */
-    public override init(withContent content: String) {
+    public override init(content: String) {
         csvContent = []
-        super.init(withContent: content)
+        super.init(content: content)
         parseCSV()
     }
     

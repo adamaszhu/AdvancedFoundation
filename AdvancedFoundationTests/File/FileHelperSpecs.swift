@@ -27,7 +27,7 @@ class FileHelperSpecs: QuickSpec {
                 }
             }
         }
-        describe("call create(withData)") {
+        describe("call create(with)") {
             context("if the file exists") {
                 it("returns false") {
                     _ = fileHelper.create(with: Data())
