@@ -63,6 +63,32 @@ class StringLocalizerSpecs: QuickSpec {
                 }
             }
         }
+        describe("calls localizeWithinFramework(forType)") {
+            context("as localizable string") {
+                context("with correct class") {
+                    it("returns localized string") {
+                        expect("Space".localizeWithinFramework(forType: Date.self)) == " "
+                    }
+                }
+                context("with incorrect type") {
+                    it("returns original string") {
+                        expect("Space".localizeWithinFramework(forType: Logger.self)) == "Space"
+                    }
+                }
+            }
+            context("as non localizable string") {
+                context("with correct type") {
+                    it("returns original string") {
+                        expect("Test".localizeWithinFramework(forType: Date.self)) == "Test"
+                    }
+                }
+                context("with incorrect type") {
+                    it("returns original string") {
+                        expect("Test".localizeWithinFramework(forType: Logger.self)) == "Test"
+                    }
+                }
+            }
+        }
     }
     
 }
