@@ -14,8 +14,8 @@ extension NetworkHelper: URLSessionDownloadDelegate {
             return
         }
         let destinationPath = "\(documentDirectory)/\(task.identifier)"
-        let fileHelper = FileHelper(path: location.absoluteString)
-        guard fileHelper.copy(toPath: destinationPath) == true else {
+        let fileHelper = FileHelper(path: location.relativePath)
+        if fileHelper.copy(toPath: destinationPath) != true {
             Logger.standard.logError(fileSystemError)
             dispatchError(for: task, withMessage: appError)
             return

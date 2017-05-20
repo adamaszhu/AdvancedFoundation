@@ -9,12 +9,12 @@ public struct FormDataTextField {
     /**
      * The name of the field.
      */
-    public let name: String
+    let name: String
     
     /**
      * The value of the field.
      */
-    public let value: String
+    let value: String
     
 }
 

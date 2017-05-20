@@ -23,14 +23,10 @@ extension NetworkResponseHeader {
         guard let httpResponse = response as? HTTPURLResponse else {
             return nil
         }
-        guard let contentType = httpResponse.allHeaderFields[NetworkResponseHeader.contentTypeHeader] as? String else {
-            return nil
-        }
-        guard let contentLengthString = httpResponse.allHeaderFields[NetworkResponseHeader.contentLengthHeader] as? String else {
-            return nil
-        }
-        guard let contentLength = Int(contentLengthString) else {
-            return nil
+        let contentType = httpResponse.allHeaderFields[NetworkResponseHeader.contentTypeHeader] as? String
+        var contentLength: Int?
+        if let contentLengthString = httpResponse.allHeaderFields[NetworkResponseHeader.contentLengthHeader] as? String {
+            contentLength = Int(contentLengthString)
         }
         let lastModified = httpResponse.allHeaderFields[NetworkResponseHeader.lastModifiedHeader] as? String
         let eTag = httpResponse.allHeaderFields[NetworkResponseHeader.eTagHeader] as? String

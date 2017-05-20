@@ -97,7 +97,7 @@ public class NetworkHelper: NSObject {
      * - parameter isUploadTask: Whether the task should be run in the background or not.
      * - returns: The identifier of the task.
      */
-    public func post(toURL urlString: String, with header: NetworkRequestHeader? = nil, with body: Data, as type: NetworkBodyType, asUploadTask isUploadTask: Bool = false) -> String? {
+    public func post(toURL urlString: String, with body: Data, as type: NetworkBodyType, with header: NetworkRequestHeader? = nil, asUploadTask isUploadTask: Bool = false) -> String? {
         var header = header ?? NetworkRequestHeader()
         header.contentType = type.rawValue
         header.contentLength = body.count
@@ -118,8 +118,8 @@ public class NetworkHelper: NSObject {
      * - parameter isUploadTask: Whether the task should be run in the background or not.
      * - returns: The identifier of the task.
      */
-    public func post(toURL urlString: String, with header: NetworkRequestHeader? = nil, with formData: FormData, asUploadTask isUploadTask: Bool = false) -> String? {
-        return post(toURL: urlString, with: header, with: formData.convertToData(), as: .formData, asUploadTask: isUploadTask)
+    public func post(toURL urlString: String, with formData: FormData, with header: NetworkRequestHeader? = nil, asUploadTask isUploadTask: Bool = false) -> String? {
+        return post(toURL: urlString, with: formData.convertToData(), as: .formData, with: header, asUploadTask: isUploadTask)
     }
     
     

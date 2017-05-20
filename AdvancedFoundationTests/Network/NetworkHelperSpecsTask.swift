@@ -8,8 +8,7 @@ struct NetworkHelperSpecsTask {
     var statusCode: Int?
     var percentage: Double?
     
-    init() {
-    }
+    init() { }
     
     mutating func reset() {
         error = nil

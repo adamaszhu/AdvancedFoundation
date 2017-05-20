@@ -9,17 +9,17 @@ public struct FormDataFileField {
     /**
      * The name of the field.
      */
-    public let name: String
+    let name: String
     
     /**
      * The content of the file.
      */
-    public let content: Data
+    let content: Data
     
     /**
      * The path of the file, which will be used to extract the file name and file extension.
      */
-    public let path: String
+    let path: String
     
 }
 
