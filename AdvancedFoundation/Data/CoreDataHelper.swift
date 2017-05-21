@@ -86,8 +86,8 @@ public class CoreDataHelper {
     public func getObjects(withType type: AnyClass, withCondition condition: String? = nil, withArguments arguments: Array<Any>? = nil) -> Array<NSManagedObject>? {
         do {
             let request = NSFetchRequest<NSFetchRequestResult>(entityName: String(describing: type))
-            if condition != nil {
-                let predicate = NSPredicate(format: condition!, argumentArray: arguments)
+            if let condition = condition {
+                let predicate = NSPredicate(format: condition, argumentArray: arguments)
                 request.predicate = predicate
             }
             guard let objects = try context.fetch(request) as? Array<NSManagedObject> else {
