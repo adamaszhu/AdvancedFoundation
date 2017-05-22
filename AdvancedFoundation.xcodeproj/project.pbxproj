@@ -66,6 +66,7 @@
 		42D342781EB4D56100064B1C /* JSONNode+ParserSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D342771EB4D56100064B1C /* JSONNode+ParserSpecs.swift */; };
 		42D3427A1EB54E7E00064B1C /* JSONPath+Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D342791EB54E7E00064B1C /* JSONPath+Parser.swift */; };
 		42D3427C1EB5502900064B1C /* JSONPath+Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D3427B1EB5502900064B1C /* JSONPath+Parser.swift */; };
+		42F1B2A11ED1631E00788234 /* PathHelperSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F1B2A01ED1631E00788234 /* PathHelperSpecs.swift */; };
 		42F30E431E9E412900AC0249 /* AppInfoAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F30E411E9E412900AC0249 /* AppInfoAccessor.swift */; };
 		42F30E441E9E412900AC0249 /* VersionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F30E421E9E412900AC0249 /* VersionHelper.swift */; };
 		42F30E471E9E413400AC0249 /* VersionHelperSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F30E461E9E413400AC0249 /* VersionHelperSpecs.swift */; };
@@ -156,6 +157,7 @@
 		42DAF4DE1EA388BE00DE6B70 /* IDGeneratorSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDGeneratorSpecs.swift; sourceTree = "<group>"; };
 		42DAF4E41EA3A0C300DE6B70 /* FileInfoAccessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileInfoAccessor.swift; sourceTree = "<group>"; };
 		42DAF4E61EA43D8800DE6B70 /* FileInfoAccessorSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileInfoAccessorSpecs.swift; sourceTree = "<group>"; };
+		42F1B2A01ED1631E00788234 /* PathHelperSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PathHelperSpecs.swift; sourceTree = "<group>"; };
 		42F30E411E9E412900AC0249 /* AppInfoAccessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppInfoAccessor.swift; sourceTree = "<group>"; };
 		42F30E421E9E412900AC0249 /* VersionHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersionHelper.swift; sourceTree = "<group>"; };
 		42F30E461E9E413400AC0249 /* VersionHelperSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersionHelperSpecs.swift; sourceTree = "<group>"; };
@@ -413,6 +415,7 @@
 				425EAD521EAEDC1D001F1F81 /* DirectoryHelperSpecs.swift */,
 				4278038F1EA78676007AF7DF /* FileHelperSpecs.swift */,
 				42DAF4E61EA43D8800DE6B70 /* FileInfoAccessorSpecs.swift */,
+				42F1B2A01ED1631E00788234 /* PathHelperSpecs.swift */,
 				42D342691EB4AB3800064B1C /* TextHelperSpecs.swift */,
 			);
 			path = File;
@@ -705,6 +708,7 @@
 				425EAD531EAEDC1D001F1F81 /* DirectoryHelperSpecs.swift in Sources */,
 				42D3426A1EB4AB3800064B1C /* TextHelperSpecs.swift in Sources */,
 				286247231EB994DF007D531D /* NSManagedObject+Test.swift in Sources */,
+				42F1B2A11ED1631E00788234 /* PathHelperSpecs.swift in Sources */,
 				425336CC1EA0ABE800B6D6BF /* Number+DecimalFormatterSpecs.swift in Sources */,
 				281881D81EA86EEC00E8C85E /* String+HelperSpecs.swift in Sources */,
 				425DCD181EB43DE700A0ED26 /* FileHelperSpecs.swift in Sources */,
