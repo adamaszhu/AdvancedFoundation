@@ -1,10 +1,10 @@
 class CSVHelperSpecs: QuickSpec {
     
     override func spec() {
-        describe("calls init(withContent)") {
+        describe("has csvContent") {
             context("if content has comment") {
                 let content = "// COMMENT\nLine1Column1,Line1Column2\nLine2Column1"
-                let csvHelper = CSVHelper(withContent: content)
+                let csvHelper = CSVHelper(content: content)
                 it("is parsed to 2 csv rows") {
                     expect(csvHelper.csvContent.count) == 2
                 }
@@ -14,11 +14,17 @@ class CSVHelperSpecs: QuickSpec {
             }
             context("if content doesn't have comment") {
                 let content = "\nLine2Column1"
-                let csvHelper = CSVHelper(withContent: content)
+                let csvHelper = CSVHelper(content: content)
                 it("is parsed to 2 lines") {
                     expect(csvHelper.csvContent.count) == 2
                 }
-                
+            }
+        }
+        describe("calls init(content)") {
+            let content = ""
+            let csvHelper = CSVHelper(content: content)
+            it("returns CSVHelper object") {
+                expect(csvHelper).notTo(beNil())
             }
         }
     }

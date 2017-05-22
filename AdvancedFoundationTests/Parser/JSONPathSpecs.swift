@@ -1,8 +1,8 @@
 class JSONPathSpecs: QuickSpec {
     
     override func spec() {
-        var emptyPath = JSONPath.parseString("")!
-        var nonEmptyPath = JSONPath.parseString("firstNode/secondNode")!
+        var emptyPath = JSONPath.parse("")!
+        var nonEmptyPath = JSONPath.parse("firstNode/secondNode")!
         describe("has isEmpty") {
             context("with empty path") {
                 it("is true") {
@@ -29,8 +29,8 @@ class JSONPathSpecs: QuickSpec {
         }
         describe("calls removeFirstNode()") {
             afterEach {
-                emptyPath = JSONPath.parseString("")!
-                nonEmptyPath = JSONPath.parseString("firstNode/secondNode")!
+                emptyPath = JSONPath.parse("")!
+                nonEmptyPath = JSONPath.parse("firstNode/secondNode")!
             }
             context("with empty path") {
                 it("has no node left") {

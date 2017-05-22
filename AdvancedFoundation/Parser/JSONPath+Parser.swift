@@ -11,13 +11,13 @@ extension JSONPath {
      * - parameter string: The string to be parsed.
      * - returns: The parsed path. Nil if the string is not well formatted.
      */
-    static func parseString(_ string: String) -> JSONPath? {
+    static func parse(_ string: String) -> JSONPath? {
         var nodes = Array<JSONNode>()
         guard !string.isEmpty else {
             return JSONPath(nodes: nodes)
         }
         for nodeComponent in string.components(separatedBy: "/") {
-            guard let node = JSONNode.parseString(nodeComponent) else {
+            guard let node = JSONNode.parse(nodeComponent) else {
                 return nil
             }
             nodes.append(node)

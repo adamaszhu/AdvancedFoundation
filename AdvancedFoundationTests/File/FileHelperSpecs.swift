@@ -6,6 +6,11 @@ class FileHelperSpecs: QuickSpec {
             let pathHelper = PathHelper(path: "temp.tmp")
             _ = pathHelper.remove()
         }
+        describe("has path") {
+            it("is correct") {
+                expect(fileHelper.path.hasPrefix("/Users")) == true
+            }
+        }
         describe("has isExisted") {
             context("if the file exists") {
                 it("is true") {
@@ -27,7 +32,7 @@ class FileHelperSpecs: QuickSpec {
                 }
             }
         }
-        describe("call create(withData)") {
+        describe("call create(with)") {
             context("if the file exists") {
                 it("returns false") {
                     _ = fileHelper.create(with: Data())
@@ -88,6 +93,19 @@ class FileHelperSpecs: QuickSpec {
             context("if the file doesn't exists") {
                 it("returns false") {
                     expect(fileHelper.copy(toPath: "temp1.tmp")) == false
+                }
+            }
+        }
+        describe("calls remove()") {
+            context("if the file exists") {
+                it("returns true") {
+                    _ = fileHelper.create(with: Data())
+                    expect(fileHelper.remove()) == true
+                }
+            }
+            context("if the file doesn't exist") {
+                it("returns false") {
+                    expect(fileHelper.remove()) == false
                 }
             }
         }

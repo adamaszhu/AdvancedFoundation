@@ -1,7 +1,7 @@
-class CurrencyFormatterSpecs: QuickSpec {
+class NumberCurrencyFormatterSpecs: QuickSpec {
     
     override func spec() {
-        describe("calls convertToMoneyString(withCent)") {
+        describe("calls convertToMoneyString(withCent:withCurrencySymbol)") {
             context("as double") {
                 let number = NSNumber(value: 999999.55)
                 context("with cent") {

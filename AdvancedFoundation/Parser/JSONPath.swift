@@ -19,10 +19,7 @@ struct JSONPath {
      * The first node in the path.
      */
     var firstNode: JSONNode? {
-        guard !isEmpty else {
-            return nil
-        }
-        return nodes.first!
+        return nodes.first
     }
     
     /**

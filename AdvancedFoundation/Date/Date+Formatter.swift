@@ -43,7 +43,6 @@ public extension Date {
      * - returns: The time offset string.
      */
     public func convertToTimeOffsetString(withAbbreviation shouldUseAbbreviation: Bool = false) -> String {
-        // TODO: Calculate based on current year.
         let currentTimeInterval = Date().timeIntervalSince1970
         var timeOffset: Int
         if currentTimeInterval > timeIntervalSince1970 {

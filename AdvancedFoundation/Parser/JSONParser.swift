@@ -88,7 +88,7 @@ public class JSONParser {
             realPath = realPath.removePrefix("/")!
             realNode = json
         }
-        guard let jsonPath = JSONPath.parseString(realPath) else {
+        guard let jsonPath = JSONPath.parse(realPath) else {
             return nil
         }
         guard !jsonPath.isEmpty else {

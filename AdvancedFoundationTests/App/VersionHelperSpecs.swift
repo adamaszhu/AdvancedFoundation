@@ -74,7 +74,21 @@ class VersionHelperSpecs: QuickSpec {
             }
         }
         describe("calls checkVersionFlag()") {
-            // COMMENT: It has been done in the other two describes.
+            let versionHelper = VersionHelper.standard
+            afterEach {
+                versionHelper?.deleteVersionFlag()
+            }
+            context("without version flag saved") {
+                it("misses flag") {
+                    expect(versionHelper?.checkVersionFlag()) == false
+                }
+            }
+            context("with version flag saved") {
+                it("finds flag") {
+                    versionHelper?.createVersionFlag()
+                    expect(versionHelper?.checkVersionFlag()) == true
+                }
+            }
         }
         describe("calls deleteVersionFlag()") {
             let versionHelper = VersionHelper.standard

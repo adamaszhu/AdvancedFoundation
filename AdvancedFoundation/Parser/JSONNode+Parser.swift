@@ -11,7 +11,7 @@ extension JSONNode {
      * - parameter string: The string.
      * - returns: The JSONNode. Nil if the string has an unexpected format.
      */
-    static func parseString(_ string: String) -> JSONNode? {
+    static func parse(_ string: String) -> JSONNode? {
         let leftBracketIndex = string.range(of: "[")?.lowerBound
         let rightBracketIndex = string.range(of: "]")?.lowerBound
         if (leftBracketIndex == nil) && (rightBracketIndex == nil) {
