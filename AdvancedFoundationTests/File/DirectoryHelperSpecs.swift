@@ -6,6 +6,11 @@ class DirectoryHelperSpecs: QuickSpec {
             let pathHelper = PathHelper(path: "temp")
             _ = pathHelper.remove()
         }
+        describe("has path") {
+            it("is correct") {
+                expect(directoryHelper.path.hasPrefix("/Users")) == true
+            }
+        }
         describe("has isExisted") {
             context("if the directory exists") {
                 it("returns true") {
