@@ -16,53 +16,56 @@ class NetworkResponseHeaderParserSpecs: QuickSpec {
                     expect(NetworkResponseHeader.parse(response)).to(beNil())
                 }
             }
-            context("without content type header") {
-                it("returns nil") {
-                    let header = [self.contentLengthHeader: "0"]
+            context("with contentType header") {
+                it("returns response with correct contentType") {
+                    let header = [self.contentTypeHeader: "ContentType"]
                     let response = HTTPURLResponse(url: URL(fileURLWithPath: ""), statusCode: 0, httpVersion: nil, headerFields: header)!
-                    expect(NetworkResponseHeader.parse(response)).to(beNil())
+                    expect(NetworkResponseHeader.parse(response)?.contentType) == "ContentType"
                 }
             }
-            context("without content length header") {
-                it("returns nil") {
-                    let header = [self.contentTypeHeader: "contentType"]
+            context("with invalid contentLength header") {
+                it("returns response header without contentLength value") {
+                    let header = [self.contentLengthHeader: "ContentLength"]
                     let response = HTTPURLResponse(url: URL(fileURLWithPath: ""), statusCode: 0, httpVersion: nil, headerFields: header)!
-                    expect(NetworkResponseHeader.parse(response)).to(beNil())
+                    expect(NetworkResponseHeader.parse(response)?.contentLength).to(beNil())
                 }
             }
-            context("with invalid content type header") {
-                it("returns nil") {
-                    let header = [self.contentTypeHeader: "contentType", self.contentLengthHeader: "test"]
+            context("with correct contentLength header") {
+                it("returns response header without contentLength value") {
+                    let header = [self.contentLengthHeader: "1"]
                     let response = HTTPURLResponse(url: URL(fileURLWithPath: ""), statusCode: 0, httpVersion: nil, headerFields: header)!
-                    expect(NetworkResponseHeader.parse(response)).to(beNil())
+                    expect(NetworkResponseHeader.parse(response)?.contentLength) == 1
                 }
             }
             context("with lastModified header") {
                 it("returns response header with lastModified value") {
-                    let header = [self.contentTypeHeader: "contentType", self.contentLengthHeader: "0", self.lastModifiedHeader: "lastModified"]
+                    let header = [self.lastModifiedHeader: "LastModified"]
                     let response = HTTPURLResponse(url: URL(fileURLWithPath: ""), statusCode: 0, httpVersion: nil, headerFields: header)!
-                    expect(NetworkResponseHeader.parse(response)?.lastModified) == "lastModified"
-                }
-            }
-            context("without lastModified header") {
-                it("returns response header without lastModified value") {
-                    let header = [self.contentTypeHeader: "contentType", self.contentLengthHeader: "0"]
-                    let response = HTTPURLResponse(url: URL(fileURLWithPath: ""), statusCode: 0, httpVersion: nil, headerFields: header)!
-                    expect(NetworkResponseHeader.parse(response)?.lastModified).to(beNil())
+                    expect(NetworkResponseHeader.parse(response)?.lastModified) == "LastModified"
                 }
             }
             context("with eTag header") {
                 it("returns response header with eTag value") {
-                    let header = [self.contentTypeHeader: "contentType", self.contentLengthHeader: "0", self.eTagHeader: "eTag"]
+                    let header = [self.eTagHeader: "ETag"]
                     let response = HTTPURLResponse(url: URL(fileURLWithPath: ""), statusCode: 0, httpVersion: nil, headerFields: header)!
-                    expect(NetworkResponseHeader.parse(response)?.eTag) == "eTag"
+                    expect(NetworkResponseHeader.parse(response)?.eTag) == "ETag"
                 }
             }
-            context("without eTag header") {
+            context("without header") {
+                let header = Dictionary<String, String>()
+                let response = HTTPURLResponse(url: URL(fileURLWithPath: ""), statusCode: 0, httpVersion: nil, headerFields: header)!
+                let responseHeader = NetworkResponseHeader.parse(response)
                 it("returns response header without eTag value") {
-                    let header = [self.contentTypeHeader: "contentType", self.contentLengthHeader: "0"]
-                    let response = HTTPURLResponse(url: URL(fileURLWithPath: ""), statusCode: 0, httpVersion: nil, headerFields: header)!
-                    expect(NetworkResponseHeader.parse(response)?.eTag).to(beNil())
+                    expect(responseHeader?.eTag).to(beNil())
+                }
+                it("returns response header without lastModified value") {
+                    expect(responseHeader?.lastModified).to(beNil())
+                }
+                it("returns response header without contentLength value") {
+                    expect(responseHeader?.contentLength).to(beNil())
+                }
+                it("returns response header without contentType value") {
+                    expect(responseHeader?.contentType).to(beNil())
                 }
             }
         }

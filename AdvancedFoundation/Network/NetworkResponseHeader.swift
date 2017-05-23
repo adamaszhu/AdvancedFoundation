@@ -26,20 +26,6 @@ public struct NetworkResponseHeader {
      */
     let eTag: String?
     
-    /**
-     * Initialize the structure.
-     * - parameter contentType: The content type of the HTTP body.
-     * - parameter contentLength: The length of the HTTP body.
-     * - parameter lastModified: Support the HTTP cache, which is the date of the modified timestamp.
-     * - parameter eTag: The tag recorded about the responsed data.
-     */
-    init(contentType: String? = nil, contentLength: Int? = nil, lastModified: String? = nil, eTag: String? = nil) {
-        self.contentType = contentType
-        self.contentLength = contentLength
-        self.lastModified = lastModified
-        self.eTag = eTag
-    }
-    
 }
 
 import Foundation

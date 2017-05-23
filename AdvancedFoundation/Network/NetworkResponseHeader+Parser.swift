@@ -15,17 +15,28 @@ extension NetworkResponseHeader {
     private static let eTagHeader = "Etag"
     
     /**
+ * Error Message.
+ */
+    private static let responseTypeError = "The response type is incorrect."
+    private static let contentLengthHeaderError = "The content length field is not a number."
+    
+    /**
      * Parse the header of a url response.
      * - parameter response: The response.
      * - returns: The parsed header. Nil if the response is not a HTTP response.
      */
-    public static func parse(_ response: URLResponse) -> NetworkResponseHeader? {
+    static func parse(_ response: URLResponse) -> NetworkResponseHeader? {
         guard let httpResponse = response as? HTTPURLResponse else {
+            Logger.standard.logError(NetworkResponseHeader.responseTypeError)
             return nil
         }
         let contentType = httpResponse.allHeaderFields[NetworkResponseHeader.contentTypeHeader] as? String
         var contentLength: Int?
         if let contentLengthString = httpResponse.allHeaderFields[NetworkResponseHeader.contentLengthHeader] as? String {
+            guard Int(contentLengthString) != nil else {
+                Logger.standard.logError(NetworkResponseHeader.contentLengthHeaderError)
+                return nil
+            }
             contentLength = Int(contentLengthString)
         }
         let lastModified = httpResponse.allHeaderFields[NetworkResponseHeader.lastModifiedHeader] as? String

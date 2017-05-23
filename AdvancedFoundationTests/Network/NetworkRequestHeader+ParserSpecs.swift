@@ -11,22 +11,22 @@ class NetworkRequestHeaderParserSpecs: QuickSpec {
     override func spec() {
         describe("calls convertToDictionary()") {
             context("with every header") {
-                let requestHeaderDictionary = NetworkRequestHeader(ifModifiedSince: "ifModifiedSince", ifNoneMatch: "ifNoneMatch", contentType: "contentType", contentLength: 0).convertToDictionary()
+                let requestHeaderDictionary = NetworkRequestHeader(ifModifiedSince: "IfModifiedSince", ifNoneMatch: "IfNoneMatch", contentType: "ContentType", contentLength: 0).convertToDictionary()
                 it("returns dictionary with ifModifiedSince") {
-                    expect(requestHeaderDictionary[self.ifModifiedSinceHeader]) == "ifModifiedSince"
+                    expect(requestHeaderDictionary[self.ifModifiedSinceHeader]) == "IfModifiedSince"
                 }
                 it("returns dictionary with ifNoneMatch") {
-                    expect(requestHeaderDictionary[self.ifNoneMatchHeader]) == "ifNoneMatch"
+                    expect(requestHeaderDictionary[self.ifNoneMatchHeader]) == "IfNoneMatch"
                 }
                 it("returns dictionary with contentType") {
-                    expect(requestHeaderDictionary[self.contentTypeHeader]) == "contentType"
+                    expect(requestHeaderDictionary[self.contentTypeHeader]) == "ContentType"
                 }
                 it("returns dictionary with contentLength") {
                     expect(requestHeaderDictionary[self.contentLengthHeader]) == "0"
                 }
             }
             context("without any header") {
-                let requestHeaderDictionary = NetworkRequestHeader(ifModifiedSince: nil, ifNoneMatch: nil, contentType: nil, contentLength: nil).convertToDictionary()
+                let requestHeaderDictionary = NetworkRequestHeader().convertToDictionary()
                 it("returns dictionary without ifModifiedSince") {
                     expect(requestHeaderDictionary[self.ifModifiedSinceHeader]).to(beNil())
                 }

@@ -22,6 +22,7 @@ class NetworkTask {
         } else if task is URLSessionStreamTask {
             return .stream
         } else {
+            // COMMENT: URLSessionTask is a data task.
             return .data
         }
     }

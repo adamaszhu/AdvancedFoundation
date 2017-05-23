@@ -30,7 +30,11 @@
 		2854752C1ED3A5AA00821F83 /* FormDataSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2854752B1ED3A5AA00821F83 /* FormDataSpecs.swift */; };
 		2854752E1ED3A6D000821F83 /* FormDataFileFieldSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2854752D1ED3A6D000821F83 /* FormDataFileFieldSpecs.swift */; };
 		285475301ED3A7E400821F83 /* FormDataTextFieldSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2854752F1ED3A7E400821F83 /* FormDataTextFieldSpecs.swift */; };
+		285475321ED3AC0300821F83 /* NetworkTaskSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285475311ED3AC0300821F83 /* NetworkTaskSpecs.swift */; };
+		285475341ED3B02300821F83 /* NetworkResponseHeaderSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285475331ED3B02300821F83 /* NetworkResponseHeaderSpecs.swift */; };
+		285475361ED3B16C00821F83 /* NetworkRequestHeaderSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285475351ED3B16C00821F83 /* NetworkRequestHeaderSpecs.swift */; };
 		286247231EB994DF007D531D /* NSManagedObject+Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286247221EB994DF007D531D /* NSManagedObject+Test.swift */; };
+		28B942821ED3BD2400FFACA1 /* AppInfoAccessorSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F30E4A1E9E4CE200AC0249 /* AppInfoAccessorSpecs.swift */; };
 		28CC3FE21EB812DB00C632A5 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CC3FE11EB812DB00C632A5 /* CoreDataHelper.swift */; };
 		28CC3FE41EB8130A00C632A5 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28CC3FE31EB8130A00C632A5 /* CoreData.framework */; };
 		28CC3FE71EB8200200C632A5 /* CoreDataHelperSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CC3FE61EB8200200C632A5 /* CoreDataHelperSpecs.swift */; };
@@ -105,7 +109,6 @@
 		42F30E431E9E412900AC0249 /* AppInfoAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F30E411E9E412900AC0249 /* AppInfoAccessor.swift */; };
 		42F30E441E9E412900AC0249 /* VersionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F30E421E9E412900AC0249 /* VersionHelper.swift */; };
 		42F30E471E9E413400AC0249 /* VersionHelperSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F30E461E9E413400AC0249 /* VersionHelperSpecs.swift */; };
-		42F30E4B1E9E4CE200AC0249 /* AppInfoAccessorSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F30E4A1E9E4CE200AC0249 /* AppInfoAccessorSpecs.swift */; };
 		44288731CD0DB5D0FB861C8C /* Pods_AdvancedFoundationTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86FC5B98651D3B1381244FFD /* Pods_AdvancedFoundationTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -153,6 +156,9 @@
 		2854752B1ED3A5AA00821F83 /* FormDataSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormDataSpecs.swift; sourceTree = "<group>"; };
 		2854752D1ED3A6D000821F83 /* FormDataFileFieldSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormDataFileFieldSpecs.swift; sourceTree = "<group>"; };
 		2854752F1ED3A7E400821F83 /* FormDataTextFieldSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormDataTextFieldSpecs.swift; sourceTree = "<group>"; };
+		285475311ED3AC0300821F83 /* NetworkTaskSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTaskSpecs.swift; sourceTree = "<group>"; };
+		285475331ED3B02300821F83 /* NetworkResponseHeaderSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkResponseHeaderSpecs.swift; sourceTree = "<group>"; };
+		285475351ED3B16C00821F83 /* NetworkRequestHeaderSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRequestHeaderSpecs.swift; sourceTree = "<group>"; };
 		286247221EB994DF007D531D /* NSManagedObject+Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+Test.swift"; sourceTree = "<group>"; };
 		28CC3FE11EB812DB00C632A5 /* CoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		28CC3FE31EB8130A00C632A5 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -392,8 +398,11 @@
 				429202831EC8167B00C4E909 /* NetworkHelperSpecs+Delegate.swift */,
 				429202851EC81CA700C4E909 /* NetworkHelperSpecsTask.swift */,
 				429202791EC7EF6600C4E909 /* NetworkRequestHeader+ParserSpecs.swift */,
+				285475351ED3B16C00821F83 /* NetworkRequestHeaderSpecs.swift */,
 				429202771EC7ECE100C4E909 /* NetworkResponseHeader+ParserSpecs.swift */,
+				285475331ED3B02300821F83 /* NetworkResponseHeaderSpecs.swift */,
 				284EF0071EC28F440022EB6B /* NetworkTask+EquatableSpecs.swift */,
+				285475311ED3AC0300821F83 /* NetworkTaskSpecs.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -839,20 +848,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				28CC3FE71EB8200200C632A5 /* CoreDataHelperSpecs.swift in Sources */,
-				42F30E4B1E9E4CE200AC0249 /* AppInfoAccessorSpecs.swift in Sources */,
 				425336CE1EA1AB3B00B6D6BF /* Number+PercentageFormatterSpecs.swift in Sources */,
 				2854752E1ED3A6D000821F83 /* FormDataFileFieldSpecs.swift in Sources */,
 				28E703BC1EBAE504002BEDFC /* NetworkHelperSpecs.swift in Sources */,
 				42D3427C1EB5502900064B1C /* JSONPath+Parser.swift in Sources */,
+				285475341ED3B02300821F83 /* NetworkResponseHeaderSpecs.swift in Sources */,
 				425336C81EA090E100B6D6BF /* Number+LongNumberFormatterSpecs.swift in Sources */,
 				429202711EC7358200C4E909 /* FileInfoAccessorSpecs.swift in Sources */,
+				28B942821ED3BD2400FFACA1 /* AppInfoAccessorSpecs.swift in Sources */,
 				42D342541EB4968100064B1C /* TextResourceHelperSpecs.swift in Sources */,
 				429202731EC73B3400C4E909 /* IDGeneratorSpecs.swift in Sources */,
+				285475321ED3AC0300821F83 /* NetworkTaskSpecs.swift in Sources */,
 				429202841EC8167B00C4E909 /* NetworkHelperSpecs+Delegate.swift in Sources */,
 				42622EAD1EA237F900E5D5E7 /* Date+FormatterSpecs.swift in Sources */,
 				284EEFE41EC04D640022EB6B /* FormData+ParserSpecs.swift in Sources */,
 				429202781EC7ECE100C4E909 /* NetworkResponseHeader+ParserSpecs.swift in Sources */,
-				42D342761EB4D55400064B1C /* JSONParserSpecs.swift in Sources */, 
+				42D342761EB4D55400064B1C /* JSONParserSpecs.swift in Sources */,
 				420F3CB11EA0798300BAA0A4 /* Number+CurrencyFormatterSpecs.swift in Sources */,
 				28CC40111EB83F9600C632A5 /* Test+CoreDataClass.swift in Sources */,
 				425EAD531EAEDC1D001F1F81 /* DirectoryHelperSpecs.swift in Sources */,
@@ -874,6 +885,7 @@
 				42F30E471E9E413400AC0249 /* VersionHelperSpecs.swift in Sources */,
 				429202761EC7DDFB00C4E909 /* ResourceHelperSpecs.swift in Sources */,
 				285475301ED3A7E400821F83 /* FormDataTextFieldSpecs.swift in Sources */,
+				285475361ED3B16C00821F83 /* NetworkRequestHeaderSpecs.swift in Sources */,
 				42D342781EB4D56100064B1C /* JSONNode+ParserSpecs.swift in Sources */,
 				2854752C1ED3A5AA00821F83 /* FormDataSpecs.swift in Sources */,
 			);
