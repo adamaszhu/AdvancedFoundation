@@ -47,19 +47,17 @@ class FileHelperSpecs: QuickSpec {
                 }
             }
         }
-        describe("call getContent()") {
+        describe("has context") {
             context("if the file exists") {
                 it("returns the content") {
                     let data = "Temp".data(using: .utf8)!
                     _ = fileHelper.create(with: data)
-                    let content = fileHelper.getContent()
-                    expect(content?.count) == data.count
+                    expect(fileHelper.content?.count) == data.count
                 }
             }
             context("if the file doesn't exist") {
                 it("returns nil") {
-                    let content = fileHelper.getContent()
-                    expect(content).to(beNil())
+                    expect(fileHelper.content).to(beNil())
                 }
             }
         }
