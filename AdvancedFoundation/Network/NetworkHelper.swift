@@ -26,24 +26,34 @@ public class NetworkHelper: NSObject {
     let documentDirectory = "Documents"
     
     /**
+     * The default helper.
+     */
+    public static var standard: NetworkHelper? {
+        guard let bundleName = AppInfoAccessor.shared.bundleName else {
+            return nil
+        }
+        return NetworkHelper(identifier: bundleName)
+    }
+    
+    /**
      * The delegate of the NetworkHelper.
      */
     public var networkHelperDelegate: NetworkHelperDelegate?
     
     /**
+     * The session connecting to the network. Declare as internal is for DI.
+     */
+    var normalSession: URLSession!
+    
+    /**
+     * The session used to download or upload in background mode. Declare as internal is for DI.
+     */
+    var backgroundSession: URLSession!
+    
+    /**
      * The task list.
      */
     private var tasks: Array<NetworkTask>
-    
-    /**
-     * The session connecting to the network.
-     */
-    private var normalSession: URLSession!
-    
-    /**
-     * The session used to download or upload in background mode.
-     */
-    private var backgroundSession: URLSession!
     
     /**
      * The cache used in the app.
@@ -76,7 +86,7 @@ public class NetworkHelper: NSObject {
      * - parameter identifier: The identifier used to identify the URL session running in the background.
      * - parameter cache: The cache to cache all request. Nil means use the default one.
      */
-    public init(identifier: String, cache: URLCache? = nil) {
+    public init(identifier: String, cache: URLCache = URLCache.shared) {
         tasks = []
         super.init()
         var configuration = URLSessionConfiguration.default
@@ -85,7 +95,7 @@ public class NetworkHelper: NSObject {
         configuration.sessionSendsLaunchEvents = true
         configuration.isDiscretionary = true
         backgroundSession = URLSession(configuration: configuration, delegate: self, delegateQueue: nil)
-        self.cache = cache ?? URLCache.shared
+        self.cache = cache
     }
     
     /**

@@ -1,4 +1,4 @@
-class URLSessionDataTaskMocker: URLSessionDataTask {
+class URLSessionUploadTaskMocker: URLSessionUploadTask {
     
     var delegate: (URLSessionDataDelegate & URLSessionTaskDelegate)?
     

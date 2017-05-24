@@ -5,13 +5,27 @@ class NetworkHelperHelperSpecs: QuickSpec {
     var results: Dictionary<String, NetworkHelperSpecsTask> = [:]
     
     override func spec() {
-        let validURL = "http://adamaszhu.com:3000/api/test"
-        let invalidURL = "http://adamaszhu.com:3000/api/invalid"
+        let validURL = "http://api"
+        let invalidURL = "http://test"
         let networkHelper = NetworkHelper(identifier: "NetworkHelper")
+        let urlSessionMocker = URLSessionMocker()
+        urlSessionMocker.urlSessionDelegate = networkHelper
+        networkHelper.normalSession = urlSessionMocker
+        networkHelper.backgroundSession = urlSessionMocker
         networkHelper.networkHelperDelegate = self
         describe("has isNetworkAvailable") {
             it("is true") {
                 expect(NetworkHelper.isNetworkAvailable) == true
+            }
+        }
+        describe("has standard") {
+            it("is not nil") {
+                expect(NetworkHelper.standard).toNot(beNil())
+            }
+        }
+        describe("calls init(identifier:cache)") {
+            it("returns object") {
+                expect(NetworkHelper(identifier: "ID", cache: URLCache.shared)).toNot(beNil())
             }
         }
         describe("calls get(fromURL:with:asDownloadTask)") {

@@ -4,7 +4,7 @@
  * - version: 1.0.0
  * - date: 05/05/2017
  */
-public enum NetworkRequestType: String {
+enum NetworkRequestType: String {
     
     case put = "PUT"
     case get = "GET"
