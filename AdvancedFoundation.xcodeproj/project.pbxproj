@@ -39,7 +39,7 @@
 		286353EC1ED53D08000B7A7F /* URLSessionUploadTaskMocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286353EB1ED53D08000B7A7F /* URLSessionUploadTaskMocker.swift */; };
 		286353F01ED54306000B7A7F /* APIMocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286353EF1ED54306000B7A7F /* APIMocker.swift */; };
 		286353F21ED55974000B7A7F /* ErrorMocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286353F11ED55974000B7A7F /* ErrorMocker.swift */; };
-		286353F41ED55D92000B7A7F /* HTTPURLResponseMocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286353F31ED55D92000B7A7F /* HTTPURLResponseMocker.swift */; };
+		286353F41ED55D92000B7A7F /* ResponseMocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286353F31ED55D92000B7A7F /* ResponseMocker.swift */; };
 		28B942821ED3BD2400FFACA1 /* AppInfoAccessorSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F30E4A1E9E4CE200AC0249 /* AppInfoAccessorSpecs.swift */; };
 		28CC3FE21EB812DB00C632A5 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CC3FE11EB812DB00C632A5 /* CoreDataHelper.swift */; };
 		28CC3FE41EB8130A00C632A5 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28CC3FE31EB8130A00C632A5 /* CoreData.framework */; };
@@ -173,7 +173,7 @@
 		286353EB1ED53D08000B7A7F /* URLSessionUploadTaskMocker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionUploadTaskMocker.swift; sourceTree = "<group>"; };
 		286353EF1ED54306000B7A7F /* APIMocker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIMocker.swift; sourceTree = "<group>"; };
 		286353F11ED55974000B7A7F /* ErrorMocker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorMocker.swift; sourceTree = "<group>"; };
-		286353F31ED55D92000B7A7F /* HTTPURLResponseMocker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPURLResponseMocker.swift; sourceTree = "<group>"; };
+		286353F31ED55D92000B7A7F /* ResponseMocker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseMocker.swift; sourceTree = "<group>"; };
 		28CC3FE11EB812DB00C632A5 /* CoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		28CC3FE31EB8130A00C632A5 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		28CC3FE61EB8200200C632A5 /* CoreDataHelperSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelperSpecs.swift; sourceTree = "<group>"; };
@@ -425,7 +425,7 @@
 				286353E91ED52B55000B7A7F /* URLSessionDownloadTaskMocker.swift */,
 				28E246061ED4114D00C32C87 /* URLSessionMocker.swift */,
 				286353EF1ED54306000B7A7F /* APIMocker.swift */,
-				286353F31ED55D92000B7A7F /* HTTPURLResponseMocker.swift */,
+				286353F31ED55D92000B7A7F /* ResponseMocker.swift */,
 				286353F11ED55974000B7A7F /* ErrorMocker.swift */,
 			);
 			path = Network;
@@ -905,7 +905,7 @@
 				425336CC1EA0ABE800B6D6BF /* Number+DecimalFormatterSpecs.swift in Sources */,
 				281881D81EA86EEC00E8C85E /* String+HelperSpecs.swift in Sources */,
 				425DCD181EB43DE700A0ED26 /* FileHelperSpecs.swift in Sources */,
-				286353F41ED55D92000B7A7F /* HTTPURLResponseMocker.swift in Sources */,
+				286353F41ED55D92000B7A7F /* ResponseMocker.swift in Sources */,
 				284EEFE81EC137500022EB6B /* FormDataFileField+ParsableSpecs.swift in Sources */,
 				429202861EC81CA700C4E909 /* NetworkHelperSpecsTask.swift in Sources */,
 				42D342681EB4AB2200064B1C /* CSVHelperSpecs.swift in Sources */,

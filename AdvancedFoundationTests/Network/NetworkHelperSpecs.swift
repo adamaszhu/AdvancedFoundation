@@ -41,7 +41,8 @@ class NetworkHelperHelperSpecs: QuickSpec {
                 }
             }
             context("with valid url") {
-                let identifier = networkHelper.get(fromURL: api.rawValue)!
+                let requestHeader = HTPP
+                let identifier = networkHelper.get(fromURL: api.rawValue, with: APIMocker.mocker.header)!
                 results[identifier] = NetworkHelperSpecsTask()
                 it("receives response") {
                     expect(self.results[identifier]?.header).toEventuallyNot(beNil())
