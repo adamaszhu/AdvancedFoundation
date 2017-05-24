@@ -5,7 +5,7 @@ enum ResponseMocker {
     
     static func validateHeader(_ header: Dictionary<String, String>?) -> ResponseMocker {
         let header = header ?? [:]
-        let expectedHeader = APIMocker.mocker.header
+        let expectedHeader = APIMocker.mocker.header.convertToDictionary()
         for field in expectedHeader {
             if field.value != header[field.key] {
                 return .fail
@@ -35,3 +35,4 @@ enum ResponseMocker {
 }
 
 import Foundation
+@testable import AdvancedFoundation

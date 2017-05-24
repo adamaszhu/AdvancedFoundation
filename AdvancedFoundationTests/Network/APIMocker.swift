@@ -4,15 +4,16 @@ enum APIMocker: String {
     case mocker = "http://api"
     
     // COMMENT: The expected header
-    var header: Dictionary<String, String> {
+    var header: NetworkRequestHeader {
         switch self {
         case .server:
-            return ["":""]
+            return NetworkRequestHeader()
         default:
-            return ["ifNoneMatch": "Success"]
+            return NetworkRequestHeader(ifNoneMatch: "Success")
         }
     }
     
 }
 
 import Foundation
+@testable import AdvancedFoundation

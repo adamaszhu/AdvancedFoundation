@@ -33,30 +33,30 @@ class NetworkHelperHelperSpecs: QuickSpec {
             }
         }
         describe("calls get(fromURL:with:asDownloadTask)") {
+            context("with valid url and header") {
+                let identifier = networkHelper.get(fromURL: api.rawValue, with: APIMocker.mocker.header)!
+                results[identifier] = NetworkHelperSpecsTask()
+                it("receives response") {
+                    expect(self.results[identifier]?.header?.eTag) == "Success"
+                }
+                it("receives data") {
+                    expect(self.results[identifier]?.data?.count).toEventually(equal("Success".data(using: .utf8)?.count))
+                }
+            }
             context("with invalid url") {
-                let identifier = networkHelper.get(fromURL: invalidAPI)!
+                let identifier = networkHelper.get(fromURL: invalidAPI, with: APIMocker.mocker.header)!
                 results[identifier] = NetworkHelperSpecsTask()
                 it("receives error") {
                     expect(self.results[identifier]?.error).toEventuallyNot(beNil())
                 }
             }
-            context("with valid url") {
-                let requestHeader = HTPP
-                let identifier = networkHelper.get(fromURL: api.rawValue, with: APIMocker.mocker.header)!
+            context("with invalid header") {
+                let identifier = networkHelper.get(fromURL: api.rawValue, with: NetworkRequestHeader())!
                 results[identifier] = NetworkHelperSpecsTask()
-                it("receives response") {
-                    expect(self.results[identifier]?.header).toEventuallyNot(beNil())
-                }
-                it("receives data") {
-                    expect(self.results[identifier]?.data).toEventuallyNot(beNil())
+                it("receives error") {
+                    expect(self.results[identifier]?.error).toEventuallyNot(beNil())
                 }
             }
-//            context("with valid header") {
-//                // TODO: Test the header.
-//            }
-//            context("with invalid header") {
-//                // TODO: Test the invalid header.
-//            }
 //            context("with a download task") {
 //                let identifier = networkHelper.get(fromURL: api.rawValue, asDownloadTask: true)!
 //                results[identifier] = NetworkHelperSpecsTask()
