@@ -35,8 +35,9 @@ public class CoreDataHelper {
     /**
      * Initialize the object.
      * - parameter name: The name of the model.
+     * - parameter bundle: The bundle that the model belongs to.
      */
-    public init?(name: String) {
+    public init?(name: String, bundle: Bundle = Bundle.main) {
         // COMMENT: The directory used to store the Core Data store file. This code uses a directory in the application's documents Application Support directory.
         let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         guard let url = urls.last?.appendingPathComponent(name).appendingPathExtension(sqlAppendix) else {
@@ -44,7 +45,7 @@ public class CoreDataHelper {
             return nil
         }
         // COMMENT: The managed object model for the application. This property is not optional. It is a fatal error for the application not to be able to find and load its model.
-        guard let modelURL = Bundle.main.url(forResource: name, withExtension: "momd") else {
+        guard let modelURL = bundle.url(forResource: name, withExtension: "momd") else {
             Logger.standard.logError(modelNameError, withDetail: name)
             return nil
         }
