@@ -14,7 +14,7 @@ class CoreDataHelperSpecs: QuickSpec {
                 expect(coreDataHelper?.save()).notTo(beNil())
             }
         }
-        describe("calls init(name)") {
+        describe("calls init(name:bundle)") {
             context("with existing name") {
                 it("return helper") {
                     expect(coreDataHelper.save()).notTo(beNil())
@@ -22,6 +22,12 @@ class CoreDataHelperSpecs: QuickSpec {
             }
             context("with not existing name") {
                 let coreDataHelper = CoreDataHelper(name: "Test")
+                it("return nil") {
+                    expect(coreDataHelper).to(beNil())
+                }
+            }
+            context("with incorrect bundle") {
+                let coreDataHelper = CoreDataHelper(name: AppInfoAccessor.shared.bundleName!, bundle: Bundle())
                 it("return nil") {
                     expect(coreDataHelper).to(beNil())
                 }
