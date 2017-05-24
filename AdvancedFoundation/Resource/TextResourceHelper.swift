@@ -7,10 +7,9 @@
 public class TextResourceHelper: ResourceHelper {
     
     /**
-     * Get the content as a string.
-     * - returns: The string content. Nil if the resource doesn't exist. Or it is not a string file.
+     * The content as a string.
      */
-    public func getContent() -> String? {
+    public var content: String? {
         do {
             return try String(contentsOf: url)
         } catch let error {

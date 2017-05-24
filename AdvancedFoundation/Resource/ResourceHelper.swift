@@ -14,10 +14,11 @@ public class ResourceHelper {
     /**
      * Initialize the helper.
      * - parameter name: The name of the resource.
+     * - parameter bundle: The bundle that the resource belongs to.
      */
-    init?(name: String) {
+    public init?(name: String, bundle: Bundle = Bundle.main) {
         let fileInfoAccessor = FileInfoAccessor(path: name)
-        guard let path = Bundle.main.path(forResource: fileInfoAccessor.filename, ofType: fileInfoAccessor.fileExtension) else {
+        guard let path = bundle.path(forResource: fileInfoAccessor.filename, ofType: fileInfoAccessor.fileExtension) else {
             return nil
         }
         url =  URL(fileURLWithPath: path)

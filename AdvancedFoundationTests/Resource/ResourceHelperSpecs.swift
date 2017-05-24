@@ -1,7 +1,7 @@
 class ResourceHelperSpecs: QuickSpec {
     
     override func spec() {
-        describe("calls init(name)") {
+        describe("calls init(name:bundle)") {
             context("with invalid name") {
                 let resourceHelper = ResourceHelper(name: "Temp")
                 it("returns nil") {
@@ -13,6 +13,19 @@ class ResourceHelperSpecs: QuickSpec {
                 it("returns the helper") {
                     expect(resourceHelper).toNot(beNil())
                 }
+            }
+            context("with valid bundle") {
+                let resourceHelper = ResourceHelper(name: "Avatar.jpg", bundle: Bundle.main)
+                it("returns the helper") {
+                    expect(resourceHelper).toNot(beNil())
+                }
+            }
+            context("with invalid bundle") {
+                let resourceHelper = ResourceHelper(name: "Avatar.jpg", bundle: Bundle())
+                it("returns nil") {
+                    expect(resourceHelper).to(beNil())
+                }
+                
             }
         }
     }
