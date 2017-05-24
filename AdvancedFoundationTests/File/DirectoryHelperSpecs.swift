@@ -46,11 +46,11 @@ class DirectoryHelperSpecs: QuickSpec {
                 }
             }
         }
-        describe("calls getContent()") {
+        describe("has content") {
             context("if the directory is empty") {
                 it("returns empty array") {
                     _ = directoryHelper.create()
-                    expect(directoryHelper.getContent()?.count) == 0
+                    expect(directoryHelper.content?.count) == 0
                 }
             }
             context("if the directory is not empty") {
@@ -58,12 +58,12 @@ class DirectoryHelperSpecs: QuickSpec {
                     _ = directoryHelper.create()
                     let fileHelper = FileHelper(path: "temp/temp.tmp")
                     _ = fileHelper.create(with: Data())
-                    expect(directoryHelper.getContent()?.count) == 1
+                    expect(directoryHelper.content?.count) == 1
                 }
             }
             context("if the directory doesn't exist") {
                 it("returns nil") {
-                    expect(directoryHelper.getContent()).to(beNil())
+                    expect(directoryHelper.content).to(beNil())
                 }
             }
         }

@@ -7,6 +7,16 @@
 public class FileHelper: PathHelper {
     
     /**
+     * The data of a file. Nil if the file doesn't exists or there is an error.
+     */
+    public var content: Data? {
+        guard isExisted else {
+            return nil
+        }
+        return contents(atPath: path)
+    }
+    
+    /**
      * Create a file in the path.
      * - parameter data: The data used to create the file.
      * - returns: whether the file has been created or not. Nil if there is an error.
@@ -19,17 +29,6 @@ public class FileHelper: PathHelper {
             return nil
         }
         return createFile(atPath: path, contents: data)
-    }
-    
-    /**
-     * Get the content of a file or directory.
-     * - returns: The data of a file. Nil if the file doesn't exists or there is an error.
-     */
-    public func getContent() -> Data? {
-        guard isExisted else {
-            return nil
-        }
-        return contents(atPath: path)
     }
     
     /**
