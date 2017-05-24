@@ -4,7 +4,7 @@
  * - version: 1.0.0
  * - date: 08/05/2017
  */
-public protocol FormDataFieldParsable {
+protocol FormDataFieldParsable {
     
     /**
      * Convert the field to a data object.

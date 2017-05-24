@@ -9,7 +9,7 @@ extension FormDataFileField: FormDataFieldParsable {
     /**
      * FormData FieldParsable
      */
-    public func convertToData() -> Data {
+    func convertToData() -> Data {
         var data = Data()
         let fileInfo = FileInfoAccessor.init(path: path)
         let filename = fileInfo.filename

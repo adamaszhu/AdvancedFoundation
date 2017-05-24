@@ -17,38 +17,43 @@ class NetworkResponseHeaderParserSpecs: QuickSpec {
                 }
             }
             context("with contentType header") {
-                it("returns response with correct contentType") {
-                    let header = [self.contentTypeHeader: "ContentType"]
-                    let response = HTTPURLResponse(url: URL(fileURLWithPath: ""), statusCode: 0, httpVersion: nil, headerFields: header)!
-                    expect(NetworkResponseHeader.parse(response)?.contentType) == "ContentType"
+                let header = [self.contentTypeHeader: "ContentType"]
+                let response = HTTPURLResponse(url: URL(fileURLWithPath: ""), statusCode: 0, httpVersion: nil, headerFields: header)!
+                let responseHeader = NetworkResponseHeader.parse(response)
+                it("returns response header with correct contentType") {
+                    expect(responseHeader?.contentType) == "ContentType"
                 }
             }
             context("with invalid contentLength header") {
+                let header = [self.contentLengthHeader: "ContentLength"]
+                let response = HTTPURLResponse(url: URL(fileURLWithPath: ""), statusCode: 0, httpVersion: nil, headerFields: header)!
+                let responseHeader = NetworkResponseHeader.parse(response)
                 it("returns response header without contentLength value") {
-                    let header = [self.contentLengthHeader: "ContentLength"]
-                    let response = HTTPURLResponse(url: URL(fileURLWithPath: ""), statusCode: 0, httpVersion: nil, headerFields: header)!
-                    expect(NetworkResponseHeader.parse(response)?.contentLength).to(beNil())
+                    expect(responseHeader?.contentLength).to(beNil())
                 }
             }
             context("with correct contentLength header") {
+                let header = [self.contentLengthHeader: "1"]
+                let response = HTTPURLResponse(url: URL(fileURLWithPath: ""), statusCode: 0, httpVersion: nil, headerFields: header)!
+                let responseHeader = NetworkResponseHeader.parse(response)
                 it("returns response header without contentLength value") {
-                    let header = [self.contentLengthHeader: "1"]
-                    let response = HTTPURLResponse(url: URL(fileURLWithPath: ""), statusCode: 0, httpVersion: nil, headerFields: header)!
-                    expect(NetworkResponseHeader.parse(response)?.contentLength) == 1
+                    expect(responseHeader?.contentLength) == 1
                 }
             }
             context("with lastModified header") {
+                let header = [self.lastModifiedHeader: "LastModified"]
+                let response = HTTPURLResponse(url: URL(fileURLWithPath: ""), statusCode: 0, httpVersion: nil, headerFields: header)!
+                let responseHeader = NetworkResponseHeader.parse(response)
                 it("returns response header with lastModified value") {
-                    let header = [self.lastModifiedHeader: "LastModified"]
-                    let response = HTTPURLResponse(url: URL(fileURLWithPath: ""), statusCode: 0, httpVersion: nil, headerFields: header)!
-                    expect(NetworkResponseHeader.parse(response)?.lastModified) == "LastModified"
+                    expect(responseHeader?.lastModified) == "LastModified"
                 }
             }
             context("with eTag header") {
+                let header = [self.eTagHeader: "ETag"]
+                let response = HTTPURLResponse(url: URL(fileURLWithPath: ""), statusCode: 0, httpVersion: nil, headerFields: header)!
+                let responseHeader = NetworkResponseHeader.parse(response)
                 it("returns response header with eTag value") {
-                    let header = [self.eTagHeader: "ETag"]
-                    let response = HTTPURLResponse(url: URL(fileURLWithPath: ""), statusCode: 0, httpVersion: nil, headerFields: header)!
-                    expect(NetworkResponseHeader.parse(response)?.eTag) == "ETag"
+                    expect(responseHeader?.eTag) == "ETag"
                 }
             }
             context("without header") {

@@ -1,18 +1,16 @@
 class NetworkTaskSpecs: QuickSpec {
     
     override func spec() {
-        describe("calls init(task)") {
-            let downloadTask = NetworkTask(task: URLSessionDownloadTask())
-            let uploadTask = NetworkTask(task: URLSessionUploadTask())
-            let streamTask = NetworkTask(task: URLSessionStreamTask())
-            let dataTask = NetworkTask(task: URLSessionDataTask())
-            let task = NetworkTask(task: URLSessionTask())
+        describe("calls init(task:idGenerator:cache)") {
+            let idGenerator = IDGeneratorMocker()
+            let cache = Data()
             context("with download task") {
+                let downloadTask = NetworkTask(task: URLSessionDownloadTask(), idGenerator: idGenerator, cache: cache)
                 it("returns task with download type") {
                     expect(downloadTask.type == .download) == true
                 }
-                it("returns task with unique id") {
-                    expect(downloadTask.identifier) != uploadTask.identifier
+                it("returns task with correct id") {
+                    expect(downloadTask.identifier) == "ID"
                 }
                 it("returns task with empty cache") {
                     expect(downloadTask.cache.count) == 0
@@ -22,11 +20,12 @@ class NetworkTaskSpecs: QuickSpec {
                 }
             }
             context("with upload task") {
+                let uploadTask = NetworkTask(task: URLSessionUploadTask(), idGenerator: idGenerator, cache: cache)
                 it("returns task with upload type") {
                     expect(uploadTask.type == .upload) == true
                 }
-                it("returns task with unique id") {
-                    expect(uploadTask.identifier) != streamTask.identifier
+                it("returns task with correct id") {
+                    expect(uploadTask.identifier) == "ID"
                 }
                 it("returns task with empty cache") {
                     expect(uploadTask.cache.count) == 0
@@ -36,11 +35,12 @@ class NetworkTaskSpecs: QuickSpec {
                 }
             }
             context("with stream task") {
+                let streamTask = NetworkTask(task: URLSessionStreamTask(), idGenerator: idGenerator, cache: cache)
                 it("returns task with stream type") {
                     expect(streamTask.type == .stream) == true
                 }
                 it("returns task with unique id") {
-                    expect(streamTask.identifier) != dataTask.identifier
+                    expect(streamTask.identifier) == "ID"
                 }
                 it("returns task with empty cache") {
                     expect(streamTask.cache.count) == 0
@@ -50,11 +50,12 @@ class NetworkTaskSpecs: QuickSpec {
                 }
             }
             context("with data task") {
+                let dataTask = NetworkTask(task: URLSessionDataTask(), idGenerator: idGenerator, cache: cache)
                 it("returns task with data type") {
                     expect(dataTask.type == .data) == true
                 }
                 it("returns task with unique id") {
-                    expect(dataTask.identifier) != task.identifier
+                    expect(dataTask.identifier) == "ID"
                 }
                 it("returns task with empty cache") {
                     expect(dataTask.cache.count) == 0
@@ -64,11 +65,12 @@ class NetworkTaskSpecs: QuickSpec {
                 }
             }
             context("with any task") {
+                let task = NetworkTask(task: URLSessionTask(), idGenerator: idGenerator, cache: cache)
                 it("returns task with data type") {
                     expect(task.type == .data) == true
                 }
                 it("returns task with unique id") {
-                    expect(task.identifier) != downloadTask.identifier
+                    expect(task.identifier) == "ID"
                 }
                 it("returns task with empty cache") {
                     expect(task.cache.count) == 0

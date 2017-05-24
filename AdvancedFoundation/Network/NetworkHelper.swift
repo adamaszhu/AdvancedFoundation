@@ -271,14 +271,16 @@ public class NetworkHelper: NSObject {
      */
     private func send(_ request: URLRequest, as type: NetworkTaskType) -> String? {
         var task: NetworkTask
+        let idGenerator = IDGenerator.standard
+        let emptyCache = Data()
         switch type {
         case .download:
-            task = NetworkTask(task: backgroundSession.downloadTask(with: request))
+            task = NetworkTask(task: backgroundSession.downloadTask(with: request), idGenerator: idGenerator, cache: emptyCache)
         case .data:
-            task = NetworkTask(task: normalSession.dataTask(with: request))
+            task = NetworkTask(task: normalSession.dataTask(with: request), idGenerator: idGenerator, cache: emptyCache)
         case .upload:
             let data = request.httpBody ?? Data()
-            task = NetworkTask(task: normalSession.uploadTask(with: request, from: data))
+            task = NetworkTask(task: normalSession.uploadTask(with: request, from: data), idGenerator: idGenerator, cache: emptyCache)
         default:
             Logger.standard.logError(taskTypeError, withDetail: type)
             return nil

@@ -9,7 +9,7 @@ extension FormDataTextField: FormDataFieldParsable {
     /**
      * FormDataFieldParsable
      */
-    public func convertToData() -> Data {
+    func convertToData() -> Data {
         var data = Data()
         let field = "Content-Disposition: form-data; name=\"\(name)\"\r\n\r\n\(value)"
         // COMMENT: The data converted from a string cannot be nil.

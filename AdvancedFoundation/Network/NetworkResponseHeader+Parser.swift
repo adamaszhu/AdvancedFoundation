@@ -15,8 +15,8 @@ extension NetworkResponseHeader {
     private static let eTagHeader = "Etag"
     
     /**
- * Error Message.
- */
+     * Error Message.
+     */
     private static let responseTypeError = "The response type is incorrect."
     private static let contentLengthHeaderError = "The content length field is not a number."
     

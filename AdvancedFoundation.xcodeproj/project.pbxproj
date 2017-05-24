@@ -34,6 +34,7 @@
 		285475341ED3B02300821F83 /* NetworkResponseHeaderSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285475331ED3B02300821F83 /* NetworkResponseHeaderSpecs.swift */; };
 		285475361ED3B16C00821F83 /* NetworkRequestHeaderSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285475351ED3B16C00821F83 /* NetworkRequestHeaderSpecs.swift */; };
 		286247231EB994DF007D531D /* NSManagedObject+Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286247221EB994DF007D531D /* NSManagedObject+Test.swift */; };
+		286353E81ED5096E000B7A7F /* IDGeneratorMocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286353E71ED5096E000B7A7F /* IDGeneratorMocker.swift */; };
 		28B942821ED3BD2400FFACA1 /* AppInfoAccessorSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F30E4A1E9E4CE200AC0249 /* AppInfoAccessorSpecs.swift */; };
 		28CC3FE21EB812DB00C632A5 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CC3FE11EB812DB00C632A5 /* CoreDataHelper.swift */; };
 		28CC3FE41EB8130A00C632A5 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28CC3FE31EB8130A00C632A5 /* CoreData.framework */; };
@@ -162,6 +163,7 @@
 		285475331ED3B02300821F83 /* NetworkResponseHeaderSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkResponseHeaderSpecs.swift; sourceTree = "<group>"; };
 		285475351ED3B16C00821F83 /* NetworkRequestHeaderSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRequestHeaderSpecs.swift; sourceTree = "<group>"; };
 		286247221EB994DF007D531D /* NSManagedObject+Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+Test.swift"; sourceTree = "<group>"; };
+		286353E71ED5096E000B7A7F /* IDGeneratorMocker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDGeneratorMocker.swift; sourceTree = "<group>"; };
 		28CC3FE11EB812DB00C632A5 /* CoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		28CC3FE31EB8130A00C632A5 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		28CC3FE61EB8200200C632A5 /* CoreDataHelperSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelperSpecs.swift; sourceTree = "<group>"; };
@@ -407,8 +409,9 @@
 				285475331ED3B02300821F83 /* NetworkResponseHeaderSpecs.swift */,
 				284EF0071EC28F440022EB6B /* NetworkTask+EquatableSpecs.swift */,
 				285475311ED3AC0300821F83 /* NetworkTaskSpecs.swift */,
-				28E246061ED4114D00C32C87 /* URLSessionMocker.swift */,
+				286353E71ED5096E000B7A7F /* IDGeneratorMocker.swift */,
 				28E246081ED412B400C32C87 /* URLSessionDataTaskMocker.swift */,
+				28E246061ED4114D00C32C87 /* URLSessionMocker.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -868,6 +871,7 @@
 				429202731EC73B3400C4E909 /* IDGeneratorSpecs.swift in Sources */,
 				285475321ED3AC0300821F83 /* NetworkTaskSpecs.swift in Sources */,
 				429202841EC8167B00C4E909 /* NetworkHelperSpecs+Delegate.swift in Sources */,
+				286353E81ED5096E000B7A7F /* IDGeneratorMocker.swift in Sources */,
 				42622EAD1EA237F900E5D5E7 /* Date+FormatterSpecs.swift in Sources */,
 				284EEFE41EC04D640022EB6B /* FormData+ParserSpecs.swift in Sources */,
 				429202781EC7ECE100C4E909 /* NetworkResponseHeader+ParserSpecs.swift in Sources */,

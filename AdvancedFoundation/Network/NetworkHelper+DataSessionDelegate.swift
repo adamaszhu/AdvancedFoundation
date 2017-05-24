@@ -10,7 +10,7 @@ extension NetworkHelper: URLSessionDataDelegate {
      * URLSessionDataDelegate
      */
     public func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
-        guard let task = findTask(of: dataTask) else {
+        guard var task = findTask(of: dataTask) else {
             return
         }
         task.cache.append(data)

@@ -4,12 +4,22 @@
  * - version: 1.0.0
  * - date: 05/05/2017
  */
-class NetworkTask {
+struct NetworkTask {
     
     /**
      * The cache of the task.
      */
     var cache: Data
+    
+    /**
+     * The id of the task.
+     */
+    let identifier: String
+    
+    /**
+     * The task.
+     */
+    let task: URLSessionTask
     
     /**
      * The task type of the task.
@@ -26,25 +36,17 @@ class NetworkTask {
             return .data
         }
     }
-    
-    /**
-     * The id of the task.
-     */
-    private (set) var identifier: String
-    
-    /**
-     * The task.
-     */
-    private (set) var task: URLSessionTask
 
     /**
      * Initialize the object.
      * - parameter task: The task object.
+     * - parameter idGenerator: The generator to generate the id.
+     * - parameter cache: The cache data.
      */
-    init(task: URLSessionTask) {
+    init(task: URLSessionTask, idGenerator: IDGenerator, cache: Data) {
         self.task = task
-        identifier = IDGenerator.standard.generateID()
-        cache = Data()
+        identifier = idGenerator.generateID()
+        self.cache = cache
     }
     
 }

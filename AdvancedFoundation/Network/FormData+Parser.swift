@@ -15,7 +15,7 @@ extension FormData {
      * Convert the form data to a data object.
      * - returns: The data.
      */
-    public func convertToData() -> Data {
+    func convertToData() -> Data {
         var data = Data()
         // COMMENT: The seperator data cannot be nil.
         let startSeperator = ("--\(FormData.boundary)\r\n").data(using: .utf8)!
