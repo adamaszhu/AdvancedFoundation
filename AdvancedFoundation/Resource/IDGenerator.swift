@@ -39,7 +39,7 @@ public class IDGenerator {
     /**
      * Initialize the object.
      */
-    private init() {
+    public init() {
         timeSeed = 0
         iterator = 0
     }
