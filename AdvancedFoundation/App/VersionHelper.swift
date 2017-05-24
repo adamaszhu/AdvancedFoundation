@@ -7,13 +7,16 @@
 public class VersionHelper {
     
     /**
-     * The default helper that presents current version. It will be nil if the version cannot be retrieved.
+     * The shared helper that presents current version. It will be nil if the version cannot be retrieved.
      */
-    public static let standard: VersionHelper? = {
+    public static let shared: VersionHelper? = {
         guard let version = AppInfoAccessor.shared.version else {
             return nil
         }
-        return VersionHelper(version: version)
+        guard let bundleName = AppInfoAccessor.shared.bundleName else {
+            return nil
+        }
+        return VersionHelper(version: version, versionFlag: "v\(bundleName)")
     }()
     
     /**
@@ -22,27 +25,14 @@ public class VersionHelper {
     private let versionFormatError = "The version is not well formatted."
     
     /**
-     * The key format settled in the default user, which is used to identify whether the version is newly installed or not.
-     */
-    private let versionKeyPattern = "v%@"
-    
-    /**
-     * The accessor used to get app information.
-     */
-    private let appInfoAccessor = AppInfoAccessor.shared
-    
-    /**
      * The version binded to the helper.
      */
     private let version: String
     
     /**
-     * Initialize the helper.
-     * - parameter version: The version binded to the helper.
+     * The flag used to identify whether the version is newly installed or not.
      */
-    public init(version: String) {
-        self.version = version
-    }
+    private let versionFlag: String
     
     /**
      * Compare current version to the given version.
@@ -59,11 +49,7 @@ public class VersionHelper {
      */
     public func checkVersionFlag() -> Bool? {
         let userDefaults = UserDefaults.standard
-        guard let bundleName = appInfoAccessor.bundleName else {
-            return nil
-        }
-        let versionKey = String(format: versionKeyPattern, bundleName)
-        guard let storedVersion = userDefaults.string(forKey: versionKey) else {
+        guard let storedVersion = userDefaults.string(forKey: versionFlag) else {
             return false
         }
         return storedVersion == version
@@ -74,11 +60,7 @@ public class VersionHelper {
      */
     public func createVersionFlag() {
         let userDefaults = UserDefaults.standard
-        guard let bundleName = appInfoAccessor.bundleName else {
-            return
-        }
-        let versionKey = String(format: versionKeyPattern, bundleName)
-        userDefaults.setValue(version, forKey: versionKey)
+        userDefaults.setValue(version, forKey: versionFlag)
     }
     
     /**
@@ -86,12 +68,22 @@ public class VersionHelper {
      */
     public func deleteVersionFlag() {
         let userDefaults = UserDefaults.standard
-        guard let bundleName = appInfoAccessor.bundleName else {
-            return
-        }
-        let versionKey = String(format: versionKeyPattern, bundleName)
-        userDefaults.removeObject(forKey: versionKey)
+        userDefaults.removeObject(forKey: versionFlag)
         userDefaults.synchronize()
+    }
+    
+    /**
+     * Initialize the helper.
+     * - parameter version: The version binded to the helper.
+     * - parameter versionFlag: The flag used to identify whether the version has been launched before or not.
+     */
+    init?(version: String, versionFlag: String) {
+        self.version = version
+        self.versionFlag = versionFlag
+        guard parseVersion(version) != nil else {
+            Logger.standard.logError(versionFormatError)
+            return nil
+        }
     }
     
     /**

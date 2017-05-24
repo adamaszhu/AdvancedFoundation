@@ -1,33 +1,35 @@
 class VersionHelperSpecs: QuickSpec {
     
+    private let versionFlag = "VersionFlag"
+    
     override func spec() {
-        describe("has standard object") {
-            it("is with correct version") {
-                expect(VersionHelper.standard?.compareToVersion("1.0.0")) == 0
+        describe("has shared object") {
+            it("is not nil") {
+                expect(VersionHelper.shared).toNot(beNil())
             }
         }
-        describe("calls init(version)") {
+        describe("calls init(version:versionFlag)") {
             context("with valid version") {
-                let versionHelper = VersionHelper(version: "1.0.0")
-                it("returns helper with correct version") {
-                    expect(versionHelper.compareToVersion("1.0.0")) == 0
+                let versionHelper = VersionHelper(version: "1.0.0", versionFlag: versionFlag)
+                it("returns object") {
+                    expect(versionHelper).toNot(beNil())
                 }
             }
             context("with invalid character in version") {
-                let versionHelper = VersionHelper(version: "1.c")
-                it("returns helper with invalid version") {
-                    expect(versionHelper.compareToVersion("1.0.0")).to(beNil())
+                let versionHelper = VersionHelper(version: "1.c", versionFlag: versionFlag)
+                it("returns nil") {
+                    expect(versionHelper).to(beNil())
                 }
             }
             context("with invalid format in version") {
-                let versionHelper = VersionHelper(version: "1..0")
-                it("returns helper with invalid version") {
-                    expect(versionHelper.compareToVersion("1.0.0")).to(beNil())
+                let versionHelper = VersionHelper(version: "1..0", versionFlag: versionFlag)
+                it("returns nil") {
+                    expect(versionHelper).to(beNil())
                 }
             }
         }
         describe("calls compareToVersion(_)") {
-            let versionHelper = VersionHelper(version: "1.0.0")
+            let versionHelper = VersionHelper(version: "1.0.0", versionFlag: versionFlag)!
             context("with earlier version") {
                 it("returns bigger result") {
                     expect(versionHelper.compareToVersion("0.9.9")) == 1
@@ -55,7 +57,7 @@ class VersionHelperSpecs: QuickSpec {
             }
         }
         describe("calls createVersionFlag()") {
-            let versionHelper = VersionHelper.standard
+            let versionHelper = VersionHelper.shared
             afterEach {
                 versionHelper?.deleteVersionFlag()
             }
@@ -74,7 +76,7 @@ class VersionHelperSpecs: QuickSpec {
             }
         }
         describe("calls checkVersionFlag()") {
-            let versionHelper = VersionHelper.standard
+            let versionHelper = VersionHelper.shared
             afterEach {
                 versionHelper?.deleteVersionFlag()
             }
@@ -91,7 +93,7 @@ class VersionHelperSpecs: QuickSpec {
             }
         }
         describe("calls deleteVersionFlag()") {
-            let versionHelper = VersionHelper.standard
+            let versionHelper = VersionHelper.shared
             afterEach {
                 versionHelper?.deleteVersionFlag()
             }
