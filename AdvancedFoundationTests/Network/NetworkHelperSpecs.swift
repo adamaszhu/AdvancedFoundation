@@ -57,16 +57,16 @@ class NetworkHelperHelperSpecs: QuickSpec {
                     expect(self.results[identifier]?.error).toEventuallyNot(beNil())
                 }
             }
-//            context("with a download task") {
-//                let identifier = networkHelper.get(fromURL: api.rawValue, with: APIMocker.mocker.header, asDownloadTask: true)!
-//                results[identifier] = NetworkHelperSpecsTask()
-//                it("receives percentage") {
-//                    expect(self.results[identifier]?.percentage).toEventually(beNil())
-//                }
-//                it("receives url") {
-//                    expect(self.results[identifier]?.url).toEventuallyNot(beNil())
-//                }
-//            }
+            context("with a download task") {
+                let identifier = networkHelper.get(fromURL: api.rawValue, with: APIMocker.mocker.header, asDownloadTask: true)!
+                results[identifier] = NetworkHelperSpecsTask()
+                it("receives percentage") {
+                    expect(self.results[identifier]?.percentage).toEventuallyNot(beNil())
+                }
+                it("receives url") {
+                    expect(self.results[identifier]?.url).toEventuallyNot(beNil())
+                }
+            }
             context("with a normal task") {
                 let identifier = networkHelper.get(fromURL: api.rawValue, with: APIMocker.mocker.header, asDownloadTask: false)!
                 results[identifier] = NetworkHelperSpecsTask()
