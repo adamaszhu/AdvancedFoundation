@@ -6,7 +6,7 @@
  */
 struct JSONPath {
     
-    var nodes: Array<JSONNode>
+    private (set) var nodes: Array<JSONNode>
     
     /**
      * Whether the path is empty or not.
