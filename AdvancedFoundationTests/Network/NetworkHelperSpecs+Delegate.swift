@@ -2,7 +2,6 @@ extension NetworkHelperHelperSpecs: NetworkHelperDelegate {
     
     func networkHelper(_ networkHelper: NetworkHelper, withIdentifier identifier: String, didCatchError error: String) {
         results[identifier]?.error = error
-        Logger.standard.logInfo("asdf", withDetail: results[identifier]?.data)
     }
     
     func networkHelperShouldReceiveData(_ networkHelper: NetworkHelper, withIdentifier identifier: String) -> Bool {

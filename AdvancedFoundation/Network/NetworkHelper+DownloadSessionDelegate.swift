@@ -11,6 +11,7 @@ extension NetworkHelper: URLSessionDownloadDelegate {
      */
     public func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
         guard let task = findTask(of: downloadTask) else {
+            downloadTask.cancel()
             return
         }
         let destinationPath = "\(documentDirectory)/\(task.identifier)"
@@ -30,6 +31,7 @@ extension NetworkHelper: URLSessionDownloadDelegate {
      */
     public func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
         guard let task = findTask(of: downloadTask) else {
+            downloadTask.cancel()
             return
         }
         DispatchQueue.main.async{

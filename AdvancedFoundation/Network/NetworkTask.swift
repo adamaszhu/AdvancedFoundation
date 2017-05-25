@@ -9,7 +9,7 @@ struct NetworkTask {
     /**
      * The cache of the task.
      */
-    var cache: Data
+    private (set) var cache: Data
     
     /**
      * The id of the task.
@@ -36,7 +36,7 @@ struct NetworkTask {
             return .data
         }
     }
-
+    
     /**
      * Initialize the object.
      * - parameter task: The task object.
@@ -47,6 +47,21 @@ struct NetworkTask {
         self.task = task
         identifier = idGenerator.generateID()
         self.cache = cache
+    }
+    
+    /**
+     * Append the data to the cache of the task.
+     * - parameter data: The data to be appended.
+     */
+    mutating func append(_ data: Data) {
+        cache.append(data)
+    }
+    
+    /**
+     * Cancel the task.
+     */
+    func cancel() {
+        task.cancel()
     }
     
 }

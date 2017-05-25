@@ -58,7 +58,7 @@ class NetworkHelperHelperSpecs: QuickSpec {
                 }
             }
 //            context("with a download task") {
-//                let identifier = networkHelper.get(fromURL: api.rawValue, asDownloadTask: true)!
+//                let identifier = networkHelper.get(fromURL: api.rawValue, with: APIMocker.mocker.header, asDownloadTask: true)!
 //                results[identifier] = NetworkHelperSpecsTask()
 //                it("receives percentage") {
 //                    expect(self.results[identifier]?.percentage).toEventually(beNil())
@@ -67,16 +67,16 @@ class NetworkHelperHelperSpecs: QuickSpec {
 //                    expect(self.results[identifier]?.url).toEventuallyNot(beNil())
 //                }
 //            }
-//            context("with a normal task") {
-//                let identifier = networkHelper.get(fromURL: api.rawValue, asDownloadTask: false)!
-//                results[identifier] = NetworkHelperSpecsTask()
-//                it("receives response") {
-//                    expect(self.results[identifier]?.header).toEventuallyNot(beNil())
-//                }
-//                it("receives data") {
-//                    expect(self.results[identifier]?.data).toEventuallyNot(beNil())
-//                }
-//            }
+            context("with a normal task") {
+                let identifier = networkHelper.get(fromURL: api.rawValue, with: APIMocker.mocker.header, asDownloadTask: false)!
+                results[identifier] = NetworkHelperSpecsTask()
+                it("receives response") {
+                    expect(self.results[identifier]?.header?.eTag) == "Success"
+                }
+                it("receives data") {
+                    expect(self.results[identifier]?.data?.count).toEventually(equal("Success".data(using: .utf8)?.count))
+                }
+            }
         }/*
 //         describe("calls post(toURL:with:with:as:asUploadTask)") {
 //         context("with invalid url") {
@@ -218,6 +218,7 @@ class NetworkHelperHelperSpecs: QuickSpec {
 //         //reset()
 //         //clearCache()
 //         //clearCache(forURL urlString: String)
+         // append(_ data: Data, toCacheOf task: NetworkTask)
 //         describe("calls findTask(of)") {
 //         // COMMENT: This has been tested in other tests.
 //         }

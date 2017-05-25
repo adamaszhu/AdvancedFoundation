@@ -10,10 +10,11 @@ extension NetworkHelper: URLSessionDataDelegate {
      * URLSessionDataDelegate
      */
     public func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
-        guard var task = findTask(of: dataTask) else {
+        guard let task = findTask(of: dataTask) else {
+            dataTask.cancel()
             return
         }
-        task.cache.append(data)
+        append(data, toCacheOf: task)
     }
     
     /**
@@ -21,6 +22,7 @@ extension NetworkHelper: URLSessionDataDelegate {
      */
     public func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive response: URLResponse, completionHandler: @escaping (URLSession.ResponseDisposition) -> Void) {
         guard let task = findTask(of: dataTask) else {
+            dataTask.cancel()
             return
         }
         guard let httpResponse = response as? HTTPURLResponse else {

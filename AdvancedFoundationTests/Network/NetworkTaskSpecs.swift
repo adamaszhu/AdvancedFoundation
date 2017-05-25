@@ -1,9 +1,9 @@
 class NetworkTaskSpecs: QuickSpec {
     
     override func spec() {
+        let idGenerator = IDGeneratorMocker()
+        let cache = Data()
         describe("calls init(task:idGenerator:cache)") {
-            let idGenerator = IDGeneratorMocker()
-            let cache = Data()
             context("with download task") {
                 let downloadTask = NetworkTask(task: URLSessionDownloadTask(), idGenerator: idGenerator, cache: cache)
                 it("returns task with download type") {
@@ -76,6 +76,16 @@ class NetworkTaskSpecs: QuickSpec {
                     expect(task.cache.count) == 0
                 }
             }
+        }
+        describe("calls append(_)") {
+            var task = NetworkTask(task: URLSessionTask(), idGenerator: idGenerator, cache: cache)
+            task.append("Test".data(using: .utf8)!)
+            it("has new cached") {
+                expect(String(data: task.cache, encoding: .utf8)) == "Test"
+            }
+        }
+        describe("calls cancel()") {
+            // COMMENT: The result is not noticeable.
         }
     }
     

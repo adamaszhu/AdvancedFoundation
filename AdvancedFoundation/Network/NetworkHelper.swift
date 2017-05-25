@@ -200,6 +200,19 @@ public class NetworkHelper: NSObject {
     }
     
     /**
+     * Append the data to the cache of the task.
+     * - parameter data: The attached data.
+     * - parameter task: The task.
+     */
+    func append(_ data: Data, toCacheOf task: NetworkTask) {
+        guard let index = tasks.index(of: task) else {
+            Logger.standard.logError(taskError, withDetail: task.task.originalRequest?.url?.absoluteString)
+            return
+        }
+        tasks[index].append(data)
+    }
+    
+    /**
      * Get the identifier of a task.
      * - parameter sessionTask: The task.
      * - returns: The task. Nil would be returned if no task is found, which shouldn't happen.
@@ -219,7 +232,7 @@ public class NetworkHelper: NSObject {
      * - parameter task: The task.
      */
     func remove(_ task: NetworkTask) {
-        task.task.cancel()
+        task.cancel()
         guard let index = tasks.index(of: task) else {
             Logger.standard.logError(taskError, withDetail: task.task.originalRequest?.url?.absoluteString)
             return
