@@ -39,7 +39,10 @@ class URLSessionDataTaskMocker: URLSessionDataTask {
     }
     
     private func mockDeleteResponse() {
-        mockPostResponse()
+        let responseMocker = ResponseMocker.validateHeader(request.allHTTPHeaderFields)
+        delegate?.urlSession?(session, dataTask: self, didReceive: responseMocker.response(forURL: request.url!), completionHandler: { _ in })
+        delegate?.urlSession?(session, dataTask: self, didReceive: responseMocker.data)
+        delegate?.urlSession?(session, task: self, didCompleteWithError: nil)
     }
     
     override var originalRequest: URLRequest? {

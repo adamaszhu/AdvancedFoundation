@@ -132,7 +132,7 @@ class NetworkHelperHelperSpecs: QuickSpec {
             }
         }
         describe("calls post(toURL:with:as:with:asUploadTask)") {
-            context("with valid url, form data and header") {
+            context("with valid url, body and header") {
                 let identifier = networkHelper.post(toURL: api.rawValue, with: api.body, as: .text, with: api.header)!
                 results[identifier] = NetworkHelperSpecsTask()
                 it("receives response") {
@@ -185,29 +185,30 @@ class NetworkHelperHelperSpecs: QuickSpec {
             }
         }
         describe("calls delete(atURL:with)") {
-            //         context("with invalid url") {
-            //         let identifier = networkHelper.delete(atURL: invalidURL)!
-            //         results[identifier] = NetworkHelperSpecsTask()
-            //         it("receives error") {
-            //         expect(self.results[identifier]?.error).toEventuallyNot(beNil())
-            //         }
-            //         }
-            //         context("with valid url") {
-            //         let identifier = networkHelper.delete(atURL: validURL)!
-            //         results[identifier] = NetworkHelperSpecsTask()
-            //         it("receives response") {
-            //         expect(self.results[identifier]?.header).toEventuallyNot(beNil())
-            //         }
-            //         it("receives data") {
-            //         expect(self.results[identifier]?.data).toEventuallyNot(beNil())
-            //         }
-            //         }
-            //         context("with valid header") {
-            //         // TODO: Test the header.
-            //         }
-            //         context("with invalid header") {
-            //         // TODO: Test the invalid header.
-            //         }
+            context("with valid url and header") {
+                let identifier = networkHelper.delete(atURL: api.rawValue, with: api.header)!
+                results[identifier] = NetworkHelperSpecsTask()
+                it("receives response") {
+                    expect(self.results[identifier]?.header?.eTag) == "Success"
+                }
+                it("receives data") {
+                    expect(self.results[identifier]?.data?.count).toEventually(equal("Success".data(using: .utf8)?.count))
+                }
+            }
+            context("with invalid url") {
+                let identifier = networkHelper.delete(atURL: invalidAPI, with: api.header)!
+                results[identifier] = NetworkHelperSpecsTask()
+                it("receives error") {
+                    expect(self.results[identifier]?.error).toEventuallyNot(beNil())
+                }
+            }
+            context("with invalid header") {
+                let identifier = networkHelper.delete(atURL: api.rawValue, with: NetworkRequestHeader())!
+                results[identifier] = NetworkHelperSpecsTask()
+                it("receives error") {
+                    expect(self.results[identifier]?.error).toEventuallyNot(beNil())
+                }
+            }
         }
         //         //reset()
         //         //clearCache()
