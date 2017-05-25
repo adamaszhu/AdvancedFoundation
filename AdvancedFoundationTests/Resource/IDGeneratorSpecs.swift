@@ -1,13 +1,16 @@
 class IDGeneratorSpecs: QuickSpec {
     
     override func spec() {
-        let idGenerator = IDGenerator.standard
         describe("has standard object") {
             it("is not nil") {
-                expect(idGenerator).toNot(beNil())
+                expect(IDGenerator.standard).toNot(beNil())
             }
         }
         describe("calls generateID()") {
+            var idGenerator = IDGenerator()
+            afterEach {
+                idGenerator = IDGenerator()
+            }
             context("for the first time") {
                 it("returns id ending with 0") {
                     let timeSeed = Int(Date().timeIntervalSince1970)
@@ -17,6 +20,7 @@ class IDGeneratorSpecs: QuickSpec {
             context("for the second time") {
                 it("returns id ending with 1") {
                     let timeSeed = Int(Date().timeIntervalSince1970)
+                    _ = idGenerator.generateID()
                     expect(idGenerator.generateID()) == "\(timeSeed)1"
                 }
             }

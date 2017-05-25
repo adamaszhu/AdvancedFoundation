@@ -3,6 +3,7 @@ class JSONParserSpecs: QuickSpec {
     override func spec() {
         let json = "{\"attribute1\":\"value1\",\"attribute2\":[{\"arrayAttribute1\":\"arrayValue1\"},{\"arrayAttribute2\":\"arrayValue2\"}],\"attribute3\":0,\"attribute4\":{\"subAttribute1\":\"subValue1\"}}"
         let jsonParser = JSONParser(string: json)!
+        let currentNode = jsonParser.getDictionary(atPath: ".")
         describe("calls init(string)") {
             context("with valid string") {
                 it("returns parser with json") {
@@ -73,32 +74,27 @@ class JSONParserSpecs: QuickSpec {
             }
             context("with non existing path and correct node") {
                 it("returns nil") {
-                    let dictionaryNode = jsonParser.getDictionary(atPath: ".")
-                    expect(jsonParser.getString(atPath: "attribute5", fromNode: dictionaryNode)).to(beNil())
+                    expect(jsonParser.getString(atPath: "attribute5", fromNode: currentNode)).to(beNil())
                 }
             }
             context("with correct path, correct node but wrong type") {
                 it("returns nil") {
-                    let dictionaryNode = jsonParser.getDictionary(atPath: ".")
-                    expect(jsonParser.getString(atPath: "attribute2", fromNode: dictionaryNode)).to(beNil())
+                    expect(jsonParser.getString(atPath: "attribute2", fromNode: currentNode)).to(beNil())
                 }
             }
             context("with self node in path, correct type and correct node") {
                 it("returns value1") {
-                    let dictionaryNode = jsonParser.getDictionary(atPath: ".")
-                    expect(jsonParser.getString(atPath: "./attribute1", fromNode: dictionaryNode)) == "value1"
+                    expect(jsonParser.getString(atPath: "./attribute1", fromNode: currentNode)) == "value1"
                 }
             }
             context("with correct absolute path, correct type and correct node") {
                 it("returns value1 working as absolute path only") {
-                    let dictionaryNode = jsonParser.getDictionary(atPath: ".")
-                    expect(jsonParser.getString(atPath: "/attribute1", fromNode: dictionaryNode)) == "value1"
+                    expect(jsonParser.getString(atPath: "/attribute1", fromNode: currentNode)) == "value1"
                 }
             }
             context("with correct related path, correct type and correct node") {
                 it("returns value1") {
-                    let dictionaryNode = jsonParser.getDictionary(atPath: ".")
-                    expect(jsonParser.getString(atPath: "attribute1", fromNode: dictionaryNode)) == "value1"
+                    expect(jsonParser.getString(atPath: "attribute1", fromNode: currentNode)) == "value1"
                 }
             }
         }
@@ -145,32 +141,27 @@ class JSONParserSpecs: QuickSpec {
             }
             context("with non existing path and correct node") {
                 it("returns nil") {
-                    let dictionaryNode = jsonParser.getDictionary(atPath: ".")
-                    expect(jsonParser.getArray(atPath: "attribute5", fromNode: dictionaryNode)).to(beNil())
+                    expect(jsonParser.getArray(atPath: "attribute5", fromNode: currentNode)).to(beNil())
                 }
             }
             context("with correct path, correct node but wrong type") {
                 it("returns nil") {
-                    let dictionaryNode = jsonParser.getDictionary(atPath: ".")
-                    expect(jsonParser.getArray(atPath: "attribute1", fromNode: dictionaryNode)).to(beNil())
+                    expect(jsonParser.getArray(atPath: "attribute1", fromNode: currentNode)).to(beNil())
                 }
             }
             context("with self node in path, correct type and correct node") {
                 it("returns the array") {
-                    let dictionaryNode = jsonParser.getDictionary(atPath: ".")
-                    expect(jsonParser.getArray(atPath: "./attribute2", fromNode: dictionaryNode)?.count) == 2
+                    expect(jsonParser.getArray(atPath: "./attribute2", fromNode: currentNode)?.count) == 2
                 }
             }
             context("with correct absolute path, correct type and correct node") {
                 it("returns the array working as absolute path only") {
-                    let dictionaryNode = jsonParser.getDictionary(atPath: ".")
-                    expect(jsonParser.getArray(atPath: "/attribute2", fromNode: dictionaryNode)?.count) == 2
+                    expect(jsonParser.getArray(atPath: "/attribute2", fromNode: currentNode)?.count) == 2
                 }
             }
             context("with correct related path, correct type and correct node") {
                 it("returns the array") {
-                    let dictionaryNode = jsonParser.getDictionary(atPath: ".")
-                    expect(jsonParser.getArray(atPath: "attribute2", fromNode: dictionaryNode)?.count) == 2
+                    expect(jsonParser.getArray(atPath: "attribute2", fromNode: currentNode)?.count) == 2
                 }
             }
             context("with correct related path, correct type and aiming at sub node") {
@@ -222,32 +213,27 @@ class JSONParserSpecs: QuickSpec {
             }
             context("with non existing path and correct node") {
                 it("returns nil") {
-                    let dictionaryNode = jsonParser.getDictionary(atPath: ".")
-                    expect(jsonParser.getDouble(atPath: "attribute5", fromNode: dictionaryNode)).to(beNil())
+                    expect(jsonParser.getDouble(atPath: "attribute5", fromNode: currentNode)).to(beNil())
                 }
             }
             context("with correct path, correct node but wrong type") {
                 it("returns nil") {
-                    let dictionaryNode = jsonParser.getDictionary(atPath: ".")
-                    expect(jsonParser.getDouble(atPath: "attribute1", fromNode: dictionaryNode)).to(beNil())
+                    expect(jsonParser.getDouble(atPath: "attribute1", fromNode: currentNode)).to(beNil())
                 }
             }
             context("with self node in path, correct type and correct node") {
                 it("returns 0") {
-                    let dictionaryNode = jsonParser.getDictionary(atPath: ".")
-                    expect(jsonParser.getDouble(atPath: "./attribute3", fromNode: dictionaryNode)) == 0
+                    expect(jsonParser.getDouble(atPath: "./attribute3", fromNode: currentNode)) == 0
                 }
             }
             context("with correct absolute path, correct type and correct node") {
                 it("returns 0 working as absolute path only") {
-                    let dictionaryNode = jsonParser.getDictionary(atPath: ".")
-                    expect(jsonParser.getDouble(atPath: "/attribute3", fromNode: dictionaryNode)) == 0
+                    expect(jsonParser.getDouble(atPath: "/attribute3", fromNode: currentNode)) == 0
                 }
             }
             context("with correct related path, correct type and correct node") {
                 it("returns 0") {
-                    let dictionaryNode = jsonParser.getDictionary(atPath: ".")
-                    expect(jsonParser.getDouble(atPath: "attribute3", fromNode: dictionaryNode)) == 0
+                    expect(jsonParser.getDouble(atPath: "attribute3", fromNode: currentNode)) == 0
                 }
             }
         }
@@ -294,32 +280,27 @@ class JSONParserSpecs: QuickSpec {
             }
             context("with non existing path and correct node") {
                 it("returns nil") {
-                    let dictionaryNode = jsonParser.getDictionary(atPath: ".")
-                    expect(jsonParser.getDictionary(atPath: "attribute5", fromNode: dictionaryNode)).to(beNil())
+                    expect(jsonParser.getDictionary(atPath: "attribute5", fromNode: currentNode)).to(beNil())
                 }
             }
             context("with correct path, correct node but wrong type") {
                 it("returns nil") {
-                    let dictionaryNode = jsonParser.getDictionary(atPath: ".")
-                    expect(jsonParser.getDictionary(atPath: "attribute1", fromNode: dictionaryNode)).to(beNil())
+                    expect(jsonParser.getDictionary(atPath: "attribute1", fromNode: currentNode)).to(beNil())
                 }
             }
             context("with self node in path, correct type and correct node") {
                 it("returns the dictionary") {
-                    let dictionaryNode = jsonParser.getDictionary(atPath: ".")
-                    expect(jsonParser.getDictionary(atPath: "./attribute4", fromNode: dictionaryNode)).notTo(beNil())
+                    expect(jsonParser.getDictionary(atPath: "./attribute4", fromNode: currentNode)).notTo(beNil())
                 }
             }
             context("with correct absolute path, correct type and correct node") {
                 it("returns the dictionary working as absolute path only") {
-                    let dictionaryNode = jsonParser.getDictionary(atPath: ".")
-                    expect(jsonParser.getDictionary(atPath: "/attribute4", fromNode: dictionaryNode)).notTo(beNil())
+                    expect(jsonParser.getDictionary(atPath: "/attribute4", fromNode: currentNode)).notTo(beNil())
                 }
             }
             context("with correct related path, correct type and correct node") {
                 it("returns the dictionary") {
-                    let dictionaryNode = jsonParser.getDictionary(atPath: ".")
-                    expect(jsonParser.getDictionary(atPath: "attribute4", fromNode: dictionaryNode)).notTo(beNil())
+                    expect(jsonParser.getDictionary(atPath: "attribute4", fromNode: currentNode)).notTo(beNil())
                 }
             }
             context("with correct related path, correct type and aiming at sub node") {

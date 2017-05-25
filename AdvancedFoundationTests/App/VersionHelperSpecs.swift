@@ -1,8 +1,12 @@
 class VersionHelperSpecs: QuickSpec {
     
-    private let versionFlag = "VersionFlag"
+    private static let versionFlag = "VersionFlag"
     
     override func spec() {
+        let versionHelper = VersionHelper.shared
+        afterEach {
+            versionHelper?.deleteVersionFlag()
+        }
         describe("has shared object") {
             it("is not nil") {
                 expect(VersionHelper.shared).toNot(beNil())
@@ -10,26 +14,26 @@ class VersionHelperSpecs: QuickSpec {
         }
         describe("calls init(version:versionFlag)") {
             context("with valid version") {
-                let versionHelper = VersionHelper(version: "1.0.0", versionFlag: versionFlag)
+                let versionHelper = VersionHelper(version: "1.0.0", versionFlag: VersionHelperSpecs.versionFlag)
                 it("returns object") {
                     expect(versionHelper).toNot(beNil())
                 }
             }
             context("with invalid character in version") {
-                let versionHelper = VersionHelper(version: "1.c", versionFlag: versionFlag)
+                let versionHelper = VersionHelper(version: "1.c", versionFlag: VersionHelperSpecs.versionFlag)
                 it("returns nil") {
                     expect(versionHelper).to(beNil())
                 }
             }
             context("with invalid format in version") {
-                let versionHelper = VersionHelper(version: "1..0", versionFlag: versionFlag)
+                let versionHelper = VersionHelper(version: "1..0", versionFlag: VersionHelperSpecs.versionFlag)
                 it("returns nil") {
                     expect(versionHelper).to(beNil())
                 }
             }
         }
         describe("calls compareToVersion(_)") {
-            let versionHelper = VersionHelper(version: "1.0.0", versionFlag: versionFlag)!
+            let versionHelper = VersionHelper(version: "1.0.0", versionFlag: VersionHelperSpecs.versionFlag)!
             context("with earlier version") {
                 it("returns bigger result") {
                     expect(versionHelper.compareToVersion("0.9.9")) == 1
@@ -57,10 +61,6 @@ class VersionHelperSpecs: QuickSpec {
             }
         }
         describe("calls createVersionFlag()") {
-            let versionHelper = VersionHelper.shared
-            afterEach {
-                versionHelper?.deleteVersionFlag()
-            }
             context("without version flag saved") {
                 it("misses flag") {
                     versionHelper?.createVersionFlag()
@@ -76,10 +76,6 @@ class VersionHelperSpecs: QuickSpec {
             }
         }
         describe("calls checkVersionFlag()") {
-            let versionHelper = VersionHelper.shared
-            afterEach {
-                versionHelper?.deleteVersionFlag()
-            }
             context("without version flag saved") {
                 it("misses flag") {
                     expect(versionHelper?.checkVersionFlag()) == false
@@ -93,10 +89,6 @@ class VersionHelperSpecs: QuickSpec {
             }
         }
         describe("calls deleteVersionFlag()") {
-            let versionHelper = VersionHelper.shared
-            afterEach {
-                versionHelper?.deleteVersionFlag()
-            }
             context("without version flag saved") {
                 it("misses flag") {
                     versionHelper?.deleteVersionFlag()

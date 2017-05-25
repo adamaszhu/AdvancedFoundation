@@ -2,8 +2,9 @@ class FileInfoAccessorSpecs: QuickSpec {
     
     override func spec() {
         describe("calls init(path)") {
+            let fileInfoAccessor = FileInfoAccessor(path: "")
             it("return valid accessor") {
-                expect(FileInfoAccessor(path: "")).notTo(beNil())
+                expect(fileInfoAccessor).notTo(beNil())
             }
         }
         describe("has fileExtension") {

@@ -11,8 +11,8 @@ class NetworkResponseHeaderParserSpecs: QuickSpec {
     override func spec() {
         describe("calls parse(_)") {
             context("with invalid http response") {
+                let response = URLResponse()
                 it("returns nil") {
-                    let response = URLResponse()
                     expect(NetworkResponseHeader.parse(response)).to(beNil())
                 }
             }

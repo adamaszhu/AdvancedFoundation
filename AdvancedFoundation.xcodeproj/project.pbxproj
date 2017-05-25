@@ -404,12 +404,15 @@
 		28E703BA1EBAE4F9002BEDFC /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				286353EF1ED54306000B7A7F /* APIMocker.swift */,
+				286353F11ED55974000B7A7F /* ErrorMocker.swift */,
 				284EEFE31EC04D640022EB6B /* FormData+ParserSpecs.swift */,
 				284EEFE71EC137500022EB6B /* FormDataFileField+ParsableSpecs.swift */,
 				2854752D1ED3A6D000821F83 /* FormDataFileFieldSpecs.swift */,
 				2854752B1ED3A5AA00821F83 /* FormDataSpecs.swift */,
 				284EEFE51EC137390022EB6B /* FormDataTextField+ParsableSpecs.swift */,
 				2854752F1ED3A7E400821F83 /* FormDataTextFieldSpecs.swift */,
+				286353E71ED5096E000B7A7F /* IDGeneratorMocker.swift */,
 				28E703BB1EBAE504002BEDFC /* NetworkHelperSpecs.swift */,
 				429202831EC8167B00C4E909 /* NetworkHelperSpecs+Delegate.swift */,
 				429202851EC81CA700C4E909 /* NetworkHelperSpecsTask.swift */,
@@ -419,14 +422,11 @@
 				285475331ED3B02300821F83 /* NetworkResponseHeaderSpecs.swift */,
 				284EF0071EC28F440022EB6B /* NetworkTask+EquatableSpecs.swift */,
 				285475311ED3AC0300821F83 /* NetworkTaskSpecs.swift */,
-				286353E71ED5096E000B7A7F /* IDGeneratorMocker.swift */,
+				286353F31ED55D92000B7A7F /* ResponseMocker.swift */,
 				28E246081ED412B400C32C87 /* URLSessionDataTaskMocker.swift */,
-				286353EB1ED53D08000B7A7F /* URLSessionUploadTaskMocker.swift */,
 				286353E91ED52B55000B7A7F /* URLSessionDownloadTaskMocker.swift */,
 				28E246061ED4114D00C32C87 /* URLSessionMocker.swift */,
-				286353EF1ED54306000B7A7F /* APIMocker.swift */,
-				286353F31ED55D92000B7A7F /* ResponseMocker.swift */,
-				286353F11ED55974000B7A7F /* ErrorMocker.swift */,
+				286353EB1ED53D08000B7A7F /* URLSessionUploadTaskMocker.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
