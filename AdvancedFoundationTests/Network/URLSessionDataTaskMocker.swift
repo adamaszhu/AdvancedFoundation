@@ -9,19 +9,57 @@ class URLSessionDataTaskMocker: URLSessionDataTask {
         self.request = request
     }
     
+    private func mockGetResponse() {
+        let responseMocker = ResponseMocker.validateHeader(request.allHTTPHeaderFields)
+        delegate?.urlSession?(session, dataTask: self, didReceive: responseMocker.response(forURL: request.url!), completionHandler: { _ in })
+        delegate?.urlSession?(session, dataTask: self, didReceive: responseMocker.data)
+        delegate?.urlSession?(session, task: self, didCompleteWithError: nil)
+    }
+    
+    private func mockFormDataPostResponse() {
+        if request.httpBody?.count == APIMocker.mocker.formData.convertToData().count {
+            let responseMocker = ResponseMocker.validateHeader(request.allHTTPHeaderFields)
+            delegate?.urlSession?(session, dataTask: self, didReceive: responseMocker.response(forURL: request.url!), completionHandler: { _ in })
+            delegate?.urlSession?(session, dataTask: self, didReceive: responseMocker.data)
+            delegate?.urlSession?(session, task: self, didCompleteWithError: nil)
+        } else {
+            delegate?.urlSession?(session, task: self, didCompleteWithError: ErrorMocker.body)
+        }
+    }
+    
+    private func mockPostResponse() {
+        if request.httpBody?.count == APIMocker.mocker.body.count {
+            let responseMocker = ResponseMocker.validateHeader(request.allHTTPHeaderFields)
+            delegate?.urlSession?(session, dataTask: self, didReceive: responseMocker.response(forURL: request.url!), completionHandler: { _ in })
+            delegate?.urlSession?(session, dataTask: self, didReceive: responseMocker.data)
+            delegate?.urlSession?(session, task: self, didCompleteWithError: nil)
+        } else {
+            delegate?.urlSession?(session, task: self, didCompleteWithError: ErrorMocker.body)
+        }
+    }
+    
+    private func mockDeleteResponse() {
+        mockPostResponse()
+    }
+    
     override var originalRequest: URLRequest? {
         return request
     }
     
     override func resume() {
-        if request.url?.absoluteString != APIMocker.mocker.rawValue {
+        guard request.url?.absoluteString == APIMocker.mocker.rawValue else {
             delegate?.urlSession?(session, task: self, didCompleteWithError: ErrorMocker.api)
             return
         }
-        let responseMocker = ResponseMocker.validateHeader(request.allHTTPHeaderFields)
-        delegate?.urlSession?(session, dataTask: self, didReceive: responseMocker.response(forURL: request.url!), completionHandler: { _ in })
-        delegate?.urlSession?(session, dataTask: self, didReceive: responseMocker.data)
-        delegate?.urlSession?(session, task: self, didCompleteWithError: nil)
+        if request.httpMethod == NetworkRequestType.get.rawValue {
+            mockGetResponse()
+        } else if (request.httpMethod == NetworkRequestType.post.rawValue) && (request.value(forHTTPHeaderField: "Content-Type") == NetworkBodyType.formData.rawValue) {
+            mockFormDataPostResponse()
+        } else if request.httpMethod == NetworkRequestType.post.rawValue {
+            mockPostResponse()
+        } else if request.httpMethod == NetworkRequestType.delete.rawValue {
+            mockDeleteResponse()
+        }
     }
     
     override func cancel() {
@@ -30,3 +68,4 @@ class URLSessionDataTaskMocker: URLSessionDataTask {
 }
 
 import Foundation
+@testable import AdvancedFoundation

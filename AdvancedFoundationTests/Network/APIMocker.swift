@@ -13,6 +13,28 @@ enum APIMocker: String {
         }
     }
     
+    // COMMENT: The expected form data
+    var formData: FormData {
+        switch self {
+        case .server:
+            return FormData(fields: [])
+        default:
+            let textField = FormDataTextField(name: "Text", value: "Test")
+            let fileField = FormDataFileField(name: "File", content: Data(), path: "File")
+            return FormData(fields: [textField, fileField])
+        }
+    }
+    
+    // COMMENT: The expected body {
+    var body: Data {
+        switch self {
+        case .server:
+            return Data()
+        default:
+            return "Test".data(using: .utf8)!
+        }
+    }
+    
 }
 
 import Foundation

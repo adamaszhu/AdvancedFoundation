@@ -14,7 +14,7 @@ class URLSessionDownloadTaskMocker: URLSessionDownloadTask {
     }
     
     override func resume() {
-        if request.url?.absoluteString != APIMocker.mocker.rawValue {
+        guard (request.url?.absoluteString == APIMocker.mocker.rawValue) && (request.httpMethod == NetworkRequestType.get.rawValue) else {
             delegate?.urlSession?(session, task: self, didCompleteWithError: ErrorMocker.api)
             return
         }
