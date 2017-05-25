@@ -210,19 +210,31 @@ class NetworkHelperHelperSpecs: QuickSpec {
                 }
             }
         }
-        //         //reset()
-        //         //clearCache()
-        //         //clearCache(forURL urlString: String)
-        // append(_ data: Data, toCacheOf task: NetworkTask)
-        //         describe("calls findTask(of)") {
-        //         // COMMENT: This has been tested in other tests.
-        //         }
-        //         describe("calls remove(_)") {
-        //         // COMMENT: This has been tested in other tests.
-        //         }
-        //         describe("calls dispatchError(for:withMessage)") {
-        //         // COMMENT: This has been tested in other tests.
-        //         }
+        describe("calls reset()") {
+            _ = networkHelper.get(fromURL: invalidAPI, with: api.header)!
+            it("has no task") {
+                networkHelper.reset()
+                expect(networkHelper.tasks.count) == 0
+            }
+        }
+        describe("calls clearCache()") {
+            // TODO: Test the cache function
+        }
+        describe("calls clearCache(forURL)") {
+            // TODO: Test the cache function
+        }
+        describe("calls append(_:toCacheOf)") {
+            // COMMENT: This has been tested in other functions.
+        }
+        describe("calls findTask(of)") {
+            // COMMENT: This has been tested in other tests.
+        }
+        describe("calls remove(_)") {
+            // COMMENT: This has been tested in other tests.
+        }
+        describe("calls dispatchError(for:withMessage)") {
+            // COMMENT: This has been tested in other tests.
+        }
     }
     
 }

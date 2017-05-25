@@ -51,9 +51,9 @@ public class NetworkHelper: NSObject {
     var backgroundSession: URLSession!
     
     /**
-     * The task list.
+     * The task list. Declare as internal is for testing.
      */
-    private var tasks: Array<NetworkTask>
+    var tasks: Array<NetworkTask>
     
     /**
      * The cache used in the app.
