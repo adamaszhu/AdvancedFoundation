@@ -1,7 +1,7 @@
 /**
  * FormDataTextField+Field implements how a text field should be convert to a data.
  * - author: Adamas
- * - version: 1.0.0
+ * - version: 1.0.1
  * - date: 08/05/2017
  */
 extension FormDataTextField: FormDataField {

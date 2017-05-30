@@ -1,7 +1,7 @@
 /**
  * FormDataFileField+Field implements how a file field should be convert to a data.
  * - author: Adamas
- * - version: 1.0.0
+ * - version: 1.0.1
  * - date: 08/05/2017
  */
 extension FormDataFileField: FormDataField {
