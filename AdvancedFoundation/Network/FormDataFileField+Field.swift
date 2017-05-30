@@ -1,13 +1,13 @@
 /**
- * FormDataFileField+Parsable implements how a file field should be convert to a data.
+ * FormDataFileField+Field implements how a file field should be convert to a data.
  * - author: Adamas
  * - version: 1.0.0
  * - date: 08/05/2017
  */
-extension FormDataFileField: FormDataFieldParsable {
+extension FormDataFileField: FormDataField {
     
     /**
-     * FormData FieldParsable
+     * FormDataField
      */
     func convertToData() -> Data {
         var data = Data()

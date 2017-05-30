@@ -16,10 +16,10 @@
 		2848AAF51E9D9E4C004C6A66 /* AdvancedFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2848AAEB1E9D9E4C004C6A66 /* AdvancedFoundation.framework */; };
 		2848AB0A1E9DA039004C6A66 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2848AB091E9DA039004C6A66 /* Logger.swift */; };
 		284EEFD41EBFF3790022EB6B /* FormData+Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284EEFD31EBFF3790022EB6B /* FormData+Parser.swift */; };
-		284EEFD61EBFFEE30022EB6B /* FormDataFieldParsable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284EEFD51EBFFEE30022EB6B /* FormDataFieldParsable.swift */; };
+		284EEFD61EBFFEE30022EB6B /* FormDataField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284EEFD51EBFFEE30022EB6B /* FormDataField.swift */; };
 		284EEFDA1EC001A50022EB6B /* FormDataTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284EEFD91EC001A50022EB6B /* FormDataTextField.swift */; };
-		284EEFDC1EC001C30022EB6B /* FormDataTextField+Parsable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284EEFDB1EC001C30022EB6B /* FormDataTextField+Parsable.swift */; };
-		284EEFDE1EC001CF0022EB6B /* FormDataFileField+Parsable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284EEFDD1EC001CF0022EB6B /* FormDataFileField+Parsable.swift */; };
+		284EEFDC1EC001C30022EB6B /* FormDataTextField+Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284EEFDB1EC001C30022EB6B /* FormDataTextField+Field.swift */; };
+		284EEFDE1EC001CF0022EB6B /* FormDataFileField+Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284EEFDD1EC001CF0022EB6B /* FormDataFileField+Field.swift */; };
 		284EEFE01EC029050022EB6B /* FormDataFileField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284EEFDF1EC029050022EB6B /* FormDataFileField.swift */; };
 		284EEFE41EC04D640022EB6B /* FormData+ParserSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284EEFE31EC04D640022EB6B /* FormData+ParserSpecs.swift */; };
 		284EEFE61EC137390022EB6B /* FormDataTextField+ParsableSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284EEFE51EC137390022EB6B /* FormDataTextField+ParsableSpecs.swift */; };
@@ -150,10 +150,10 @@
 		2848AAFB1E9D9E4C004C6A66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2848AB091E9DA039004C6A66 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		284EEFD31EBFF3790022EB6B /* FormData+Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FormData+Parser.swift"; sourceTree = "<group>"; };
-		284EEFD51EBFFEE30022EB6B /* FormDataFieldParsable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormDataFieldParsable.swift; sourceTree = "<group>"; };
+		284EEFD51EBFFEE30022EB6B /* FormDataField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormDataField.swift; sourceTree = "<group>"; };
 		284EEFD91EC001A50022EB6B /* FormDataTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormDataTextField.swift; sourceTree = "<group>"; };
-		284EEFDB1EC001C30022EB6B /* FormDataTextField+Parsable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FormDataTextField+Parsable.swift"; sourceTree = "<group>"; };
-		284EEFDD1EC001CF0022EB6B /* FormDataFileField+Parsable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FormDataFileField+Parsable.swift"; sourceTree = "<group>"; };
+		284EEFDB1EC001C30022EB6B /* FormDataTextField+Field.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FormDataTextField+Field.swift"; sourceTree = "<group>"; };
+		284EEFDD1EC001CF0022EB6B /* FormDataFileField+Field.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FormDataFileField+Field.swift"; sourceTree = "<group>"; };
 		284EEFDF1EC029050022EB6B /* FormDataFileField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormDataFileField.swift; sourceTree = "<group>"; };
 		284EEFE31EC04D640022EB6B /* FormData+ParserSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FormData+ParserSpecs.swift"; sourceTree = "<group>"; };
 		284EEFE51EC137390022EB6B /* FormDataTextField+ParsableSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FormDataTextField+ParsableSpecs.swift"; sourceTree = "<group>"; };
@@ -376,11 +376,11 @@
 			children = (
 				42C13A761EBF527E000D2E50 /* FormData.swift */,
 				284EEFD31EBFF3790022EB6B /* FormData+Parser.swift */,
-				284EEFD51EBFFEE30022EB6B /* FormDataFieldParsable.swift */,
+				284EEFD51EBFFEE30022EB6B /* FormDataField.swift */,
 				284EEFDF1EC029050022EB6B /* FormDataFileField.swift */,
-				284EEFDD1EC001CF0022EB6B /* FormDataFileField+Parsable.swift */,
+				284EEFDD1EC001CF0022EB6B /* FormDataFileField+Field.swift */,
 				284EEFD91EC001A50022EB6B /* FormDataTextField.swift */,
-				284EEFDB1EC001C30022EB6B /* FormDataTextField+Parsable.swift */,
+				284EEFDB1EC001C30022EB6B /* FormDataTextField+Field.swift */,
 				28E703BD1EBBF1BA002BEDFC /* NetworkBodyType.swift */,
 				28E703B01EBADF23002BEDFC /* NetworkHelper.strings */,
 				28E703B21EBADF62002BEDFC /* NetworkHelper.swift */,
@@ -834,7 +834,7 @@
 				42C13A771EBF527E000D2E50 /* FormData.swift in Sources */,
 				28451A171EBC45FA00793441 /* NetworkTaskType.swift in Sources */,
 				2848AB0A1E9DA039004C6A66 /* Logger.swift in Sources */,
-				284EEFDC1EC001C30022EB6B /* FormDataTextField+Parsable.swift in Sources */,
+				284EEFDC1EC001C30022EB6B /* FormDataTextField+Field.swift in Sources */,
 				420F3CAA1EA06B1B00BAA0A4 /* Number+CurrencyFormatter.swift in Sources */,
 				425DCD171EB43DE200A0ED26 /* FileHelper.swift in Sources */,
 				425336CA1EA0A9E700B6D6BF /* Number+DecimalFormatter.swift in Sources */,
@@ -857,12 +857,12 @@
 				42D3427A1EB54E7E00064B1C /* JSONPath+Parser.swift in Sources */,
 				42C13A6D1EBCC345000D2E50 /* IDGenerator.swift in Sources */,
 				28451A131EBC3D0400793441 /* NetworkHelperDelegate+Optional.swift in Sources */,
-				284EEFDE1EC001CF0022EB6B /* FormDataFileField+Parsable.swift in Sources */,
+				284EEFDE1EC001CF0022EB6B /* FormDataFileField+Field.swift in Sources */,
 				420F3CAD1EA0721800BAA0A4 /* Number+LongNumberFormatter.swift in Sources */,
 				42F30E441E9E412900AC0249 /* VersionHelper.swift in Sources */,
 				42C13A751EBEC130000D2E50 /* NetworkTask+Equatable.swift in Sources */,
 				281881D61EA86AB800E8C85E /* String+Helper.swift in Sources */,
-				284EEFD61EBFFEE30022EB6B /* FormDataFieldParsable.swift in Sources */,
+				284EEFD61EBFFEE30022EB6B /* FormDataField.swift in Sources */,
 				420F3CAE1EA0721800BAA0A4 /* Number+PercentageFormatter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

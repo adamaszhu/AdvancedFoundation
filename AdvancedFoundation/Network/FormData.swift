@@ -9,7 +9,7 @@ public struct FormData {
     /**
      * All fields in the form, which can be WWWFormFileField and WWWFormTextField.
      */
-    let fields: Array<FormDataFieldParsable>
+    let fields: Array<FormDataField>
     
 }
 

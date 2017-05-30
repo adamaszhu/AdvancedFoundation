@@ -1,10 +1,10 @@
 /**
- * FormDataFieldParsable determines what a form field should do.
+ * FormDataField determines what a form field should do.
  * - author: Adamas
  * - version: 1.0.0
  * - date: 08/05/2017
  */
-protocol FormDataFieldParsable {
+protocol FormDataField {
     
     /**
      * Convert the field to a data object.
