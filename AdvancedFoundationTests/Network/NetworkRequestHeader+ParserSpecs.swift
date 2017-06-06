@@ -1,43 +1,39 @@
 class NetworkRequestHeaderParserSpecs: QuickSpec {
     
-    /**
-     * All header keys.
-     */
-    private static let ifModifiedSinceHeader = "If-Modified-Since"
-    private static let ifNoneMatchHeader = "If-None-Match"
-    private static let contentTypeHeader = "Content-Type"
-    private static let contentLengthHeader = "Content-Length"
-    
     override func spec() {
+        let ifModifiedSinceHeader = "If-Modified-Since"
+        let ifNoneMatchHeader = "If-None-Match"
+        let contentTypeHeader = "Content-Type"
+        let contentLengthHeader = "Content-Length"
         describe("calls convertToDictionary()") {
             context("with every header") {
                 let requestHeaderDictionary = NetworkRequestHeader(ifModifiedSince: "IfModifiedSince", ifNoneMatch: "IfNoneMatch", contentType: "ContentType", contentLength: 0).convertToDictionary()
                 it("returns dictionary with ifModifiedSince") {
-                    expect(requestHeaderDictionary[NetworkRequestHeaderParserSpecs.ifModifiedSinceHeader]) == "IfModifiedSince"
+                    expect(requestHeaderDictionary[ifModifiedSinceHeader]) == "IfModifiedSince"
                 }
                 it("returns dictionary with ifNoneMatch") {
-                    expect(requestHeaderDictionary[NetworkRequestHeaderParserSpecs.ifNoneMatchHeader]) == "IfNoneMatch"
+                    expect(requestHeaderDictionary[ifNoneMatchHeader]) == "IfNoneMatch"
                 }
                 it("returns dictionary with contentType") {
-                    expect(requestHeaderDictionary[NetworkRequestHeaderParserSpecs.contentTypeHeader]) == "ContentType"
+                    expect(requestHeaderDictionary[contentTypeHeader]) == "ContentType"
                 }
                 it("returns dictionary with contentLength") {
-                    expect(requestHeaderDictionary[NetworkRequestHeaderParserSpecs.contentLengthHeader]) == "0"
+                    expect(requestHeaderDictionary[contentLengthHeader]) == "0"
                 }
             }
             context("without any header") {
                 let requestHeaderDictionary = NetworkRequestHeader().convertToDictionary()
                 it("returns dictionary without ifModifiedSince") {
-                    expect(requestHeaderDictionary[NetworkRequestHeaderParserSpecs.ifModifiedSinceHeader]).to(beNil())
+                    expect(requestHeaderDictionary[ifModifiedSinceHeader]).to(beNil())
                 }
                 it("returns dictionary without ifNoneMatch") {
-                    expect(requestHeaderDictionary[NetworkRequestHeaderParserSpecs.ifNoneMatchHeader]).to(beNil())
+                    expect(requestHeaderDictionary[ifNoneMatchHeader]).to(beNil())
                 }
                 it("returns dictionary without contentType") {
-                    expect(requestHeaderDictionary[NetworkRequestHeaderParserSpecs.contentTypeHeader]).to(beNil())
+                    expect(requestHeaderDictionary[contentTypeHeader]).to(beNil())
                 }
                 it("returns dictionary without contentLength") {
-                    expect(requestHeaderDictionary[NetworkRequestHeaderParserSpecs.contentLengthHeader]).to(beNil())
+                    expect(requestHeaderDictionary[contentLengthHeader]).to(beNil())
                 }
             }
         }

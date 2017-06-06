@@ -2,22 +2,21 @@ class NetworkHelperHelperSpecs: QuickSpec {
     
     // FUTUREWORK: Test the cache function
     
-    // COMMENT: Change it to server to use real web service.
-    private static let api = APIMocker.mocker
-    private static let invalidAPI = "http://test"
-    
     var results: Dictionary<String, NetworkHelperSpecsTask> = [:]
     
     override func spec() {
+        // COMMENT: Change it to server to use real web service.
+        let api = APIMocker.mocker
+        let invalidAPI = "http://test"
         let networkHelper = NetworkHelper(identifier: "NetworkHelper")
-        if NetworkHelperHelperSpecs.api == .mocker {
+        if api == .mocker {
             let urlSessionMocker = URLSessionMocker()
             urlSessionMocker.urlSessionDelegate = networkHelper
             networkHelper.normalSession = urlSessionMocker
             networkHelper.backgroundSession = urlSessionMocker
         }
         networkHelper.networkHelperDelegate = self
-        afterEach {
+        beforeEach {
             networkHelper.reset()
         }
         describe("has isNetworkAvailable") {
@@ -38,50 +37,50 @@ class NetworkHelperHelperSpecs: QuickSpec {
         describe("calls get(fromURL:with:asDownloadTask)") {
             context("with valid url and header") {
                 it("receives response") { [unowned self] in
-                    let identifier = networkHelper.get(fromURL: NetworkHelperHelperSpecs.api.rawValue, with: NetworkHelperHelperSpecs.api.header)!
+                    let identifier = networkHelper.get(fromURL: api.rawValue, with: api.header)!
                     self.results[identifier] = NetworkHelperSpecsTask()
                     expect(self.results[identifier]?.header?.eTag).toEventually(equal("Success"))
                 }
                 it("receives data") { [unowned self] in
-                    let identifier = networkHelper.get(fromURL: NetworkHelperHelperSpecs.api.rawValue, with: NetworkHelperHelperSpecs.api.header)!
+                    let identifier = networkHelper.get(fromURL: api.rawValue, with: api.header)!
                     self.results[identifier] = NetworkHelperSpecsTask()
                     expect(self.results[identifier]?.data?.count).toEventually(equal("Success".data(using: .utf8)?.count))
                 }
             }
             context("with invalid url") {
                 it("receives error") { [unowned self] in
-                    let identifier = networkHelper.get(fromURL: NetworkHelperHelperSpecs.invalidAPI, with: NetworkHelperHelperSpecs.api.header)!
+                    let identifier = networkHelper.get(fromURL: invalidAPI, with: api.header)!
                     self.results[identifier] = NetworkHelperSpecsTask()
                     expect(self.results[identifier]?.error).toEventuallyNot(beNil())
                 }
             }
             context("with invalid header") {
                 it("receives error") { [unowned self] in
-                    let identifier = networkHelper.get(fromURL: NetworkHelperHelperSpecs.api.rawValue, with: NetworkRequestHeader())!
+                    let identifier = networkHelper.get(fromURL: api.rawValue, with: NetworkRequestHeader())!
                     self.results[identifier] = NetworkHelperSpecsTask()
                     expect(self.results[identifier]?.error).toEventuallyNot(beNil())
                 }
             }
             context("with type as a download task") {
                 it("receives percentage") { [unowned self] in
-                    let identifier = networkHelper.get(fromURL: NetworkHelperHelperSpecs.api.rawValue, with: NetworkHelperHelperSpecs.api.header, asDownloadTask: true)!
+                    let identifier = networkHelper.get(fromURL: api.rawValue, with: api.header, asDownloadTask: true)!
                     self.results[identifier] = NetworkHelperSpecsTask()
                     expect(self.results[identifier]?.percentage).toEventuallyNot(beNil())
                 }
                 it("receives url") { [unowned self] in
-                    let identifier = networkHelper.get(fromURL: NetworkHelperHelperSpecs.api.rawValue, with: NetworkHelperHelperSpecs.api.header, asDownloadTask: true)!
+                    let identifier = networkHelper.get(fromURL: api.rawValue, with: api.header, asDownloadTask: true)!
                     self.results[identifier] = NetworkHelperSpecsTask()
                     expect(self.results[identifier]?.url).toEventuallyNot(beNil())
                 }
             }
             context("with type as a normal task") {
                 it("receives response") { [unowned self] in
-                    let identifier = networkHelper.get(fromURL: NetworkHelperHelperSpecs.api.rawValue, with: NetworkHelperHelperSpecs.api.header, asDownloadTask: false)!
+                    let identifier = networkHelper.get(fromURL: api.rawValue, with: api.header, asDownloadTask: false)!
                     self.results[identifier] = NetworkHelperSpecsTask()
                     expect(self.results[identifier]?.header?.eTag).toEventually(equal("Success"))
                 }
                 it("receives data") { [unowned self] in
-                    let identifier = networkHelper.get(fromURL: NetworkHelperHelperSpecs.api.rawValue, with: NetworkHelperHelperSpecs.api.header, asDownloadTask: false)!
+                    let identifier = networkHelper.get(fromURL: api.rawValue, with: api.header, asDownloadTask: false)!
                     self.results[identifier] = NetworkHelperSpecsTask()
                     expect(self.results[identifier]?.data?.count).toEventually(equal("Success".data(using: .utf8)?.count))
                 }
@@ -90,57 +89,57 @@ class NetworkHelperHelperSpecs: QuickSpec {
         describe("calls post(toURL:with:with:asUploadTask)") {
             context("with valid url, form data and header") {
                 it("receives response") { [unowned self] in
-                    let identifier = networkHelper.post(toURL: NetworkHelperHelperSpecs.api.rawValue, with: NetworkHelperHelperSpecs.api.formData, with: NetworkHelperHelperSpecs.api.header)!
+                    let identifier = networkHelper.post(toURL: api.rawValue, with: api.formData, with: api.header)!
                     self.results[identifier] = NetworkHelperSpecsTask()
                     expect(self.results[identifier]?.header?.eTag).toEventually(equal("Success"))
                 }
                 it("receives data") { [unowned self] in
-                    let identifier = networkHelper.post(toURL: NetworkHelperHelperSpecs.api.rawValue, with: NetworkHelperHelperSpecs.api.formData, with: NetworkHelperHelperSpecs.api.header)!
+                    let identifier = networkHelper.post(toURL: api.rawValue, with: api.formData, with: api.header)!
                     self.results[identifier] = NetworkHelperSpecsTask()
                     expect(self.results[identifier]?.data?.count).toEventually(equal("Success".data(using: .utf8)?.count))
                 }
             }
             context("with invalid url") {
                 it("receives error") { [unowned self] in
-                    let identifier = networkHelper.post(toURL: NetworkHelperHelperSpecs.invalidAPI, with: NetworkHelperHelperSpecs.api.formData, with: NetworkHelperHelperSpecs.api.header)!
+                    let identifier = networkHelper.post(toURL: invalidAPI, with: api.formData, with: api.header)!
                     self.results[identifier] = NetworkHelperSpecsTask()
                     expect(self.results[identifier]?.error).toEventuallyNot(beNil())
                 }
             }
             context("with invalid header") {
                 it("receives error") { [unowned self] in
-                    let identifier = networkHelper.post(toURL: NetworkHelperHelperSpecs.api.rawValue, with: NetworkHelperHelperSpecs.api.formData, with: NetworkRequestHeader())!
+                    let identifier = networkHelper.post(toURL: api.rawValue, with: api.formData, with: NetworkRequestHeader())!
                     self.results[identifier] = NetworkHelperSpecsTask()
                     expect(self.results[identifier]?.error).toEventuallyNot(beNil())
                 }
             }
             context("with invalid form data") {
                 it("receives error") { [unowned self] in
-                    let identifier = networkHelper.post(toURL: NetworkHelperHelperSpecs.api.rawValue, with: FormData(fields: []), with: NetworkHelperHelperSpecs.api.header)!
+                    let identifier = networkHelper.post(toURL: api.rawValue, with: FormData(fields: []), with: api.header)!
                     self.results[identifier] = NetworkHelperSpecsTask()
                     expect(self.results[identifier]?.error).toEventuallyNot(beNil())
                 }
             }
             context("with type as an upload task") {
                 it("receives response") { [unowned self] in
-                    let identifier = networkHelper.post(toURL: NetworkHelperHelperSpecs.api.rawValue, with: NetworkHelperHelperSpecs.api.formData, with: NetworkHelperHelperSpecs.api.header, asUploadTask: true)!
+                    let identifier = networkHelper.post(toURL: api.rawValue, with: api.formData, with: api.header, asUploadTask: true)!
                     self.results[identifier] = NetworkHelperSpecsTask()
                     expect(self.results[identifier]?.header?.eTag).toEventually(equal("Success"))
                 }
                 it("receives data") { [unowned self] in
-                    let identifier = networkHelper.post(toURL: NetworkHelperHelperSpecs.api.rawValue, with: NetworkHelperHelperSpecs.api.formData, with: NetworkHelperHelperSpecs.api.header, asUploadTask: true)!
+                    let identifier = networkHelper.post(toURL: api.rawValue, with: api.formData, with: api.header, asUploadTask: true)!
                     self.results[identifier] = NetworkHelperSpecsTask()
                     expect(self.results[identifier]?.data?.count).toEventually(equal("Success".data(using: .utf8)?.count))
                 }
             }
             context("with type as a normal task") {
                 it("receives response") { [unowned self] in
-                    let identifier = networkHelper.post(toURL: NetworkHelperHelperSpecs.api.rawValue, with: NetworkHelperHelperSpecs.api.formData, with: NetworkHelperHelperSpecs.api.header, asUploadTask: false)!
+                    let identifier = networkHelper.post(toURL: api.rawValue, with: api.formData, with: api.header, asUploadTask: false)!
                     self.results[identifier] = NetworkHelperSpecsTask()
                     expect(self.results[identifier]?.header?.eTag).toEventually(equal("Success"))
                 }
                 it("receives data") { [unowned self] in
-                    let identifier = networkHelper.post(toURL: NetworkHelperHelperSpecs.api.rawValue, with: NetworkHelperHelperSpecs.api.formData, with: NetworkHelperHelperSpecs.api.header, asUploadTask: false)!
+                    let identifier = networkHelper.post(toURL: api.rawValue, with: api.formData, with: api.header, asUploadTask: false)!
                     self.results[identifier] = NetworkHelperSpecsTask()
                     expect(self.results[identifier]?.data?.count).toEventually(equal("Success".data(using: .utf8)?.count))
                 }
@@ -149,57 +148,57 @@ class NetworkHelperHelperSpecs: QuickSpec {
         describe("calls post(toURL:with:as:with:asUploadTask)") {
             context("with valid url, body and header") {
                 it("receives response") { [unowned self] in
-                    let identifier = networkHelper.post(toURL: NetworkHelperHelperSpecs.api.rawValue, with: NetworkHelperHelperSpecs.api.body, as: .text, with: NetworkHelperHelperSpecs.api.header)!
+                    let identifier = networkHelper.post(toURL: api.rawValue, with: api.body, as: .text, with: api.header)!
                     self.results[identifier] = NetworkHelperSpecsTask()
                     expect(self.results[identifier]?.header?.eTag).toEventually(equal("Success"))
                 }
                 it("receives data") { [unowned self] in
-                    let identifier = networkHelper.post(toURL: NetworkHelperHelperSpecs.api.rawValue, with: NetworkHelperHelperSpecs.api.body, as: .text, with: NetworkHelperHelperSpecs.api.header)!
+                    let identifier = networkHelper.post(toURL: api.rawValue, with: api.body, as: .text, with: api.header)!
                     self.results[identifier] = NetworkHelperSpecsTask()
                     expect(self.results[identifier]?.data?.count).toEventually(equal("Success".data(using: .utf8)?.count))
                 }
             }
             context("with invalid url") {
                 it("receives error") { [unowned self] in
-                    let identifier = networkHelper.post(toURL: NetworkHelperHelperSpecs.invalidAPI, with: NetworkHelperHelperSpecs.api.body, as: .text, with: NetworkHelperHelperSpecs.api.header)!
+                    let identifier = networkHelper.post(toURL: invalidAPI, with: api.body, as: .text, with: api.header)!
                     self.results[identifier] = NetworkHelperSpecsTask()
                     expect(self.results[identifier]?.error).toEventuallyNot(beNil())
                 }
             }
             context("with invalid header") {
                 it("receives error") { [unowned self] in
-                    let identifier = networkHelper.post(toURL: NetworkHelperHelperSpecs.api.rawValue, with: NetworkHelperHelperSpecs.api.body, as: .text, with: NetworkRequestHeader())!
+                    let identifier = networkHelper.post(toURL: api.rawValue, with: api.body, as: .text, with: NetworkRequestHeader())!
                     self.results[identifier] = NetworkHelperSpecsTask()
                     expect(self.results[identifier]?.error).toEventuallyNot(beNil())
                 }
             }
             context("with invalid body") {
                 it("receives error") { [unowned self] in
-                    let identifier = networkHelper.post(toURL: NetworkHelperHelperSpecs.api.rawValue, with: Data(), as: .text, with: NetworkHelperHelperSpecs.api.header)!
+                    let identifier = networkHelper.post(toURL: api.rawValue, with: Data(), as: .text, with: api.header)!
                     self.results[identifier] = NetworkHelperSpecsTask()
                     expect(self.results[identifier]?.error).toEventuallyNot(beNil())
                 }
             }
             context("with type as an upload task") {
                 it("receives response") { [unowned self] in
-                    let identifier = networkHelper.post(toURL: NetworkHelperHelperSpecs.api.rawValue, with: NetworkHelperHelperSpecs.api.body, as: .text, with: NetworkHelperHelperSpecs.api.header, asUploadTask: true)!
+                    let identifier = networkHelper.post(toURL: api.rawValue, with: api.body, as: .text, with: api.header, asUploadTask: true)!
                     self.results[identifier] = NetworkHelperSpecsTask()
                     expect(self.results[identifier]?.header?.eTag).toEventually(equal("Success"))
                 }
                 it("receives data") { [unowned self] in
-                    let identifier = networkHelper.post(toURL: NetworkHelperHelperSpecs.api.rawValue, with: NetworkHelperHelperSpecs.api.body, as: .text, with: NetworkHelperHelperSpecs.api.header, asUploadTask: true)!
+                    let identifier = networkHelper.post(toURL: api.rawValue, with: api.body, as: .text, with: api.header, asUploadTask: true)!
                     self.results[identifier] = NetworkHelperSpecsTask()
                     expect(self.results[identifier]?.data?.count).toEventually(equal("Success".data(using: .utf8)?.count))
                 }
             }
             context("with type as a normal task") {
                 it("receives response") { [unowned self] in
-                    let identifier = networkHelper.post(toURL: NetworkHelperHelperSpecs.api.rawValue, with: NetworkHelperHelperSpecs.api.body, as: .text, with: NetworkHelperHelperSpecs.api.header, asUploadTask: false)!
+                    let identifier = networkHelper.post(toURL: api.rawValue, with: api.body, as: .text, with: api.header, asUploadTask: false)!
                     self.results[identifier] = NetworkHelperSpecsTask()
                     expect(self.results[identifier]?.header?.eTag).toEventually(equal("Success"))
                 }
                 it("receives data") { [unowned self] in
-                    let identifier = networkHelper.post(toURL: NetworkHelperHelperSpecs.api.rawValue, with: NetworkHelperHelperSpecs.api.body, as: .text, with: NetworkHelperHelperSpecs.api.header, asUploadTask: false)!
+                    let identifier = networkHelper.post(toURL: api.rawValue, with: api.body, as: .text, with: api.header, asUploadTask: false)!
                     self.results[identifier] = NetworkHelperSpecsTask()
                     expect(self.results[identifier]?.data?.count).toEventually(equal("Success".data(using: .utf8)?.count))
                 }
@@ -208,26 +207,26 @@ class NetworkHelperHelperSpecs: QuickSpec {
         describe("calls delete(atURL:with)") {
             context("with valid url and header") {
                 it("receives response") { [unowned self] in
-                    let identifier = networkHelper.delete(atURL: NetworkHelperHelperSpecs.api.rawValue, with: NetworkHelperHelperSpecs.api.header)!
+                    let identifier = networkHelper.delete(atURL: api.rawValue, with: api.header)!
                     self.results[identifier] = NetworkHelperSpecsTask()
                     expect(self.results[identifier]?.header?.eTag).toEventually(equal("Success"))
                 }
                 it("receives data") { [unowned self] in
-                    let identifier = networkHelper.delete(atURL: NetworkHelperHelperSpecs.api.rawValue, with: NetworkHelperHelperSpecs.api.header)!
+                    let identifier = networkHelper.delete(atURL: api.rawValue, with: api.header)!
                     self.results[identifier] = NetworkHelperSpecsTask()
                     expect(self.results[identifier]?.data?.count).toEventually(equal("Success".data(using: .utf8)?.count))
                 }
             }
             context("with invalid url") {
                 it("receives error") { [unowned self] in
-                    let identifier = networkHelper.delete(atURL: NetworkHelperHelperSpecs.invalidAPI, with: NetworkHelperHelperSpecs.api.header)!
+                    let identifier = networkHelper.delete(atURL: invalidAPI, with: api.header)!
                     self.results[identifier] = NetworkHelperSpecsTask()
                     expect(self.results[identifier]?.error).toEventuallyNot(beNil())
                 }
             }
             context("with invalid header") {
                 it("receives error") { [unowned self] in
-                    let identifier = networkHelper.delete(atURL: NetworkHelperHelperSpecs.api.rawValue, with: NetworkRequestHeader())!
+                    let identifier = networkHelper.delete(atURL: api.rawValue, with: NetworkRequestHeader())!
                     self.results[identifier] = NetworkHelperSpecsTask()
                     expect(self.results[identifier]?.error).toEventuallyNot(beNil())
                 }
@@ -235,7 +234,7 @@ class NetworkHelperHelperSpecs: QuickSpec {
         }
         describe("calls reset()") {
             it("has no task") {
-                _ = networkHelper.get(fromURL: NetworkHelperHelperSpecs.invalidAPI, with: NetworkHelperHelperSpecs.api.header)!
+                _ = networkHelper.get(fromURL: invalidAPI, with: api.header)!
                 networkHelper.reset()
                 expect(networkHelper.tasks.count) == 0
             }

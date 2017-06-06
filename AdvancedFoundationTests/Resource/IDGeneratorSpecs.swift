@@ -7,8 +7,8 @@ class IDGeneratorSpecs: QuickSpec {
             }
         }
         describe("calls generateID()") {
-            var idGenerator = IDGenerator()
-            afterEach {
+            var idGenerator: IDGenerator!
+            beforeEach {
                 idGenerator = IDGenerator()
             }
             context("for the first time") {
