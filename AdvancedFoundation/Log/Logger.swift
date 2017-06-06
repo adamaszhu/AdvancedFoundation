@@ -1,5 +1,5 @@
 /**
- * NSObject+Log is used to format a log.
+ * Logger is used to format a log.
  * - author: Adamas
  * - version: 1.0.1
  * - date: 11/04/2017

@@ -1,10 +1,16 @@
 /**
  * String+Helper provides additional functions for a string object.
  * - author: Adamas
- * - version: 1.0.0
+ * - version: 1.0.1
  * - date: 20/04/2017
  */
 public extension String {
+    
+    /**
+     * System warning.
+     */
+    private static let prefixWarning = "The prefix doesn't exist in the string."
+    private static let suffixWarning = "The suffix doesn't exist in the string."
     
     /**
      * Remove a specific suffix from the string.
@@ -13,6 +19,7 @@ public extension String {
      */
     public func removeSuffix(_ suffix: String) -> String? {
         guard hasSuffix(suffix) else {
+            Logger.standard.logWarning(String.suffixWarning, withDetail: suffix)
             return nil
         }
         let suffixBeginIndex = index(endIndex, offsetBy: -suffix.characters.count)
@@ -26,6 +33,7 @@ public extension String {
      */
     public func removePrefix(_ prefix: String) -> String? {
         guard hasPrefix(prefix) else {
+            Logger.standard.logWarning(String.prefixWarning, withDetail: prefix)
             return nil
         }
         let prefixEndIndex = index(startIndex, offsetBy: prefix.characters.count)
