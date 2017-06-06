@@ -1,7 +1,7 @@
 /**
  * NetworkHelper+SessionTaskDelegate delegates the action for a task.
  * - author: Adamas
- * - version: 1.0.0
+ * - version: 1.0.1
  * - date: 06/05/2017
  */
 extension NetworkHelper: URLSessionTaskDelegate {
@@ -17,7 +17,7 @@ extension NetworkHelper: URLSessionTaskDelegate {
         remove(networkTask)
         guard error == nil else {
             Logger.standard.logError(error!)
-            dispatchError(for: networkTask, withMessage: internetError)
+            dispatchError(for: networkTask, withMessage: NetworkHelper.internetError)
             return
         }
         DispatchQueue.main.async{

@@ -9,9 +9,9 @@ public class PathHelper: FileManager {
     /**
      * System warning.
      */
-    private static let copyOriginNotExistingWarning = "The copy original path doesn't exist."
-    private static let copyDestinationExistingWarning = "The copy destination exists."
-    private static let removeNotExistingWarning = "The path to be removed doesn't exist."
+    private static let copyOriginExistanceWarning = "The copy original path doesn't exist."
+    private static let copyDestinationExistanceWarning = "The copy destination exists."
+    private static let removeExistanceWarning = "The path to be removed doesn't exist."
     
     /**
      * Whether the file or a directory exists or not.
@@ -43,12 +43,12 @@ public class PathHelper: FileManager {
      */
     public func copy(toPath path: String) -> Bool? {
         guard isExisted else {
-            Logger.standard.logWarning(PathHelper.copyOriginNotExistingWarning, withDetail: self.path)
+            Logger.standard.logWarning(PathHelper.copyOriginExistanceWarning, withDetail: self.path)
             return false
         }
         let pathHelper = PathHelper(path: path)
         guard !pathHelper.isExisted else {
-            Logger.standard.logWarning(PathHelper.copyDestinationExistingWarning, withDetail: path)
+            Logger.standard.logWarning(PathHelper.copyDestinationExistanceWarning, withDetail: path)
             return false
         }
         guard pathHelper.createParentDirectory() == true else {
@@ -69,7 +69,7 @@ public class PathHelper: FileManager {
      */
     public func remove() -> Bool? {
         guard isExisted else {
-            Logger.standard.logWarning(PathHelper.removeNotExistingWarning, withDetail: self.path)
+            Logger.standard.logWarning(PathHelper.removeExistanceWarning, withDetail: self.path)
             return false
         }
         do {

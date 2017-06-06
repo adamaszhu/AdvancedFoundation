@@ -1,7 +1,7 @@
 /**
  * NetworkHelper+DownloadSessionDelegate delegates the action for a download task.
  * - author: Adamas
- * - version: 1.0.0
+ * - version: 1.0.1
  * - date: 06/05/2017
  */
 extension NetworkHelper: URLSessionDownloadDelegate {
@@ -14,11 +14,11 @@ extension NetworkHelper: URLSessionDownloadDelegate {
             downloadTask.cancel()
             return
         }
-        let destinationPath = "\(documentDirectory)/\(task.identifier)"
+        let destinationPath = "\(NetworkHelper.documentDirectory)/\(task.identifier)"
         let fileHelper = FileHelper(path: location.relativePath)
         if fileHelper.copy(toPath: destinationPath) != true {
-            Logger.standard.logError(fileSystemError)
-            dispatchError(for: task, withMessage: appError)
+            Logger.standard.logError(NetworkHelper.fileSystemError)
+            dispatchError(for: task, withMessage: NetworkHelper.appError)
             return
         }
         DispatchQueue.main.async{
