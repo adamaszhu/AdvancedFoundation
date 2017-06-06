@@ -1,11 +1,19 @@
 /**
  * JSONPath present a node in the json. It is similar to xPath in XML.
  * - author: Adamas
- * - version: 1.0.0
+ * - version: 1.0.1
  * - date: 30/04/2017
  */
 struct JSONPath {
     
+    /**
+     * System warning.
+     */
+    private static let removeFirstNodeWarning = "The path is empty."
+    
+    /**
+     * Attributes.
+     */
     private (set) var nodes: Array<JSONNode>
     
     /**
@@ -27,6 +35,7 @@ struct JSONPath {
      */
     mutating func removeFirstNode() {
         guard !isEmpty else {
+            Logger.standard.logWarning(JSONPath.removeFirstNodeWarning)
             return
         }
         nodes.remove(at: 0)

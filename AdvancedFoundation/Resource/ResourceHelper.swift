@@ -7,9 +7,9 @@
 public class ResourceHelper {
     
     /**
-     * System warning.
+     * System error.
      */
-    private static let resourceWarning = "The resource doesn't exist."
+    private static let resourceError = "The resource doesn't exist."
     
     /**
      * The url of the resource. Nil if the resource doesn't exist.
@@ -24,7 +24,7 @@ public class ResourceHelper {
     public init?(name: String, bundle: Bundle = Bundle.main) {
         let fileInfoAccessor = FileInfoAccessor(path: name)
         guard let path = bundle.path(forResource: fileInfoAccessor.filename, ofType: fileInfoAccessor.fileExtension) else {
-            Logger.standard.logWarning(ResourceHelper.resourceWarning, withDetail: name)
+            Logger.standard.logError(ResourceHelper.resourceError, withDetail: name)
             return nil
         }
         url =  URL(fileURLWithPath: path)

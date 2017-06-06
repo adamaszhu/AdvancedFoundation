@@ -15,29 +15,29 @@ public extension String {
     /**
      * Remove a specific suffix from the string.
      * - parameter suffix: The suffix to be removed.
-     * - returns: The suffix removed string. Nil if the suffix doesn't exist in the original string.
      */
-    public func removeSuffix(_ suffix: String) -> String? {
+    public mutating func removeSuffix(_ suffix: String) {
         guard hasSuffix(suffix) else {
             Logger.standard.logWarning(String.suffixWarning, withDetail: suffix)
-            return nil
+            return
         }
         let suffixBeginIndex = index(endIndex, offsetBy: -suffix.characters.count)
-        return substring(to: suffixBeginIndex)
+        let suffixRange = Range<String.Index>(uncheckedBounds: (lower: suffixBeginIndex, upper: endIndex))
+        removeSubrange(suffixRange)
     }
     
     /**
      * Remove a specific prefix from the string.
      * - parameter prefix: The prefix to be removed.
-     * - returns: The prefix removed string. Nil if the prefix doesn't exist in the original string.
      */
-    public func removePrefix(_ prefix: String) -> String? {
+    public mutating func removePrefix(_ prefix: String) {
         guard hasPrefix(prefix) else {
             Logger.standard.logWarning(String.prefixWarning, withDetail: prefix)
-            return nil
+            return
         }
         let prefixEndIndex = index(startIndex, offsetBy: prefix.characters.count)
-        return substring(from: prefixEndIndex)
+        let prefixRange = Range<String.Index>(uncheckedBounds: (lower: startIndex, upper: prefixEndIndex))
+        removeSubrange(prefixRange)
     }
     
 }
