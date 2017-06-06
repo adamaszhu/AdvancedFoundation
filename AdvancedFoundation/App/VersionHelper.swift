@@ -1,7 +1,7 @@
 /**
  * VersionHelper compares the version of the app. The version should be as the format of 1.2.3 where the first number will be changed if the style of the application is changed, the second number will be changed if some main functions are changed and the third number will be changed whenever errors or functions are fixed or changed.
  * - author: Adamas
- * - version: 1.0.0
+ * - version: 1.0.1
  * - date: 12/04/2017
  */
 public class VersionHelper {
@@ -22,7 +22,7 @@ public class VersionHelper {
     /**
      * System error.
      */
-    private let versionFormatError = "The version is not well formatted."
+    private static let versionFormatError = "The version is not well formatted."
     
     /**
      * The version binded to the helper.
@@ -45,9 +45,9 @@ public class VersionHelper {
     
     /**
      * Check whether current version flag has been settled in the user default or not.
-     * - returns: Whether the flag has been settled or not. Nil will be returned if the flag cannot be created.
+     * - returns: Whether the flag has been settled or not.
      */
-    public func checkVersionFlag() -> Bool? {
+    public func checkVersionFlag() -> Bool {
         let userDefaults = UserDefaults.standard
         guard let storedVersion = userDefaults.string(forKey: versionFlag) else {
             return false
@@ -81,7 +81,6 @@ public class VersionHelper {
         self.version = version
         self.versionFlag = versionFlag
         guard parseVersion(version) != nil else {
-            Logger.standard.logError(versionFormatError)
             return nil
         }
     }
@@ -96,7 +95,7 @@ public class VersionHelper {
         var parsedVersionComponents = Array<Int>()
         for versionComponent in versionComponents {
             guard let parsedVersionComponent = Int(versionComponent) else {
-                Logger.standard.logError(versionFormatError, withDetail: version)
+                Logger.standard.logError(VersionHelper.versionFormatError, withDetail: version)
                 return nil
             }
             parsedVersionComponents.append(parsedVersionComponent)
