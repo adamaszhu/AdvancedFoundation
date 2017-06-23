@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2803797D1EFCD75B0043682D /* Array+Accessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2803797C1EFCD75B0043682D /* Array+Accessor.swift */; };
+		280379801EFCDE2F0043682D /* Array+AccessorSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2803797F1EFCDE2F0043682D /* Array+AccessorSpecs.swift */; };
 		281881D61EA86AB800E8C85E /* String+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281881D51EA86AB800E8C85E /* String+Helper.swift */; };
 		281881D81EA86EEC00E8C85E /* String+HelperSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281881D71EA86EEC00E8C85E /* String+HelperSpecs.swift */; };
 		28451A131EBC3D0400793441 /* NetworkHelperDelegate+Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28451A121EBC3D0400793441 /* NetworkHelperDelegate+Optional.swift */; };
@@ -138,6 +140,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2803797C1EFCD75B0043682D /* Array+Accessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Accessor.swift"; sourceTree = "<group>"; };
+		2803797F1EFCDE2F0043682D /* Array+AccessorSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+AccessorSpecs.swift"; sourceTree = "<group>"; };
 		281881D51EA86AB800E8C85E /* String+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Helper.swift"; sourceTree = "<group>"; };
 		281881D71EA86EEC00E8C85E /* String+HelperSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+HelperSpecs.swift"; sourceTree = "<group>"; };
 		28451A121EBC3D0400793441 /* NetworkHelperDelegate+Optional.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NetworkHelperDelegate+Optional.swift"; sourceTree = "<group>"; };
@@ -288,6 +292,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2803797B1EFCD74C0043682D /* Array */ = {
+			isa = PBXGroup;
+			children = (
+				2803797C1EFCD75B0043682D /* Array+Accessor.swift */,
+			);
+			path = Array;
+			sourceTree = "<group>";
+		};
+		2803797E1EFCDE160043682D /* Array */ = {
+			isa = PBXGroup;
+			children = (
+				2803797F1EFCDE2F0043682D /* Array+AccessorSpecs.swift */,
+			);
+			path = Array;
+			sourceTree = "<group>";
+		};
 		2848AAE11E9D9E4C004C6A66 = {
 			isa = PBXGroup;
 			children = (
@@ -314,6 +334,7 @@
 			isa = PBXGroup;
 			children = (
 				42F30E401E9E412900AC0249 /* App */,
+				2803797B1EFCD74C0043682D /* Array */,
 				28CC3FE01EB812CA00C632A5 /* Data */,
 				42622EA21EA1FD8100E5D5E7 /* Date */,
 				42DAF4E21EA3A07D00DE6B70 /* File */,
@@ -331,6 +352,7 @@
 		2848AAF81E9D9E4C004C6A66 /* AdvancedFoundationTests */ = {
 			isa = PBXGroup;
 			children = (
+				2803797E1EFCDE160043682D /* Array */,
 				42F30E451E9E413400AC0249 /* App */,
 				28CC3FE51EB81FEF00C632A5 /* Data */,
 				42622EAB1EA234FB00E5D5E7 /* Date */,
@@ -829,6 +851,7 @@
 				42D342631EB4A66300064B1C /* CSVHelper.swift in Sources */,
 				28525CB61EAD7C2B006F6FDE /* DirectoryHelper.swift in Sources */,
 				42C13A731EBEA04F000D2E50 /* NetworkRequestHeader+Parser.swift in Sources */,
+				2803797D1EFCD75B0043682D /* Array+Accessor.swift in Sources */,
 				42C13A711EBE9F41000D2E50 /* NetworkResponseHeader+Parser.swift in Sources */,
 				28E703BE1EBBF1BA002BEDFC /* NetworkBodyType.swift in Sources */,
 				42C13A771EBF527E000D2E50 /* FormData.swift in Sources */,
@@ -906,6 +929,7 @@
 				281881D81EA86EEC00E8C85E /* String+HelperSpecs.swift in Sources */,
 				425DCD181EB43DE700A0ED26 /* FileHelperSpecs.swift in Sources */,
 				286353F41ED55D92000B7A7F /* ResponseMocker.swift in Sources */,
+				280379801EFCDE2F0043682D /* Array+AccessorSpecs.swift in Sources */,
 				284EEFE81EC137500022EB6B /* FormDataFileField+ParsableSpecs.swift in Sources */,
 				429202861EC81CA700C4E909 /* NetworkHelperSpecsTask.swift in Sources */,
 				42D342681EB4AB2200064B1C /* CSVHelperSpecs.swift in Sources */,
