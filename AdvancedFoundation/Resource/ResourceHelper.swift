@@ -1,10 +1,15 @@
 /**
  * ResourceHelper improves the ability to access resources.
  * - author: Adamas
- * - version: 1.0.0
+ * - version: 1.0.1
  * - date: 29/04/2017
  */
 public class ResourceHelper {
+    
+    /**
+     * System error.
+     */
+    private static let resourceError = "The resource doesn't exist."
     
     /**
      * The url of the resource. Nil if the resource doesn't exist.
@@ -19,6 +24,7 @@ public class ResourceHelper {
     public init?(name: String, bundle: Bundle = Bundle.main) {
         let fileInfoAccessor = FileInfoAccessor(path: name)
         guard let path = bundle.path(forResource: fileInfoAccessor.filename, ofType: fileInfoAccessor.fileExtension) else {
+            Logger.standard.logError(ResourceHelper.resourceError, withDetail: name)
             return nil
         }
         url =  URL(fileURLWithPath: path)

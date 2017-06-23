@@ -1,7 +1,7 @@
 /**
  * NetowrkHelper is used to perform basic level internet connection.
  * - author: Adamas
- * - version: 1.0.0
+ * - version: 1.0.1
  * - date: 04/05/2017
  */
 public class NetworkHelper: NSObject {
@@ -9,21 +9,22 @@ public class NetworkHelper: NSObject {
     /**
      * System error.
      */
-    private let urlError = "The url address is invalid."
-    private let taskError = "The task doesn't exist."
-    private let taskTypeError = "The task type hasn't been supported yet."
-    let internetError = "InternetError"
-    let serverError = "ServerError"
-    let appError = "AppError"
-    let serverSideError = "The server cannot deal with the request."
-    let responseTypeError = "The response is not a http url response."
-    let responseHeaderError = "The response doesn't have a valid header."
-    let fileSystemError = "The downloaded file cannot be moved to the sandbox."
+    private static let urlError = "The url address is invalid."
+    private static let taskError = "The task doesn't exist."
+    private static let taskTypeError = "The task type hasn't been supported yet."
+    private static let settingAccessibilityError = "The network setting cannot be read."
+    static let internetError = "InternetError"
+    static let serverError = "ServerError"
+    static let appError = "AppError"
+    static let serverSideError = "The server cannot deal with the request."
+    static let responseTypeError = "The response is not a http url response."
+    static let responseHeaderError = "The response doesn't have a valid header."
+    static let fileSystemError = "The downloaded file cannot be moved to the sandbox."
     
     /**
      * System document directory. Which is used to store downloaded files.
      */
-    let documentDirectory = "Documents"
+    static let documentDirectory = "Documents"
     
     /**
      * The default helper.
@@ -74,6 +75,7 @@ public class NetworkHelper: NSObject {
         }
         var flags = SCNetworkReachabilityFlags()
         guard SCNetworkReachabilityGetFlags(defaultRouteReachability!, &flags) else {
+            Logger.standard.logError(NetworkHelper.settingAccessibilityError)
             return false
         }
         let isReachable = (flags.rawValue & UInt32(kSCNetworkFlagsReachable)) != 0
@@ -188,11 +190,11 @@ public class NetworkHelper: NSObject {
      */
     public func clearCache(forURL urlString: String) {
         guard let parsedURLString = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
-            Logger.standard.logError(urlError, withDetail: urlString)
+            Logger.standard.logError(NetworkHelper.urlError, withDetail: urlString)
             return
         }
         guard let url = URL(string: parsedURLString) else {
-            Logger.standard.logError(urlError, withDetail: urlString)
+            Logger.standard.logError(NetworkHelper.urlError, withDetail: urlString)
             return
         }
         let request = URLRequest(url: url)
@@ -206,7 +208,7 @@ public class NetworkHelper: NSObject {
      */
     func append(_ data: Data, toCacheOf task: NetworkTask) {
         guard let index = tasks.index(of: task) else {
-            Logger.standard.logError(taskError, withDetail: task.task.originalRequest?.url?.absoluteString)
+            Logger.standard.logError(NetworkHelper.taskError, withDetail: task.task.originalRequest?.url?.absoluteString)
             return
         }
         tasks[index].append(data)
@@ -223,7 +225,7 @@ public class NetworkHelper: NSObject {
                 return task
             }
         }
-        Logger.standard.logError(taskError, withDetail: sessionTask.originalRequest?.url?.absoluteString)
+        Logger.standard.logError(NetworkHelper.taskError, withDetail: sessionTask.originalRequest?.url?.absoluteString)
         return nil
     }
     
@@ -234,7 +236,7 @@ public class NetworkHelper: NSObject {
     func remove(_ task: NetworkTask) {
         task.cancel()
         guard let index = tasks.index(of: task) else {
-            Logger.standard.logError(taskError, withDetail: task.task.originalRequest?.url?.absoluteString)
+            Logger.standard.logError(NetworkHelper.taskError, withDetail: task.task.originalRequest?.url?.absoluteString)
             return
         }
         tasks.remove(at: index)
@@ -261,11 +263,11 @@ public class NetworkHelper: NSObject {
      */
     private func createRequest(withURL urlString: String, with header: NetworkRequestHeader, as type: NetworkRequestType) -> URLRequest? {
         guard let parsedURLString = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
-            Logger.standard.logError(urlError, withDetail: urlString)
+            Logger.standard.logError(NetworkHelper.urlError, withDetail: urlString)
             return nil
         }
         guard let url = URL(string: parsedURLString) else {
-            Logger.standard.logError(urlError, withDetail: urlString)
+            Logger.standard.logError(NetworkHelper.urlError, withDetail: urlString)
             return nil
         }
         var header = header
@@ -305,7 +307,7 @@ public class NetworkHelper: NSObject {
             let data = request.httpBody ?? Data()
             task = NetworkTask(task: normalSession.uploadTask(with: request, from: data), idGenerator: idGenerator, cache: emptyCache)
         default:
-            Logger.standard.logError(taskTypeError, withDetail: type)
+            Logger.standard.logError(NetworkHelper.taskTypeError, withDetail: type)
             return nil
         }
         tasks.append(task)

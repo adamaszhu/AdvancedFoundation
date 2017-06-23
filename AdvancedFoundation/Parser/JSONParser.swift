@@ -1,15 +1,15 @@
 /**
  * JSONParser parses the data of a JSON structure.
  * - author: Adamas
- * - version: 1.0.0
+ * - version: 1.0.1
  * - date: 29/04/2017
  */
 public class JSONParser {
     
     /**
-     * System error.
+     * System error
      */
-    private let pathError = "The path is invalid."
+    private static let pathWarning = "The node presented by the path doesn't exist."
     
     /**
      * The content of the json file.
@@ -85,13 +85,10 @@ public class JSONParser {
         var realPath = path
         var realNode = node
         if path.hasPrefix("/") {
-            realPath = realPath.removePrefix("/")!
+            realPath.removePrefix("/")
             realNode = json
         }
         guard let jsonPath = JSONPath.parse(realPath) else {
-            return nil
-        }
-        guard !jsonPath.isEmpty else {
             return nil
         }
         return getNode(at: jsonPath, fromNode: realNode)
@@ -104,28 +101,30 @@ public class JSONParser {
      * - returns: The element. Nil if it cannot be found.
      */
     private func getNode(at path: JSONPath, fromNode node: Any?) -> Any? {
-        // COMMENT: If the path is empty, the method shouldn't even be called.
-        let pathNode = path.firstNode!
+        guard let pathNode = path.firstNode else {
+            Logger.standard.logWarning(JSONParser.pathWarning)
+            return nil
+        }
         var realNode = node ?? json
         if !pathNode.isCurrentNode {
             // COMMENT: Get real current node from the dictionary node.
             guard let dictionaryNode = realNode as? Dictionary<String, AnyObject> else {
-                // COMMENT: The node presented by the path doesn't exist.
+                Logger.standard.logWarning(JSONParser.pathWarning, withDetail: path)
                 return nil
             }
             realNode = dictionaryNode[pathNode.name] as Any
         }
-        if pathNode.index != nil {
+        if let pathNodeIndex = pathNode.index {
             // COMMENT: Get real current node from the array node.
             guard let arrayNode = realNode as? Array<Any> else {
-                // COMMENT: The node name doesn't exist.
+                Logger.standard.logWarning(JSONParser.pathWarning, withDetail: path)
                 return nil
             }
-            realNode = arrayNode[pathNode.index!]
+            realNode = arrayNode[pathNodeIndex]
         }
-        var newPath = path
-        newPath.removeFirstNode()
-        return newPath.isEmpty ? realNode : getNode(at: newPath, fromNode: realNode)
+        var path = path
+        path.removeFirstNode()
+        return path.isEmpty ? realNode : getNode(at: path, fromNode: realNode)
     }
     
 }

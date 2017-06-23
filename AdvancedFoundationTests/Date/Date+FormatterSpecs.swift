@@ -1,20 +1,16 @@
 class DateFormatterSpecs: QuickSpec {
     
-    /**
-     * All unit in second.
-     */
-    private static let yearLength = 365 * dayLength
-    private static let monthLength = yearLength / 12
-    private static let dayLength = 24 * hourLength
-    private static let hourLength = 60 * minuteLength
-    private static let minuteLength = 60 * secondLength
-    private static let secondLength = 1
-    
     // COMMENT: Cannot extract date declaration since the test should be done right after the decleration.
     override func spec() {
+        let secondLength = 1
+        let minuteLength = 60 * secondLength
+        let hourLength = 60 * minuteLength
+        let dayLength = 24 * hourLength
+        let yearLength = 365 * dayLength
+        let monthLength = yearLength / 12
+        var date: Date!
         describe("calls convertToTimeOffsetString(withAbbreviation)") {
             context("as now") {
-                var date = Date()
                 beforeEach {
                     date = Date()
                 }
@@ -35,7 +31,6 @@ class DateFormatterSpecs: QuickSpec {
                 }
             }
             context("as later") {
-                var date = Date().addingTimeInterval(1)
                 beforeEach {
                     date = Date().addingTimeInterval(1)
                 }
@@ -57,7 +52,6 @@ class DateFormatterSpecs: QuickSpec {
             }
             context("as 1 year 1 month 1 day 1 hour 1 minute and 1 second before") {
                 let timeOffset = TimeInterval(-365 * 24 * 60 * 60 * 13 / 12 - 24 * 60 * 60 - 60 * 60 - 60 - 1)
-                var date = Date().addingTimeInterval(timeOffset)
                 beforeEach {
                     date = Date().addingTimeInterval(timeOffset)
                 }
@@ -79,7 +73,6 @@ class DateFormatterSpecs: QuickSpec {
             }
             context("as 1 year and 1 second before") {
                 let timeOffset = TimeInterval(-365 * 24 * 60 * 60 - 1)
-                var date = Date().addingTimeInterval(timeOffset)
                 beforeEach {
                     date = Date().addingTimeInterval(timeOffset)
                 }
@@ -100,8 +93,7 @@ class DateFormatterSpecs: QuickSpec {
                 }
             }
             context("as 1 second before") {
-                let timeOffset = TimeInterval(-1 * DateFormatterSpecs.secondLength)
-                var date = Date().addingTimeInterval(timeOffset)
+                let timeOffset = TimeInterval(-1 * secondLength)
                 beforeEach {
                     date = Date().addingTimeInterval(timeOffset)
                 }
@@ -122,8 +114,7 @@ class DateFormatterSpecs: QuickSpec {
                 }
             }
             context("as 2 seconds before") {
-                let timeOffset = TimeInterval(-2 * DateFormatterSpecs.secondLength)
-                var date = Date().addingTimeInterval(timeOffset)
+                let timeOffset = TimeInterval(-2 * secondLength)
                 beforeEach {
                     date = Date().addingTimeInterval(timeOffset)
                 }
@@ -144,8 +135,7 @@ class DateFormatterSpecs: QuickSpec {
                 }
             }
             context("as 1 minute before") {
-                let timeOffset = TimeInterval(-1 * DateFormatterSpecs.minuteLength)
-                var date = Date().addingTimeInterval(timeOffset)
+                let timeOffset = TimeInterval(-1 * minuteLength)
                 beforeEach {
                     date = Date().addingTimeInterval(timeOffset)
                 }
@@ -166,8 +156,7 @@ class DateFormatterSpecs: QuickSpec {
                 }
             }
             context("as 2 minutes before") {
-                let timeOffset = TimeInterval(-2 * DateFormatterSpecs.minuteLength)
-                var date = Date().addingTimeInterval(timeOffset)
+                let timeOffset = TimeInterval(-2 * minuteLength)
                 beforeEach {
                     date = Date().addingTimeInterval(timeOffset)
                 }
@@ -188,8 +177,7 @@ class DateFormatterSpecs: QuickSpec {
                 }
             }
             context("as 1 hour before") {
-                let timeOffset = TimeInterval(-1 * DateFormatterSpecs.hourLength)
-                var date = Date().addingTimeInterval(timeOffset)
+                let timeOffset = TimeInterval(-1 * hourLength)
                 beforeEach {
                     date = Date().addingTimeInterval(timeOffset)
                 }
@@ -210,8 +198,7 @@ class DateFormatterSpecs: QuickSpec {
                 }
             }
             context("as 2 hours before") {
-                let timeOffset = TimeInterval(-2 * DateFormatterSpecs.hourLength)
-                var date = Date().addingTimeInterval(timeOffset)
+                let timeOffset = TimeInterval(-2 * hourLength)
                 beforeEach {
                     date = Date().addingTimeInterval(timeOffset)
                 }
@@ -232,8 +219,7 @@ class DateFormatterSpecs: QuickSpec {
                 }
             }
             context("as 1 day before") {
-                let timeOffset = TimeInterval(-1 * DateFormatterSpecs.dayLength)
-                var date = Date().addingTimeInterval(timeOffset)
+                let timeOffset = TimeInterval(-1 * dayLength)
                 beforeEach {
                     date = Date().addingTimeInterval(timeOffset)
                 }
@@ -254,8 +240,7 @@ class DateFormatterSpecs: QuickSpec {
                 }
             }
             context("as 2 days before") {
-                let timeOffset = TimeInterval(-2 * DateFormatterSpecs.dayLength)
-                var date = Date().addingTimeInterval(timeOffset)
+                let timeOffset = TimeInterval(-2 * dayLength)
                 beforeEach {
                     date = Date().addingTimeInterval(timeOffset)
                 }
@@ -276,8 +261,7 @@ class DateFormatterSpecs: QuickSpec {
                 }
             }
             context("as 1 month before") {
-                let timeOffset = TimeInterval(-1 * DateFormatterSpecs.monthLength)
-                var date = Date().addingTimeInterval(timeOffset)
+                let timeOffset = TimeInterval(-1 * monthLength)
                 beforeEach {
                     date = Date().addingTimeInterval(timeOffset)
                 }
@@ -298,8 +282,7 @@ class DateFormatterSpecs: QuickSpec {
                 }
             }
             context("as 2 months before") {
-                let timeOffset = TimeInterval(-2 * DateFormatterSpecs.monthLength)
-                var date = Date().addingTimeInterval(timeOffset)
+                let timeOffset = TimeInterval(-2 * monthLength)
                 beforeEach {
                     date = Date().addingTimeInterval(timeOffset)
                 }
@@ -320,8 +303,7 @@ class DateFormatterSpecs: QuickSpec {
                 }
             }
             context("as 1 year before") {
-                let timeOffset = TimeInterval(-1 * DateFormatterSpecs.yearLength)
-                var date = Date().addingTimeInterval(timeOffset)
+                let timeOffset = TimeInterval(-1 * yearLength)
                 beforeEach {
                     date = Date().addingTimeInterval(timeOffset)
                 }
@@ -342,8 +324,7 @@ class DateFormatterSpecs: QuickSpec {
                 }
             }
             context("as 2 years before") {
-                let timeOffset = TimeInterval(-2 * DateFormatterSpecs.yearLength)
-                var date = Date().addingTimeInterval(timeOffset)
+                let timeOffset = TimeInterval(-2 * yearLength)
                 beforeEach {
                     date = Date().addingTimeInterval(timeOffset)
                 }

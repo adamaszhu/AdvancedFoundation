@@ -1,14 +1,10 @@
 class NetworkResponseHeaderParserSpecs: QuickSpec {
     
-    /**
-     * All header keys.
-     */
-    private let contentTypeHeader = "Content-Type"
-    private let contentLengthHeader = "Content-Length"
-    private let lastModifiedHeader = "Last-Modified"
-    private let eTagHeader = "Etag"
-    
     override func spec() {
+        let contentTypeHeader = "Content-Type"
+        let contentLengthHeader = "Content-Length"
+        let lastModifiedHeader = "Last-Modified"
+        let eTagHeader = "Etag"
         describe("calls parse(_)") {
             context("with invalid http response") {
                 let response = URLResponse()
@@ -17,7 +13,7 @@ class NetworkResponseHeaderParserSpecs: QuickSpec {
                 }
             }
             context("with contentType header") {
-                let header = [self.contentTypeHeader: "ContentType"]
+                let header = [contentTypeHeader: "ContentType"]
                 let response = HTTPURLResponse(url: URL(fileURLWithPath: ""), statusCode: 0, httpVersion: nil, headerFields: header)!
                 let responseHeader = NetworkResponseHeader.parse(response)
                 it("returns response header with correct contentType") {
@@ -25,7 +21,7 @@ class NetworkResponseHeaderParserSpecs: QuickSpec {
                 }
             }
             context("with invalid contentLength header") {
-                let header = [self.contentLengthHeader: "ContentLength"]
+                let header = [contentLengthHeader: "ContentLength"]
                 let response = HTTPURLResponse(url: URL(fileURLWithPath: ""), statusCode: 0, httpVersion: nil, headerFields: header)!
                 let responseHeader = NetworkResponseHeader.parse(response)
                 it("returns response header without contentLength value") {
@@ -33,7 +29,7 @@ class NetworkResponseHeaderParserSpecs: QuickSpec {
                 }
             }
             context("with correct contentLength header") {
-                let header = [self.contentLengthHeader: "1"]
+                let header = [contentLengthHeader: "1"]
                 let response = HTTPURLResponse(url: URL(fileURLWithPath: ""), statusCode: 0, httpVersion: nil, headerFields: header)!
                 let responseHeader = NetworkResponseHeader.parse(response)
                 it("returns response header without contentLength value") {
@@ -41,7 +37,7 @@ class NetworkResponseHeaderParserSpecs: QuickSpec {
                 }
             }
             context("with lastModified header") {
-                let header = [self.lastModifiedHeader: "LastModified"]
+                let header = [lastModifiedHeader: "LastModified"]
                 let response = HTTPURLResponse(url: URL(fileURLWithPath: ""), statusCode: 0, httpVersion: nil, headerFields: header)!
                 let responseHeader = NetworkResponseHeader.parse(response)
                 it("returns response header with lastModified value") {
@@ -49,7 +45,7 @@ class NetworkResponseHeaderParserSpecs: QuickSpec {
                 }
             }
             context("with eTag header") {
-                let header = [self.eTagHeader: "ETag"]
+                let header = [eTagHeader: "ETag"]
                 let response = HTTPURLResponse(url: URL(fileURLWithPath: ""), statusCode: 0, httpVersion: nil, headerFields: header)!
                 let responseHeader = NetworkResponseHeader.parse(response)
                 it("returns response header with eTag value") {

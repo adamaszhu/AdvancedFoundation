@@ -1,10 +1,17 @@
 /**
  * PathHelper is used to perform path related action.
- * - version: 1.0.0.
+ * - version: 1.0.1
  * - date: 26/10/2016
  * - author: Adamas
  */
 public class PathHelper: FileManager {
+    
+    /**
+     * System warning.
+     */
+    private static let copyOriginExistanceWarning = "The copy original path doesn't exist."
+    private static let copyDestinationExistanceWarning = "The copy destination exists."
+    private static let removeExistanceWarning = "The path to be removed doesn't exist."
     
     /**
      * Whether the file or a directory exists or not.
@@ -36,10 +43,12 @@ public class PathHelper: FileManager {
      */
     public func copy(toPath path: String) -> Bool? {
         guard isExisted else {
+            Logger.standard.logWarning(PathHelper.copyOriginExistanceWarning, withDetail: self.path)
             return false
         }
         let pathHelper = PathHelper(path: path)
         guard !pathHelper.isExisted else {
+            Logger.standard.logWarning(PathHelper.copyDestinationExistanceWarning, withDetail: path)
             return false
         }
         guard pathHelper.createParentDirectory() == true else {
@@ -60,6 +69,7 @@ public class PathHelper: FileManager {
      */
     public func remove() -> Bool? {
         guard isExisted else {
+            Logger.standard.logWarning(PathHelper.removeExistanceWarning, withDetail: self.path)
             return false
         }
         do {
@@ -77,7 +87,7 @@ public class PathHelper: FileManager {
      */
     func createParentDirectory() -> Bool? {
         guard let parentDirectory = getParentDirectoryPath() else {
-            return nil
+            return true
         }
         do {
             try createDirectory(atPath: parentDirectory, withIntermediateDirectories: true)
@@ -92,7 +102,7 @@ public class PathHelper: FileManager {
      * Formalize the path. Such as change "/temp/" to "/temp"
      */
     private func formalizePath() {
-        path = path.removeSuffix("/") ?? path
+        path.removeSuffix("/")
     }
     
     /**
@@ -105,7 +115,7 @@ public class PathHelper: FileManager {
     
     /**
      * Get the parent directory path of a formalized path.
-     * - returns: The formalized parent directory path. Nil if the path is the root directory.
+     * - returns: The formalized parent directory path. Nil if current path is the root directory.
      */
     private func getParentDirectoryPath() -> String? {
         guard path != "/" else {
@@ -114,7 +124,9 @@ public class PathHelper: FileManager {
         }
         let url = URL(fileURLWithPath: path)
         // COMMENT: The path must contain the last component.
-        return path.removeSuffix(url.lastPathComponent)!
+        var parentPath = path
+        parentPath.removeSuffix(url.lastPathComponent)
+        return parentPath
     }
     
 }

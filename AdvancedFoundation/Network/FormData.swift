@@ -1,7 +1,7 @@
 /**
  * FormData defines a form data.
  * - author: Adamas
- * - version: 1.0.0
+ * - version: 1.0.1
  * - date: 08/05/2017
  */
 public struct FormData {
@@ -9,7 +9,7 @@ public struct FormData {
     /**
      * All fields in the form, which can be WWWFormFileField and WWWFormTextField.
      */
-    let fields: Array<FormDataFieldParsable>
+    let fields: Array<FormDataField>
     
 }
 

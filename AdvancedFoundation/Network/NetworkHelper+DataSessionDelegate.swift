@@ -1,7 +1,7 @@
 /**
  * NetworkHelper+DataSessionDelegate delegates the action for a data task.
  * - author: Adamas
- * - version: 1.0.0
+ * - version: 1.0.1
  * - date: 06/05/2017
  */
 extension NetworkHelper: URLSessionDataDelegate {
@@ -27,20 +27,20 @@ extension NetworkHelper: URLSessionDataDelegate {
         }
         guard let httpResponse = response as? HTTPURLResponse else {
             remove(task)
-            Logger.standard.logError(responseTypeError)
-            dispatchError(for: task, withMessage: serverError)
+            Logger.standard.logError(NetworkHelper.responseTypeError)
+            dispatchError(for: task, withMessage: NetworkHelper.serverError)
             return
         }
         guard (httpResponse.statusCode >= 200) && (httpResponse.statusCode < 400) else {
             remove(task)
-            Logger.standard.logError(serverSideError)
-            dispatchError(for: task, withMessage: serverError)
+            Logger.standard.logError(NetworkHelper.serverSideError)
+            dispatchError(for: task, withMessage: NetworkHelper.serverError)
             return
         }
         guard let header = NetworkResponseHeader.parse(response) else {
             remove(task)
-            Logger.standard.logError(responseHeaderError)
-            dispatchError(for: task, withMessage: serverError)
+            Logger.standard.logError(NetworkHelper.responseHeaderError)
+            dispatchError(for: task, withMessage: NetworkHelper.serverError)
             return 
         }
         DispatchQueue.main.async{
