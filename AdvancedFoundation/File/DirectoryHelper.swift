@@ -1,16 +1,23 @@
 /**
  * DiretoryHelper provides actions for an directory.
  * - author: Adamas
- * - version: 1.0.0
+ * - version: 1.0.1
  * - date: 24/04/2017
  */
 public class DirectoryHelper: PathHelper {
+    
+    /**
+     * System warning.
+     */
+    private static let contentExistanceWarning = "The directory doesn't exist."
+    private static let createExistanceWarning = "The directory to be created exists."
     
     /**
      * The path list of all contents in a directory. Nil if the data doesn't exist or there is an error.
      */
     public var content: Array<String>? {
         guard isExisted else {
+            Logger.standard.logWarning(DirectoryHelper.contentExistanceWarning, withDetail: path)
             return nil
         }
         do {
@@ -30,6 +37,7 @@ public class DirectoryHelper: PathHelper {
      */
     public func create() -> Bool? {
         guard !super.isExisted else {
+            Logger.standard.logWarning(DirectoryHelper.createExistanceWarning, withDetail: path)
             return false
         }
         do {

@@ -1,7 +1,7 @@
 /**
  * CoreDataHelper is used to perform basic level core data interaction.
  * - author: Adamas
- * - version: 1.0.0
+ * - version: 1.0.1
  * - date: 02/05/2017
  */
 public class CoreDataHelper {
@@ -9,13 +9,13 @@ public class CoreDataHelper {
     /**
      * SQL file appendix.
      */
-    private let sqlAppendix = "sqlite"
+    private static let sqlAppendix = "sqlite"
     
     /**
      * System error.
      */
-    private let modelNameError = "The model cannot be found."
-    private let dataError = "The retrieved data isn't a NSManagedObject object list."
+    private static let modelNameError = "The model cannot be found."
+    private static let dataError = "The retrieved data isn't a NSManagedObject object list."
     
     /**
      * Get the singleton object.
@@ -40,17 +40,17 @@ public class CoreDataHelper {
     public init?(name: String, bundle: Bundle = Bundle.main) {
         // COMMENT: The directory used to store the Core Data store file. This code uses a directory in the application's documents Application Support directory.
         let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        guard let url = urls.last?.appendingPathComponent(name).appendingPathExtension(sqlAppendix) else {
-            Logger.standard.logError(modelNameError, withDetail: name)
+        guard let url = urls.last?.appendingPathComponent(name).appendingPathExtension(CoreDataHelper.sqlAppendix) else {
+            Logger.standard.logError(CoreDataHelper.modelNameError, withDetail: name)
             return nil
         }
         // COMMENT: The managed object model for the application. This property is not optional. It is a fatal error for the application not to be able to find and load its model.
         guard let modelURL = bundle.url(forResource: name, withExtension: "momd") else {
-            Logger.standard.logError(modelNameError, withDetail: name)
+            Logger.standard.logError(CoreDataHelper.modelNameError, withDetail: name)
             return nil
         }
         guard let model = NSManagedObjectModel(contentsOf: modelURL) else {
-            Logger.standard.logError(modelNameError, withDetail: name)
+            Logger.standard.logError(CoreDataHelper.modelNameError, withDetail: name)
             return nil
         }
         // COMMENT: The persistent store coordinator for the application. This implementation creates and returns a coordinator, having added the store for the application to it. This property is optional since there are legitimate error conditions that could cause the creation of the store to fail. Create the coordinator and store
@@ -92,7 +92,7 @@ public class CoreDataHelper {
                 request.predicate = predicate
             }
             guard let objects = try context.fetch(request) as? Array<NSManagedObject> else {
-                Logger.standard.logError(dataError)
+                Logger.standard.logError(CoreDataHelper.dataError)
                 return nil
             }
             return objects

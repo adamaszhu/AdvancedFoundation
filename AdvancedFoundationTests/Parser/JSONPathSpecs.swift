@@ -1,9 +1,9 @@
 class JSONPathSpecs: QuickSpec {
     
     override func spec() {
-        var emptyPath = JSONPath.parse("")!
-        var nonEmptyPath = JSONPath.parse("firstNode/secondNode")!
-        afterEach {
+        var emptyPath: JSONPath!
+        var nonEmptyPath: JSONPath!
+        beforeEach {
             emptyPath = JSONPath.parse("")!
             nonEmptyPath = JSONPath.parse("firstNode/secondNode")!
         }

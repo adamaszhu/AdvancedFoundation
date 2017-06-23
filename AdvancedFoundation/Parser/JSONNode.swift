@@ -1,11 +1,14 @@
 /**
  * JSONNode represent a node in a json path.
  * - author: Adamas
- * - version: 1.0.0
+ * - version: 1.0.1
  * - date: 29/04/2017
  */
 struct JSONNode {
     
+    /**
+     * Attributes.
+     */
     let name: String
     let index: Int?
     

@@ -1,16 +1,23 @@
 /**
  * FileHelper is used to perform file related action.
- * - version: 1.0.0.
+ * - version: 1.0.1
  * - date: 26/10/2016
  * - author: Adamas
  */
 public class FileHelper: PathHelper {
     
     /**
+     * System warning.
+     */
+    private static let contentExistanceWarning = "The file doesn't exist."
+    private static let createExistanceWarning = "The file to be created exists."
+    
+    /**
      * The data of a file. Nil if the file doesn't exists or there is an error.
      */
     public var content: Data? {
         guard isExisted else {
+            Logger.standard.logWarning(FileHelper.contentExistanceWarning, withDetail: path)
             return nil
         }
         return contents(atPath: path)
@@ -23,6 +30,7 @@ public class FileHelper: PathHelper {
      */
     public func create(with data: Data) -> Bool? {
         guard !super.isExisted else {
+            Logger.standard.logWarning(FileHelper.createExistanceWarning, withDetail: path)
             return false
         }
         guard createParentDirectory() == true else {
