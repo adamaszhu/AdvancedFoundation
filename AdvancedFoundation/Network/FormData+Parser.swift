@@ -17,7 +17,7 @@ extension FormData {
      */
     func convertToData() -> Data {
         var data = Data()
-        // COMMENT: The seperator data cannot be nil.
+        // The seperator data cannot be nil.
         let startSeperator = ("--\(FormData.boundary)\r\n").data(using: .utf8)!
         let endSeperator = ("--\(FormData.boundary)--\r\n").data(using: .utf8)!
         for field in fields {

@@ -32,7 +32,7 @@ public class TextHelper {
     private func parseLines() {
         let lines = content.components(separatedBy: CharacterSet.newlines)
         for line in lines {
-            // COMMENT: Skip comments.
+            // Skip comments.
             if !line.hasPrefix("//") {
                 self.lines.append(line)
             }

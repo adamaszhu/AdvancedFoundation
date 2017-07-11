@@ -23,13 +23,13 @@ extension NetworkHelper: URLSessionTaskDelegate {
         DispatchQueue.main.async {
             switch networkTask.type {
             case .download:
-                // COMMENT: The url has been returned.
+                // The url has been returned.
                 break
             case .upload, .data:
                 self.networkHelperDelegate?.networkHelper(self, withIdentifier: networkTask.identifier, didReceive: networkTask.cache)
                 break
             default:
-                // COMMENT: The unsupport task won't be send.
+                // The unsupport task won't be send.
                 break
             }
         }

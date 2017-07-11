@@ -119,11 +119,11 @@ public class PathHelper: FileManager {
      */
     private func getParentDirectoryPath() -> String? {
         guard path != "/" else {
-            // COMMENT: The path is the root path.
+            // The path is the root path.
             return nil
         }
         let url = URL(fileURLWithPath: path)
-        // COMMENT: The path must contain the last component.
+        // The path must contain the last component.
         var parentPath = path
         parentPath.removeSuffix(url.lastPathComponent)
         return parentPath

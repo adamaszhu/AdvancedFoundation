@@ -1,6 +1,6 @@
 class DateFormatterSpecs: QuickSpec {
     
-    // COMMENT: Cannot extract date declaration since the test should be done right after the decleration.
+    // Cannot extract date declaration since the test should be done right after the decleration.
     override func spec() {
         let secondLength = 1
         let minuteLength = 60 * secondLength

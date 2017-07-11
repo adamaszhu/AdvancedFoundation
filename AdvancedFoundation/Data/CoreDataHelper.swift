@@ -38,13 +38,13 @@ public class CoreDataHelper {
      * - parameter bundle: The bundle that the model belongs to.
      */
     public init?(name: String, bundle: Bundle = Bundle.main) {
-        // COMMENT: The directory used to store the Core Data store file. This code uses a directory in the application's documents Application Support directory.
+        // The directory used to store the Core Data store file. This code uses a directory in the application's documents Application Support directory.
         let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         guard let url = urls.last?.appendingPathComponent(name).appendingPathExtension(CoreDataHelper.sqlAppendix) else {
             Logger.standard.logError(CoreDataHelper.modelNameError, withDetail: name)
             return nil
         }
-        // COMMENT: The managed object model for the application. This property is not optional. It is a fatal error for the application not to be able to find and load its model.
+        // The managed object model for the application. This property is not optional. It is a fatal error for the application not to be able to find and load its model.
         guard let modelURL = bundle.url(forResource: name, withExtension: "momd") else {
             Logger.standard.logError(CoreDataHelper.modelNameError, withDetail: name)
             return nil
@@ -53,9 +53,9 @@ public class CoreDataHelper {
             Logger.standard.logError(CoreDataHelper.modelNameError, withDetail: name)
             return nil
         }
-        // COMMENT: The persistent store coordinator for the application. This implementation creates and returns a coordinator, having added the store for the application to it. This property is optional since there are legitimate error conditions that could cause the creation of the store to fail. Create the coordinator and store
+        // The persistent store coordinator for the application. This implementation creates and returns a coordinator, having added the store for the application to it. This property is optional since there are legitimate error conditions that could cause the creation of the store to fail. Create the coordinator and store
         let coordinator = NSPersistentStoreCoordinator(managedObjectModel: model)
-        // COMMENT: Add automatic version migration.
+        // Add automatic version migration.
         let options = [NSInferMappingModelAutomaticallyOption: true, NSMigratePersistentStoresAutomaticallyOption: true]
         do {
             try coordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: url, options: options)

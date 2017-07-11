@@ -114,7 +114,7 @@ public class NetworkHelper: NSObject {
         header.contentType = type.rawValue
         header.contentLength = body.count
         guard var request = createRequest(withURL: urlString, with: header, as: .post) else {
-            // COMMENT: The error has been logged.
+            // The error has been logged.
             return nil
         }
         request.httpBody = body
@@ -145,7 +145,7 @@ public class NetworkHelper: NSObject {
     public func get(fromURL urlString: String, with header: NetworkRequestHeader? = nil, asDownloadTask isDownloadTask: Bool = false) -> String? {
         let header = header ?? NetworkRequestHeader()
         guard let request = createRequest(withURL: urlString, with: header, as: .get) else {
-            // COMMENT: The error has been logged.
+            // The error has been logged.
             return nil
         }
         let type = isDownloadTask ? NetworkTaskType.download : NetworkTaskType.data
@@ -161,7 +161,7 @@ public class NetworkHelper: NSObject {
     public func delete(atURL urlString: String, with header: NetworkRequestHeader? = nil) -> String? {
         let header = header ?? NetworkRequestHeader()
         guard let request = createRequest(withURL: urlString, with: header, as: .delete) else {
-            // COMMENT: The error has been logged.
+            // The error has been logged.
             return nil
         }
         return send(request, as: .data)
@@ -273,10 +273,10 @@ public class NetworkHelper: NSObject {
         var header = header
         var request = URLRequest(url: url)
         if !NetworkHelper.isNetworkAvailable {
-            // COMMENT: Support offline mode.
+            // Support offline mode.
             request.cachePolicy = URLRequest.CachePolicy.returnCacheDataElseLoad
         }
-        // COMMENT: Read cache related information and put it into the header
+        // Read cache related information and put it into the header
         let cachedResponse = cache.cachedResponse(for: request)
         if cachedResponse != nil {
             let networkResponse = NetworkResponseHeader.parse(cachedResponse!.response)

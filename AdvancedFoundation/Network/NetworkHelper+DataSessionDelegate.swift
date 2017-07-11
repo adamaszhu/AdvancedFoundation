@@ -48,7 +48,7 @@ extension NetworkHelper: URLSessionDataDelegate {
         }
         let shouldContinue = self.networkHelperDelegate?.networkHelperShouldReceiveData(self, withIdentifier: task.identifier)
         if shouldContinue == false {
-            // COMMENT: Only the response is required.
+            // Only the response is required.
             remove(task)
             completionHandler(.cancel)
         } else {

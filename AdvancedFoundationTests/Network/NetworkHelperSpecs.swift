@@ -5,7 +5,7 @@ class NetworkHelperHelperSpecs: QuickSpec {
     var results: Dictionary<String, NetworkHelperSpecsTask> = [:]
     
     override func spec() {
-        // COMMENT: Change it to server to use real web service.
+        // Change it to server to use real web service.
         let api = APIMocker.mocker
         let invalidAPI = "http://test"
         let networkHelper = NetworkHelper(identifier: "NetworkHelper")
@@ -246,16 +246,16 @@ class NetworkHelperHelperSpecs: QuickSpec {
             // TODO: Test the cache function
         }
         describe("calls append(_:toCacheOf)") {
-            // COMMENT: This has been tested in other functions.
+            // This has been tested in other functions.
         }
         describe("calls findTask(of)") {
-            // COMMENT: This has been tested in other tests.
+            // This has been tested in other tests.
         }
         describe("calls remove(_)") {
-            // COMMENT: This has been tested in other tests.
+            // This has been tested in other tests.
         }
         describe("calls dispatchError(for:withMessage)") {
-            // COMMENT: This has been tested in other tests.
+            // This has been tested in other tests.
         }
     }
     

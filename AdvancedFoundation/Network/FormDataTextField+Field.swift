@@ -12,7 +12,7 @@ extension FormDataTextField: FormDataField {
     func convertToData() -> Data {
         var data = Data()
         let field = "Content-Disposition: form-data; name=\"\(name)\"\r\n\r\n\(value)"
-        // COMMENT: The data converted from a string cannot be nil.
+        // The data converted from a string cannot be nil.
         data.append(field.data(using: .utf8)!)
         data.append("\r\n".data(using: .utf8)!)
         return data

@@ -34,7 +34,7 @@ public class JSONParser {
      * - parameter string: The string data.
      */
     public convenience init?(string: String) {
-        // COMMENT: String should always be able to transfer to data.
+        // String should always be able to transfer to data.
         let data = string.data(using: .utf8)!
         self.init(data: data)
     }
@@ -107,7 +107,7 @@ public class JSONParser {
         }
         var realNode = node ?? json
         if !pathNode.isCurrentNode {
-            // COMMENT: Get real current node from the dictionary node.
+            // Get real current node from the dictionary node.
             guard let dictionaryNode = realNode as? Dictionary<String, AnyObject> else {
                 Logger.standard.logWarning(JSONParser.pathWarning, withDetail: path)
                 return nil
@@ -115,7 +115,7 @@ public class JSONParser {
             realNode = dictionaryNode[pathNode.name] as Any
         }
         if let pathNodeIndex = pathNode.index {
-            // COMMENT: Get real current node from the array node.
+            // Get real current node from the array node.
             guard let arrayNode = realNode as? Array<Any> else {
                 Logger.standard.logWarning(JSONParser.pathWarning, withDetail: path)
                 return nil

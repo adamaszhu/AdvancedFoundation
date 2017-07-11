@@ -23,7 +23,7 @@ public class FileInfoAccessor {
         guard !fileExtension.isEmpty else {
             return defaultMIMEType
         }
-        // COMMENT: Decode the name of the MIME type.
+        // Decode the name of the MIME type.
         guard let uti = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, fileExtension as CFString, nil) else {
             Logger.standard.logError(FileInfoAccessor.mimeTypeError, withDetail: url)
             return nil

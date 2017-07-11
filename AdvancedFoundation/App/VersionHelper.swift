@@ -115,7 +115,7 @@ public class VersionHelper {
         guard var secondVersionComponents = parseVersion(secondVersion) else {
             return nil
         }
-        // COMMENT: Make the component amount of two list to be equal.
+        // Make the component amount of two list to be equal.
         while firstVersionComponents.count > secondVersionComponents.count {
             secondVersionComponents.append(0)
         }
