@@ -43,12 +43,12 @@ public class PathHelper: FileManager {
      */
     public func copy(toPath path: String) -> Bool? {
         guard isExisted else {
-            Logger.standard.logWarning(PathHelper.copyOriginExistanceWarning, withDetail: self.path)
+            Logger.standard.log(warning: PathHelper.copyOriginExistanceWarning, withDetail: self.path)
             return false
         }
         let pathHelper = PathHelper(path: path)
         guard !pathHelper.isExisted else {
-            Logger.standard.logWarning(PathHelper.copyDestinationExistanceWarning, withDetail: path)
+            Logger.standard.log(warning: PathHelper.copyDestinationExistanceWarning, withDetail: path)
             return false
         }
         guard pathHelper.createParentDirectory() == true else {
@@ -58,7 +58,7 @@ public class PathHelper: FileManager {
             try copyItem(atPath: self.path, toPath: pathHelper.path)
             return true
         } catch let error {
-            Logger.standard.logError(error)
+            Logger.standard.log(error)
             return nil
         }
     }
@@ -69,14 +69,14 @@ public class PathHelper: FileManager {
      */
     public func remove() -> Bool? {
         guard isExisted else {
-            Logger.standard.logWarning(PathHelper.removeExistanceWarning, withDetail: self.path)
+            Logger.standard.log(warning: PathHelper.removeExistanceWarning, withDetail: self.path)
             return false
         }
         do {
             try removeItem(atPath: path)
             return true
         } catch let error {
-            Logger.standard.logError(error)
+            Logger.standard.log(error)
             return nil
         }
     }
@@ -93,7 +93,7 @@ public class PathHelper: FileManager {
             try createDirectory(atPath: parentDirectory, withIntermediateDirectories: true)
             return true
         } catch let error {
-            Logger.standard.logError(error)
+            Logger.standard.log(error)
             return nil
         }
     }

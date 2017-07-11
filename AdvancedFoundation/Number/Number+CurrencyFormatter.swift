@@ -30,7 +30,7 @@ public extension NSNumber {
         numberFormatter.currencySymbol = currencySymbol
         numberFormatter.numberStyle = NumberFormatter.Style.currency
         guard var moneyString = numberFormatter.string(from: self) else {
-            Logger.standard.logError(NSNumber.formatError, withDetail: self)
+            Logger.standard.log(error: NSNumber.formatError, withDetail: self)
             return nil
         }
         if moneyString == "\(NSNumber.positiveSymbol)\(NSNumber.unlimitedSymbol)" {

@@ -15,8 +15,8 @@ extension NetworkHelper: URLSessionTaskDelegate {
             return
         }
         remove(networkTask)
-        guard error == nil else {
-            Logger.standard.logError(error!)
+        if let error = error {
+            Logger.standard.log(error)
             dispatchError(for: networkTask, withMessage: NetworkHelper.internetError)
             return
         }

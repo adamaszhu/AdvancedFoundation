@@ -17,7 +17,7 @@ public class DirectoryHelper: PathHelper {
      */
     public var content: Array<String>? {
         guard isExisted else {
-            Logger.standard.logWarning(DirectoryHelper.contentExistanceWarning, withDetail: path)
+            Logger.standard.log(warning: DirectoryHelper.contentExistanceWarning, withDetail: path)
             return nil
         }
         do {
@@ -26,7 +26,7 @@ public class DirectoryHelper: PathHelper {
                 "\(self.path)/\(path)"
             })
         } catch let error {
-            Logger.standard.logError(error)
+            Logger.standard.log(error)
             return nil
         }
     }
@@ -37,14 +37,14 @@ public class DirectoryHelper: PathHelper {
      */
     public func create() -> Bool? {
         guard !super.isExisted else {
-            Logger.standard.logWarning(DirectoryHelper.createExistanceWarning, withDetail: path)
+            Logger.standard.log(warning: DirectoryHelper.createExistanceWarning, withDetail: path)
             return false
         }
         do {
             try createDirectory(atPath: path, withIntermediateDirectories: true)
             return true
         } catch let error {
-            Logger.standard.logError(error)
+            Logger.standard.log(error)
             return nil
         }
     }

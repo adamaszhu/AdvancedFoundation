@@ -21,8 +21,8 @@ final public class Logger {
     /// - Parameters:
     ///   - info: The info.
     ///   - detail: The detail of the info.
-    public func logInfo(_ info: String, withDetail detail: Any? = nil) {
-        logMessage(info, withTag: Logger.infoTag, withDetail: detail)
+    public func log(info: String, withDetail detail: Any? = nil) {
+        log(message: info, withTag: Logger.infoTag, withDetail: detail)
     }
     
     /// Log a warning.
@@ -30,8 +30,8 @@ final public class Logger {
     /// - Parameters:
     ///   - warning: The warning.
     ///   - detail: The detail of the warning.
-    public func logWarning(_ warning: String, withDetail detail: Any? = nil) {
-        logMessage(warning, withTag: Logger.warningTag, withDetail: detail)
+    public func log(warning: String, withDetail detail: Any? = nil) {
+        log(message: warning, withTag: Logger.warningTag, withDetail: detail)
     }
     
     /// Log an error.
@@ -39,15 +39,15 @@ final public class Logger {
     /// - Parameters:
     ///   - error: The error.
     ///   - detail: The detail of the error.
-    public func logError(_ error: String, withDetail detail: Any? = nil) {
-        logMessage(error, withTag: Logger.errorTag, withDetail: detail)
+    public func log(error: String, withDetail detail: Any? = nil) {
+        log(message: error, withTag: Logger.errorTag, withDetail: detail)
     }
     
     /// Log an error.
     ///
     /// - Parameter error: The error.
-    public func logError(_ error: Error) {
-        logMessage(error.localizedDescription, withTag: Logger.errorTag)
+    public func log(_ error: Error) {
+        log(message: error.localizedDescription, withTag: Logger.errorTag)
     }
     
     /// Log a message.
@@ -55,7 +55,7 @@ final public class Logger {
     /// - Parameters
     ///   - tag: The type of the message.
     ///   - message: The message.
-    private func logMessage(_ message: String, withTag tag: String, withDetail detail: Any? = nil) {
+    private func log(message: String, withTag tag: String, withDetail detail: Any? = nil) {
         let date = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = Logger.dateFormat

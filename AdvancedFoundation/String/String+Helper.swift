@@ -14,7 +14,7 @@ public extension String {
     /// - Parameter suffix: The suffix to be removed.
     public mutating func remove(suffix: String) {
         guard hasSuffix(suffix) else {
-            Logger.standard.logWarning(String.suffixExistanceWarning, withDetail: suffix)
+            Logger.standard.log(warning: String.suffixExistanceWarning, withDetail: suffix)
             return
         }
         let suffixBeginIndex = index(endIndex, offsetBy: -suffix.characters.count)
@@ -27,7 +27,7 @@ public extension String {
     /// - Parameter prefix: The prefix to be removed.
     public mutating func remove(prefix: String) {
         guard hasPrefix(prefix) else {
-            Logger.standard.logWarning(String.prefixExistanceWarning, withDetail: prefix)
+            Logger.standard.log(warning: String.prefixExistanceWarning, withDetail: prefix)
             return
         }
         let prefixEndIndex = index(startIndex, offsetBy: prefix.characters.count)

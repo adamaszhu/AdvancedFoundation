@@ -35,7 +35,7 @@ struct JSONPath {
      */
     mutating func removeFirstNode() {
         guard !isEmpty else {
-            Logger.standard.logWarning(JSONPath.removeFirstNodeWarning)
+            Logger.standard.log(warning: JSONPath.removeFirstNodeWarning)
             return
         }
         nodes.remove(at: 0)

@@ -19,7 +19,7 @@ final public class AppInfoAccessor {
     /// The name of current bundle. It will be nil if the bundle name cannot be retireved.
     public var bundleName: String? {
         guard let name = bundle.infoDictionary?[AppInfoAccessor.bundleNameKey] as? String else {
-            Logger.standard.logError(AppInfoAccessor.bundleNameError)
+            Logger.standard.log(error: AppInfoAccessor.bundleNameError)
             return nil
         }
         return name
@@ -28,7 +28,7 @@ final public class AppInfoAccessor {
     /// The short version string of the app, which is like "1.2.3". It will be nil if the version cannot be retrieved.
     public var version: String? {
         guard let version = bundle.infoDictionary?[AppInfoAccessor.versionKey] as? String else {
-            Logger.standard.logError(AppInfoAccessor.currentVersionError)
+            Logger.standard.log(error: AppInfoAccessor.currentVersionError)
             return nil
         }
         return version

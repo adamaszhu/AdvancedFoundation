@@ -28,7 +28,7 @@ public extension NSNumber {
         let formatter = NumberFormatter()
         formatter.numberStyle = NumberFormatter.Style.decimal
         guard let number = formatter.number(from: formattedLongNumberString) else {
-            Logger.standard.logError(formatError, withDetail: longNumberString)
+            Logger.standard.log(error: formatError, withDetail: longNumberString)
             return nil
         }
         return number

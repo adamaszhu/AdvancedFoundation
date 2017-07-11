@@ -78,7 +78,7 @@ final public class VersionHelper {
         var parsedVersionComponents = [Int]()
         for versionComponent in versionComponents {
             guard let parsedVersionComponent = Int(versionComponent) else {
-                Logger.standard.logError(VersionHelper.versionFormatError, withDetail: version)
+                Logger.standard.log(error: VersionHelper.versionFormatError, withDetail: version)
                 return nil
             }
             parsedVersionComponents.append(parsedVersionComponent)

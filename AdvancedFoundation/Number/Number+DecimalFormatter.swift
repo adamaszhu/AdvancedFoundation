@@ -20,7 +20,7 @@ public extension NSNumber {
      */
     public func convertToDecimalString(withPrecision precision: Int? = nil) -> String? {
         guard !((precision != nil) && (precision! < 0)) else {
-            Logger.standard.logError(NSNumber.precisionError, withDetail: precision)
+            Logger.standard.log(error: NSNumber.precisionError, withDetail: precision)
             return nil
         }
         let numberFormatter = NumberFormatter()
@@ -30,7 +30,7 @@ public extension NSNumber {
             numberFormatter.roundingMode = .down
         }
         guard let decimalString = numberFormatter.string(from: self) else {
-            Logger.standard.logError(NSNumber.formatError)
+            Logger.standard.log(error: NSNumber.formatError)
             return nil
         }
         return decimalString

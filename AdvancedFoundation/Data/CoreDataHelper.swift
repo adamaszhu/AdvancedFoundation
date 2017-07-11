@@ -41,16 +41,16 @@ public class CoreDataHelper {
         // The directory used to store the Core Data store file. This code uses a directory in the application's documents Application Support directory.
         let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         guard let url = urls.last?.appendingPathComponent(name).appendingPathExtension(CoreDataHelper.sqlAppendix) else {
-            Logger.standard.logError(CoreDataHelper.modelNameError, withDetail: name)
+            Logger.standard.log(error: CoreDataHelper.modelNameError, withDetail: name)
             return nil
         }
         // The managed object model for the application. This property is not optional. It is a fatal error for the application not to be able to find and load its model.
         guard let modelURL = bundle.url(forResource: name, withExtension: "momd") else {
-            Logger.standard.logError(CoreDataHelper.modelNameError, withDetail: name)
+            Logger.standard.log(error: CoreDataHelper.modelNameError, withDetail: name)
             return nil
         }
         guard let model = NSManagedObjectModel(contentsOf: modelURL) else {
-            Logger.standard.logError(CoreDataHelper.modelNameError, withDetail: name)
+            Logger.standard.log(error: CoreDataHelper.modelNameError, withDetail: name)
             return nil
         }
         // The persistent store coordinator for the application. This implementation creates and returns a coordinator, having added the store for the application to it. This property is optional since there are legitimate error conditions that could cause the creation of the store to fail. Create the coordinator and store
@@ -60,7 +60,7 @@ public class CoreDataHelper {
         do {
             try coordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: url, options: options)
         } catch let error {
-            Logger.standard.logError(error)
+            Logger.standard.log(error)
             return nil
         }
         context = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
@@ -92,12 +92,12 @@ public class CoreDataHelper {
                 request.predicate = predicate
             }
             guard let objects = try context.fetch(request) as? Array<NSManagedObject> else {
-                Logger.standard.logError(CoreDataHelper.dataError)
+                Logger.standard.log(error: CoreDataHelper.dataError)
                 return nil
             }
             return objects
         } catch let error {
-            Logger.standard.logError(error)
+            Logger.standard.log(error)
             return nil
         }
     }
@@ -158,7 +158,7 @@ public class CoreDataHelper {
             try context.save()
             return true
         } catch let error {
-            Logger.standard.logError(error)
+            Logger.standard.log(error)
             return nil
         }
     }

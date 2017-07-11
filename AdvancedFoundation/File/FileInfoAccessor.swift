@@ -25,7 +25,7 @@ public class FileInfoAccessor {
         }
         // Decode the name of the MIME type.
         guard let uti = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, fileExtension as CFString, nil) else {
-            Logger.standard.logError(FileInfoAccessor.mimeTypeError, withDetail: url)
+            Logger.standard.log(error: FileInfoAccessor.mimeTypeError, withDetail: url)
             return nil
         }
         guard let tag = UTTypeCopyPreferredTagWithClass(uti.takeRetainedValue(), kUTTagClassMIMEType) else {

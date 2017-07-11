@@ -13,7 +13,7 @@ public class TextResourceHelper: ResourceHelper {
         do {
             return try String(contentsOf: url)
         } catch let error {
-            Logger.standard.logError(error)
+            Logger.standard.log(error)
             return nil
         }
     }

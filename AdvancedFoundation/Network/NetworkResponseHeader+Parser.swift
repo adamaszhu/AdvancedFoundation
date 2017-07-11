@@ -27,14 +27,14 @@ extension NetworkResponseHeader {
      */
     static func parse(_ response: URLResponse) -> NetworkResponseHeader? {
         guard let httpResponse = response as? HTTPURLResponse else {
-            Logger.standard.logError(NetworkResponseHeader.responseTypeError)
+            Logger.standard.log(error: NetworkResponseHeader.responseTypeError)
             return nil
         }
         let contentType = httpResponse.allHeaderFields[NetworkResponseHeader.contentTypeHeader] as? String
         var contentLength: Int?
         if let contentLengthString = httpResponse.allHeaderFields[NetworkResponseHeader.contentLengthHeader] as? String {
             guard Int(contentLengthString) != nil else {
-                Logger.standard.logError(NetworkResponseHeader.contentLengthHeaderError)
+                Logger.standard.log(error: NetworkResponseHeader.contentLengthHeaderError)
                 return nil
             }
             contentLength = Int(contentLengthString)

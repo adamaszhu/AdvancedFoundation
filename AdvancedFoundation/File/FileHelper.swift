@@ -17,7 +17,7 @@ public class FileHelper: PathHelper {
      */
     public var content: Data? {
         guard isExisted else {
-            Logger.standard.logWarning(FileHelper.contentExistanceWarning, withDetail: path)
+            Logger.standard.log(warning: FileHelper.contentExistanceWarning, withDetail: path)
             return nil
         }
         return contents(atPath: path)
@@ -30,7 +30,7 @@ public class FileHelper: PathHelper {
      */
     public func create(with data: Data) -> Bool? {
         guard !super.isExisted else {
-            Logger.standard.logWarning(FileHelper.createExistanceWarning, withDetail: path)
+            Logger.standard.log(warning: FileHelper.createExistanceWarning, withDetail: path)
             return false
         }
         guard createParentDirectory() == true else {

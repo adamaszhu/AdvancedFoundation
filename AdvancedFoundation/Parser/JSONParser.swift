@@ -24,7 +24,7 @@ public class JSONParser {
         do {
             json = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions())
         } catch let error {
-            Logger.standard.logError(error)
+            Logger.standard.log(error)
             return nil
         }
     }
@@ -102,14 +102,14 @@ public class JSONParser {
      */
     private func getNode(at path: JSONPath, fromNode node: Any?) -> Any? {
         guard let pathNode = path.firstNode else {
-            Logger.standard.logWarning(JSONParser.pathWarning)
+            Logger.standard.log(warning: JSONParser.pathWarning)
             return nil
         }
         var realNode = node ?? json
         if !pathNode.isCurrentNode {
             // Get real current node from the dictionary node.
             guard let dictionaryNode = realNode as? Dictionary<String, AnyObject> else {
-                Logger.standard.logWarning(JSONParser.pathWarning, withDetail: path)
+                Logger.standard.log(warning: JSONParser.pathWarning, withDetail: path)
                 return nil
             }
             realNode = dictionaryNode[pathNode.name] as Any
@@ -117,7 +117,7 @@ public class JSONParser {
         if let pathNodeIndex = pathNode.index {
             // Get real current node from the array node.
             guard let arrayNode = realNode as? Array<Any> else {
-                Logger.standard.logWarning(JSONParser.pathWarning, withDetail: path)
+                Logger.standard.log(warning: JSONParser.pathWarning, withDetail: path)
                 return nil
             }
             realNode = arrayNode[pathNodeIndex]
