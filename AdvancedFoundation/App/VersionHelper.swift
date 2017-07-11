@@ -1,8 +1,8 @@
 /// VersionHelper compares the version of the app. The version should be as the format of 1.2.3 where the first number will be changed if the style of the application is changed, the second number will be changed if some main functions are changed and the third number will be changed whenever errors or functions are fixed or changed.
 ///
 /// - author: Adamas
-/// - version: 1.0.1
-/// - date: 12/04/2017
+/// - version: 1.1.0
+/// - date: 11/07/2017
 final public class VersionHelper {
     
     /// The shared helper that presents current version. It will be nil if the version cannot be retrieved.
@@ -39,7 +39,7 @@ final public class VersionHelper {
     ///
     /// - Parameter version: The given version.
     /// - Returns: 1 if current version is larger. 0 if current version equals the given version. -1 if current version is smaller. nil if there has been an error. Nil will be returned if one of the versions is not formatted.
-    public func compareTo(version: String) -> Int? {
+    public func compare(toVersion version: String) -> Int? {
         return compare(version: self.version, toVersion: version)
     }
     

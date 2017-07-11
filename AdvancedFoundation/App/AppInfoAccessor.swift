@@ -1,8 +1,8 @@
 /// AppInfoAccessor provides the information about the app.
 ///
 /// - author: Adamas
-/// - version: 1.0.1
-/// - date: 12/04/2017
+/// - version: 1.1.0
+/// - date: 11/07/2017
 final public class AppInfoAccessor {
     
     /// The singleton instance in the system.

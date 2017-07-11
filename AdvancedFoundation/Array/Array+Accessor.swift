@@ -2,7 +2,7 @@
 ///
 /// - author: Adamas
 /// - version: 1.1.0
-/// - date: 23/06/2017
+/// - date: 11/07/2017
 public extension Array {
     
     /// System error.

@@ -85,7 +85,7 @@ public class JSONParser {
         var realPath = path
         var realNode = node
         if path.hasPrefix("/") {
-            realPath.removePrefix("/")
+            realPath.remove(prefix: "/")
             realNode = json
         }
         guard let jsonPath = JSONPath.parse(realPath) else {

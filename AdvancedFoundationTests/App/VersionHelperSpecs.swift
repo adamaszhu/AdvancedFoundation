@@ -35,27 +35,27 @@ class VersionHelperSpecs: QuickSpec {
             let versionHelper = VersionHelper(version: "1.0.0", versionFlag: versionFlag)!
             context("with earlier version") {
                 it("returns bigger result") {
-                    expect(versionHelper.compareTo(version: "0.9.9")) == 1
+                    expect(versionHelper.compare(toVersion: "0.9.9")) == 1
                 }
             }
             context("with later version") {
                 it("returns smaller result") {
-                    expect(versionHelper.compareTo(version: "1.0.1")) == -1
+                    expect(versionHelper.compare(toVersion: "1.0.1")) == -1
                 }
             }
             context("with equal version") {
                 it("returns equal result") {
-                    expect(versionHelper.compareTo(version: "1.0.0")) == 0
+                    expect(versionHelper.compare(toVersion: "1.0.0")) == 0
                 }
             }
             context("with invalid character in version") {
                 it("returns invalid result") {
-                    expect(versionHelper.compareTo(version: "1.c")).to(beNil())
+                    expect(versionHelper.compare(toVersion: "1.c")).to(beNil())
                 }
             }
             context("with invalid format in version") {
                 it("returns invalid result") {
-                    expect(versionHelper.compareTo(version: ".1")).to(beNil())
+                    expect(versionHelper.compare(toVersion: ".1")).to(beNil())
                 }
             }
         }

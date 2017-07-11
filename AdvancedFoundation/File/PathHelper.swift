@@ -102,7 +102,7 @@ public class PathHelper: FileManager {
      * Formalize the path. Such as change "/temp/" to "/temp"
      */
     private func formalizePath() {
-        path.removeSuffix("/")
+        path.remove(suffix: "/")
     }
     
     /**
@@ -125,7 +125,7 @@ public class PathHelper: FileManager {
         let url = URL(fileURLWithPath: path)
         // The path must contain the last component.
         var parentPath = path
-        parentPath.removeSuffix(url.lastPathComponent)
+        parentPath.remove(suffix: url.lastPathComponent)
         return parentPath
     }
     

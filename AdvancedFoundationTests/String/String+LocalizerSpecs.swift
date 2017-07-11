@@ -41,24 +41,24 @@ class StringLocalizerSpecs: QuickSpec {
             context("as localizable string") {
                 context("with correct class") {
                     it("returns localized string") {
-                        expect("Test".localize(forClass: StringLocalizerSpecs.self)) == "Test string"
+                        expect("Test".localize(for: StringLocalizerSpecs.self)) == "Test string"
                     }
                 }
                 context("with incorrect class") {
                     it("returns original string") {
-                        expect("Test".localize(forClass: Logger.self)) == "Test"
+                        expect("Test".localize(for: Logger.self)) == "Test"
                     }
                 }
             }
             context("as non localizable string") {
                 context("with correct class") {
                     it("returns original string") {
-                        expect("Test1".localize(forClass: StringLocalizerSpecs.self)) == "Test1"
+                        expect("Test1".localize(for: StringLocalizerSpecs.self)) == "Test1"
                     }
                 }
                 context("with incorrect class") {
                     it("returns original string") {
-                        expect("Test1".localize(forClass: Logger.self)) == "Test1"
+                        expect("Test1".localize(for: Logger.self)) == "Test1"
                     }
                 }
             }

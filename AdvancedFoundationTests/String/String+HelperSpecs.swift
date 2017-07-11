@@ -8,13 +8,13 @@ class StringHelperSpecs: QuickSpec {
             }
             context("with existing suffix") {
                 it("returns suffix removed string") {
-                    string.removeSuffix("Suffix")
+                    string.remove(suffix: "Suffix")
                     expect(string) == "Test"
                 }
             }
             context("without existing suffix") {
                 it("returns doesn't exit result") {
-                    string.removeSuffix("Suffix1")
+                    string.remove(suffix: "Suffix1")
                     expect(string) == "TestSuffix"
                 }
             }
@@ -25,13 +25,13 @@ class StringHelperSpecs: QuickSpec {
             }
             context("with existing prefix") {
                 it("returns prefix removed string") {
-                    string.removePrefix("Prefix")
+                    string.remove(prefix: "Prefix")
                     expect(string) == "Test"
                 }
             }
             context("without existing prefix") {
                 it("returns doesn't exit result") {
-                    string.removePrefix("Prefix1")
+                    string.remove(prefix: "Prefix1")
                     expect(string) == "PrefixTest"
                 }
             }
