@@ -249,7 +249,7 @@ public class NetworkHelper: NSObject {
      */
     func dispatchError(for task: NetworkTask, withMessage message: String) {
         let localizedMessage = message.localizeWithinFramework(forType: NetworkHelper.self)
-        DispatchQueue.main.async{
+        DispatchQueue.main.async {
             self.networkHelperDelegate?.networkHelper(self, withIdentifier: task.identifier, didCatchError: localizedMessage)
         }
     }

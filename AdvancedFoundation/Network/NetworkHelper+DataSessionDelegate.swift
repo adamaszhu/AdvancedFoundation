@@ -43,7 +43,7 @@ extension NetworkHelper: URLSessionDataDelegate {
             dispatchError(for: task, withMessage: NetworkHelper.serverError)
             return 
         }
-        DispatchQueue.main.async{
+        DispatchQueue.main.async {
             self.networkHelperDelegate?.networkHelper(self, withIdentifier: task.identifier, didReceive: header, withStatusCode: httpResponse.statusCode)
         }
         let shouldContinue = self.networkHelperDelegate?.networkHelperShouldReceiveData(self, withIdentifier: task.identifier)
