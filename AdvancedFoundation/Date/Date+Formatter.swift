@@ -36,7 +36,7 @@ public extension Date {
     ///
     /// - Parameter shouldUseAbbreviation: Whether the time description should be abbreviation or not.
     /// - Returns: The time offset string.
-    public func convertToTimeOffsetString(withAbbreviation shouldUseAbbreviation: Bool = false) -> String {
+    public func timeOffsetString(withAbbreviation shouldUseAbbreviation: Bool = false) -> String {
         let currentTimeInterval = Date().timeIntervalSince1970
         var timeOffset: Int
         if currentTimeInterval > timeIntervalSince1970 {
@@ -46,10 +46,10 @@ public extension Date {
             timeOffset = Int(Date().timeIntervalSince1970 - timeIntervalSince1970 - 1)
         }
         if timeOffset == 0 {
-            return Date.nowTag.localizeWithinFramework(forType: Date.self)
+            return Date.nowTag.localizedInternalString(forType: Date.self)
         }
         var differTag = timeOffset > 0 ? Date.agoTag : Date.laterTag
-        differTag = Date.spaceTag.localizeWithinFramework(forType: Date.self) + differTag.localizeWithinFramework(forType: Date.self)
+        differTag = Date.spaceTag.localizedInternalString(forType: Date.self) + differTag.localizedInternalString(forType: Date.self)
         timeOffset = abs(timeOffset)
         let year = timeOffset / Date.yearLength
         timeOffset = timeOffset - year * Date.yearLength
@@ -85,7 +85,7 @@ public extension Date {
         }
         var unitTag = unit == 1 ? singleTag : doubleTag
         unitTag = unitTag + abbreviationTag
-        return Date.spaceTag.localizeWithinFramework(forType:Date.self) + "\(unit)" + Date.spaceTag.localizeWithinFramework(forType:Date.self) + unitTag.localizeWithinFramework(forType: Date.self)
+        return Date.spaceTag.localizedInternalString(forType:Date.self) + "\(unit)" + Date.spaceTag.localizedInternalString(forType:Date.self) + unitTag.localizedInternalString(forType: Date.self)
     }
     
 }

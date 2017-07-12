@@ -64,7 +64,7 @@ public class VersionHelper {
     init?(version: String, versionFlag: String) {
         self.version = version
         self.versionFlag = versionFlag
-        guard let _ = parse(version: version) else {
+        guard let _ = versionComponents(version: version) else {
             return nil
         }
     }
@@ -73,7 +73,7 @@ public class VersionHelper {
     ///
     /// - Parameter version: The version string.
     /// - Returns: An array containing integer version numbers. Nil will be returned if the version is not formatted.
-    private func parse(version: String) -> [Int]? {
+    private func versionComponents(version: String) -> [Int]? {
         let versionComponents = version.components(separatedBy: ".")
         var parsedVersionComponents = [Int]()
         for versionComponent in versionComponents {
@@ -93,7 +93,7 @@ public class VersionHelper {
     ///   - secondVersion: The second version.
     /// - Returns: 1 if the first version is larger. 0 if versions equals to each other. -1 if the first version is smaller. nil if one of the versions is not correct. Nil will be returned if one of the versions is not formatted.
     private func compare(version firstVersion: String, toVersion secondVersion: String) -> Int? {
-        guard var firstVersionComponents = parse(version: firstVersion), var secondVersionComponents = parse(version: secondVersion) else {
+        guard var firstVersionComponents = versionComponents(version: firstVersion), var secondVersionComponents = versionComponents(version: secondVersion) else {
             return nil
         }
         // Make the component amount of two list to be equal.

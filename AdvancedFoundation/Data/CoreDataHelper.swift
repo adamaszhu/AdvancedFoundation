@@ -65,7 +65,7 @@ public class CoreDataHelper {
     ///
     /// - Parameter anyClass: The class of the object that need to be inserted.
     /// - Returns: The object for insertion.
-    public func createObject(of anyClass: AnyClass) -> NSManagedObject {
+    public func newObject(of anyClass: AnyClass) -> NSManagedObject {
         let object = NSEntityDescription.insertNewObject(forEntityName: String(describing: anyClass), into: context)
         return object
     }

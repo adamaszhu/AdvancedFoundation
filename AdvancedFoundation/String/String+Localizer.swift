@@ -12,7 +12,7 @@ public extension String {
     ///
     /// - Parameter filename: The string file used to localize the string.
     /// - Returns: The localized string.
-    public func localize(withLocalizationFile filename: String = defaultLocalizationFilename) -> String {
+    public func localizedString(withLocalizationFile filename: String = defaultLocalizationFilename) -> String {
         return NSLocalizedString(self, tableName: filename, comment: "")
     }
     
@@ -20,7 +20,7 @@ public extension String {
     ///
     /// - Parameter anyClass: The class used to find the localization file.
     /// - Returns: The localized string.
-    public func localize(for anyClass: AnyClass) -> String {
+    public func localizedString(for anyClass: AnyClass) -> String {
         let bundle = Bundle(for: anyClass)
         return NSLocalizedString(self, tableName: String(describing: anyClass), bundle: bundle, comment: "")
     }
@@ -29,7 +29,7 @@ public extension String {
     ///
     /// - Parameter type: Any structure or class used to find the localization file.
     /// - Returns: The localized string.
-    func localizeWithinFramework(forType type: Any) -> String {
+    func localizedInternalString(forType type: Any) -> String {
         let bundle = Bundle(for: Logger.self)
         return NSLocalizedString(self, tableName: String(describing: type), bundle: bundle, comment: "")
     }

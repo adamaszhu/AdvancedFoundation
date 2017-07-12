@@ -1,90 +1,90 @@
 class StringLocalizerSpecs: QuickSpec {
     
     override func spec() {
-        describe("calls localize(withLocalizationFile)") {
+        describe("calls localizedString(withLocalizationFile)") {
             context("as localizable string") {
                 context("with default localization file") {
                     it("returns localized string") {
-                        expect("Test".localize()) == "Test string"
+                        expect("Test".localizedString()) == "Test string"
                     }
                 }
                 context("with correct localization file") {
                     it("returns localized string") {
-                        expect("Test".localize(withLocalizationFile: "Localizable")) == "Test string"
+                        expect("Test".localizedString(withLocalizationFile: "Localizable")) == "Test string"
                     }
                 }
                 context("with incorrect localization file") {
                     it("returns original string") {
-                        expect("Test".localize(withLocalizationFile: "Localizable1")) == "Test"
+                        expect("Test".localizedString(withLocalizationFile: "Localizable1")) == "Test"
                     }
                 }
             }
             context("as non localizable string") {
                 context("with default localization file") {
                     it("returns original string") {
-                        expect("Test1".localize()) == "Test1"
+                        expect("Test1".localizedString()) == "Test1"
                     }
                 }
                 context("with correct localization file") {
                     it("returns original string") {
-                        expect("Test1".localize(withLocalizationFile: "Localizable")) == "Test1"
+                        expect("Test1".localizedString(withLocalizationFile: "Localizable")) == "Test1"
                     }
                 }
                 context("with incorrect localization file") {
                     it("returns original string") {
-                        expect("Test1".localize(withLocalizationFile: "Localizable1")) == "Test1"
+                        expect("Test1".localizedString(withLocalizationFile: "Localizable1")) == "Test1"
                     }
                 }
             }
         }
-        describe("calls localize(forClass)") {
+        describe("calls localizedString(forClass)") {
             context("as localizable string") {
                 context("with correct class") {
                     it("returns localized string") {
-                        expect("Test".localize(for: StringLocalizerSpecs.self)) == "Test string"
+                        expect("Test".localizedString(for: StringLocalizerSpecs.self)) == "Test string"
                     }
                 }
                 context("with incorrect class") {
                     it("returns original string") {
-                        expect("Test".localize(for: Logger.self)) == "Test"
+                        expect("Test".localizedString(for: Logger.self)) == "Test"
                     }
                 }
             }
             context("as non localizable string") {
                 context("with correct class") {
                     it("returns original string") {
-                        expect("Test1".localize(for: StringLocalizerSpecs.self)) == "Test1"
+                        expect("Test1".localizedString(for: StringLocalizerSpecs.self)) == "Test1"
                     }
                 }
                 context("with incorrect class") {
                     it("returns original string") {
-                        expect("Test1".localize(for: Logger.self)) == "Test1"
+                        expect("Test1".localizedString(for: Logger.self)) == "Test1"
                     }
                 }
             }
         }
-        describe("calls localizeWithinFramework(forType)") {
+        describe("calls localizedInternalString(forType)") {
             context("as localizable string") {
                 context("with correct class") {
                     it("returns localized string") {
-                        expect("Space".localizeWithinFramework(forType: Date.self)) == " "
+                        expect("Space".localizedInternalString(forType: Date.self)) == " "
                     }
                 }
                 context("with incorrect type") {
                     it("returns original string") {
-                        expect("Space".localizeWithinFramework(forType: Logger.self)) == "Space"
+                        expect("Space".localizedInternalString(forType: Logger.self)) == "Space"
                     }
                 }
             }
             context("as non localizable string") {
                 context("with correct type") {
                     it("returns original string") {
-                        expect("Test".localizeWithinFramework(forType: Date.self)) == "Test"
+                        expect("Test".localizedInternalString(forType: Date.self)) == "Test"
                     }
                 }
                 context("with incorrect type") {
                     it("returns original string") {
-                        expect("Test".localizeWithinFramework(forType: Logger.self)) == "Test"
+                        expect("Test".localizedInternalString(forType: Logger.self)) == "Test"
                     }
                 }
             }

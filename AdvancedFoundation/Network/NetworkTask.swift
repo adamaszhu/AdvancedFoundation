@@ -45,7 +45,7 @@ struct NetworkTask {
      */
     init(task: URLSessionTask, idGenerator: IDGenerator, cache: Data) {
         self.task = task
-        identifier = idGenerator.generateID()
+        identifier = idGenerator.newID
         self.cache = cache
     }
     
