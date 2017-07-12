@@ -1,9 +1,9 @@
 class CoreDataHelperSpecs: QuickSpec {
     
     override func spec() {
-        let coreDataHelper = CoreDataHelper(name: AppInfoAccessor.shared.bundleName!)!
+        let coreDataHelper = CoreDataHelper(modelName: AppInfoAccessor.shared.bundleName!)!
         afterEach {
-            _ = coreDataHelper.deleteAllObjects(withType: Test.self)
+            _ = coreDataHelper.deleteAllObjects(of: Test.self)
         }
         describe("has standard helper") {
             let coreDataHelper = CoreDataHelper.standard
@@ -14,140 +14,140 @@ class CoreDataHelperSpecs: QuickSpec {
                 expect(coreDataHelper?.save()).notTo(beNil())
             }
         }
-        describe("calls init(name:bundle)") {
+        describe("calls init(modelName:bundle)") {
             context("with existing name") {
                 it("return helper") {
                     expect(coreDataHelper.save()).notTo(beNil())
                 }
             }
             context("with not existing name") {
-                let coreDataHelper = CoreDataHelper(name: "Test")
+                let coreDataHelper = CoreDataHelper(modelName: "Test")
                 it("return nil") {
                     expect(coreDataHelper).to(beNil())
                 }
             }
             context("with incorrect bundle") {
-                let coreDataHelper = CoreDataHelper(name: AppInfoAccessor.shared.bundleName!, bundle: Bundle())
+                let coreDataHelper = CoreDataHelper(modelName: AppInfoAccessor.shared.bundleName!, bundle: Bundle())
                 it("return nil") {
                     expect(coreDataHelper).to(beNil())
                 }
             }
         }
-        describe("call createObject(withType)") {
+        describe("call createObject(of)") {
             context("with valid type") {
                 it("returns new object") {
-                    expect(coreDataHelper.createObject(withType: Test.self)).notTo(beNil())
+                    expect(coreDataHelper.createObject(of: Test.self)).notTo(beNil())
                 }
                 it("can be retrieved") {
-                    let object = coreDataHelper.createObject(withType: Test.self)
+                    let object = coreDataHelper.createObject(of: Test.self)
                     object.testTitle = "Test"
                     _ = coreDataHelper.save()
-                    expect(coreDataHelper.getObjects(withType: Test.self)?.first?.testTitle) == "Test"
+                    expect(coreDataHelper.objects(of: Test.self)?.first?.testTitle) == "Test"
                 }
             }
             context("with invalid type") {
                 it("throws exception") {
-                    expect(coreDataHelper.createObject(withType: CoreDataHelperSpecs.self)).to(raiseException())
+                    expect(coreDataHelper.createObject(of: CoreDataHelperSpecs.self)).to(raiseException())
                 }
             }
         }
-        describe("calls getObjects(withType:withCondition:withArguments)") {
+        describe("calls objects(of:withCondition:withArguments)") {
             beforeEach {
-                var object = coreDataHelper.createObject(withType: Test.self)
+                var object = coreDataHelper.createObject(of: Test.self)
                 object.testTitle = "Test1"
-                object = coreDataHelper.createObject(withType: Test.self)
+                object = coreDataHelper.createObject(of: Test.self)
                 object.testTitle = "Test2"
                 _ = coreDataHelper.save()
             }
             context("with invalid type") {
                 it("returns nil") {
-                    expect(coreDataHelper.getObjects(withType: CoreDataHelperSpecs.self)).to(raiseException())
+                    expect(coreDataHelper.objects(of: CoreDataHelperSpecs.self)).to(raiseException())
                 }
             }
             context("with valid type") {
                 it("returns 2 objects") {
-                    expect(coreDataHelper.getObjects(withType: Test.self)?.count) == 2
+                    expect(coreDataHelper.objects(of: Test.self)?.count) == 2
                 }
             }
             context("with existing condition and arguments") {
                 it("returns 1 objects") {
-                    expect(coreDataHelper.getObjects(withType: Test.self, withCondition: "title=%@", withArguments: ["Test1"])?.count) == 1
+                    expect(coreDataHelper.objects(of: Test.self, withCondition: "title=%@", withArguments: ["Test1"])?.count) == 1
                 }
             }
             context("with non existing condition and arguments") {
                 it("returns 0 objects") {
-                    expect(coreDataHelper.getObjects(withType: Test.self, withCondition: "title=%@", withArguments: ["Test3"])?.count) == 0
+                    expect(coreDataHelper.objects(of: Test.self, withCondition: "title=%@", withArguments: ["Test3"])?.count) == 0
                 }
             }
         }
-        describe("calls isObjectExisted(withType:withCondition:withArguments)") {
+        describe("calls isObjectExisted(of:withCondition:withArguments)") {
             beforeEach {
-                var object = coreDataHelper.createObject(withType: Test.self)
+                var object = coreDataHelper.createObject(of: Test.self)
                 object.testTitle = "Test1"
-                object = coreDataHelper.createObject(withType: Test.self)
+                object = coreDataHelper.createObject(of: Test.self)
                 object.testTitle = "Test2"
                 _ = coreDataHelper.save()
             }
             context("with invalid type") {
                 it("returns nil") {
-                    expect(coreDataHelper.isObjectExisted(withType: CoreDataHelperSpecs.self)).to(raiseException())
+                    expect(coreDataHelper.isObjectExisted(of: CoreDataHelperSpecs.self)).to(raiseException())
                 }
             }
             context("with valid type") {
                 it("returns true") {
-                    expect(coreDataHelper.isObjectExisted(withType: Test.self)) == true
+                    expect(coreDataHelper.isObjectExisted(of: Test.self)) == true
                 }
             }
             context("with existing condition and arguments") {
                 it("returns true") {
-                    expect(coreDataHelper.isObjectExisted(withType: Test.self, withCondition: "title=%@", withArguments: ["Test1"])) == true
+                    expect(coreDataHelper.isObjectExisted(of: Test.self, withCondition: "title=%@", withArguments: ["Test1"])) == true
                 }
             }
             context("with non existing condition and arguments") {
                 it("returns false") {
-                    expect(coreDataHelper.isObjectExisted(withType: Test.self, withCondition: "title=%@", withArguments: ["Test3"])) == false
+                    expect(coreDataHelper.isObjectExisted(of: Test.self, withCondition: "title=%@", withArguments: ["Test3"])) == false
                 }
             }
         }
-        describe("calls deleteObject(_)") {
+        describe("calls delete(_)") {
             beforeEach {
-                let object = coreDataHelper.createObject(withType: Test.self)
+                let object = coreDataHelper.createObject(of: Test.self)
                 object.testTitle = "Test"
                 _ = coreDataHelper.save()
             }
             context("with existing object") {
                 it("returns true") {
-                    let object = (coreDataHelper.getObjects(withType: Test.self)?.first)!
-                    expect(coreDataHelper.deleteObject(object)) == true
+                    let object = (coreDataHelper.objects(of: Test.self)?.first)!
+                    expect(coreDataHelper.delete(object)) == true
                 }
             }
             context("with non existing object") {
                 it("returns false") {
-                    expect(coreDataHelper.deleteObject(Test())) == false
+                    expect(coreDataHelper.delete(Test())) == false
                 }
             }
         }
-        describe("calls deleteAllObjects(withType)") {
+        describe("calls deleteAllObjects(of)") {
             beforeEach {
-                let object = coreDataHelper.createObject(withType: Test.self)
+                let object = coreDataHelper.createObject(of: Test.self)
                 object.testTitle = "Test"
                 _ = coreDataHelper.save()
             }
             context("with existing type") {
                 it("returns true") {
-                    expect(coreDataHelper.deleteAllObjects(withType: Test.self)) == true
+                    expect(coreDataHelper.deleteAllObjects(of: Test.self)) == true
                 }
             }
             context("with non existing type") {
                 it("returns nil") {
-                    expect(coreDataHelper.deleteAllObjects(withType: CoreDataHelperSpecs.self)).to(raiseException())
+                    expect(coreDataHelper.deleteAllObjects(of: CoreDataHelperSpecs.self)).to(raiseException())
                 }
             }
         }
         describe("calls save()") {
             context("if changes have been made") {
                 it("returns true") {
-                    let object = coreDataHelper.createObject(withType: Test.self)
+                    let object = coreDataHelper.createObject(of: Test.self)
                     object.testTitle = "Test"
                     expect(coreDataHelper.save()) == true
                 }

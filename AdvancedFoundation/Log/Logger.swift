@@ -5,7 +5,7 @@
 final public class Logger {
     
     /// The default logger.
-    public static let standard: Logger = Logger()
+    public static let standard: Logger = .init()
     
     /// Message tags.
     private static let errorTag = "Error"

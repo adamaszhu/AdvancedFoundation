@@ -6,13 +6,13 @@
 public extension String {
     
     /// The default localization file.
-    private static let defaultLocalizationFile = "Localizable"
+    private static let defaultLocalizationFilename = "Localizable"
     
     /// Localize a string within the class using a localization file in the main bundle.
     ///
     /// - Parameter filename: The string file used to localize the string.
     /// - Returns: The localized string.
-    public func localize(withLocalizationFile filename: String = defaultLocalizationFile) -> String {
+    public func localize(withLocalizationFile filename: String = defaultLocalizationFilename) -> String {
         return NSLocalizedString(self, tableName: filename, comment: "")
     }
     

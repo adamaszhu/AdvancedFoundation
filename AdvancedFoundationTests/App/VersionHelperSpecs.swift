@@ -31,7 +31,7 @@ class VersionHelperSpecs: QuickSpec {
                 }
             }
         }
-        describe("calls compareToVersion(_)") {
+        describe("calls compare(toVersion)") {
             let versionHelper = VersionHelper(version: "1.0.0", versionFlag: versionFlag)!
             context("with earlier version") {
                 it("returns bigger result") {
