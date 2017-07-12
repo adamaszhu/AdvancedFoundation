@@ -2,7 +2,7 @@
 /// - author: Adamas
 /// - version: 1.1.0
 /// - date: 12/07/2017
-final public class Logger {
+public class Logger {
     
     /// The default logger.
     public static let standard: Logger = .init()

@@ -3,7 +3,7 @@
 /// - author: Adamas
 /// - version: 1.1.0
 /// - date: 12/07/2017
-final public class FileHelper: PathHelper {
+public class FileHelper: PathHelper {
     
     /// The data of a file. Nil if the file doesn't exists or there is an error.
     public var content: Data? {

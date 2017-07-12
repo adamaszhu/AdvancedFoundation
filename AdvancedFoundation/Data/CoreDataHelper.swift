@@ -3,7 +3,7 @@
 /// - author: Adamas
 /// - version: 1.1.0
 /// - date: 12/07/2017
-final public class CoreDataHelper {
+public class CoreDataHelper {
     
     /// Get the singleton object.
     public static let standard: CoreDataHelper? = {

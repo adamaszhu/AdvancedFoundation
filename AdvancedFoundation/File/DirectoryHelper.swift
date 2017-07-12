@@ -3,7 +3,7 @@
 /// - author: Adamas
 /// - version: 1.1.0
 /// - date: 12/07/2017
-final public class DirectoryHelper: PathHelper {
+public class DirectoryHelper: PathHelper {
     
     /// The path list of all contents in a directory. Nil if the data doesn't exist or there is an error.
     public var content: [String]? {

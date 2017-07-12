@@ -3,7 +3,7 @@
 /// - author: Adamas
 /// - version: 1.1.0
 /// - date: 12/07/2017
-final public class CSVHelper: TextHelper {
+public class CSVHelper: TextHelper {
     
     /// The content of the csv.
     public private(set) var csvContent: [[String]]

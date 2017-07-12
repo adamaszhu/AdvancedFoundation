@@ -3,7 +3,7 @@
 /// - author: Adamas
 /// - version: 1.1.0
 /// - date: 11/07/2017
-final public class AppInfoAccessor {
+public class AppInfoAccessor {
     
     /// The singleton instance in the system.
     public static let shared: AppInfoAccessor = AppInfoAccessor()
