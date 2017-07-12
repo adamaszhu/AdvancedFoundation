@@ -1,32 +1,23 @@
-/**
- * CSVHelper provides support for a csv file.
- * - author: Adamas
- * - version: 1.0.0
- * - date: 29/04/2017
- */
-public class CSVHelper: TextHelper {
+/// CSVHelper provides support for a csv file.
+///
+/// - author: Adamas
+/// - version: 1.1.0
+/// - date: 12/07/2017
+final public class CSVHelper: TextHelper {
     
-    /**
-     * The content of the csv.
-     */
-    public private(set) var csvContent: Array<Array<String>>
+    /// The content of the csv.
+    public private(set) var csvContent: [[String]]
     
     // TODO: Add change function to a csv
     
-    /**
-     * Parse the content to a two dimention array.
-     */
+    /// Parse the content to a two dimention array.
     private func parseCSV() {
-        var parsedLine: String
         for line in lines {
-            parsedLine = line.replacingOccurrences(of: "\t", with: "")
+            let parsedLine = line.replacingOccurrences(of: "\t", with: "")
             csvContent.append(parsedLine.components(separatedBy: ","))
         }
     }
     
-    /**
-     * TextHelper
-     */
     public override init(content: String) {
         csvContent = []
         super.init(content: content)
