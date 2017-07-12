@@ -63,23 +63,23 @@ public class CoreDataHelper {
     
     /// Prepare an object for inserting to the core data.
     ///
-    /// - Parameter anyClass: The class of the object that need to be inserted.
+    /// - Parameter type: The class of the object that need to be inserted.
     /// - Returns: The object for insertion.
-    public func newObject(of anyClass: AnyClass) -> NSManagedObject {
-        let object = NSEntityDescription.insertNewObject(forEntityName: String(describing: anyClass), into: context)
+    public func newObject(of type: AnyClass) -> NSManagedObject {
+        let object = NSEntityDescription.insertNewObject(forEntityName: String(describing: type), into: context)
         return object
     }
     
     /// Get the object list of a specific class type of object.
     ///
     /// - Parameters:
-    ///   - anyClass: The type of class need to be retrieved.
+    ///   - type: The type of class need to be retrieved.
     ///   - condition: The condition of the object.
     ///   - arguments: The list to be fit into the condition.
     /// - Returns: A list of object. Nil will be returned if there has been an error.
-    public func objects(of anyClass: AnyClass, withCondition condition: String? = nil, withArguments arguments: [Any]? = nil) -> [NSManagedObject]? {
+    public func objects(of type: AnyClass, withCondition condition: String? = nil, withArguments arguments: [Any]? = nil) -> [NSManagedObject]? {
         do {
-            let request = NSFetchRequest<NSFetchRequestResult>(entityName: String(describing: anyClass))
+            let request = NSFetchRequest<NSFetchRequestResult>(entityName: String(describing: type))
             if let condition = condition {
                 let predicate = NSPredicate(format: condition, argumentArray: arguments)
                 request.predicate = predicate
@@ -98,12 +98,12 @@ public class CoreDataHelper {
     /// Judge whether an object with spedific condition exists or not.
     ///
     /// - Parameters:
-    ///   - anyClass: The type of class need to be retrieved.
+    ///   - type: The type of class need to be retrieved.
     ///   - condition: The condition of the object.
     ///   - arguments: The list to be fit into the condition.
     /// - Returns: Whether the object exists or not. Nil will be returned if there has been an error.
-    public func isObjectExisted(of anyClass: AnyClass, withCondition condition: String? = nil, withArguments arguments: [Any]? = nil) -> Bool? {
-        guard let objects = objects(of: anyClass, withCondition: condition, withArguments: arguments) else {
+    public func isObjectExisted(of type: AnyClass, withCondition condition: String? = nil, withArguments arguments: [Any]? = nil) -> Bool? {
+        guard let objects = objects(of: type, withCondition: condition, withArguments: arguments) else {
             return nil
         }
         return objects.count > 0
@@ -121,11 +121,11 @@ public class CoreDataHelper {
     
     /// Delete all objects belonging to a specific class type.
     ///
-    /// - Parameter anyClass: The type of objects should be deleted.
+    /// - Parameter type: The type of objects should be deleted.
     /// - Returns: Whether the object has been deleted or not. Nil will be returned if there has been an error.
     @discardableResult
-    public func deleteAllObjects(of anyClass: AnyClass) -> Bool? {
-        guard let objects = objects(of: anyClass) else {
+    public func deleteAllObjects(of type: AnyClass) -> Bool? {
+        guard let objects = objects(of: type) else {
             return nil
         }
         var result: Bool?

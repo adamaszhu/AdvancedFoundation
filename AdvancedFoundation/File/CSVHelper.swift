@@ -8,8 +8,6 @@ public class CSVHelper: TextHelper {
     /// The content of the csv.
     public private(set) var csvContent: [[String]]
     
-    // TODO: Add change function to a csv
-    
     /// Parse the content to a two dimention array.
     private func parseCSV() {
         for line in lines {

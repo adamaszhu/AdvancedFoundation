@@ -104,7 +104,7 @@
 		42D342561EB49C0A00064B1C /* Avatar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 42D342551EB49C0A00064B1C /* Avatar.jpg */; };
 		42D342581EB49E6900064B1C /* Temp.txt in Resources */ = {isa = PBXBuildFile; fileRef = 42D342571EB49E6900064B1C /* Temp.txt */; };
 		42D342631EB4A66300064B1C /* CSVHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D342611EB4A66300064B1C /* CSVHelper.swift */; };
-		42D342641EB4A66300064B1C /* TextHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D342621EB4A66300064B1C /* TextHelper.swift */; };
+		42D342641EB4A66300064B1C /* TXT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D342621EB4A66300064B1C /* TXT.swift */; };
 		42D342681EB4AB2200064B1C /* CSVHelperSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D342671EB4AB2200064B1C /* CSVHelperSpecs.swift */; };
 		42D3426A1EB4AB3800064B1C /* TextHelperSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D342691EB4AB3800064B1C /* TextHelperSpecs.swift */; };
 		42D3426D1EB4AFB700064B1C /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D3426C1EB4AFB700064B1C /* JSONParser.swift */; };
@@ -239,7 +239,7 @@
 		42D342551EB49C0A00064B1C /* Avatar.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Avatar.jpg; sourceTree = "<group>"; };
 		42D342571EB49E6900064B1C /* Temp.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Temp.txt; sourceTree = "<group>"; };
 		42D342611EB4A66300064B1C /* CSVHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSVHelper.swift; sourceTree = "<group>"; };
-		42D342621EB4A66300064B1C /* TextHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextHelper.swift; sourceTree = "<group>"; };
+		42D342621EB4A66300064B1C /* TXT.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TXT.swift; sourceTree = "<group>"; };
 		42D342671EB4AB2200064B1C /* CSVHelperSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSVHelperSpecs.swift; sourceTree = "<group>"; };
 		42D342691EB4AB3800064B1C /* TextHelperSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextHelperSpecs.swift; sourceTree = "<group>"; };
 		42D3426C1EB4AFB700064B1C /* JSONParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
@@ -580,7 +580,7 @@
 				42283BEC1EA470E200E93EE3 /* FileHelper.swift */,
 				42DAF4E41EA3A0C300DE6B70 /* FileInfoAccessor.swift */,
 				28525CB31EAD7C20006F6FDE /* PathHelper.swift */,
-				42D342621EB4A66300064B1C /* TextHelper.swift */,
+				42D342621EB4A66300064B1C /* TXT.swift */,
 			);
 			path = File;
 			sourceTree = "<group>";
@@ -864,7 +864,7 @@
 				284EEFDA1EC001A50022EB6B /* FormDataTextField.swift in Sources */,
 				42D342711EB4CFB800064B1C /* JSONNode.swift in Sources */,
 				28E703B51EBADFE3002BEDFC /* NetworkHelper+DataSessionDelegate.swift in Sources */,
-				42D342641EB4A66300064B1C /* TextHelper.swift in Sources */,
+				42D342641EB4A66300064B1C /* TXT.swift in Sources */,
 				28451A151EBC3E7800793441 /* NetworkRequestType.swift in Sources */,
 				28451A191EBC463300793441 /* NetworkTask.swift in Sources */,
 				42C13A6F1EBE9D0C000D2E50 /* NetworkResponseHeader.swift in Sources */,

@@ -3,7 +3,7 @@ class CoreDataHelperSpecs: QuickSpec {
     override func spec() {
         let coreDataHelper = CoreDataHelper(modelName: AppInfoAccessor.shared.bundleName!)!
         afterEach {
-            _ = coreDataHelper.deleteAllObjects(of: Test.self)
+            coreDataHelper.deleteAllObjects(of: Test.self)
         }
         describe("has standard helper") {
             let coreDataHelper = CoreDataHelper.standard
@@ -41,7 +41,7 @@ class CoreDataHelperSpecs: QuickSpec {
                 it("can be retrieved") {
                     let object = coreDataHelper.newObject(of: Test.self)
                     object.testTitle = "Test"
-                    _ = coreDataHelper.save()
+                    coreDataHelper.save()
                     expect(coreDataHelper.objects(of: Test.self)?.first?.testTitle) == "Test"
                 }
             }
@@ -57,7 +57,7 @@ class CoreDataHelperSpecs: QuickSpec {
                 object.testTitle = "Test1"
                 object = coreDataHelper.newObject(of: Test.self)
                 object.testTitle = "Test2"
-                _ = coreDataHelper.save()
+                coreDataHelper.save()
             }
             context("with invalid type") {
                 it("returns nil") {
@@ -86,7 +86,7 @@ class CoreDataHelperSpecs: QuickSpec {
                 object.testTitle = "Test1"
                 object = coreDataHelper.newObject(of: Test.self)
                 object.testTitle = "Test2"
-                _ = coreDataHelper.save()
+                coreDataHelper.save()
             }
             context("with invalid type") {
                 it("returns nil") {
@@ -113,7 +113,7 @@ class CoreDataHelperSpecs: QuickSpec {
             beforeEach {
                 let object = coreDataHelper.newObject(of: Test.self)
                 object.testTitle = "Test"
-                _ = coreDataHelper.save()
+                coreDataHelper.save()
             }
             context("with existing object") {
                 it("returns true") {
@@ -131,7 +131,7 @@ class CoreDataHelperSpecs: QuickSpec {
             beforeEach {
                 let object = coreDataHelper.newObject(of: Test.self)
                 object.testTitle = "Test"
-                _ = coreDataHelper.save()
+                coreDataHelper.save()
             }
             context("with existing type") {
                 it("returns true") {

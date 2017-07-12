@@ -7,14 +7,14 @@ extension JSONPath {
     
     /// Parse a string to a JSON path.
     ///
-    /// - Parameter string: The string to be parsed.
+    /// - Parameter path: The string to be parsed.
     /// - Returns: The parsed path. Nil if the string is not well formatted.
-    static func path(from string: String) -> JSONPath? {
+    static func path(from path: String) -> JSONPath? {
         var nodes = [JSONNode]()
-        guard !string.isEmpty else {
+        guard !path.isEmpty else {
             return JSONPath(nodes: nodes)
         }
-        for nodeComponent in string.components(separatedBy: "/") {
+        for nodeComponent in path.components(separatedBy: "/") {
             guard let node = JSONNode.node(from: nodeComponent) else {
                 return nil
             }

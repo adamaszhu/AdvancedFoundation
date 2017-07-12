@@ -10,23 +10,23 @@ extension JSONNode {
     
     /// Parse a node string with the format as name[index]
     ///
-    /// - Parameter string: The string.
+    /// - Parameter path: The string.
     /// - Returns: The JSONNode. Nil if the string has an unexpected format.
-    static func node(from string: String) -> JSONNode? {
-        let leftBracketIndex = string.range(of: "[")?.lowerBound
-        let rightBracketIndex = string.range(of: "]")?.lowerBound
+    static func node(from path: String) -> JSONNode? {
+        let leftBracketIndex = path.range(of: "[")?.lowerBound
+        let rightBracketIndex = path.range(of: "]")?.lowerBound
         if (leftBracketIndex == nil) && (rightBracketIndex == nil) {
-            return JSONNode(name: string)
+            return JSONNode(name: path)
         }
         guard var realLeftBracketIndex = leftBracketIndex, let realRightBracketIndex = rightBracketIndex, realLeftBracketIndex < realRightBracketIndex else {
-            Logger.standard.log(error: JSONNode.pathFormatError, withDetail: string)
+            Logger.standard.log(error: JSONNode.pathFormatError, withDetail: path)
             return nil
         }
-        let name = string.substring(to: realLeftBracketIndex)
-        realLeftBracketIndex = string.index(realLeftBracketIndex, offsetBy: 1)
+        let name = path.substring(to: realLeftBracketIndex)
+        realLeftBracketIndex = path.index(realLeftBracketIndex, offsetBy: 1)
         let indexRange = Range<String.Index>(uncheckedBounds: (lower: realLeftBracketIndex, upper: realRightBracketIndex))
-        guard let index = Int(string.substring(with: indexRange)) else {
-            Logger.standard.log(error: JSONNode.pathFormatError, withDetail: string)
+        guard let index = Int(path.substring(with: indexRange)) else {
+            Logger.standard.log(error: JSONNode.pathFormatError, withDetail: path)
             return nil
         }
         return JSONNode(name: name, index: index)
