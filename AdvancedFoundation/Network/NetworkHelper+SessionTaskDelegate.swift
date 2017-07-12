@@ -1,8 +1,8 @@
 /**
  * NetworkHelper+SessionTaskDelegate delegates the action for a task.
  * - author: Adamas
- * - version: 1.0.1
- * - date: 06/05/2017
+ /// - version: 1.1.0
+ /// - date: 13/07/2017
  */
 extension NetworkHelper: URLSessionTaskDelegate {
     

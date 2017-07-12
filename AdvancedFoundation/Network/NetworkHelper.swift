@@ -1,8 +1,8 @@
 /**
  * NetowrkHelper is used to perform basic level internet connection.
  * - author: Adamas
- * - version: 1.0.1
- * - date: 04/05/2017
+ /// - version: 1.1.0
+ /// - date: 13/07/2017
  */
 public class NetworkHelper: NSObject {
     
@@ -131,7 +131,7 @@ public class NetworkHelper: NSObject {
      * - returns: The identifier of the task.
      */
     public func post(toURL urlString: String, with formData: FormData, with header: NetworkRequestHeader? = nil, asUploadTask isUploadTask: Bool = false) -> String? {
-        return post(toURL: urlString, with: formData.convertToData(), as: .formData, with: header, asUploadTask: isUploadTask)
+        return post(toURL: urlString, with: formData.data, as: .formData, with: header, asUploadTask: isUploadTask)
     }
     
     

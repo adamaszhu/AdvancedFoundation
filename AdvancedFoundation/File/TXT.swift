@@ -6,7 +6,7 @@
 public struct TXT {
     
     /// The content of the text.
-    public let lines: [String]
+    let lines: [String]
     
 }
 

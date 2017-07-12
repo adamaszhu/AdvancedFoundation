@@ -1,15 +1,11 @@
-/**
- * FormDataFileField+Field implements how a file field should be convert to a data.
- * - author: Adamas
- * - version: 1.0.1
- * - date: 08/05/2017
- */
+/// FormDataFileField+Field implements how a file field should be convert to a data.
+///
+/// - author: Adamas
+/// - version: 1.1.0
+/// - date: 13/07/2017
 extension FormDataFileField: FormDataField {
     
-    /**
-     * FormDataField
-     */
-    func convertToData() -> Data {
+    var data: Data {
         var data = Data()
         let fileInfo = FileInfoAccessor.init(path: path)
         let filename = fileInfo.filename

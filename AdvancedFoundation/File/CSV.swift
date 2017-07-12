@@ -6,7 +6,7 @@
 public struct CSV {
     
     /// The content of the csv.
-    public let table: [[String]]
+    let table: [[String]]
     
 }
 

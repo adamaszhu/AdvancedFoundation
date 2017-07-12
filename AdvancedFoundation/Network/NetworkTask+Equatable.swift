@@ -1,8 +1,8 @@
 /**
  * NetworkTask+Equatable provides comparison to two network objects.
  * - author: Adamas
- * - version: 1.0.0
- * - date: 07/05/2017
+ /// - version: 1.1.0
+ /// - date: 13/07/2017
  */
 extension NetworkTask: Equatable {
     
