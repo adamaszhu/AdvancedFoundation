@@ -12,22 +12,19 @@ public class TXT {
     ///
     /// - Parameter content: The content of the text file.
     public init(content: String) {
-        lines = lines(in: content)
+        lines = TXT.lines(in: content)
     }
     
     /// Parse lines from the content.
     ///
     /// - Parameter content: The content containing lines.
     /// - Returns: A list of line.
-    private func lines(in content: String) -> [String] {
-        let lines = content.components(separatedBy: CharacterSet.newlines).flatMap { line in
+    private static func lines(in content: String) -> [String] {
+        let lines = content.components(separatedBy: .newlines)
+        return lines.flatMap { line in
             // Skip comments.
-            if line.hasPrefix("//") {
-                return nil
-            }
-            return line
+            return line.hasPrefix("//") ? nil : line
         }
-        return lines
     }
     
 }
