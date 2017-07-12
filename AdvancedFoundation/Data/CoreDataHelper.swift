@@ -1,4 +1,5 @@
 /// CoreDataHelper is used to perform basic level core data interaction.
+///
 /// - author: Adamas
 /// - version: 1.1.0
 /// - date: 12/07/2017
