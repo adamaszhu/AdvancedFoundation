@@ -1,7 +1,7 @@
 class LongNumberFormatterSpecs: QuickSpec {
     
     override func spec() {
-        describe("calls renderLongNumberString(_)") {
+        describe("calls number(fromLongNumber)") {
             context("with invalid character in string") {
                 it("returns invalid number") {
                     expect(NSNumber.number(fromLongNumber: "@1")).to(beNil())

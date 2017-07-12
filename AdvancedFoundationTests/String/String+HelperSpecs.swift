@@ -25,7 +25,7 @@ class StringHelperSpecs: QuickSpec {
                 }
             }
         }
-        describe("calls removePrefix(_)") {
+        describe("calls remove(prefix)") {
             beforeEach {
                 string = "PrefixTest"
             }

@@ -31,7 +31,7 @@ class JSONParserSpecs: QuickSpec {
                 }
             }
         }
-        describe("calls getString(atPath:fromNode)") {
+        describe("calls string(atPath:fromNode)") {
             context("with root path") {
                 it("returns nil") {
                     expect(jsonParser.string(atPath: "/")).to(beNil())
@@ -98,7 +98,7 @@ class JSONParserSpecs: QuickSpec {
                 }
             }
         }
-        describe("calls getArray(atPath:fromNode)") {
+        describe("calls array(atPath:fromNode)") {
             context("with root path") {
                 it("returns nil") {
                     expect(jsonParser.array(atPath: "/")).to(beNil())
@@ -170,7 +170,7 @@ class JSONParserSpecs: QuickSpec {
                 }
             }
         }
-        describe("calls getDouble(atPath:fromNode)") {
+        describe("calls double(atPath:fromNode)") {
             context("with root path") {
                 it("returns nil") {
                     expect(jsonParser.double(atPath: "/")).to(beNil())
@@ -237,7 +237,7 @@ class JSONParserSpecs: QuickSpec {
                 }
             }
         }
-        describe("calls getDictionary(atPath:fromNode)") {
+        describe("calls dictionary(atPath:fromNode)") {
             context("with root path") {
                 it("returns nil") {
                     expect(jsonParser.dictionary(atPath: "/")).to(beNil())

@@ -29,7 +29,7 @@ class PercentageFormatterSpecs: QuickSpec {
                 }
             }
         }
-        describe("calls renderPercentageString(_)") {
+        describe("calls number(fromPercentage)") {
             context("with valid content in string") {
                 it("returns correct number") {
                     expect(NSNumber.number(fromPercentage: "55.55%")) == 0.5555

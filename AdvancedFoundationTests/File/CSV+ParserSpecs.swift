@@ -1,7 +1,7 @@
-class CSVSpecs: QuickSpec {
+class CSVParserSpecs: QuickSpec {
     
     override func spec() {
-        describe("has table") {
+        describe("calls csv(from)") {
             context("if content has comment") {
                 let content = "// COMMENT\nLine1Column1,Line1Column2\nLine2Column1"
                 let csv = CSV.csv(from: content)

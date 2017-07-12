@@ -1,7 +1,7 @@
 class DecimalFormatterSpecs: QuickSpec {
     
     override func spec() {
-        describe("calls convertToDecimalString(withPrecision)") {
+        describe("calls decimalString(withPrecision)") {
             context("as double") {
                 let number = NSNumber(value: 100.55)
                 context("with more decimal") {

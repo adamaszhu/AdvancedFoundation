@@ -1,7 +1,7 @@
-class TextHelperSpecs: QuickSpec {
+class TXTParserSpecs: QuickSpec {
     
     override func spec() {
-        describe("has lines") {
+        describe("calls txt(from)") {
             context("if content has comment") {
                 let content = "// COMMENT\nLine1\nLine2"
                 let txt = TXT.txt(from: content)
