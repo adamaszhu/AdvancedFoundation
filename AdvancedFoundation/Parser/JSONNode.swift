@@ -5,16 +5,16 @@
 /// - date: 12/07/2017
 struct JSONNode {
     
+    /// Whether the node represent current node or not. Which is a dot character.
+    var isCurrentNode: Bool {
+        return name == "."
+    }
+    
     /// Node name
     let name: String
 
     /// Element index
     let index: Int?
-    
-    /// Whether the node represent current node or not. Which is a dot character.
-    var isCurrentNode: Bool {
-        return name == "."
-    }
     
     /// Initialize the JSONNode.
     ///

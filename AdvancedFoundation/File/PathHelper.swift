@@ -30,10 +30,9 @@ public class PathHelper: FileManager {
     ///
     /// - Parameter path: The path that the helper should hold.
     public init(path: String) {
-        self.path = path
+        let formalizedPath = PathHelper.formalizedPath(from: path)
+        self.path = PathHelper.absolutePath(from: formalizedPath)
         super.init()
-        formalizePath()
-        updateAbsolutePath()
     }
     
     /// Copy current path to a destination.
@@ -78,7 +77,6 @@ public class PathHelper: FileManager {
     /// Create the parent directory for a create action or copy action.
     ///
     /// - Returns: Whether the directory has been created or not. Nil if there is an error.
-    @discardableResult
     func createParentDirectory() -> Bool? {
         guard let parentDirectory = parentDirectoryPath else {
             return true
@@ -93,14 +91,22 @@ public class PathHelper: FileManager {
     }
     
     /// Formalize the path. Such as change "/temp/" to "/temp"
-    private func formalizePath() {
+    ///
+    /// - Parameter path: The path where the formalize should be performed on.
+    /// - Returns: The formalized path.
+    private static func formalizedPath(from path: String) -> String {
+        var path = path
         path.remove(suffix: "/")
+        return path
     }
     
     /// Update the path to the real path.
-    private func updateAbsolutePath() {
+    ///
+    /// - Parameter path: The path where the absolute path should be retrieved from.
+    /// - Returns: The absolute path.
+    private static func absolutePath(from path: String) -> String {
         let homeDirectory = NSHomeDirectory()
-        path = path.hasPrefix("/") ? path : "\(homeDirectory)/\(path)"
+        return path.hasPrefix("/") ? path : "\(homeDirectory)/\(path)"
     }
     
 }

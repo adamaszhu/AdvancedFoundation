@@ -62,12 +62,12 @@ public extension Date {
         let minute = timeOffset / Date.minuteLength
         let second = timeOffset - minute * Date.minuteLength
         let abbrTag = shouldUseAbbreviation ? Date.abbrTag : ""
-        let yearTag = tag(forUnit: year, withSingleTag: Date.yearTag, withDoubleTag: Date.yearsTag, withAbbreviationTag: abbrTag)
-        let monthTag = tag(forUnit: month, withSingleTag: Date.monthTag, withDoubleTag: Date.monthsTag, withAbbreviationTag: abbrTag)
-        let dayTag = tag(forUnit: day, withSingleTag: Date.dayTag, withDoubleTag: Date.daysTag, withAbbreviationTag: abbrTag)
-        let hourTag = tag(forUnit: hour, withSingleTag: Date.hourTag, withDoubleTag: Date.hoursTag, withAbbreviationTag: abbrTag)
-        let minuteTag = tag(forUnit: minute, withSingleTag: Date.minuteTag, withDoubleTag: Date.minutesTag, withAbbreviationTag: abbrTag)
-        let secondTag = tag(forUnit: second, withSingleTag: Date.secondTag, withDoubleTag: Date.secondsTag, withAbbreviationTag: abbrTag)
+        let yearTag = Date.tag(forUnit: year, withSingleTag: Date.yearTag, withDoubleTag: Date.yearsTag, withAbbreviationTag: abbrTag)
+        let monthTag = Date.tag(forUnit: month, withSingleTag: Date.monthTag, withDoubleTag: Date.monthsTag, withAbbreviationTag: abbrTag)
+        let dayTag = Date.tag(forUnit: day, withSingleTag: Date.dayTag, withDoubleTag: Date.daysTag, withAbbreviationTag: abbrTag)
+        let hourTag = Date.tag(forUnit: hour, withSingleTag: Date.hourTag, withDoubleTag: Date.hoursTag, withAbbreviationTag: abbrTag)
+        let minuteTag = Date.tag(forUnit: minute, withSingleTag: Date.minuteTag, withDoubleTag: Date.minutesTag, withAbbreviationTag: abbrTag)
+        let secondTag = Date.tag(forUnit: second, withSingleTag: Date.secondTag, withDoubleTag: Date.secondsTag, withAbbreviationTag: abbrTag)
         return "\(yearTag)\(monthTag)\(dayTag)\(hourTag)\(minuteTag)\(secondTag)\(differTag)".trimmingCharacters(in: CharacterSet(charactersIn: " "))
     }
     
@@ -79,7 +79,7 @@ public extension Date {
     ///   - doubleTag: The double tag attached if the unit is more than 1.
     ///   - abbreviationTag: Whether the tag should use abbreviation or not.
     /// - Returns: The unit tag.
-    private func tag(forUnit unit: Int, withSingleTag singleTag: String, withDoubleTag doubleTag: String, withAbbreviationTag abbreviationTag: String) -> String {
+    private static func tag(forUnit unit: Int, withSingleTag singleTag: String, withDoubleTag doubleTag: String, withAbbreviationTag abbreviationTag: String) -> String {
         guard unit != 0 else {
             return ""
         }

@@ -5,9 +5,6 @@
 /// - date: 11/07/2017
 public class AppInfoAccessor {
     
-    /// The singleton instance in the system.
-    public static let shared: AppInfoAccessor = AppInfoAccessor()
-    
     /// System errors.
     private static let bundleNameError = "The bundle name cannot be retrieved."
     private static let currentVersionError = "The version cannot be retrieved."
@@ -15,6 +12,9 @@ public class AppInfoAccessor {
     /// Dictionary keys.
     private static let bundleNameKey = "CFBundleName"
     private static let versionKey = "CFBundleShortVersionString"
+    
+    /// The singleton instance in the system.
+    public static let shared: AppInfoAccessor = AppInfoAccessor()
     
     /// The name of current bundle. It will be nil if the bundle name cannot be retireved.
     public var bundleName: String? {

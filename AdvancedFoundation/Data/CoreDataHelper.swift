@@ -5,14 +5,6 @@
 /// - date: 12/07/2017
 public class CoreDataHelper {
     
-    /// Get the singleton object.
-    public static let standard: CoreDataHelper? = {
-        guard let bundleName = AppInfoAccessor.shared.bundleName else {
-            return nil
-        }
-        return CoreDataHelper(modelName: bundleName)
-    }()
-    
     /// SQL file suffix.
     private static let sqlFileSuffix = "sqlite"
     
@@ -22,6 +14,14 @@ public class CoreDataHelper {
     /// System errors.
     private static let modelNameError = "The model cannot be found."
     private static let dataTypeError = "The retrieved data isn't a NSManagedObject object list."
+    
+    /// Get the singleton object.
+    public static let standard: CoreDataHelper? = {
+        guard let bundleName = AppInfoAccessor.shared.bundleName else {
+            return nil
+        }
+        return CoreDataHelper(modelName: bundleName)
+    }()
     
     /// The context of the core data.
     private var context: NSManagedObjectContext
