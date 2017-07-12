@@ -4,8 +4,8 @@ class JSONPathSpecs: QuickSpec {
         var emptyPath: JSONPath!
         var nonEmptyPath: JSONPath!
         beforeEach {
-            emptyPath = JSONPath.parse("")!
-            nonEmptyPath = JSONPath.parse("firstNode/secondNode")!
+            emptyPath = JSONPath.parse(path: "")!
+            nonEmptyPath = JSONPath.parse(path: "firstNode/secondNode")!
         }
         describe("has isEmpty") {
             context("with empty path") {
