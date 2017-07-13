@@ -9,7 +9,7 @@ public class FileInfoAccessor {
     private static let defaultMIMEType = "application/octet-stream"
     
     /// Get the MIME type of the file.
-    public var mimeType: String? {
+    public var mimeType: String {
         guard !fileExtension.isEmpty else {
             return FileInfoAccessor.defaultMIMEType
         }
