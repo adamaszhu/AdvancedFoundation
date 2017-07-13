@@ -279,11 +279,11 @@ public class NetworkHelper: NSObject {
         // Read cache related information and put it into the header
         let cachedResponse = cache.cachedResponse(for: request)
         if cachedResponse != nil {
-            let networkResponse = NetworkResponseHeader.parse(cachedResponse!.response)
+            let networkResponse = NetworkResponseHeader.header(from: cachedResponse!.response)
             header.ifModifiedSince = networkResponse?.lastModified
             header.ifNoneMatch = networkResponse?.eTag
         }
-        request.allHTTPHeaderFields = header.convertToDictionary()
+        request.allHTTPHeaderFields = header.dictionary
         request.httpMethod = type.rawValue
         return request
     }

@@ -37,7 +37,7 @@ extension NetworkHelper: URLSessionDataDelegate {
             dispatchError(for: task, withMessage: NetworkHelper.serverError)
             return
         }
-        guard let header = NetworkResponseHeader.parse(response) else {
+        guard let header = NetworkResponseHeader.header(from: response) else {
             remove(task)
             Logger.standard.log(error: NetworkHelper.responseHeaderError)
             dispatchError(for: task, withMessage: NetworkHelper.serverError)

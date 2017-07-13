@@ -9,13 +9,13 @@ class NetworkResponseHeaderParserSpecs: QuickSpec {
             context("with invalid http response") {
                 let response = URLResponse()
                 it("returns nil") {
-                    expect(NetworkResponseHeader.parse(response)).to(beNil())
+                    expect(NetworkResponseHeader.header(from: response)).to(beNil())
                 }
             }
             context("with contentType header") {
                 let header = [contentTypeHeader: "ContentType"]
                 let response = HTTPURLResponse(url: URL(fileURLWithPath: ""), statusCode: 0, httpVersion: nil, headerFields: header)!
-                let responseHeader = NetworkResponseHeader.parse(response)
+                let responseHeader = NetworkResponseHeader.header(from: response)
                 it("returns response header with correct contentType") {
                     expect(responseHeader?.contentType) == "ContentType"
                 }
@@ -23,7 +23,7 @@ class NetworkResponseHeaderParserSpecs: QuickSpec {
             context("with invalid contentLength header") {
                 let header = [contentLengthHeader: "ContentLength"]
                 let response = HTTPURLResponse(url: URL(fileURLWithPath: ""), statusCode: 0, httpVersion: nil, headerFields: header)!
-                let responseHeader = NetworkResponseHeader.parse(response)
+                let responseHeader = NetworkResponseHeader.header(from: response)
                 it("returns response header without contentLength value") {
                     expect(responseHeader?.contentLength).to(beNil())
                 }
@@ -31,7 +31,7 @@ class NetworkResponseHeaderParserSpecs: QuickSpec {
             context("with correct contentLength header") {
                 let header = [contentLengthHeader: "1"]
                 let response = HTTPURLResponse(url: URL(fileURLWithPath: ""), statusCode: 0, httpVersion: nil, headerFields: header)!
-                let responseHeader = NetworkResponseHeader.parse(response)
+                let responseHeader = NetworkResponseHeader.header(from: response)
                 it("returns response header without contentLength value") {
                     expect(responseHeader?.contentLength) == 1
                 }
@@ -39,7 +39,7 @@ class NetworkResponseHeaderParserSpecs: QuickSpec {
             context("with lastModified header") {
                 let header = [lastModifiedHeader: "LastModified"]
                 let response = HTTPURLResponse(url: URL(fileURLWithPath: ""), statusCode: 0, httpVersion: nil, headerFields: header)!
-                let responseHeader = NetworkResponseHeader.parse(response)
+                let responseHeader = NetworkResponseHeader.header(from: response)
                 it("returns response header with lastModified value") {
                     expect(responseHeader?.lastModified) == "LastModified"
                 }
@@ -47,7 +47,7 @@ class NetworkResponseHeaderParserSpecs: QuickSpec {
             context("with eTag header") {
                 let header = [eTagHeader: "ETag"]
                 let response = HTTPURLResponse(url: URL(fileURLWithPath: ""), statusCode: 0, httpVersion: nil, headerFields: header)!
-                let responseHeader = NetworkResponseHeader.parse(response)
+                let responseHeader = NetworkResponseHeader.header(from: response)
                 it("returns response header with eTag value") {
                     expect(responseHeader?.eTag) == "ETag"
                 }
@@ -55,7 +55,7 @@ class NetworkResponseHeaderParserSpecs: QuickSpec {
             context("without header") {
                 let header = Dictionary<String, String>()
                 let response = HTTPURLResponse(url: URL(fileURLWithPath: ""), statusCode: 0, httpVersion: nil, headerFields: header)!
-                let responseHeader = NetworkResponseHeader.parse(response)
+                let responseHeader = NetworkResponseHeader.header(from: response)
                 it("returns response header without eTag value") {
                     expect(responseHeader?.eTag).to(beNil())
                 }
