@@ -2,7 +2,7 @@ class NetworkHelperHelperSpecs: QuickSpec {
     
     // FUTUREWORK: Test the cache function
     
-    var results: Dictionary<String, NetworkHelperSpecsTask> = [:]
+    var results = [String: NetworkHelperSpecsTask]()
     
     override func spec() {
         // Change it to server to use real web service.

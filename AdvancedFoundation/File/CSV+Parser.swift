@@ -12,8 +12,8 @@ public extension CSV {
     public static func csv(from content: String) -> CSV {
         let txt = TXT.txt(from: content)
         var table = [[String]]()
-        txt.lines.forEach { line in
-            let parsedLine = line.replacingOccurrences(of: "\t", with: "")
+        txt.lines.forEach {
+            let parsedLine = $0.replacingOccurrences(of: "\t", with: "")
             table.append(parsedLine.components(separatedBy: ","))
         }
         return CSV(table: table)

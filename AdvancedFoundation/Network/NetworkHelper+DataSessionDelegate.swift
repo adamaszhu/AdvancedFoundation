@@ -1,27 +1,30 @@
-/**
- * NetworkHelper+DataSessionDelegate delegates the action for a data task.
- * - author: Adamas
- /// - version: 1.1.0
- /// - date: 13/07/2017
- */
+/// NetworkHelper+DataSessionDelegate delegates the action for a data task.
+///
+/// - author: Adamas
+/// - version: 1.1.0
+/// - date: 13/07/2017
 extension NetworkHelper: URLSessionDataDelegate {
     
-    /**
-     * URLSessionDataDelegate
-     */
+    /// System error.
+    private static let serverSideError = "The server cannot deal with the request."
+    private static let responseTypeError = "The response is not a http url response."
+    private static let responseHeaderError = "The response doesn't have a valid header."
+    
+    /// User error.
+    private static let serverError = "ServerError"
+    
+    /// URLSessionDataDelegate
     public func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
-        guard let task = findTask(of: dataTask) else {
+        guard let task = task(of: dataTask) else {
             dataTask.cancel()
             return
         }
         append(data, toCacheOf: task)
     }
     
-    /**
-     * URLSessionDataDelegate
-     */
+    /// URLSessionDataDelegate
     public func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive response: URLResponse, completionHandler: @escaping (URLSession.ResponseDisposition) -> Void) {
-        guard let task = findTask(of: dataTask) else {
+        guard let task = task(of: dataTask) else {
             dataTask.cancel()
             return
         }

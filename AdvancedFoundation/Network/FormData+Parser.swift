@@ -24,9 +24,9 @@ extension FormData {
             Logger.standard.log(error: FormData.dataFormatError)
             return data
         }
-        fields.forEach { field in
+        fields.forEach {
             data.append(startSeperator)
-            data.append(field.data)
+            data.append($0.data)
         }
         data.append(endSeperator)
         return data

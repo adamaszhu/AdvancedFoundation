@@ -12,9 +12,9 @@ public class DirectoryHelper: PathHelper {
         }
         do {
             let paths = try contentsOfDirectory(atPath: path)
-            return paths.map({ (path) -> String in
-                "\(self.path)/\(path)"
-            })
+            return paths.map {
+                "\(self.path)/\($0)"
+            }
         } catch let error {
             Logger.standard.log(error)
             return nil

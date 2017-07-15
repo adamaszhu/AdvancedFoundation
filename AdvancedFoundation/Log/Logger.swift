@@ -4,9 +4,6 @@
 /// - date: 12/07/2017
 public class Logger {
     
-    /// The default logger.
-    public static let standard: Logger = .init()
-    
     /// Message tags.
     private static let errorTag = "Error"
     private static let infoTag = "Info"
@@ -15,6 +12,9 @@ public class Logger {
     
     /// The date format.
     private static let dateFormat = "yyyy/MM/dd HH:mm:ss.SSS"
+    
+    /// The default logger.
+    public static let standard: Logger = .init()
     
     /// Log an info.
     ///

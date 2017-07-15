@@ -1,16 +1,16 @@
-/**
- * NetworkHelper+SessionTaskDelegate delegates the action for a task.
- * - author: Adamas
- /// - version: 1.1.0
- /// - date: 13/07/2017
- */
+/// NetworkHelper+SessionTaskDelegate delegates the action for a task.
+///
+/// - author: Adamas
+/// - version: 1.1.0
+/// - date: 13/07/2017
 extension NetworkHelper: URLSessionTaskDelegate {
     
-    /**
-     * URLSessionTaskDelegate
-     */
+    /// User error
+    private static let internetError = "InternetError"
+    
+    /// URLSessionTaskDelegate
     public func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
-        guard let networkTask = findTask(of: task) else {
+        guard let networkTask = self.task(of: task) else {
             task.cancel()
             return
         }

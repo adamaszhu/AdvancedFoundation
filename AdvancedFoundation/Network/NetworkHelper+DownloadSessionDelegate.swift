@@ -1,16 +1,22 @@
-/**
- * NetworkHelper+DownloadSessionDelegate delegates the action for a download task.
- * - author: Adamas
- /// - version: 1.1.0
- /// - date: 13/07/2017
- */
+/// NetworkHelper+DownloadSessionDelegate delegates the action for a download task.
+///
+// - author: Adamas
+/// - version: 1.1.0
+/// - date: 13/07/2017
 extension NetworkHelper: URLSessionDownloadDelegate {
     
-    /**
-     * URLSessionDownloadDelegate
-     */
+    /// System error.
+    private static let fileSystemError = "The downloaded file cannot be moved to the sandbox."
+    
+    /// User error.
+    private static let appError = "AppError"
+    
+    /// System document directory. Which is used to store downloaded files.
+    private static let documentDirectory = "Documents"
+    
+    /// URLSessionDownloadDelegate
     public func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
-        guard let task = findTask(of: downloadTask) else {
+        guard let task = task(of: downloadTask) else {
             downloadTask.cancel()
             return
         }
@@ -26,11 +32,9 @@ extension NetworkHelper: URLSessionDownloadDelegate {
         }
     }
     
-    /**
-     * URLSessionDownloadDelegate
-     */
+    /// URLSessionDownloadDelegate
     public func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
-        guard let task = findTask(of: downloadTask) else {
+        guard let task = task(of: downloadTask) else {
             downloadTask.cancel()
             return
         }

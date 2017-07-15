@@ -13,7 +13,7 @@ extension NetworkRequestHeader {
     
     /// Convert the header to a dictionary.
     var dictionary: [String: String] {
-        var dictionary = Dictionary<String, String>()
+        var dictionary = [String: String]()
         if let ifModifiedSince = ifModifiedSince {
             dictionary[NetworkRequestHeader.ifModifiedSinceHeader] = ifModifiedSince
         }

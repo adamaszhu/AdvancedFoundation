@@ -53,7 +53,7 @@ class NetworkResponseHeaderParserSpecs: QuickSpec {
                 }
             }
             context("without header") {
-                let header = Dictionary<String, String>()
+                let header = [String: String]()
                 let response = HTTPURLResponse(url: URL(fileURLWithPath: ""), statusCode: 0, httpVersion: nil, headerFields: header)!
                 let responseHeader = NetworkResponseHeader.header(from: response)
                 it("returns response header without eTag value") {

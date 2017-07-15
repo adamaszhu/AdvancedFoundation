@@ -16,7 +16,7 @@ extension FormDataFileField: FormDataField {
     
     var data: Data {
         var data = Data()
-        let fileInfo = FileInfoAccessor.init(path: path)
+        let fileInfo = FileInfoAccessor(path: path)
         let filename = fileInfo.filename
         let mimeType = fileInfo.mimeType
         guard let fieldPrefix = String(format: FormDataFileField.fieldPrefixPattern, name, filename, mimeType).data(using: .utf8), let fieldSuffix = FormDataFileField.fieldSuffix.data(using: .utf8) else {

@@ -10,9 +10,9 @@ public extension TXT {
     /// - Parameter content: The content containing txt.
     /// - Returns: The txt object.
     public static func txt(from content: String) -> TXT {
-        let lines = content.components(separatedBy: .newlines).flatMap { line in
+        let lines = content.components(separatedBy: .newlines).flatMap {
             // Skip comments.
-            return line.hasPrefix("//") ? nil : line
+            return $0.hasPrefix("//") ? nil : $0
         }
         return TXT(lines: lines)
     }

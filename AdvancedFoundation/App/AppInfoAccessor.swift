@@ -14,7 +14,7 @@ public class AppInfoAccessor {
     private static let versionKey = "CFBundleShortVersionString"
     
     /// The singleton instance in the system.
-    public static let shared: AppInfoAccessor = AppInfoAccessor()
+    public static let shared: AppInfoAccessor = .init()
     
     /// The name of current bundle. It will be nil if the bundle name cannot be retireved.
     public var bundleName: String? {
