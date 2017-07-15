@@ -1,20 +1,27 @@
-/**
- * FormDataTextField+Field implements how a text field should be convert to a data.
- * - author: Adamas
- * - version: 1.0.1
- * - date: 08/05/2017
- */
+/// FormDataTextField+Field implements how a text field should be convert to a data.
+///
+/// - author: Adamas
+/// - version: 1.1.0
+/// - date: 13/07/2017
 extension FormDataTextField: FormDataField {
     
-    /**
-     * FormDataFieldField
-     */
-    func convertToData() -> Data {
+    /// System error
+    private static let dataFormatError = "The string cannot be converted into data."
+    
+    /// The pattern of the prefix data of a file field.
+    private static let fieldPrefixPattern = "Content-Disposition: form-data; name=\"%@\"\r\n\r\n%@"
+    
+    /// The pattern of the suffix data of a file field.
+    private static let fieldSuffix = "\r\n"
+    
+    var data: Data {
         var data = Data()
-        let field = "Content-Disposition: form-data; name=\"\(name)\"\r\n\r\n\(value)"
-        // COMMENT: The data converted from a string cannot be nil.
-        data.append(field.data(using: .utf8)!)
-        data.append("\r\n".data(using: .utf8)!)
+        guard let fieldPrefix = String(format: FormDataTextField.fieldPrefixPattern, name, value).data(using: .utf8), let fieldSuffix = "\r\n".data(using: .utf8) else {
+            Logger.standard.log(info: FormDataTextField.dataFormatError)
+            return data
+        }
+        data.append(fieldPrefix)
+        data.append(fieldSuffix)
         return data
     }
     

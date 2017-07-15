@@ -1,54 +1,57 @@
-/**
- * NetworkHelper+DataSessionDelegate delegates the action for a data task.
- * - author: Adamas
- * - version: 1.0.1
- * - date: 06/05/2017
- */
+/// NetworkHelper+DataSessionDelegate delegates the action for a data task.
+///
+/// - author: Adamas
+/// - version: 1.1.0
+/// - date: 13/07/2017
 extension NetworkHelper: URLSessionDataDelegate {
     
-    /**
-     * URLSessionDataDelegate
-     */
+    /// System error.
+    private static let serverSideError = "The server cannot deal with the request."
+    private static let responseTypeError = "The response is not a http url response."
+    private static let responseHeaderError = "The response doesn't have a valid header."
+    
+    /// User error.
+    private static let serverError = "ServerError"
+    
+    /// URLSessionDataDelegate
     public func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
-        guard let task = findTask(of: dataTask) else {
+        guard let task = task(of: dataTask) else {
             dataTask.cancel()
             return
         }
         append(data, toCacheOf: task)
     }
     
-    /**
-     * URLSessionDataDelegate
-     */
+    /// URLSessionDataDelegate
     public func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive response: URLResponse, completionHandler: @escaping (URLSession.ResponseDisposition) -> Void) {
-        guard let task = findTask(of: dataTask) else {
+        guard let task = task(of: dataTask) else {
             dataTask.cancel()
             return
         }
         guard let httpResponse = response as? HTTPURLResponse else {
             remove(task)
-            Logger.standard.logError(NetworkHelper.responseTypeError)
+            Logger.standard.log(error: NetworkHelper.responseTypeError)
             dispatchError(for: task, withMessage: NetworkHelper.serverError)
             return
         }
         guard (httpResponse.statusCode >= 200) && (httpResponse.statusCode < 400) else {
             remove(task)
-            Logger.standard.logError(NetworkHelper.serverSideError)
+            Logger.standard.log(error: NetworkHelper.serverSideError)
             dispatchError(for: task, withMessage: NetworkHelper.serverError)
             return
         }
-        guard let header = NetworkResponseHeader.parse(response) else {
+        guard let header = NetworkResponseHeader.header(from: response) else {
             remove(task)
-            Logger.standard.logError(NetworkHelper.responseHeaderError)
+            Logger.standard.log(error: NetworkHelper.responseHeaderError)
             dispatchError(for: task, withMessage: NetworkHelper.serverError)
             return 
         }
-        DispatchQueue.main.async{
+        DispatchQueue.main.async {
             self.networkHelperDelegate?.networkHelper(self, withIdentifier: task.identifier, didReceive: header, withStatusCode: httpResponse.statusCode)
         }
         let shouldContinue = self.networkHelperDelegate?.networkHelperShouldReceiveData(self, withIdentifier: task.identifier)
         if shouldContinue == false {
-            // COMMENT: Only the response is required.
+            // Only the response is required.
             remove(task)
             completionHandler(.cancel)
         } else {

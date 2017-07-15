@@ -3,9 +3,9 @@ enum ResponseMocker {
     case success
     case fail
     
-    static func validateHeader(_ header: Dictionary<String, String>?) -> ResponseMocker {
+    static func validateHeader(_ header: [String: String]?) -> ResponseMocker {
         let header = header ?? [:]
-        let expectedHeader = APIMocker.mocker.header.convertToDictionary()
+        let expectedHeader = APIMocker.mocker.header.dictionary
         for field in expectedHeader {
             if field.value != header[field.key] {
                 return .fail

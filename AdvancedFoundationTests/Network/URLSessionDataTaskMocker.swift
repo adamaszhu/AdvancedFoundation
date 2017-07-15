@@ -17,7 +17,7 @@ class URLSessionDataTaskMocker: URLSessionDataTask {
     }
     
     private func mockFormDataPostResponse() {
-        if request.httpBody?.count == APIMocker.mocker.formData.convertToData().count {
+        if request.httpBody?.count == APIMocker.mocker.formData.data.count {
             let responseMocker = ResponseMocker.validateHeader(request.allHTTPHeaderFields)
             delegate?.urlSession?(session, dataTask: self, didReceive: responseMocker.response(forURL: request.url!), completionHandler: { _ in })
             delegate?.urlSession?(session, dataTask: self, didReceive: responseMocker.data)

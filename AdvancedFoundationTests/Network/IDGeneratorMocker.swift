@@ -1,6 +1,6 @@
 class IDGeneratorMocker: IDGenerator {
     
-    override func generateID() -> String {
+    override var newID: String {
         return "ID"
     }
     

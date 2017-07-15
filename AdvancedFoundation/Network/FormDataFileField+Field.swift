@@ -1,24 +1,31 @@
-/**
- * FormDataFileField+Field implements how a file field should be convert to a data.
- * - author: Adamas
- * - version: 1.0.1
- * - date: 08/05/2017
- */
+/// FormDataFileField+Field implements how a file field should be convert to a data.
+///
+/// - author: Adamas
+/// - version: 1.1.0
+/// - date: 13/07/2017
 extension FormDataFileField: FormDataField {
     
-    /**
-     * FormDataField
-     */
-    func convertToData() -> Data {
+    /// System error
+    private static let dataFormatError = "The string cannot be converted into data."
+    
+    /// The pattern of the prefix data of a file field.
+    private static let fieldPrefixPattern = "Content-Disposition: form-data; name=\"%@\"; filename=\"%@\"\r\nContent-Type: %@\r\n\r\n"
+    
+    /// The pattern of the suffix data of a file field.
+    private static let fieldSuffix = "\r\n"
+    
+    var data: Data {
         var data = Data()
-        let fileInfo = FileInfoAccessor.init(path: path)
+        let fileInfo = FileInfoAccessor(path: path)
         let filename = fileInfo.filename
-        let mimeType = fileInfo.mimeType ?? ""
-        let field = "Content-Disposition: form-data; name=\"\(name)\"; filename=\"\(filename)\"\r\nContent-Type: \(mimeType)\r\n\r\n"
-        // COMMENT: The data converted from a string cannot be nil.
-        data.append(field.data(using: .utf8)!)
+        let mimeType = fileInfo.mimeType
+        guard let fieldPrefix = String(format: FormDataFileField.fieldPrefixPattern, name, filename, mimeType).data(using: .utf8), let fieldSuffix = FormDataFileField.fieldSuffix.data(using: .utf8) else {
+            Logger.standard.log(error: FormDataFileField.dataFormatError)
+            return data
+        }
+        data.append(fieldPrefix)
         data.append(content)
-        data.append("\r\n".data(using: .utf8)!)
+        data.append(fieldSuffix)
         return data
     }
     

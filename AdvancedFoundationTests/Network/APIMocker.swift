@@ -3,7 +3,7 @@ enum APIMocker: String {
     case server = "http://adamaszhu.com:3000/api/test"
     case mocker = "http://api"
     
-    // COMMENT: The expected header
+    /// The expected header
     var header: NetworkRequestHeader {
         switch self {
         case .server:
@@ -13,7 +13,7 @@ enum APIMocker: String {
         }
     }
     
-    // COMMENT: The expected form data
+    /// The expected form data
     var formData: FormData {
         switch self {
         case .server:
@@ -25,7 +25,7 @@ enum APIMocker: String {
         }
     }
     
-    // COMMENT: The expected body {
+    /// The expected body {
     var body: Data {
         switch self {
         case .server:
