@@ -1,36 +1,24 @@
-/**
- * FileHelper is used to perform file related action.
- * - version: 1.0.1
- * - date: 26/10/2016
- * - author: Adamas
- */
+/// FileHelper is used to perform file related action.
+///
+/// - author: Adamas
+/// - version: 1.1.0
+/// - date: 12/07/2017
 public class FileHelper: PathHelper {
     
-    /**
-     * System warning.
-     */
-    private static let contentExistanceWarning = "The file doesn't exist."
-    private static let createExistanceWarning = "The file to be created exists."
-    
-    /**
-     * The data of a file. Nil if the file doesn't exists or there is an error.
-     */
+    /// The data of a file. Nil if the file doesn't exists or there is an error.
     public var content: Data? {
         guard isExisted else {
-            Logger.standard.logWarning(FileHelper.contentExistanceWarning, withDetail: path)
             return nil
         }
         return contents(atPath: path)
     }
     
-    /**
-     * Create a file in the path.
-     * - parameter data: The data used to create the file.
-     * - returns: whether the file has been created or not. Nil if there is an error.
-     */
+    /// Create a file in the path.
+    ///
+    /// - Parameter data: The data used to create the file.
+    /// - Returns: whether the file has been created or not. Nil if there is an error.
     public func create(with data: Data) -> Bool? {
         guard !super.isExisted else {
-            Logger.standard.logWarning(FileHelper.createExistanceWarning, withDetail: path)
             return false
         }
         guard createParentDirectory() == true else {
@@ -39,9 +27,7 @@ public class FileHelper: PathHelper {
         return createFile(atPath: path, contents: data)
     }
     
-    /**
-     * PathHelper.
-     */
+    /// Whether the file exists or not.
     public override var isExisted: Bool {
         guard super.isExisted else {
             return false

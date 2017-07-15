@@ -1,9 +1,8 @@
-/**
- * NetworkBodyType represents the type of a HTTP body.
- * - author: Adamas
- * - version: 1.0.0
- * - date: 05/05/2017
- */
+/// NetworkBodyType represents the type of a HTTP body.
+///
+/// - author: Adamas
+/// - version: 1.1.0
+/// - date: 13/07/2017
 public enum NetworkBodyType: String {
     
     case json = "application/json"

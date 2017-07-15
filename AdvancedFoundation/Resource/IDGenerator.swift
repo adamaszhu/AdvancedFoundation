@@ -1,31 +1,15 @@
-/**
- * IDGenerator generates a unique id.
- * - author: Adamas
- * - version: 1.0.0
- * - date: 16/04/2017
- */
+/// IDGenerator generates a unique id.
+///
+/// - author: Adamas
+/// - version: 1.1.0
+/// - date: 12/07/2017
 public class IDGenerator {
     
-    /**
-     * The singleton instance.
-     */
+    /// The singleton instance.
     public static let standard = IDGenerator()
     
-    /**
-     * Used as the base part of an identification. It is the seconds that have pasted since 1970.
-     */
-    private var timeSeed: Int
-    
-    /**
-     * Used as the additional part of an identification.
-     */
-    private var iterator: Int
-    
-    /**
-     * Generate an unique identification.
-     * - returns: The unique identification.
-     */
-    public func generateID() -> String {
+    /// Generate an unique identification.
+    public var newID: String {
         let newTimeSeed = Int(Date().timeIntervalSince1970)
         if newTimeSeed != timeSeed {
             iterator = 0
@@ -36,9 +20,13 @@ public class IDGenerator {
         return generatedID
     }
     
-    /**
-     * Initialize the object.
-     */
+    /// Used as the base part of an identification. It is the seconds that have pasted since 1970.
+    private var timeSeed: Int
+    
+    /// Used as the additional part of an identification.
+    private var iterator: Int
+    
+    /// Initialize the object.
     public init() {
         timeSeed = 0
         iterator = 0

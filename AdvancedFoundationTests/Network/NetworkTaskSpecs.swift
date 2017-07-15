@@ -85,7 +85,7 @@ class NetworkTaskSpecs: QuickSpec {
             }
         }
         describe("calls cancel()") {
-            // COMMENT: The result is not noticeable.
+            // The result is not noticeable.
         }
     }
     
