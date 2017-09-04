@@ -14,7 +14,6 @@ extension NetworkHelper: URLSessionDownloadDelegate {
     /// System document directory. Which is used to store downloaded files.
     private static let documentDirectory = "Documents"
     
-    /// URLSessionDownloadDelegate
     public func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
         guard let task = task(of: downloadTask) else {
             downloadTask.cancel()
@@ -32,7 +31,6 @@ extension NetworkHelper: URLSessionDownloadDelegate {
         }
     }
     
-    /// URLSessionDownloadDelegate
     public func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
         guard let task = task(of: downloadTask) else {
             downloadTask.cancel()

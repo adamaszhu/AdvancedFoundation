@@ -13,7 +13,6 @@ extension NetworkHelper: URLSessionDataDelegate {
     /// User error.
     private static let serverError = "ServerError"
     
-    /// URLSessionDataDelegate
     public func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
         guard let task = task(of: dataTask) else {
             dataTask.cancel()
@@ -22,7 +21,6 @@ extension NetworkHelper: URLSessionDataDelegate {
         append(data, toCacheOf: task)
     }
     
-    /// URLSessionDataDelegate
     public func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive response: URLResponse, completionHandler: @escaping (URLSession.ResponseDisposition) -> Void) {
         guard let task = task(of: dataTask) else {
             dataTask.cancel()
