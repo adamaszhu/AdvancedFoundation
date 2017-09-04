@@ -13,7 +13,7 @@ public class JSONParser {
     
     /// Initialize the parser.
     ///
-    /// - parameter data: The JSON data.
+    /// - Parameter data: The JSON data.
     public init?(data: Data) {
         do {
             json = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions())

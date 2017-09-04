@@ -8,7 +8,6 @@ extension NetworkHelper: URLSessionTaskDelegate {
     /// User error
     private static let internetError = "InternetError"
     
-    /// URLSessionTaskDelegate
     public func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
         guard let networkTask = self.task(of: task) else {
             task.cancel()

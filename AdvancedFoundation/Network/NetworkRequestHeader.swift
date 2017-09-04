@@ -19,7 +19,7 @@ public struct NetworkRequestHeader {
     
     /// Initialize the structure.
     ///
-    /// - Parameters
+    /// - Parameters:
     ///   - ifModifiedSince: The last date that the data has been modified on the server.
     ///   - ifNoneMatch: If the tag doesn't match.
     ///   - contentType: The type of the body.

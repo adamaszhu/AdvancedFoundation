@@ -16,8 +16,8 @@ extension NetworkResponseHeader {
     
     /// Parse the header of a url response.
     ///
-    /// - parameter response: The response.
-    /// - returns: The parsed header. Nil if the response is not a HTTP response.
+    /// - Parameter response: The response.
+    /// - Returns: The parsed header. Nil if the response is not a HTTP response.
     static func header(from response: URLResponse) -> NetworkResponseHeader? {
         guard let httpResponse = response as? HTTPURLResponse else {
             Logger.standard.log(error: NetworkResponseHeader.responseTypeError)
