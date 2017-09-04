@@ -31,7 +31,7 @@ struct NetworkTask {
     
     /// Initialize the object.
     ///
-    /// - Parameter:
+    /// - Parameters:
     ///   - task: The task object.
     ///   - idGenerator: The generator to generate the id.
     ///   - cache: The cache data.
