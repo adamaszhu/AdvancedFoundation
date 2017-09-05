@@ -44,7 +44,6 @@
 		286353F41ED55D92000B7A7F /* ResponseMocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286353F31ED55D92000B7A7F /* ResponseMocker.swift */; };
 		28B942821ED3BD2400FFACA1 /* AppInfoAccessorSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F30E4A1E9E4CE200AC0249 /* AppInfoAccessorSpecs.swift */; };
 		28CC3FE21EB812DB00C632A5 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CC3FE11EB812DB00C632A5 /* CoreDataHelper.swift */; };
-		28CC3FE41EB8130A00C632A5 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28CC3FE31EB8130A00C632A5 /* CoreData.framework */; };
 		28CC3FE71EB8200200C632A5 /* CoreDataHelperSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CC3FE61EB8200200C632A5 /* CoreDataHelperSpecs.swift */; };
 		28CC3FEA1EB8204700C632A5 /* AdvancedFoundationHost.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 28CC3FE81EB8204700C632A5 /* AdvancedFoundationHost.xcdatamodeld */; };
 		28CC40111EB83F9600C632A5 /* Test+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CC400F1EB83F9600C632A5 /* Test+CoreDataClass.swift */; };
@@ -277,7 +276,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28CC3FE41EB8130A00C632A5 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
