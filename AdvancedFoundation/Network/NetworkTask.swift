@@ -13,8 +13,10 @@ struct NetworkTask {
         if task is URLSessionUploadTask {
             return .upload
         }
-        if task is URLSessionStreamTask {
-            return .stream
+        if #available(iOS 9.0, *) {
+            if task is URLSessionStreamTask {
+                return .stream
+            }
         }
         // URLSessionTask is a data task.
         return .data

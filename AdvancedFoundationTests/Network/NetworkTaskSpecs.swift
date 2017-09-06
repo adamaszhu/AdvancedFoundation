@@ -34,19 +34,21 @@ class NetworkTaskSpecs: QuickSpec {
                     expect(uploadTask.task is URLSessionUploadTask) == true
                 }
             }
-            context("with stream task") {
-                let streamTask = NetworkTask(task: URLSessionStreamTask(), idGenerator: idGenerator, cache: cache)
-                it("returns task with stream type") {
-                    expect(streamTask.type == .stream) == true
-                }
-                it("returns task with unique id") {
-                    expect(streamTask.identifier) == "ID"
-                }
-                it("returns task with empty cache") {
-                    expect(streamTask.cache.count) == 0
-                }
-                it("returns task with correct session task") {
-                    expect(streamTask.task is URLSessionStreamTask) == true
+            if #available(iOS 9.0, *) {
+                context("with stream task") {
+                    let streamTask = NetworkTask(task: URLSessionStreamTask(), idGenerator: idGenerator, cache: cache)
+                    it("returns task with stream type") {
+                        expect(streamTask.type == .stream) == true
+                    }
+                    it("returns task with unique id") {
+                        expect(streamTask.identifier) == "ID"
+                    }
+                    it("returns task with empty cache") {
+                        expect(streamTask.cache.count) == 0
+                    }
+                    it("returns task with correct session task") {
+                        expect(streamTask.task is URLSessionStreamTask) == true
+                    }
                 }
             }
             context("with data task") {
