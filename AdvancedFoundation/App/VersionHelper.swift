@@ -2,7 +2,7 @@
 ///
 /// - author: Adamas
 /// - version: 1.1.1
-/// - date: 7/9/2017
+/// - date: 07/09/2017
 final public class VersionHelper {
     
     /// System error.
