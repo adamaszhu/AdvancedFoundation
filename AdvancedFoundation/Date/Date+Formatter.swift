@@ -1,8 +1,8 @@
 /// Date+Formatter provides additional format function for a date object.
 ///
 /// - author: Adamas
-/// - version: 1.1.0
-/// - date: 12/07/2017
+/// - version: 1.1.3
+/// - date: 07/09/2017
 public extension Date {
     
     /// All localized string tag.
@@ -68,7 +68,8 @@ public extension Date {
         let hourTag = Date.tag(forUnit: hour, withSingleTag: Date.hourTag, withDoubleTag: Date.hoursTag, withAbbreviationTag: abbrTag)
         let minuteTag = Date.tag(forUnit: minute, withSingleTag: Date.minuteTag, withDoubleTag: Date.minutesTag, withAbbreviationTag: abbrTag)
         let secondTag = Date.tag(forUnit: second, withSingleTag: Date.secondTag, withDoubleTag: Date.secondsTag, withAbbreviationTag: abbrTag)
-        return "\(yearTag)\(monthTag)\(dayTag)\(hourTag)\(minuteTag)\(secondTag)\(differTag)".trimmingCharacters(in: CharacterSet(charactersIn: " "))
+        let timeOffsetString = "\(yearTag)\(monthTag)\(dayTag)\(hourTag)\(minuteTag)\(secondTag)\(differTag)"
+        return timeOffsetString.trimmingCharacters(in: CharacterSet(charactersIn: " "))
     }
     
     /// Get the tag of a specific unit. Such as "2 Yrs" or "1 Year"
@@ -83,9 +84,11 @@ public extension Date {
         guard unit != 0 else {
             return ""
         }
+        let spaceTag = Date.spaceTag.localizedInternalString(forType:Date.self)
         var unitTag = unit == 1 ? singleTag : doubleTag
         unitTag = unitTag + abbreviationTag
-        return Date.spaceTag.localizedInternalString(forType:Date.self) + "\(unit)" + Date.spaceTag.localizedInternalString(forType:Date.self) + unitTag.localizedInternalString(forType: Date.self)
+        unitTag = unitTag.localizedInternalString(forType: Date.self)
+        return spaceTag + "\(unit)" + spaceTag + unitTag
     }
     
 }

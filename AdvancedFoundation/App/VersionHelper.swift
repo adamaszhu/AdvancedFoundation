@@ -14,12 +14,10 @@ final public class VersionHelper {
     /// The shared helper that presents current version. It will be nil if the version cannot be retrieved.
     public static let shared: VersionHelper? = {
         let appInfoAccessor = AppInfoAccessor.shared
-        guard let version = appInfoAccessor.version,
-            let bundleName = appInfoAccessor.bundleName else {
+        guard let version = appInfoAccessor.version, let bundleName = appInfoAccessor.bundleName else {
             return nil
         }
-        return VersionHelper(version: version,
-                             versionFlag: "\(VersionHelper.versionFlagPrefix)\(bundleName)")
+        return VersionHelper(version: version, versionFlag: "\(VersionHelper.versionFlagPrefix)\(bundleName)")
     }()
     
     /// Whether current version flag has been settled in the user default or not.
@@ -95,9 +93,8 @@ final public class VersionHelper {
     ///   - secondVersion: The second version.
     /// - Returns: 1 if the first version is larger. 0 if versions equals to each other. -1 if the first version is smaller. nil if one of the versions is not correct. Nil will be returned if one of the versions is not formatted.
     private static func compare(version firstVersion: String, toVersion secondVersion: String) -> Int? {
-        guard var firstVersionComponents = versionComponents(inVersion: firstVersion),
-            var secondVersionComponents = versionComponents(inVersion: secondVersion) else {
-                return nil
+        guard var firstVersionComponents = versionComponents(inVersion: firstVersion), var secondVersionComponents = versionComponents(inVersion: secondVersion) else {
+            return nil
         }
         // Make the component amount of two list to be equal.
         while firstVersionComponents.count > secondVersionComponents.count {

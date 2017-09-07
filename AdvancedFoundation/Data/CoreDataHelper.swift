@@ -41,8 +41,7 @@ final public class CoreDataHelper {
         url = url.appendingPathComponent(modelName)
         url = url.appendingPathExtension(CoreDataHelper.sqlFileSuffix)
         // The managed object model for the application. This property is not optional. It is a fatal error for the application not to be able to find and load its model.
-        guard let modelURL = bundle.url(forResource: modelName,
-                                        withExtension: CoreDataHelper.modelFileSuffix) else {
+        guard let modelURL = bundle.url(forResource: modelName, withExtension: CoreDataHelper.modelFileSuffix) else {
             Logger.standard.log(error: CoreDataHelper.modelNameError, withDetail: modelName)
             return nil
         }
@@ -55,10 +54,7 @@ final public class CoreDataHelper {
         // Add automatic version migration.
         let options = [NSInferMappingModelAutomaticallyOption: true, NSMigratePersistentStoresAutomaticallyOption: true]
         do {
-            try coordinator.addPersistentStore(ofType: NSSQLiteStoreType,
-                                               configurationName: nil,
-                                               at: url,
-                                               options: options)
+            try coordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: url, options: options)
         } catch let error {
             Logger.standard.log(error)
             return nil
@@ -71,9 +67,8 @@ final public class CoreDataHelper {
     ///
     /// - Parameter type: The class of the object that need to be inserted.
     /// - Returns: The object for insertion.
-    public func newObject(of type: AnyClass) -> NSManagedObject {
-        let object = NSEntityDescription.insertNewObject(forEntityName: String(describing: type),
-                                                         into: context)
+    public func object(of type: AnyClass) -> NSManagedObject {
+        let object = NSEntityDescription.insertNewObject(forEntityName: String(describing: type), into: context)
         return object
     }
     
