@@ -16,7 +16,7 @@ final public class VersionHelper {
         let appInfoAccessor = AppInfoAccessor.shared
         guard let version = appInfoAccessor.version,
             let bundleName = appInfoAccessor.bundleName else {
-                return nil
+            return nil
         }
         return VersionHelper(version: version,
                              versionFlag: "\(VersionHelper.versionFlagPrefix)\(bundleName)")
