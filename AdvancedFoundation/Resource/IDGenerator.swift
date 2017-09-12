@@ -1,15 +1,15 @@
 /// IDGenerator generates a unique id.
 ///
 /// - author: Adamas
-/// - version: 1.1.0
-/// - date: 12/07/2017
+/// - version: 1.1.3
+/// - date: 12/09/2017
 public class IDGenerator {
     
     /// The singleton instance.
-    public static let standard = IDGenerator()
+    public static let standard: IDGenerator = .init()
     
     /// Generate an unique identification.
-    public var newID: String {
+    public var uniqueID: String {
         let newTimeSeed = Int(Date().timeIntervalSince1970)
         if newTimeSeed != timeSeed {
             iterator = 0

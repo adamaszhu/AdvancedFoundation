@@ -1,9 +1,9 @@
 /// JSONParser parses the data of a JSON structure.
 ///
 /// - author: Adamas
-/// - version: 1.1.0
-/// - date: 12/07/2017
-public class JSONParser {
+/// - version: 1.1.3
+/// - date: 12/09/2017
+final public class JSONParser {
     
     /// System error
     private static let stringError = "The string cannot be convert to data."
