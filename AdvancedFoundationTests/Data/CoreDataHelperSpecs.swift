@@ -36,10 +36,10 @@ class CoreDataHelperSpecs: QuickSpec {
         describe("call newObject(of)") {
             context("with valid type") {
                 it("returns new object") {
-                    expect(coreDataHelper.newObject(of: Test.self)).notTo(beNil())
+                    expect(coreDataHelper.object(of: Test.self)).notTo(beNil())
                 }
                 it("can be retrieved") {
-                    let object = coreDataHelper.newObject(of: Test.self)
+                    let object = coreDataHelper.object(of: Test.self)
                     object.testTitle = "Test"
                     coreDataHelper.save()
                     expect(coreDataHelper.objects(of: Test.self)?.first?.testTitle) == "Test"
@@ -47,15 +47,15 @@ class CoreDataHelperSpecs: QuickSpec {
             }
             context("with invalid type") {
                 it("throws exception") {
-                    expect(coreDataHelper.newObject(of: CoreDataHelperSpecs.self)).to(raiseException())
+                    expect(coreDataHelper.object(of: CoreDataHelperSpecs.self)).to(raiseException())
                 }
             }
         }
         describe("calls objects(of:withCondition:withArguments)") {
             beforeEach {
-                var object = coreDataHelper.newObject(of: Test.self)
+                var object = coreDataHelper.object(of: Test.self)
                 object.testTitle = "Test1"
-                object = coreDataHelper.newObject(of: Test.self)
+                object = coreDataHelper.object(of: Test.self)
                 object.testTitle = "Test2"
                 coreDataHelper.save()
             }
@@ -82,9 +82,9 @@ class CoreDataHelperSpecs: QuickSpec {
         }
         describe("calls isObjectExisted(of:withCondition:withArguments)") {
             beforeEach {
-                var object = coreDataHelper.newObject(of: Test.self)
+                var object = coreDataHelper.object(of: Test.self)
                 object.testTitle = "Test1"
-                object = coreDataHelper.newObject(of: Test.self)
+                object = coreDataHelper.object(of: Test.self)
                 object.testTitle = "Test2"
                 coreDataHelper.save()
             }
@@ -111,7 +111,7 @@ class CoreDataHelperSpecs: QuickSpec {
         }
         describe("calls delete(_)") {
             beforeEach {
-                let object = coreDataHelper.newObject(of: Test.self)
+                let object = coreDataHelper.object(of: Test.self)
                 object.testTitle = "Test"
                 coreDataHelper.save()
             }
@@ -123,13 +123,15 @@ class CoreDataHelperSpecs: QuickSpec {
             }
             context("with non existing object") {
                 it("returns false") {
-                    expect(coreDataHelper.delete(Test())) == false
+                    let object = coreDataHelper.object(of: Test.self)
+                    coreDataHelper.delete(object)
+                    expect(coreDataHelper.delete(object)) == false
                 }
             }
         }
         describe("calls deleteAllObjects(of)") {
             beforeEach {
-                let object = coreDataHelper.newObject(of: Test.self)
+                let object = coreDataHelper.object(of: Test.self)
                 object.testTitle = "Test"
                 coreDataHelper.save()
             }
@@ -147,7 +149,7 @@ class CoreDataHelperSpecs: QuickSpec {
         describe("calls save()") {
             context("if changes have been made") {
                 it("returns true") {
-                    let object = coreDataHelper.newObject(of: Test.self)
+                    let object = coreDataHelper.object(of: Test.self)
                     object.testTitle = "Test"
                     expect(coreDataHelper.save()) == true
                 }

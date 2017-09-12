@@ -1,9 +1,9 @@
 /// DiretoryHelper provides actions for an directory.
 ///
 /// - author: Adamas
-/// - version: 1.1.0
-/// - date: 12/07/2017
-public class DirectoryHelper: PathHelper {
+/// - version: 1.1.3
+/// - date: 07/09/2017
+final public class DirectoryHelper: PathHelper {
     
     /// The path list of all contents in a directory. Nil if the data doesn't exist or there is an error.
     public var content: [String]? {
@@ -13,7 +13,7 @@ public class DirectoryHelper: PathHelper {
         do {
             let paths = try contentsOfDirectory(atPath: path)
             return paths.map {
-                "\(self.path)/\($0)"
+                "\(path)/\($0)"
             }
         } catch let error {
             Logger.standard.log(error)

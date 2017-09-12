@@ -1,9 +1,9 @@
 /// CoreDataHelper is used to perform basic level core data interaction.
 ///
 /// - author: Adamas
-/// - version: 1.1.0
-/// - date: 12/07/2017
-public class CoreDataHelper {
+/// - version: 1.1.3
+/// - date: 07/09/2017
+final public class CoreDataHelper {
     
     /// SQL file suffix.
     private static let sqlFileSuffix = "sqlite"
@@ -34,10 +34,12 @@ public class CoreDataHelper {
     public init?(modelName: String, bundle: Bundle = Bundle.main) {
         // The directory used to store the Core Data store file. This code uses a directory in the application's documents Application Support directory.
         let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        guard let url = urls.last?.appendingPathComponent(modelName).appendingPathExtension(CoreDataHelper.sqlFileSuffix) else {
+        guard var url = urls.last else {
             Logger.standard.log(error: CoreDataHelper.modelNameError, withDetail: modelName)
             return nil
         }
+        url = url.appendingPathComponent(modelName)
+        url = url.appendingPathExtension(CoreDataHelper.sqlFileSuffix)
         // The managed object model for the application. This property is not optional. It is a fatal error for the application not to be able to find and load its model.
         guard let modelURL = bundle.url(forResource: modelName, withExtension: CoreDataHelper.modelFileSuffix) else {
             Logger.standard.log(error: CoreDataHelper.modelNameError, withDetail: modelName)
@@ -65,7 +67,7 @@ public class CoreDataHelper {
     ///
     /// - Parameter type: The class of the object that need to be inserted.
     /// - Returns: The object for insertion.
-    public func newObject(of type: AnyClass) -> NSManagedObject {
+    public func object(of type: AnyClass) -> NSManagedObject {
         let object = NSEntityDescription.insertNewObject(forEntityName: String(describing: type), into: context)
         return object
     }

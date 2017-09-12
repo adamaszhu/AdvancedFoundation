@@ -1,8 +1,8 @@
 /// Logger is used to format a log.
 /// - author: Adamas
-/// - version: 1.1.0
-/// - date: 12/07/2017
-public class Logger {
+/// - version: 1.1.3
+/// - date: 12/09/2017
+final public class Logger {
     
     /// Message tags.
     private static let errorTag = "Error"
@@ -55,16 +55,17 @@ public class Logger {
     /// - Parameters
     ///   - tag: The type of the message.
     ///   - message: The message.
+    ///   - detail: The detail of the message.
     private func log(message: String, withTag tag: String, withDetail detail: Any? = nil) {
         let date = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = Logger.dateFormat
         let dateString = dateFormatter.string(from: date)
+        var log = "\(tag) \(dateString): \(message)"
         if let detail = detail {
-            print("\(tag) \(dateString): \(message)\n\(Logger.detailSeperator)\n\(detail)\n\(Logger.detailSeperator)")
-        } else {
-            print("\(tag) \(dateString): \(message)")
+            log = log + "\n\(Logger.detailSeperator)\n\(detail)\n\(Logger.detailSeperator)"
         }
+        print(log)
     }
     
 }
