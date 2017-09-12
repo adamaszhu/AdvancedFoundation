@@ -123,7 +123,9 @@ class CoreDataHelperSpecs: QuickSpec {
             }
             context("with non existing object") {
                 it("returns false") {
-                    expect(coreDataHelper.delete(Test())) == false
+                    let object = coreDataHelper.object(of: Test.self)
+                    coreDataHelper.delete(object)
+                    expect(coreDataHelper.delete(object)) == false
                 }
             }
         }
