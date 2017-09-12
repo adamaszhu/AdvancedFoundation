@@ -1,8 +1,8 @@
 /// Number+CurrencyFormatter is used to format a number into currency string.
 ///
 /// - author: Adamas
-/// - version: 1.1.0
-/// - date: 12/07/2017
+/// - version: 1.1.3
+/// - date: 12/09/2017
 public extension NSNumber {
     
     /// System message.
@@ -29,8 +29,8 @@ public extension NSNumber {
         guard moneyString != "\(NSNumber.positiveSymbol)\(NSNumber.unlimitedSymbol)" else {
             return NSNumber.unlimitedSymbol
         }
-        if !shouldDisplayCent && moneyString.contains(NSNumber.dotSymbol) {
-            let dotIndex = moneyString.range(of: NSNumber.dotSymbol)!.lowerBound
+        if !shouldDisplayCent && moneyString.contains(NSNumber.dotSymbol),
+            let dotIndex = moneyString.range(of: NSNumber.dotSymbol)?.lowerBound {
             moneyString = moneyString.substring(to: dotIndex)
         }
         return moneyString

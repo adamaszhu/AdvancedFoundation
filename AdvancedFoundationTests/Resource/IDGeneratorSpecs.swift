@@ -14,14 +14,14 @@ class IDGeneratorSpecs: QuickSpec {
             context("for the first time") {
                 it("returns id ending with 0") {
                     let timeSeed = Int(Date().timeIntervalSince1970)
-                    expect(idGenerator.newID) == "\(timeSeed)0"
+                    expect(idGenerator.uniqueID) == "\(timeSeed)0"
                 }
             }
             context("for the second time") {
                 it("returns id ending with 1") {
                     let timeSeed = Int(Date().timeIntervalSince1970)
-                    _ = idGenerator.newID
-                    expect(idGenerator.newID) == "\(timeSeed)1"
+                    _ = idGenerator.uniqueID
+                    expect(idGenerator.uniqueID) == "\(timeSeed)1"
                 }
             }
         }

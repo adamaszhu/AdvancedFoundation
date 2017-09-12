@@ -1,8 +1,8 @@
 /// NetworkTask is a customized task.
 ///
 /// - author: Adamas
-/// - version: 1.1.0
-/// - date: 13/07/2017
+/// - version: 1.1.3
+/// - date: 13/09/2017
 struct NetworkTask {
     
     /// The task type of the task.
@@ -13,10 +13,8 @@ struct NetworkTask {
         if task is URLSessionUploadTask {
             return .upload
         }
-        if #available(iOS 9.0, *) {
-            if task is URLSessionStreamTask {
-                return .stream
-            }
+        if #available(iOS 9.0, *), task is URLSessionStreamTask {
+            return .stream
         }
         // URLSessionTask is a data task.
         return .data
@@ -39,7 +37,7 @@ struct NetworkTask {
     ///   - cache: The cache data.
     init(task: URLSessionTask, idGenerator: IDGenerator, cache: Data) {
         self.task = task
-        identifier = idGenerator.newID
+        identifier = idGenerator.uniqueID
         self.cache = cache
     }
     

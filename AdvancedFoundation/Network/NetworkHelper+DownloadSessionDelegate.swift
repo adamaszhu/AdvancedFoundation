@@ -1,8 +1,8 @@
 /// NetworkHelper+DownloadSessionDelegate delegates the action for a download task.
 ///
 // - author: Adamas
-/// - version: 1.1.0
-/// - date: 13/07/2017
+/// - version: 1.1.3
+/// - date: 13/09/2017
 extension NetworkHelper: URLSessionDownloadDelegate {
     
     /// System error.
@@ -26,7 +26,7 @@ extension NetworkHelper: URLSessionDownloadDelegate {
             dispatchError(for: task, withMessage: NetworkHelper.appError)
             return
         }
-        DispatchQueue.main.async {
+        DispatchQueue.main.async { [unowned self] _ in
             self.networkHelperDelegate?.networkHelper(self, withIdentifier: task.identifier, didDownloadToURL: destinationPath)
         }
     }
@@ -36,7 +36,7 @@ extension NetworkHelper: URLSessionDownloadDelegate {
             downloadTask.cancel()
             return
         }
-        DispatchQueue.main.async {
+        DispatchQueue.main.async { [unowned self] _ in
             self.networkHelperDelegate?.networkHelper(self, withIdentifier: task.identifier, didDownloadPercentage: Double(totalBytesWritten) / Double(totalBytesExpectedToWrite))
         }
     }

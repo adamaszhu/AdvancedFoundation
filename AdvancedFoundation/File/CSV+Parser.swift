@@ -1,8 +1,8 @@
 /// CSV+Parser parses a string to a csv object.
 ///
 /// - author: Adamas
-/// - version: 1.1.0
-/// - date: 12/07/2017
+/// - version: 1.1.3
+/// - date: 07/09/2017
 public extension CSV {
     
     /// Parse the content to a two dimention array.
@@ -16,7 +16,7 @@ public extension CSV {
             let parsedLine = $0.replacingOccurrences(of: "\t", with: "")
             table.append(parsedLine.components(separatedBy: ","))
         }
-        return CSV(table: table)
+        return .init(table: table)
     }
     
 }
