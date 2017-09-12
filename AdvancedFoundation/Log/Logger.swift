@@ -2,7 +2,7 @@
 /// - author: Adamas
 /// - version: 1.1.3
 /// - date: 12/09/2017
-public class Logger {
+final public class Logger {
     
     /// Message tags.
     private static let errorTag = "Error"

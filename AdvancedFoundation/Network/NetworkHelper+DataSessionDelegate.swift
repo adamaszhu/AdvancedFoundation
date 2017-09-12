@@ -1,8 +1,8 @@
 /// NetworkHelper+DataSessionDelegate delegates the action for a data task.
 ///
 /// - author: Adamas
-/// - version: 1.1.0
-/// - date: 13/07/2017
+/// - version: 1.1.3
+/// - date: 12/09/2017
 extension NetworkHelper: URLSessionDataDelegate {
     
     /// System error.
@@ -44,10 +44,10 @@ extension NetworkHelper: URLSessionDataDelegate {
             dispatchError(for: task, withMessage: NetworkHelper.serverError)
             return 
         }
-        DispatchQueue.main.async {
+        DispatchQueue.main.async { [unowned self] _ in
             self.networkHelperDelegate?.networkHelper(self, withIdentifier: task.identifier, didReceive: header, withStatusCode: httpResponse.statusCode)
         }
-        let shouldContinue = self.networkHelperDelegate?.networkHelperShouldReceiveData(self, withIdentifier: task.identifier)
+        let shouldContinue = networkHelperDelegate?.networkHelperShouldReceiveData(self, withIdentifier: task.identifier)
         if shouldContinue == false {
             // Only the response is required.
             remove(task)
