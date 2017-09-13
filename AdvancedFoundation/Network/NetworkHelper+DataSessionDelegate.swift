@@ -32,7 +32,7 @@ extension NetworkHelper: URLSessionDataDelegate {
             dispatchError(for: task, withMessage: NetworkHelper.serverError)
             return
         }
-        guard (httpResponse.statusCode >= 200) && (httpResponse.statusCode < 400) else {
+        guard httpResponse.statusCode >= 200, httpResponse.statusCode < 400 else {
             remove(task)
             Logger.standard.log(error: NetworkHelper.serverSideError)
             dispatchError(for: task, withMessage: NetworkHelper.serverError)

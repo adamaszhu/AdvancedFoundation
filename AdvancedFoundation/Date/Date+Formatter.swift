@@ -45,7 +45,7 @@ public extension Date {
             // Add 1 second for the time used to execute the command.
             timeOffset = Int(Date().timeIntervalSince1970 - timeIntervalSince1970 - 1)
         }
-        if timeOffset == 0 {
+        guard timeOffset != 0 else {
             return Date.nowTag.localizedInternalString(forType: Date.self)
         }
         var differTag = timeOffset > 0 ? Date.agoTag : Date.laterTag
