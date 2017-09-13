@@ -1,7 +1,7 @@
 /// Logger is used to format a log.
 /// - author: Adamas
-/// - version: 1.1.3
-/// - date: 12/09/2017
+/// - version: 1.1.4
+/// - date: 13/09/2017
 final public class Logger {
     
     /// Message tags.
@@ -14,7 +14,7 @@ final public class Logger {
     private static let dateFormat = "yyyy/MM/dd HH:mm:ss.SSS"
     
     /// The default logger.
-    public static let standard: Logger = .init()
+    public static let standard = Logger()
     
     /// Log an info.
     ///
