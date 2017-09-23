@@ -61,7 +61,7 @@ public extension Date {
         timeOffset = timeOffset - hour *  Date.hourLength
         let minute = timeOffset / Date.minuteLength
         let second = timeOffset - minute * Date.minuteLength
-        let abbrTag = shouldUseAbbreviation ? Date.abbrTag : ""
+        let abbrTag = shouldUseAbbreviation ? Date.abbrTag : .empty
         let yearTag = Date.tag(forUnit: year, withSingleTag: Date.yearTag, withDoubleTag: Date.yearsTag, withAbbreviationTag: abbrTag)
         let monthTag = Date.tag(forUnit: month, withSingleTag: Date.monthTag, withDoubleTag: Date.monthsTag, withAbbreviationTag: abbrTag)
         let dayTag = Date.tag(forUnit: day, withSingleTag: Date.dayTag, withDoubleTag: Date.daysTag, withAbbreviationTag: abbrTag)
@@ -69,7 +69,7 @@ public extension Date {
         let minuteTag = Date.tag(forUnit: minute, withSingleTag: Date.minuteTag, withDoubleTag: Date.minutesTag, withAbbreviationTag: abbrTag)
         let secondTag = Date.tag(forUnit: second, withSingleTag: Date.secondTag, withDoubleTag: Date.secondsTag, withAbbreviationTag: abbrTag)
         let timeOffsetString = "\(yearTag)\(monthTag)\(dayTag)\(hourTag)\(minuteTag)\(secondTag)\(differTag)"
-        return timeOffsetString.trimmingCharacters(in: CharacterSet(charactersIn: " "))
+        return timeOffsetString.trimmingCharacters(in: CharacterSet(charactersIn: .space))
     }
     
     /// Get the tag of a specific unit. Such as "2 Yrs" or "1 Year"
@@ -82,7 +82,7 @@ public extension Date {
     /// - Returns: The unit tag.
     private static func tag(forUnit unit: Int, withSingleTag singleTag: String, withDoubleTag doubleTag: String, withAbbreviationTag abbreviationTag: String) -> String {
         guard unit != 0 else {
-            return ""
+            return .empty
         }
         let spaceTag = Date.spaceTag.localizedInternalString(forType:Date.self)
         var unitTag = unit == 1 ? singleTag : doubleTag
