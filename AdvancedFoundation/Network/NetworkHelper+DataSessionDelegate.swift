@@ -1,7 +1,7 @@
 /// NetworkHelper+DataSessionDelegate delegates the action for a data task.
 ///
 /// - author: Adamas
-/// - version: 1.1.3
+/// - version: 1.1.4
 /// - date: 12/09/2017
 extension NetworkHelper: URLSessionDataDelegate {
     
@@ -32,7 +32,7 @@ extension NetworkHelper: URLSessionDataDelegate {
             dispatchError(for: task, withMessage: NetworkHelper.serverError)
             return
         }
-        guard (httpResponse.statusCode >= 200) && (httpResponse.statusCode < 400) else {
+        guard 200 ..< 400 ~= httpResponse.statusCode else {
             remove(task)
             Logger.standard.log(error: NetworkHelper.serverSideError)
             dispatchError(for: task, withMessage: NetworkHelper.serverError)

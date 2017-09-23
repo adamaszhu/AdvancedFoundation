@@ -13,8 +13,8 @@ public extension CSV {
         let txt = TXT.txt(from: content)
         var table = [[String]]()
         txt.lines.forEach {
-            let parsedLine = $0.replacingOccurrences(of: "\t", with: "")
-            table.append(parsedLine.components(separatedBy: ","))
+            let parsedLine = $0.replacingOccurrences(of: .tab, with: .empty)
+            table.append(parsedLine.components(separatedBy: .comma))
         }
         return .init(table: table)
     }

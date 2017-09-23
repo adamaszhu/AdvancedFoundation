@@ -1,8 +1,8 @@
 /// AppInfoAccessor provides the information about the app.
 ///
 /// - author: Adamas
-/// - version: 1.1.3
-/// - date: 07/09/2017
+/// - version: 1.1.4
+/// - date: 13/09/2017
 final public class AppInfoAccessor {
     
     /// System errors.
@@ -14,7 +14,7 @@ final public class AppInfoAccessor {
     private static let versionKey = "CFBundleShortVersionString"
     
     /// The singleton instance in the system.
-    public static let shared: AppInfoAccessor = .init()
+    public static let shared = AppInfoAccessor()
     
     /// The name of current bundle. It will be nil if the bundle name cannot be retireved.
     public var bundleName: String? {
