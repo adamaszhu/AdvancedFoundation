@@ -17,7 +17,7 @@ public extension NSNumber {
     /// - Returns: The number.
     public static func number(fromLongNumber longNumber: String) -> NSNumber? {
         // TODO: Validate the comma format.
-        let formattedLongNumberString = longNumber.replacingOccurrences(of: NSNumber.commaSymbol, with: "")
+        let formattedLongNumberString = longNumber.replacingOccurrences(of: NSNumber.commaSymbol, with: .empty)
         let formatter = NumberFormatter()
         formatter.numberStyle = NumberFormatter.Style.decimal
         guard let number = formatter.number(from: formattedLongNumberString) else {

@@ -1,7 +1,7 @@
 /// Array+Accessor provides additional support to access the array.
 ///
 /// - author: Adamas
-/// - version: 1.1.3
+/// - version: 1.1.4
 /// - date: 07/09/2017
 public extension Array {
     

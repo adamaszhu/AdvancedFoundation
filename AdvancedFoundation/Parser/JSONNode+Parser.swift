@@ -15,7 +15,7 @@ extension JSONNode {
     static func node(from path: String) -> JSONNode? {
         let leftBracketIndex = path.range(of: "[")?.lowerBound
         let rightBracketIndex = path.range(of: "]")?.lowerBound
-        if (leftBracketIndex == nil) && (rightBracketIndex == nil) {
+        if leftBracketIndex == nil, rightBracketIndex == nil {
             return JSONNode(name: path)
         }
         guard var realLeftBracketIndex = leftBracketIndex, let realRightBracketIndex = rightBracketIndex, realLeftBracketIndex < realRightBracketIndex else {

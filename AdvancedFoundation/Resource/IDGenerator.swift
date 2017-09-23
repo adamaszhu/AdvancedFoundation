@@ -1,12 +1,12 @@
 /// IDGenerator generates a unique id.
 ///
 /// - author: Adamas
-/// - version: 1.1.3
-/// - date: 12/09/2017
+/// - version: 1.1.4
+/// - date: 13/09/2017
 public class IDGenerator {
     
     /// The singleton instance.
-    public static let standard: IDGenerator = .init()
+    public static let standard = IDGenerator()
     
     /// Generate an unique identification.
     public var uniqueID: String {
