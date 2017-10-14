@@ -153,10 +153,21 @@ final public class CoreDataHelper {
             try context.save()
             return true
         } catch let error {
-            context.reset()
             Logger.standard.log(error)
             return nil
         }
+    }
+    
+    /// Reset the context
+    ///
+    /// - Returns: Whether the context has been reseted or not.
+    @discardableResult
+    public func reset() -> Bool {
+        guard context.hasChanges else {
+            return false
+        }
+        context.reset()
+        return true
     }
     
 }
