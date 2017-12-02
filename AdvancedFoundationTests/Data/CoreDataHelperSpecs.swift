@@ -154,9 +154,38 @@ class CoreDataHelperSpecs: QuickSpec {
                     expect(coreDataHelper.save()) == true
                 }
             }
+            context("if changes are invalid") {
+                it("returns nil") {
+                    let object = coreDataHelper.object(of: Test.self)
+                    object.testTitle = "This is a title longer than 20 characters"
+                    expect(coreDataHelper.save()).to(beNil())
+                }
+            }
             context("if no change is there") {
                 it("returns false") {
                     expect(coreDataHelper.save()) == false
+                }
+            }
+        }
+        describe("calls reset()") {
+            context("if invalid actions are there") {
+                it("returns true") {
+                    let object = coreDataHelper.object(of: Test.self)
+                    object.testTitle = "This is a title longer than 20 characters"
+                    coreDataHelper.save()
+                    expect(coreDataHelper.reset()) == true
+                }
+                it("disregards changes") {
+                    let object = coreDataHelper.object(of: Test.self)
+                    object.testTitle = "This is a title longer than 20 characters"
+                    coreDataHelper.save()
+                    coreDataHelper.reset()
+                    expect(coreDataHelper.objects(of: Test.self)?.count) == 0
+                }
+            }
+            context("if no changes have been made") {
+                it("returns false") {
+                    expect(coreDataHelper.reset()) == false
                 }
             }
         }
