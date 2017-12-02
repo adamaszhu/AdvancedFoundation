@@ -1,8 +1,8 @@
 /// CoreDataHelper is used to perform basic level core data interaction.
 ///
 /// - author: Adamas
-/// - version: 1.1.3
-/// - date: 07/09/2017
+/// - version: 1.1.6
+/// - date: 13/10/2017
 final public class CoreDataHelper {
     
     /// SQL file suffix.
@@ -156,6 +156,18 @@ final public class CoreDataHelper {
             Logger.standard.log(error)
             return nil
         }
+    }
+    
+    /// Reset the context
+    ///
+    /// - Returns: Whether the context has been reseted or not.
+    @discardableResult
+    public func reset() -> Bool {
+        guard context.hasChanges else {
+            return false
+        }
+        context.reset()
+        return true
     }
     
 }
