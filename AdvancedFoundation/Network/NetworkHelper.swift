@@ -225,7 +225,7 @@ final public class NetworkHelper: NSObject {
         }
         var header = header
         var request = URLRequest(url: url)
-        if !NetworkHelper.isNetworkAvailable {
+        if !isNetworkAvailable {
             // Support offline mode.
             request.cachePolicy = URLRequest.CachePolicy.returnCacheDataElseLoad
         }
