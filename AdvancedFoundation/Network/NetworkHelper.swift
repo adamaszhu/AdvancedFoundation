@@ -1,8 +1,8 @@
 /// NetowrkHelper is used to perform basic level internet connection.
 ///
 /// - author: Adamas
-/// - version: 1.1.3
-/// - date: 12/09/2017
+/// - version: 1.1.7
+/// - date: 08/12/2017
 final public class NetworkHelper: NSObject {
     
     /// System error.
@@ -10,26 +10,6 @@ final public class NetworkHelper: NSObject {
     private static let taskError = "The task doesn't exist."
     private static let taskTypeError = "The task type hasn't been supported yet."
     private static let settingError = "The network setting cannot be read."
-    
-    /// Whether the network is available or not. This method is referenced from http://stackoverflow.com/questions/39558868/check-internet-connection-ios-10
-    public static var isNetworkAvailable: Bool {
-        var zeroAddress = sockaddr_in()
-        zeroAddress.sin_len = UInt8(MemoryLayout.size(ofValue: zeroAddress))
-        zeroAddress.sin_family = sa_family_t(AF_INET)
-        let defaultRouteReachability = withUnsafePointer(to: &zeroAddress) {
-            $0.withMemoryRebound(to: sockaddr.self, capacity: 1) { zeroSockAddress in
-                SCNetworkReachabilityCreateWithAddress(nil, zeroSockAddress)
-            }
-        }
-        var flags = SCNetworkReachabilityFlags()
-        guard SCNetworkReachabilityGetFlags(defaultRouteReachability!, &flags) else {
-            Logger.standard.log(error: NetworkHelper.settingError)
-            return false
-        }
-        let isReachable = (flags.rawValue & UInt32(kSCNetworkFlagsReachable)) != 0
-        let needsConnection = (flags.rawValue & UInt32(kSCNetworkFlagsConnectionRequired)) != 0
-        return isReachable && !needsConnection
-    }
     
     /// The default helper.
     public static var standard: NetworkHelper? {
@@ -54,12 +34,32 @@ final public class NetworkHelper: NSObject {
     /// The cache used in the app.
     private var cache: URLCache
     
+    /// Whether the network is available or not. This method is referenced from http://stackoverflow.com/questions/39558868/check-internet-connection-ios-10
+    public var isNetworkAvailable: Bool {
+        var zeroAddress = sockaddr_in()
+        zeroAddress.sin_len = UInt8(MemoryLayout.size(ofValue: zeroAddress))
+        zeroAddress.sin_family = sa_family_t(AF_INET)
+        let defaultRouteReachability = withUnsafePointer(to: &zeroAddress) {
+            $0.withMemoryRebound(to: sockaddr.self, capacity: 1) { zeroSockAddress in
+                SCNetworkReachabilityCreateWithAddress(nil, zeroSockAddress)
+            }
+        }
+        var flags = SCNetworkReachabilityFlags()
+        guard SCNetworkReachabilityGetFlags(defaultRouteReachability!, &flags) else {
+            Logger.standard.log(error: NetworkHelper.settingError)
+            return false
+        }
+        let isReachable = (flags.rawValue & UInt32(kSCNetworkFlagsReachable)) != 0
+        let needsConnection = (flags.rawValue & UInt32(kSCNetworkFlagsConnectionRequired)) != 0
+        return isReachable && !needsConnection
+    }
+    
     /// Initialize the object.
     ///
     /// - Parameter:
-    ///   - identifier: The identifier used to identify the URL session running in the background.
+    ///   - identifier: The identifier used to identify the URL download session running in the background.
     ///   - cache: The cache to cache all request. Nil means use the default one.
-    public init(identifier: String, cache: URLCache = URLCache.shared) {
+    public init(identifier: String = "\(Date().timeIntervalSince1970)", cache: URLCache = URLCache.shared) {
         tasks = []
         self.cache = cache
         super.init()
@@ -225,7 +225,7 @@ final public class NetworkHelper: NSObject {
         }
         var header = header
         var request = URLRequest(url: url)
-        if !NetworkHelper.isNetworkAvailable {
+        if !isNetworkAvailable {
             // Support offline mode.
             request.cachePolicy = URLRequest.CachePolicy.returnCacheDataElseLoad
         }

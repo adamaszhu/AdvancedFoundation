@@ -19,14 +19,14 @@ class NetworkHelperHelperSpecs: QuickSpec {
         beforeEach {
             networkHelper.reset()
         }
-        describe("has isNetworkAvailable") {
-            it("is true") {
-                expect(NetworkHelper.isNetworkAvailable) == true
-            }
-        }
         describe("has standard") {
             it("is not nil") {
                 expect(NetworkHelper.standard).toNot(beNil())
+            }
+        }
+        describe("has isNetworkAvailable") {
+            it("is true") {
+                expect(networkHelper.isNetworkAvailable) == true
             }
         }
         describe("calls init(identifier:cache)") {
