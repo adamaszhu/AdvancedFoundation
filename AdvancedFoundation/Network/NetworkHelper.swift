@@ -57,9 +57,9 @@ final public class NetworkHelper: NSObject {
     /// Initialize the object.
     ///
     /// - Parameter:
-    ///   - identifier: The identifier used to identify the URL session running in the background.
+    ///   - identifier: The identifier used to identify the URL download session running in the background.
     ///   - cache: The cache to cache all request. Nil means use the default one.
-    public init(identifier: String, cache: URLCache = URLCache.shared) {
+    public init(identifier: String = "\(Date().timeIntervalSince1970)", cache: URLCache = URLCache.shared) {
         tasks = []
         self.cache = cache
         super.init()
