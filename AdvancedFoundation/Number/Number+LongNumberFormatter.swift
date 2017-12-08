@@ -14,8 +14,7 @@ public extension NSNumber {
     /// Read a long number string.
     ///
     /// - Parameter longNumber: The string to be rendered.
-    /// - Returns: The number.
-    public static func number(fromLongNumber longNumber: String) -> NSNumber? {
+    public convenience init?(longNumber: String) {
         // TODO: Validate the comma format.
         let formattedLongNumberString = longNumber.replacingOccurrences(of: NSNumber.commaSymbol, with: .empty)
         let formatter = NumberFormatter()
@@ -24,7 +23,7 @@ public extension NSNumber {
             Logger.standard.log(error: NSNumber.numberFormatError, withDetail: longNumber)
             return nil
         }
-        return number
+        self.init(value: number.doubleValue)
     }
     
 }

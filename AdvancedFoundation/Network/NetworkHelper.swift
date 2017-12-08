@@ -1,7 +1,7 @@
 /// NetowrkHelper is used to perform basic level internet connection.
 ///
 /// - author: Adamas
-/// - version: 1.1.7
+/// - version: 1.1.8
 /// - date: 08/12/2017
 final public class NetworkHelper: NSObject {
     
@@ -232,7 +232,7 @@ final public class NetworkHelper: NSObject {
         // Read cache related information and put it into the header
         let cachedResponse = cache.cachedResponse(for: request)
         if let cachedResponse = cachedResponse {
-            let networkResponse = NetworkResponseHeader.header(from: cachedResponse.response)
+            let networkResponse = NetworkResponseHeader(response: cachedResponse.response)
             header.ifModifiedSince = networkResponse?.lastModified
             header.ifNoneMatch = networkResponse?.eTag
         }

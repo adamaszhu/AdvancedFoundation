@@ -1,8 +1,8 @@
 /// Number+PercentageFormatter is used to format a number into a percentage format.
 ///
 /// - author: Adamas
-/// - version: 1.1.0
-/// - date: 12/07/2017
+/// - version: 1.1.8
+/// - date: 08/12/2017
 public extension NSNumber {
     
     /// System message.
@@ -31,20 +31,19 @@ public extension NSNumber {
     /// Read a percent string.
     ///
     /// - Parameter percentage: The string to be rendered.
-    /// - Returns: The string.
-    public static func number(fromPercentage percentage: String) -> NSNumber? {
+    public convenience init?(percentage: String) {
         guard percentage.contains(NSNumber.percentageSymbol) else {
-            Logger.standard.log(error: NSNumber.numberFormatError, withDetail: percentageString)
+            Logger.standard.log(error: NSNumber.numberFormatError, withDetail: percentage)
             return nil
         }
         let formattedPercentageString = percentage.replacingOccurrences(of: NSNumber.percentageSymbol, with: .empty)
         let formatter = NumberFormatter()
         formatter.numberStyle = NumberFormatter.Style.decimal
         guard let number = formatter.number(from: formattedPercentageString) else {
-            Logger.standard.log(error: NSNumber.numberFormatError, withDetail: percentageString)
+            Logger.standard.log(error: NSNumber.numberFormatError, withDetail: percentage)
             return nil
         }
-        return NSNumber(value: number.doubleValue / Double(100))
+        self.init(value: number.doubleValue / Double(100))
     }
     
 }

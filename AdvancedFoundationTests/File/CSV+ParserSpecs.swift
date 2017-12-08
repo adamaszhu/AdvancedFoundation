@@ -4,7 +4,7 @@ class CSVParserSpecs: QuickSpec {
         describe("calls csv(from)") {
             context("if content has comment") {
                 let content = "// COMMENT\nLine1Column1,Line1Column2\nLine2Column1"
-                let csv = CSV.csv(from: content)
+                let csv = CSV(content: content)
                 it("is parsed to 2 csv rows") {
                     expect(csv.table.count) == 2
                 }
@@ -14,7 +14,7 @@ class CSVParserSpecs: QuickSpec {
             }
             context("if content doesn't have comment") {
                 let content = "\nLine2Column1"
-                let csv = CSV.csv(from: content)
+                let csv = CSV(content: content)
                 it("is parsed to 2 lines") {
                     expect(csv.table.count) == 2
                 }
