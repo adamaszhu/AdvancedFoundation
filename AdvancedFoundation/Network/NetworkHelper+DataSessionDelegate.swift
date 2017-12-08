@@ -1,8 +1,8 @@
 /// NetworkHelper+DataSessionDelegate delegates the action for a data task.
 ///
 /// - author: Adamas
-/// - version: 1.1.4
-/// - date: 12/09/2017
+/// - version: 1.1.8
+/// - date: 08/12/2017
 extension NetworkHelper: URLSessionDataDelegate {
     
     /// System error.
@@ -38,7 +38,7 @@ extension NetworkHelper: URLSessionDataDelegate {
             dispatchError(for: task, withMessage: NetworkHelper.serverError)
             return
         }
-        guard let header = NetworkResponseHeader.header(from: response) else {
+        guard let header = NetworkResponseHeader(response: response) else {
             remove(task)
             Logger.standard.log(error: NetworkHelper.responseHeaderError)
             dispatchError(for: task, withMessage: NetworkHelper.serverError)

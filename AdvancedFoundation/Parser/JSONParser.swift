@@ -1,8 +1,8 @@
 /// JSONParser parses the data of a JSON structure.
 ///
 /// - author: Adamas
-/// - version: 1.1.3
-/// - date: 12/09/2017
+/// - version: 1.1.8
+/// - date: 08/12/2017
 final public class JSONParser {
     
     /// System error
@@ -87,7 +87,7 @@ final public class JSONParser {
             realPath.remove(prefix: "/")
             realNode = json
         }
-        guard let jsonPath = JSONPath.path(from: realPath) else {
+        guard let jsonPath = JSONPath(path: realPath) else {
             return nil
         }
         return self.node(at: jsonPath, fromNode: realNode)

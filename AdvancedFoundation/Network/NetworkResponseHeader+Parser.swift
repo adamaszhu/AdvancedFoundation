@@ -1,8 +1,8 @@
 /// NetworkResponseHeader+Parser parses the header information in a response.
 ///
 /// - author: Adamas
-/// - version: 1.1.0
-/// - date: 13/07/2017
+/// - version: 1.1.8
+/// - date: 08/12/2017
 extension NetworkResponseHeader {
     
     /// All header keys.
@@ -17,8 +17,7 @@ extension NetworkResponseHeader {
     /// Parse the header of a url response.
     ///
     /// - Parameter response: The response.
-    /// - Returns: The parsed header. Nil if the response is not a HTTP response.
-    static func header(from response: URLResponse) -> NetworkResponseHeader? {
+    init?(response: URLResponse) {
         guard let httpResponse = response as? HTTPURLResponse else {
             Logger.standard.log(error: NetworkResponseHeader.responseTypeError)
             return nil
@@ -30,7 +29,7 @@ extension NetworkResponseHeader {
         }
         let lastModified = httpResponse.allHeaderFields[NetworkResponseHeader.lastModifiedHeader] as? String
         let eTag = httpResponse.allHeaderFields[NetworkResponseHeader.eTagHeader] as? String
-        return NetworkResponseHeader(contentType: contentType, contentLength: contentLength, lastModified: lastModified, eTag: eTag)
+        self.init(contentType: contentType, contentLength: contentLength, lastModified: lastModified, eTag: eTag)
     }
     
 }
