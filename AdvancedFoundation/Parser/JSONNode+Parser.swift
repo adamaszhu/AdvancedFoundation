@@ -1,8 +1,8 @@
 /// JSONNode+Parser parses a node string into a JSONNode.
 ///
 /// - author: Adamas
-/// - version: 1.1.0
-/// - date: 12/07/2017
+/// - version: 1.1.8
+/// - date: 08/12/2017
 extension JSONNode {
     
     /// System error
@@ -11,25 +11,29 @@ extension JSONNode {
     /// Parse a node string with the format as name[index]
     ///
     /// - Parameter path: The string.
-    /// - Returns: The JSONNode. Nil if the string has an unexpected format.
-    static func node(from path: String) -> JSONNode? {
+    init?(path: String) {
         let leftBracketIndex = path.range(of: "[")?.lowerBound
         let rightBracketIndex = path.range(of: "]")?.lowerBound
+        var actualPath: String
+        var actualIndex: Int?
         if leftBracketIndex == nil, rightBracketIndex == nil {
-            return JSONNode(name: path)
+            actualPath = path
+        } else {
+            guard var realLeftBracketIndex = leftBracketIndex, let realRightBracketIndex = rightBracketIndex, realLeftBracketIndex < realRightBracketIndex else {
+                Logger.standard.log(error: JSONNode.pathFormatError, withDetail: path)
+                return nil
+            }
+            let name = path.substring(to: realLeftBracketIndex)
+            realLeftBracketIndex = path.index(realLeftBracketIndex, offsetBy: 1)
+            let indexRange = Range<String.Index>(uncheckedBounds: (lower: realLeftBracketIndex, upper: realRightBracketIndex))
+            guard let index = Int(path.substring(with: indexRange)) else {
+                Logger.standard.log(error: JSONNode.pathFormatError, withDetail: path)
+                return nil
+            }
+            actualPath = name
+            actualIndex = index
         }
-        guard var realLeftBracketIndex = leftBracketIndex, let realRightBracketIndex = rightBracketIndex, realLeftBracketIndex < realRightBracketIndex else {
-            Logger.standard.log(error: JSONNode.pathFormatError, withDetail: path)
-            return nil
-        }
-        let name = path.substring(to: realLeftBracketIndex)
-        realLeftBracketIndex = path.index(realLeftBracketIndex, offsetBy: 1)
-        let indexRange = Range<String.Index>(uncheckedBounds: (lower: realLeftBracketIndex, upper: realRightBracketIndex))
-        guard let index = Int(path.substring(with: indexRange)) else {
-            Logger.standard.log(error: JSONNode.pathFormatError, withDetail: path)
-            return nil
-        }
-        return JSONNode(name: name, index: index)
+        self.init(name: actualPath, index: actualIndex)
     }
     
 }

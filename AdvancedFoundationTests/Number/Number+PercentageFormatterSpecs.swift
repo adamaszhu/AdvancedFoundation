@@ -32,17 +32,17 @@ class PercentageFormatterSpecs: QuickSpec {
         describe("calls number(fromPercentage)") {
             context("with valid content in string") {
                 it("returns correct number") {
-                    expect(NSNumber.number(fromPercentage: "55.55%")) == 0.5555
+                    expect(NSNumber(percentage: "55.55%")) == 0.5555
                 }
             }
             context("without percentage string") {
                 it("returns invalid number") {
-                    expect(NSNumber.number(fromPercentage: "55")).to(beNil())
+                    expect(NSNumber(percentage: "55")).to(beNil())
                 }
             }
             context("with invalid character in string") {
                 it("returns invalid number") {
-                    expect(NSNumber.number(fromPercentage: "55C%")).to(beNil())
+                    expect(NSNumber(percentage: "55C%")).to(beNil())
                 }
             }
         }
