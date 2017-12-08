@@ -1,9 +1,9 @@
 /// ResourceHelper improves the ability to access resources.
 ///
 /// - author: Adamas
-/// - version: 1.1.3
-/// - date: 12/09/2017
-public class ResourceHelper {
+/// - version: 1.2.0
+/// - date: 08/12/2017
+open class ResourceHelper {
     
     /// System error.
     private static let resourceError = "The resource doesn't exist."
