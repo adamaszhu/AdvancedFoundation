@@ -1,9 +1,9 @@
 /// PathHelper is used to perform path related action.
 ///
 /// - author: Adamas
-/// - version: 1.1.0
-/// - date: 12/07/2017
-public class PathHelper: FileManager {
+/// - version: 1.2.0
+/// - date: 08/12/2017
+open class PathHelper: FileManager {
     
     /// Whether the file or a directory exists or not.
     public var isExisted: Bool {

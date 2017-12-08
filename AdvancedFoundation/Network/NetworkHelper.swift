@@ -1,9 +1,9 @@
 /// NetowrkHelper is used to perform basic level internet connection.
 ///
 /// - author: Adamas
-/// - version: 1.1.8
+/// - version: 1.2.0
 /// - date: 08/12/2017
-final public class NetworkHelper: NSObject {
+open class NetworkHelper: NSObject {
     
     /// System error.
     private static let urlError = "The url address is invalid."

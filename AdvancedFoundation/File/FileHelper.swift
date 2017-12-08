@@ -1,9 +1,9 @@
 /// FileHelper is used to perform file related action.
 ///
 /// - author: Adamas
-/// - version: 1.1.3
-/// - date: 07/09/2017
-final public class FileHelper: PathHelper {
+/// - version: 1.2.0
+/// - date: 08/12/2017
+open class FileHelper: PathHelper {
     
     /// The data of a file. Nil if the file doesn't exists or there is an error.
     public var content: Data? {

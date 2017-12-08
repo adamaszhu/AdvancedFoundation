@@ -1,9 +1,9 @@
 /// AppInfoAccessor provides the information about the app.
 ///
 /// - author: Adamas
-/// - version: 1.1.4
-/// - date: 13/09/2017
-final public class AppInfoAccessor {
+/// - version: 1.2.0
+/// - date: 08/12/2017
+open class AppInfoAccessor {
     
     /// System errors.
     private static let bundleNameError = "The bundle name cannot be retrieved."

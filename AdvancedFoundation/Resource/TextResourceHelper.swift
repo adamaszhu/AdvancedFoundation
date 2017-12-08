@@ -1,9 +1,9 @@
 /// TextResourceHelper provides support for a text resource file.
 ///
 /// - author: Adamas
-/// - version: 1.1.3
-/// - date: 12/09/2017
-final public class TextResourceHelper: ResourceHelper {
+/// - version: 1.2.0
+/// - date: 08/12/2017
+open class TextResourceHelper: ResourceHelper {
     
     /// The content as a string.
     public var content: String? {
