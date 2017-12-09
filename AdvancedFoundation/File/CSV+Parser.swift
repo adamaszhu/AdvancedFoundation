@@ -1,7 +1,7 @@
 /// CSV+Parser parses a string to a csv object.
 ///
 /// - author: Adamas
-/// - version: 1.1.8
+/// - version: 1.2.0
 /// - date: 08/12/2017
 public extension CSV {
     
@@ -12,8 +12,8 @@ public extension CSV {
         let txt = TXT(content: content)
         var table = [[String]]()
         txt.lines.forEach {
-            let parsedLine = $0.replacingOccurrences(of: .tab, with: .empty)
-            table.append(parsedLine.components(separatedBy: .comma))
+            let parsedLine = $0.replacingOccurrences(of: String.tab, with: String.empty)
+            table.append(parsedLine.components(separatedBy: String.comma))
         }
         self.init(table: table)
     }
