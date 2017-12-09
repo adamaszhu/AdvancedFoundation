@@ -5,7 +5,7 @@ class TextResourceHelperSpecs: QuickSpec {
             context("if the text resource exists") {
                 let textResourceHelper = TextResourceHelper(name: "Temp.txt")!
                 it("returns the content") {
-                    expect(textResourceHelper.content?.characters.count) > 0
+                    expect(textResourceHelper.content?.count) > 0
                 }
             }
             context("if the resource is not a text resource") {
