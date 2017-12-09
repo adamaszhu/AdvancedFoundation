@@ -36,7 +36,7 @@ public extension NSNumber {
             Logger.standard.log(error: NSNumber.numberFormatError, withDetail: percentage)
             return nil
         }
-        let formattedPercentageString = percentage.replacingOccurrences(of: NSNumber.percentageSymbol, with: .empty)
+        let formattedPercentageString = percentage.replacingOccurrences(of: NSNumber.percentageSymbol, with: String.empty)
         let formatter = NumberFormatter()
         formatter.numberStyle = NumberFormatter.Style.decimal
         guard let number = formatter.number(from: formattedPercentageString) else {

@@ -16,7 +16,7 @@ public extension NSNumber {
     /// - Parameter longNumber: The string to be rendered.
     public convenience init?(longNumber: String) {
         // TODO: Validate the comma format.
-        let formattedLongNumberString = longNumber.replacingOccurrences(of: NSNumber.commaSymbol, with: .empty)
+        let formattedLongNumberString = longNumber.replacingOccurrences(of: NSNumber.commaSymbol, with: String.empty)
         let formatter = NumberFormatter()
         formatter.numberStyle = NumberFormatter.Style.decimal
         guard let number = formatter.number(from: formattedLongNumberString) else {
