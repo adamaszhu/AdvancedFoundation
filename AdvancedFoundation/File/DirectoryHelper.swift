@@ -6,7 +6,7 @@
 open class DirectoryHelper: PathHelper {
     
     /// The path list of all contents in a directory. Nil if the data doesn't exist or there is an error.
-    public var content: [String]? {
+    @objc public var content: [String]? {
         guard isExisted else {
             return nil
         }

@@ -6,7 +6,7 @@
 open class FileHelper: PathHelper {
     
     /// The data of a file. Nil if the file doesn't exists or there is an error.
-    public var content: Data? {
+    @objc public var content: Data? {
         guard isExisted else {
             return nil
         }

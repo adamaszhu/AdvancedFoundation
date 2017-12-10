@@ -12,7 +12,7 @@ open class NetworkHelper: NSObject {
     private static let settingError = "The network setting cannot be read."
     
     /// The default helper.
-    public static var standard: NetworkHelper? {
+    @objc public static var standard: NetworkHelper? {
         guard let bundleName = AppInfoAccessor.shared.bundleName else {
             return nil
         }
@@ -23,10 +23,10 @@ open class NetworkHelper: NSObject {
     public var networkHelperDelegate: NetworkHelperDelegate?
     
     /// The session connecting to the network. Declare as internal is for DI.
-    var normalSession: URLSession!
+    @objc var normalSession: URLSession!
     
     /// The session used to download or upload in background mode. Declare as internal is for DI.
-    var backgroundSession: URLSession!
+    @objc var backgroundSession: URLSession!
     
     /// The task list. Declare as internal is for testing.
     var tasks: [NetworkTask]
@@ -35,7 +35,7 @@ open class NetworkHelper: NSObject {
     private var cache: URLCache
     
     /// Whether the network is available or not. This method is referenced from http://stackoverflow.com/questions/39558868/check-internet-connection-ios-10
-    public var isNetworkAvailable: Bool {
+    @objc public var isNetworkAvailable: Bool {
         var zeroAddress = sockaddr_in()
         zeroAddress.sin_len = UInt8(MemoryLayout.size(ofValue: zeroAddress))
         zeroAddress.sin_family = sa_family_t(AF_INET)
@@ -59,7 +59,7 @@ open class NetworkHelper: NSObject {
     /// - Parameter:
     ///   - identifier: The identifier used to identify the URL download session running in the background.
     ///   - cache: The cache to cache all request. Nil means use the default one.
-    public init(identifier: String = "\(Date().timeIntervalSince1970)", cache: URLCache = URLCache.shared) {
+    @objc public init(identifier: String = "\(Date().timeIntervalSince1970)", cache: URLCache = URLCache.shared) {
         tasks = []
         self.cache = cache
         super.init()
@@ -136,7 +136,7 @@ open class NetworkHelper: NSObject {
     }
     
     /// Reset the internet, which will cancel all the current internet connections.
-    public func reset() {
+    @objc public func reset() {
         tasks.forEach {
             $0.task.cancel()
         }
@@ -144,14 +144,14 @@ open class NetworkHelper: NSObject {
     }
     
     /// Clear all cache data.
-    public func clearCache() {
+    @objc public func clearCache() {
         cache.removeAllCachedResponses()
     }
     
     /// Clear the cache for a specific request.
     ///
     // - Parameter urlString: The address of the destination.
-    public func clearCache(forURL urlString: String) {
+    @objc public func clearCache(forURL urlString: String) {
         guard let parsedURLString = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed), let url = URL(string: parsedURLString) else {
             Logger.standard.log(error: NetworkHelper.urlError, withDetail: urlString)
             return
@@ -206,7 +206,7 @@ open class NetworkHelper: NSObject {
     ///   - message: The error message.
     func dispatchError(for task: NetworkTask, withMessage message: String) {
         let localizedMessage = message.localizedInternalString(forType: NetworkHelper.self)
-        DispatchQueue.main.async { [unowned self] _ in
+        DispatchQueue.main.async { [unowned self] in
             self.networkHelperDelegate?.networkHelper(self, withIdentifier: task.identifier, didCatchError: localizedMessage)
         }
     }
