@@ -1,10 +1,10 @@
 class URLSessionDataTaskMocker: URLSessionDataTask {
     
-    var delegate: (URLSessionDataDelegate & URLSessionTaskDelegate)?
-    let session: URLSession
-    let request: URLRequest
+    @objc var delegate: (URLSessionDataDelegate & URLSessionTaskDelegate)?
+    @objc let session: URLSession
+    @objc let request: URLRequest
     
-    init(session: URLSession, request: URLRequest) {
+    @objc init(session: URLSession, request: URLRequest) {
         self.session = session
         self.request = request
     }

@@ -23,10 +23,10 @@ extension JSONNode {
                 Logger.standard.log(error: JSONNode.pathFormatError, withDetail: path)
                 return nil
             }
-            let name = path.substring(to: realLeftBracketIndex)
+            let name = String(path[..<realLeftBracketIndex])
             realLeftBracketIndex = path.index(realLeftBracketIndex, offsetBy: 1)
             let indexRange = Range<String.Index>(uncheckedBounds: (lower: realLeftBracketIndex, upper: realRightBracketIndex))
-            guard let index = Int(path.substring(with: indexRange)) else {
+            guard let index = Int(String(path[indexRange])) else {
                 Logger.standard.log(error: JSONNode.pathFormatError, withDetail: path)
                 return nil
             }

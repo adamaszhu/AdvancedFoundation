@@ -1,6 +1,6 @@
 class URLSessionMocker: URLSession {
     
-    var urlSessionDelegate: URLSessionDelegate?
+    @objc var urlSessionDelegate: URLSessionDelegate?
     
     override func dataTask(with request: URLRequest) -> URLSessionDataTask {
         let dataTaskMocker = URLSessionDataTaskMocker(session: self, request: request)

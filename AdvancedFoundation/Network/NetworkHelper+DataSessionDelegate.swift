@@ -44,7 +44,7 @@ extension NetworkHelper: URLSessionDataDelegate {
             dispatchError(for: task, withMessage: NetworkHelper.serverError)
             return 
         }
-        DispatchQueue.main.async { [unowned self] _ in
+        DispatchQueue.main.async { [unowned self] in
             self.networkHelperDelegate?.networkHelper(self, withIdentifier: task.identifier, didReceive: header, withStatusCode: httpResponse.statusCode)
         }
         let shouldContinue = networkHelperDelegate?.networkHelperShouldReceiveData(self, withIdentifier: task.identifier)

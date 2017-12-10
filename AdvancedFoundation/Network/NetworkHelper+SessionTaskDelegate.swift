@@ -19,7 +19,7 @@ extension NetworkHelper: URLSessionTaskDelegate {
             dispatchError(for: networkTask, withMessage: NetworkHelper.internetError)
             return
         }
-        DispatchQueue.main.async { [unowned self] _ in
+        DispatchQueue.main.async { [unowned self] in
             switch networkTask.type {
             case .download:
                 // The url has been returned.

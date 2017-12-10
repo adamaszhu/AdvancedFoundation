@@ -31,7 +31,7 @@ public extension NSNumber {
     /// Read a percent string.
     ///
     /// - Parameter percentage: The string to be rendered.
-    public convenience init?(percentage: String) {
+    @objc public convenience init?(percentage: String) {
         guard percentage.contains(NSNumber.percentageSymbol) else {
             Logger.standard.log(error: NSNumber.numberFormatError, withDetail: percentage)
             return nil
