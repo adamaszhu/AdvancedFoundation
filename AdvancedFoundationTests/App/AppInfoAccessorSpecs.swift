@@ -20,6 +20,13 @@ class AppInfoAccessorSpecs: QuickSpec {
                 }
             }
         }
+        describe("has preferredLanguage") {
+            context("with valid preferred language") {
+                it("is valid preferred language") {
+                    expect(appInfoAccessor.preferredLanguage).toNot(beNil())
+                }
+            }
+        }
         describe("has version") {
             context("with valid bundle") {
                 it("is correct version") {
