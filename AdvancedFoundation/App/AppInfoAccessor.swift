@@ -34,6 +34,11 @@ open class AppInfoAccessor {
         return version
     }
     
+    /// The preferred language.
+    public var preferredLanguage: String? {
+        return Locale.preferredLanguages.first
+    }
+    
     /// The bundle of the app.
     private let bundle: Bundle
     
