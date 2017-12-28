@@ -26,7 +26,7 @@ extension NetworkHelper: URLSessionDownloadDelegate {
             dispatchError(for: task, withMessage: NetworkHelper.appError)
             return
         }
-        DispatchQueue.main.async { [unowned self] _ in
+        DispatchQueue.main.async { [unowned self] in
             self.networkHelperDelegate?.networkHelper(self, withIdentifier: task.identifier, didDownloadToURL: destinationPath)
         }
     }
@@ -36,7 +36,7 @@ extension NetworkHelper: URLSessionDownloadDelegate {
             downloadTask.cancel()
             return
         }
-        DispatchQueue.main.async { [unowned self] _ in
+        DispatchQueue.main.async { [unowned self] in
             self.networkHelperDelegate?.networkHelper(self, withIdentifier: task.identifier, didDownloadPercentage: Double(totalBytesWritten) / Double(totalBytesExpectedToWrite))
         }
     }

@@ -1,12 +1,12 @@
 /// DiretoryHelper provides actions for an directory.
 ///
 /// - author: Adamas
-/// - version: 1.1.3
-/// - date: 07/09/2017
-final public class DirectoryHelper: PathHelper {
+/// - version: 1.2.0
+/// - date: 08/12/2017
+open class DirectoryHelper: PathHelper {
     
     /// The path list of all contents in a directory. Nil if the data doesn't exist or there is an error.
-    public var content: [String]? {
+    @objc public var content: [String]? {
         guard isExisted else {
             return nil
         }

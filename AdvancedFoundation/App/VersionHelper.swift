@@ -1,9 +1,9 @@
 /// VersionHelper compares the version of the app. The version should be as the format of 1.2.3 where the first number will be changed if the style of the application is changed, the second number will be changed if some main functions are changed and the third number will be changed whenever errors or functions are fixed or changed.
 ///
 /// - author: Adamas
-/// - version: 1.1.1
+/// - version: 1.2.0
 /// - date: 07/09/2017
-final public class VersionHelper {
+open class VersionHelper {
     
     /// System error.
     private static let versionFormatError = "The version is not well formatted."

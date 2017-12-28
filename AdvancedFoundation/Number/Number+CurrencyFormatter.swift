@@ -9,7 +9,7 @@ public extension NSNumber {
     private static let numberFormatError = "The string doesn't have correct format."
     
     /// Symbols.
-    private static let dollarSymbol = "$"
+    public static let dollarSymbol = "$"
     private static let positiveSymbol = "+"
     private static let unlimitedSymbol = "∞"
     private static let dotSymbol = "."
@@ -18,7 +18,7 @@ public extension NSNumber {
     ///
     /// - Parameter shouldDisplayCent: Whether the cent should be displayed or not.
     /// - Returns: The formatted string.
-    public func moneyString(withCent shouldDisplayCent: Bool = false, withCurrencySymbol currencySymbol: String = dollarSymbol) -> String? {
+    @objc public func moneyString(withCent shouldDisplayCent: Bool = false, withCurrencySymbol currencySymbol: String = dollarSymbol) -> String? {
         let numberFormatter = NumberFormatter()
         numberFormatter.currencySymbol = currencySymbol
         numberFormatter.numberStyle = NumberFormatter.Style.currency
@@ -31,7 +31,7 @@ public extension NSNumber {
         }
         if !shouldDisplayCent && moneyString.contains(NSNumber.dotSymbol),
             let dotIndex = moneyString.range(of: NSNumber.dotSymbol)?.lowerBound {
-            moneyString = moneyString.substring(to: dotIndex)
+            moneyString = .init(moneyString[..<dotIndex])
         }
         return moneyString
     }

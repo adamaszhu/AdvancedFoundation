@@ -6,7 +6,7 @@
 public extension String {
     
     /// The default localization file.
-    private static let defaultLocalizationFilename = "Localizable"
+    public static let defaultLocalizationFilename = "Localizable"
     
     /// Localize a string within the class using a localization file in the main bundle.
     ///

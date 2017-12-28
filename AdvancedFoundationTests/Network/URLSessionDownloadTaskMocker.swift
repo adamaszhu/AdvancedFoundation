@@ -1,10 +1,10 @@
 class URLSessionDownloadTaskMocker: URLSessionDownloadTask {
     
-    var delegate: (URLSessionDataDelegate & URLSessionTaskDelegate & URLSessionDownloadDelegate)?
-    let session: URLSession
-    let request: URLRequest
+    @objc var delegate: (URLSessionDataDelegate & URLSessionTaskDelegate & URLSessionDownloadDelegate)?
+    @objc let session: URLSession
+    @objc let request: URLRequest
     
-    init(session: URLSession, request: URLRequest) {
+    @objc init(session: URLSession, request: URLRequest) {
         self.session = session
         self.request = request
     }

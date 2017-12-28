@@ -1,12 +1,12 @@
 /// PathHelper is used to perform path related action.
 ///
 /// - author: Adamas
-/// - version: 1.1.0
-/// - date: 12/07/2017
-public class PathHelper: FileManager {
+/// - version: 1.2.0
+/// - date: 08/12/2017
+open class PathHelper: FileManager {
     
     /// Whether the file or a directory exists or not.
-    public var isExisted: Bool {
+    @objc public var isExisted: Bool {
         return fileExists(atPath: path)
     }
     
@@ -24,12 +24,12 @@ public class PathHelper: FileManager {
     }
     
     /// The path of the file.
-    public private(set) var path: String
+    @objc public private(set) var path: String
     
     /// Initialize the helper.
     ///
     /// - Parameter path: The path that the helper should hold.
-    public init(path: String) {
+    @objc public init(path: String) {
         let formalizedPath = PathHelper.formalizedPath(from: path)
         self.path = PathHelper.absolutePath(from: formalizedPath)
         super.init()
