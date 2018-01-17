@@ -6,7 +6,7 @@ class NumberUnitFormatterSpecs: QuickSpec {
                 let number = NSNumber(value: 1)
                 context("with abbr") {
                     it("returns corrent distance string") {
-                        expect(number.distanceString(withAbbr: true)) == "1.000000 M"
+                        expect(number.distanceString(withAbbr: true)) == "1.000000M"
                     }
                 }
                 context("without abbr") {
@@ -16,22 +16,22 @@ class NumberUnitFormatterSpecs: QuickSpec {
                 }
                 context("with default abbr") {
                     it("returns corrent distance string") {
-                        expect(number.distanceString()) == "1.000000 M"
+                        expect(number.distanceString()) == "1.000000M"
                     }
                 }
                 context("with no precision") {
                     it("returns corrent distance string") {
-                        expect(number.distanceString(withPrecision: 0)) == "1 M"
+                        expect(number.distanceString(withPrecision: 0)) == "1M"
                     }
                 }
                 context("with precision") {
                     it("returns corrent distance string") {
-                        expect(number.distanceString(withPrecision: 2)) == "1.00 M"
+                        expect(number.distanceString(withPrecision: 2)) == "1.00M"
                     }
                 }
                 context("with default precision") {
                     it("returns corrent distance string") {
-                        expect(number.distanceString()) == "1.000000 M"
+                        expect(number.distanceString()) == "1.000000M"
                     }
                 }
             }
@@ -39,7 +39,7 @@ class NumberUnitFormatterSpecs: QuickSpec {
                 let number = NSNumber(value: 1.23)
                 context("with abbr") {
                     it("returns corrent distance string") {
-                        expect(number.distanceString(withAbbr: true)) == "1.230000 M"
+                        expect(number.distanceString(withAbbr: true)) == "1.230000M"
                     }
                 }
                 context("without abbr") {
@@ -49,22 +49,22 @@ class NumberUnitFormatterSpecs: QuickSpec {
                 }
                 context("with default abbr") {
                     it("returns corrent distance string") {
-                        expect(number.distanceString()) == "1.230000 M"
+                        expect(number.distanceString()) == "1.230000M"
                     }
                 }
                 context("with no precision") {
                     it("returns corrent distance string") {
-                        expect(number.distanceString(withPrecision: 0)) == "1 M"
+                        expect(number.distanceString(withPrecision: 0)) == "1M"
                     }
                 }
                 context("with precision") {
                     it("returns corrent distance string") {
-                        expect(number.distanceString(withPrecision: 2)) == "1.23 M"
+                        expect(number.distanceString(withPrecision: 2)) == "1.23M"
                     }
                 }
                 context("with default precision") {
                     it("returns corrent distance string") {
-                        expect(number.distanceString()) == "1.230000 M"
+                        expect(number.distanceString()) == "1.230000M"
                     }
                 }
             }
@@ -72,7 +72,7 @@ class NumberUnitFormatterSpecs: QuickSpec {
                 let number = NSNumber(value: 5)
                 context("with abbr") {
                     it("returns corrent distance string") {
-                        expect(number.distanceString(withAbbr: true)) == "5.000000 M"
+                        expect(number.distanceString(withAbbr: true)) == "5.000000M"
                     }
                 }
                 context("without abbr") {
@@ -82,22 +82,22 @@ class NumberUnitFormatterSpecs: QuickSpec {
                 }
                 context("with default abbr") {
                     it("returns corrent distance string") {
-                        expect(number.distanceString()) == "5.000000 M"
+                        expect(number.distanceString()) == "5.000000M"
                     }
                 }
                 context("with no precision") {
                     it("returns corrent distance string") {
-                        expect(number.distanceString(withPrecision: 0)) == "5 M"
+                        expect(number.distanceString(withPrecision: 0)) == "5M"
                     }
                 }
                 context("with precision") {
                     it("returns corrent distance string") {
-                        expect(number.distanceString(withPrecision: 2)) == "5.00 M"
+                        expect(number.distanceString(withPrecision: 2)) == "5.00M"
                     }
                 }
                 context("with default precision") {
                     it("returns corrent distance string") {
-                        expect(number.distanceString()) == "5.000000 M"
+                        expect(number.distanceString()) == "5.000000M"
                     }
                 }
             }
@@ -105,7 +105,7 @@ class NumberUnitFormatterSpecs: QuickSpec {
                 let number = NSNumber(value: 1000)
                 context("with abbr") {
                     it("returns corrent distance string") {
-                        expect(number.distanceString(withAbbr: true)) == "1.000000 KM"
+                        expect(number.distanceString(withAbbr: true)) == "1.000000KM"
                     }
                 }
                 context("without abbr") {
@@ -115,22 +115,22 @@ class NumberUnitFormatterSpecs: QuickSpec {
                 }
                 context("with default abbr") {
                     it("returns corrent distance string") {
-                        expect(number.distanceString()) == "1.000000 KM"
+                        expect(number.distanceString()) == "1.000000KM"
                     }
                 }
                 context("with no precision") {
                     it("returns corrent distance string") {
-                        expect(number.distanceString(withPrecision: 0)) == "1 KM"
+                        expect(number.distanceString(withPrecision: 0)) == "1KM"
                     }
                 }
                 context("with precision") {
                     it("returns corrent distance string") {
-                        expect(number.distanceString(withPrecision: 2)) == "1.00 KM"
+                        expect(number.distanceString(withPrecision: 2)) == "1.00KM"
                     }
                 }
                 context("with default precision") {
                     it("returns corrent distance string") {
-                        expect(number.distanceString()) == "1.000000 KM"
+                        expect(number.distanceString()) == "1.000000KM"
                     }
                 }
             }
@@ -138,7 +138,7 @@ class NumberUnitFormatterSpecs: QuickSpec {
                 let number = NSNumber(value: 1230)
                 context("with abbr") {
                     it("returns corrent distance string") {
-                        expect(number.distanceString(withAbbr: true)) == "1.230000 KM"
+                        expect(number.distanceString(withAbbr: true)) == "1.230000KM"
                     }
                 }
                 context("without abbr") {
@@ -148,22 +148,22 @@ class NumberUnitFormatterSpecs: QuickSpec {
                 }
                 context("with default abbr") {
                     it("returns corrent distance string") {
-                        expect(number.distanceString()) == "1.230000 KM"
+                        expect(number.distanceString()) == "1.230000KM"
                     }
                 }
                 context("with no precision") {
                     it("returns corrent distance string") {
-                        expect(number.distanceString(withPrecision: 0)) == "1 KM"
+                        expect(number.distanceString(withPrecision: 0)) == "1KM"
                     }
                 }
                 context("with precision") {
                     it("returns corrent distance string") {
-                        expect(number.distanceString(withPrecision: 2)) == "1.23 KM"
+                        expect(number.distanceString(withPrecision: 2)) == "1.23KM"
                     }
                 }
                 context("with default precision") {
                     it("returns corrent distance string") {
-                        expect(number.distanceString()) == "1.230000 KM"
+                        expect(number.distanceString()) == "1.230000KM"
                     }
                 }
             }
@@ -171,7 +171,7 @@ class NumberUnitFormatterSpecs: QuickSpec {
                 let number = NSNumber(value: 5000)
                 context("with abbr") {
                     it("returns corrent distance string") {
-                        expect(number.distanceString(withAbbr: true)) == "5.000000 KM"
+                        expect(number.distanceString(withAbbr: true)) == "5.000000KM"
                     }
                 }
                 context("without abbr") {
@@ -181,22 +181,22 @@ class NumberUnitFormatterSpecs: QuickSpec {
                 }
                 context("with default abbr") {
                     it("returns corrent distance string") {
-                        expect(number.distanceString()) == "5.000000 KM"
+                        expect(number.distanceString()) == "5.000000KM"
                     }
                 }
                 context("with no precision") {
                     it("returns corrent distance string") {
-                        expect(number.distanceString(withPrecision: 0)) == "5 KM"
+                        expect(number.distanceString(withPrecision: 0)) == "5KM"
                     }
                 }
                 context("with precision") {
                     it("returns corrent distance string") {
-                        expect(number.distanceString(withPrecision: 2)) == "5.00 KM"
+                        expect(number.distanceString(withPrecision: 2)) == "5.00KM"
                     }
                 }
                 context("with default precision") {
                     it("returns corrent distance string") {
-                        expect(number.distanceString()) == "5.000000 KM"
+                        expect(number.distanceString()) == "5.000000KM"
                     }
                 }
             }

@@ -52,7 +52,7 @@ public extension NSNumber {
             unitTag = NSNumber.meterTag
         }
         unitTag = unitTag.localizedInternalString(forType: NSNumber.self)
-        let spaceTag = NSNumber.spaceTag.localizedInternalString(forType: NSNumber.self)
+        let spaceTag = shouldUseAbbr ? String.empty : NSNumber.spaceTag.localizedInternalString(forType: NSNumber.self)
         return String(format: stringPattern, unit, spaceTag, unitTag)
     }
     
