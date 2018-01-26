@@ -1,16 +1,18 @@
 /// AppInfoAccessor provides the information about the app.
 ///
 /// - author: Adamas
-/// - version: 1.2.0
-/// - date: 08/12/2017
+/// - version: 1.2.2
+/// - date: 26/01/2018
 open class AppInfoAccessor {
     
     /// System errors.
     private static let bundleNameError = "The bundle name cannot be retrieved."
+    private static let displayNameError = "The display name cannot be retrieved."
     private static let currentVersionError = "The version cannot be retrieved."
     
     /// Dictionary keys.
     private static let bundleNameKey = "CFBundleName"
+    private static let displayNameKey = "CFBundleDisplayName"
     private static let versionKey = "CFBundleShortVersionString"
     
     /// The singleton instance in the system.
@@ -20,6 +22,15 @@ open class AppInfoAccessor {
     public var bundleName: String? {
         guard let name = bundle.infoDictionary?[AppInfoAccessor.bundleNameKey] as? String else {
             Logger.standard.log(error: AppInfoAccessor.bundleNameError)
+            return nil
+        }
+        return name
+    }
+    
+    /// The name being displayed in the device. It will be nil if the display name cannot be retireved.
+    public var displayName: String? {
+        guard let name = bundle.infoDictionary?[AppInfoAccessor.displayNameKey] as? String else {
+            Logger.standard.log(error: AppInfoAccessor.displayNameError)
             return nil
         }
         return name
