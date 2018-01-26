@@ -44,6 +44,8 @@
 		286353F01ED54306000B7A7F /* APIMocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286353EF1ED54306000B7A7F /* APIMocker.swift */; };
 		286353F21ED55974000B7A7F /* ErrorMocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286353F11ED55974000B7A7F /* ErrorMocker.swift */; };
 		286353F41ED55D92000B7A7F /* ResponseMocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286353F31ED55D92000B7A7F /* ResponseMocker.swift */; };
+		2878F8FF201BE3B800CB48BD /* Number+TimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2878F8FE201BE3B800CB48BD /* Number+TimeFormatter.swift */; };
+		287BFC5B201BEEEF003B3AE7 /* Number+TimeFormatterSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287BFC5A201BEEEF003B3AE7 /* Number+TimeFormatterSpecs.swift */; };
 		289C49942010115C00ABB4CD /* Number+UnitFormatterSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289C49932010115C00ABB4CD /* Number+UnitFormatterSpecs.swift */; };
 		28B942821ED3BD2400FFACA1 /* AppInfoAccessorSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F30E4A1E9E4CE200AC0249 /* AppInfoAccessorSpecs.swift */; };
 		28CB19361F747622006CFE05 /* String+Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CB19351F747622006CFE05 /* String+Constant.swift */; };
@@ -188,6 +190,8 @@
 		286353EF1ED54306000B7A7F /* APIMocker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIMocker.swift; sourceTree = "<group>"; };
 		286353F11ED55974000B7A7F /* ErrorMocker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorMocker.swift; sourceTree = "<group>"; };
 		286353F31ED55D92000B7A7F /* ResponseMocker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseMocker.swift; sourceTree = "<group>"; };
+		2878F8FE201BE3B800CB48BD /* Number+TimeFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Number+TimeFormatter.swift"; sourceTree = "<group>"; };
+		287BFC5A201BEEEF003B3AE7 /* Number+TimeFormatterSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Number+TimeFormatterSpecs.swift"; sourceTree = "<group>"; };
 		289C49932010115C00ABB4CD /* Number+UnitFormatterSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Number+UnitFormatterSpecs.swift"; sourceTree = "<group>"; };
 		28CB19351F747622006CFE05 /* String+Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Constant.swift"; sourceTree = "<group>"; };
 		28CC3FE11EB812DB00C632A5 /* CoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
@@ -472,6 +476,7 @@
 			children = (
 				2817B9BF200FFF9A00D0814B /* NSNumber.strings */,
 				420F3CA91EA06B1B00BAA0A4 /* Number+CurrencyFormatter.swift */,
+				2878F8FE201BE3B800CB48BD /* Number+TimeFormatter.swift */,
 				425336C91EA0A9E700B6D6BF /* Number+DecimalFormatter.swift */,
 				420F3CAB1EA0721800BAA0A4 /* Number+LongNumberFormatter.swift */,
 				420F3CAC1EA0721800BAA0A4 /* Number+PercentageFormatter.swift */,
@@ -488,6 +493,7 @@
 				425336C71EA090E100B6D6BF /* Number+LongNumberFormatterSpecs.swift */,
 				425336CD1EA1AB3B00B6D6BF /* Number+PercentageFormatterSpecs.swift */,
 				289C49932010115C00ABB4CD /* Number+UnitFormatterSpecs.swift */,
+				287BFC5A201BEEEF003B3AE7 /* Number+TimeFormatterSpecs.swift */,
 			);
 			path = Number;
 			sourceTree = "<group>";
@@ -914,6 +920,7 @@
 				42A1633C1F163799004C04E9 /* TXT+Parser.swift in Sources */,
 				42C13A6D1EBCC345000D2E50 /* IDGenerator.swift in Sources */,
 				28451A131EBC3D0400793441 /* NetworkHelperDelegate+Optional.swift in Sources */,
+				2878F8FF201BE3B800CB48BD /* Number+TimeFormatter.swift in Sources */,
 				284EEFDE1EC001CF0022EB6B /* FormDataFileField+Field.swift in Sources */,
 				420F3CAD1EA0721800BAA0A4 /* Number+LongNumberFormatter.swift in Sources */,
 				42F30E441E9E412900AC0249 /* VersionHelper.swift in Sources */,
@@ -967,6 +974,7 @@
 				280379801EFCDE2F0043682D /* Array+AccessorSpecs.swift in Sources */,
 				284EEFE81EC137500022EB6B /* FormDataFileField+ParsableSpecs.swift in Sources */,
 				429202861EC81CA700C4E909 /* NetworkHelperSpecsTask.swift in Sources */,
+				287BFC5B201BEEEF003B3AE7 /* Number+TimeFormatterSpecs.swift in Sources */,
 				42D342681EB4AB2200064B1C /* CSVSpecs.swift in Sources */,
 				28E703A01EBAA2DA002BEDFC /* JSONNodeSpecs.swift in Sources */,
 				42622E991EA1E51100E5D5E7 /* String+LocalizerSpecs.swift in Sources */,
