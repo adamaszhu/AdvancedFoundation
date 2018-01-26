@@ -20,6 +20,11 @@ open class VersionHelper {
         return VersionHelper(version: version, versionFlag: "\(VersionHelper.versionFlagPrefix)\(bundleName)")
     }()
     
+    /// Return the grand version number.
+    public var grandVersion: Int? {
+        return VersionHelper.versionComponents(inVersion: version)?.first
+    }
+    
     /// Whether current version flag has been settled in the user default or not.
     public var hasVersionFlag: Bool {
         let userDefaults = UserDefaults.standard
