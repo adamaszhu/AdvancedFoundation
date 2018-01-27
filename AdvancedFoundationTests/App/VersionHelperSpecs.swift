@@ -11,6 +11,26 @@ class VersionHelperSpecs: QuickSpec {
                 expect(VersionHelper.shared).toNot(beNil())
             }
         }
+        describe("has grand version") {
+            context("with valid version") {
+                let versionHelper = VersionHelper(version: "1.0.0", versionFlag: versionFlag)
+                it("returns grand version") {
+                    expect(versionHelper?.grandVersion) == 1
+                }
+            }
+            context("with invalid character in version") {
+                let versionHelper = VersionHelper(version: "1.c", versionFlag: versionFlag)
+                it("returns nil") {
+                    expect(versionHelper?.grandVersion).to(beNil())
+                }
+            }
+            context("with invalid format in version") {
+                let versionHelper = VersionHelper(version: "1..0", versionFlag: versionFlag)
+                it("returns nil") {
+                    expect(versionHelper?.grandVersion).to(beNil())
+                }
+            }
+        }
         describe("calls init(version:versionFlag)") {
             context("with valid version") {
                 let versionHelper = VersionHelper(version: "1.0.0", versionFlag: versionFlag)

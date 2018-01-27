@@ -20,6 +20,19 @@ class AppInfoAccessorSpecs: QuickSpec {
                 }
             }
         }
+        describe("has display name") {
+            context("with valid bundle") {
+                it("is correct display name") {
+                    expect(appInfoAccessor.displayName) == "AdvancedFoundation"
+                }
+            }
+            context("with invalid bundle") {
+                let appInfoAccessor = AppInfoAccessor(bundle: Bundle())
+                it("is nil") {
+                    expect(appInfoAccessor.displayName).to(beNil())
+                }
+            }
+        }
         describe("has preferredLanguage") {
             context("with valid preferred language") {
                 it("is valid preferred language") {
