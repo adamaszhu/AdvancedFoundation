@@ -8,7 +8,7 @@ class NumberTimeFormatterSpecs: QuickSpec {
         let yearLength = 365 * dayLength
         let monthLength = yearLength / 12
         var number: NSNumber!
-        describe("calls timeString(withAbbreviation)") {
+        describe("calls timeString(withPrecision:withAbbreviation)") {
             context("as 0") {
                 beforeEach {
                     number = NSNumber(value: 0)
@@ -26,6 +26,16 @@ class NumberTimeFormatterSpecs: QuickSpec {
                 context("with default abbreviation") {
                     it("returns correct time") {
                         expect(number.timeString()) == "0 Second"
+                    }
+                }
+                context("with valid precision") {
+                    it("returns correct time") {
+                        expect(number.timeString(withPrecision: 1)) == "0 Second"
+                    }
+                }
+                context("with invalid precision") {
+                    it("returns correct time") {
+                        expect(number.timeString(withPrecision: 0)) == ""
                     }
                 }
             }
@@ -49,6 +59,26 @@ class NumberTimeFormatterSpecs: QuickSpec {
                         expect(number.timeString()) == "1 Year 1 Month 1 Day 1 Hour 1 Minute 1 Second"
                     }
                 }
+                context("with over precision") {
+                    it("returns correct time") {
+                        expect(number.timeString(withPrecision: 100)) == "1 Year 1 Month 1 Day 1 Hour 1 Minute 1 Second"
+                    }
+                }
+                context("with valid precision") {
+                    it("returns correct time") {
+                        expect(number.timeString(withPrecision: 2)) == "1 Year 1 Month"
+                    }
+                }
+                context("with less precission") {
+                    it("returns correct time") {
+                        expect(number.timeString(withPrecision: 1)) == "1 Year"
+                    }
+                }
+                context("with invalid precision") {
+                    it("returns correct time") {
+                        expect(number.timeString(withPrecision: 0)) == ""
+                    }
+                }
             }
             context("as 1 year and 1 second") {
                 let timeSpan = 365 * 24 * 60 * 60 + 1
@@ -68,6 +98,26 @@ class NumberTimeFormatterSpecs: QuickSpec {
                 context("with default abbreviation") {
                     it("returns correct time") {
                         expect(number.timeString()) == "1 Year 1 Second"
+                    }
+                }
+                context("with over precision") {
+                    it("returns correct time") {
+                        expect(number.timeString(withPrecision: 100)) == "1 Year 1 Second"
+                    }
+                }
+                context("with valid precision") {
+                    it("returns correct time") {
+                        expect(number.timeString(withPrecision: 2)) == "1 Year 1 Second"
+                    }
+                }
+                context("with less precission") {
+                    it("returns correct time") {
+                        expect(number.timeString(withPrecision: 1)) == "1 Year"
+                    }
+                }
+                context("with invalid precision") {
+                    it("returns correct time") {
+                        expect(number.timeString(withPrecision: 0)) == ""
                     }
                 }
             }
@@ -91,6 +141,16 @@ class NumberTimeFormatterSpecs: QuickSpec {
                         expect(number.timeString()) == "1 Second"
                     }
                 }
+                context("with valid precision") {
+                    it("returns correct time") {
+                        expect(number.timeString(withPrecision: 1)) == "1 Second"
+                    }
+                }
+                context("with invalid precision") {
+                    it("returns correct time") {
+                        expect(number.timeString(withPrecision: 0)) == ""
+                    }
+                }
             }
             context("as 2 seconds") {
                 let timeSpan = 2 * secondLength
@@ -110,6 +170,16 @@ class NumberTimeFormatterSpecs: QuickSpec {
                 context("with default abbreviation") {
                     it("returns correct time") {
                         expect(number.timeString()) == "2 Seconds"
+                    }
+                }
+                context("with valid precision") {
+                    it("returns correct time") {
+                        expect(number.timeString(withPrecision: 1)) == "2 Seconds"
+                    }
+                }
+                context("with invalid precision") {
+                    it("returns correct time") {
+                        expect(number.timeString(withPrecision: 0)) == ""
                     }
                 }
             }
@@ -133,6 +203,16 @@ class NumberTimeFormatterSpecs: QuickSpec {
                         expect(number.timeString()) == "1 Minute"
                     }
                 }
+                context("with valid precision") {
+                    it("returns correct time") {
+                        expect(number.timeString(withPrecision: 1)) == "1 Minute"
+                    }
+                }
+                context("with invalid precision") {
+                    it("returns correct time") {
+                        expect(number.timeString(withPrecision: 0)) == ""
+                    }
+                }
             }
             context("as 2 minutes") {
                 let timeSpan = 2 * minuteLength
@@ -152,6 +232,16 @@ class NumberTimeFormatterSpecs: QuickSpec {
                 context("with default abbreviation") {
                     it("returns correct time") {
                         expect(number.timeString()) == "2 Minutes"
+                    }
+                }
+                context("with valid precision") {
+                    it("returns correct time") {
+                        expect(number.timeString(withPrecision: 1)) == "2 Minutes"
+                    }
+                }
+                context("with invalid precision") {
+                    it("returns correct time") {
+                        expect(number.timeString(withPrecision: 0)) == ""
                     }
                 }
             }
@@ -175,6 +265,16 @@ class NumberTimeFormatterSpecs: QuickSpec {
                         expect(number.timeString()) == "1 Hour"
                     }
                 }
+                context("with valid precision") {
+                    it("returns correct time") {
+                        expect(number.timeString(withPrecision: 1)) == "1 Hour"
+                    }
+                }
+                context("with invalid precision") {
+                    it("returns correct time") {
+                        expect(number.timeString(withPrecision: 0)) == ""
+                    }
+                }
             }
             context("as 2 hours") {
                 let timeSpan = 2 * hourLength
@@ -194,6 +294,16 @@ class NumberTimeFormatterSpecs: QuickSpec {
                 context("with default abbreviation") {
                     it("returns correct time") {
                         expect(number.timeString()) == "2 Hours"
+                    }
+                }
+                context("with valid precision") {
+                    it("returns correct time") {
+                        expect(number.timeString(withPrecision: 1)) == "2 Hours"
+                    }
+                }
+                context("with invalid precision") {
+                    it("returns correct time") {
+                        expect(number.timeString(withPrecision: 0)) == ""
                     }
                 }
             }
@@ -217,6 +327,16 @@ class NumberTimeFormatterSpecs: QuickSpec {
                         expect(number.timeString()) == "1 Day"
                     }
                 }
+                context("with valid precision") {
+                    it("returns correct time") {
+                        expect(number.timeString(withPrecision: 1)) == "1 Day"
+                    }
+                }
+                context("with invalid precision") {
+                    it("returns correct time") {
+                        expect(number.timeString(withPrecision: 0)) == ""
+                    }
+                }
             }
             context("as 2 days") {
                 let timeSpan = 2 * dayLength
@@ -236,6 +356,16 @@ class NumberTimeFormatterSpecs: QuickSpec {
                 context("with default abbreviation") {
                     it("returns correct time") {
                         expect(number.timeString()) == "2 Days"
+                    }
+                }
+                context("with valid precision") {
+                    it("returns correct time") {
+                        expect(number.timeString(withPrecision: 1)) == "2 Days"
+                    }
+                }
+                context("with invalid precision") {
+                    it("returns correct time") {
+                        expect(number.timeString(withPrecision: 0)) == ""
                     }
                 }
             }
@@ -259,6 +389,16 @@ class NumberTimeFormatterSpecs: QuickSpec {
                         expect(number.timeString()) == "1 Month"
                     }
                 }
+                context("with valid precision") {
+                    it("returns correct time") {
+                        expect(number.timeString(withPrecision: 1)) == "1 Month"
+                    }
+                }
+                context("with invalid precision") {
+                    it("returns correct time") {
+                        expect(number.timeString(withPrecision: 0)) == ""
+                    }
+                }
             }
             context("as 2 months") {
                 let timeSpan = 2 * monthLength
@@ -278,6 +418,16 @@ class NumberTimeFormatterSpecs: QuickSpec {
                 context("with default abbreviation") {
                     it("returns correct time") {
                         expect(number.timeString()) == "2 Months"
+                    }
+                }
+                context("with valid precision") {
+                    it("returns correct time") {
+                        expect(number.timeString(withPrecision: 1)) == "2 Months"
+                    }
+                }
+                context("with invalid precision") {
+                    it("returns correct time") {
+                        expect(number.timeString(withPrecision: 0)) == ""
                     }
                 }
             }
@@ -301,6 +451,16 @@ class NumberTimeFormatterSpecs: QuickSpec {
                         expect(number.timeString()) == "1 Year"
                     }
                 }
+                context("with valid precision") {
+                    it("returns correct time") {
+                        expect(number.timeString(withPrecision: 1)) == "1 Year"
+                    }
+                }
+                context("with invalid precision") {
+                    it("returns correct time") {
+                        expect(number.timeString(withPrecision: 0)) == ""
+                    }
+                }
             }
             context("as 2 years") {
                 let timeSpan = 2 * yearLength
@@ -320,6 +480,16 @@ class NumberTimeFormatterSpecs: QuickSpec {
                 context("with default abbreviation") {
                     it("returns correct time") {
                         expect(number.timeString()) == "2 Years"
+                    }
+                }
+                context("with valid precision") {
+                    it("returns correct time") {
+                        expect(number.timeString(withPrecision: 1)) == "2 Years"
+                    }
+                }
+                context("with invalid precision") {
+                    it("returns correct time") {
+                        expect(number.timeString(withPrecision: 0)) == ""
                     }
                 }
             }

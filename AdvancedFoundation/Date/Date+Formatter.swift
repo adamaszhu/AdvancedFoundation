@@ -1,9 +1,12 @@
 /// Date+Formatter provides additional format function for a date object.
 ///
 /// - author: Adamas
-/// - version: 1.2.2
-/// - date: 27/01/2018
+/// - version: 1.3.0
+/// - date: 06/07/2018
 public extension Date {
+    
+    /// System errors.
+    private static let precisionError = "The precision should be at least one."
     
     /// All localized string tag.
     private static let agoTag = "Ago"
@@ -13,9 +16,15 @@ public extension Date {
     
     /// Convert the time gap between the time specified and the current time to a simple time offset string. Such as "3 Hrs Ago".
     ///
-    /// - Parameter shouldUseAbbreviation: Whether the time description should be abbreviation or not.
+    /// - Parameters:
+    ///   - precision: How many units should be included.
+    ///   - shouldUseAbbreviation: Whether the time description should be abbreviation or not.
     /// - Returns: The time offset string.
-    public func timeOffsetString(withAbbreviation shouldUseAbbreviation: Bool = false) -> String {
+    public func timeOffsetString(withPrecision precision: Int = Int.max, withAbbreviation shouldUseAbbreviation: Bool = false) -> String {
+        guard precision > 0 else {
+            Logger.standard.log(error: Date.precisionError)
+            return .empty
+        }
         let currentTimeInterval = Date().timeIntervalSince1970
         var timeOffset: Int
         if currentTimeInterval > timeIntervalSince1970 {
@@ -29,7 +38,7 @@ public extension Date {
         }
         var differTag = timeOffset > 0 ? Date.agoTag : Date.laterTag
         differTag = Date.spaceTag.localizedInternalString(forType: Date.self) + differTag.localizedInternalString(forType: Date.self)
-        let timeString = NSNumber(value: timeOffset).timeString(withAbbreviation: shouldUseAbbreviation)
+        let timeString = NSNumber(value: timeOffset).timeString(withPrecision: precision, withAbbreviation: shouldUseAbbreviation)
         let timeOffsetString = "\(timeString)\(differTag)"
         return timeOffsetString.trimmingCharacters(in: CharacterSet(charactersIn: .space))
     }

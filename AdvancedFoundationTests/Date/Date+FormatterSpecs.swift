@@ -9,7 +9,7 @@ class DateFormatterSpecs: QuickSpec {
         let yearLength = 365 * dayLength
         let monthLength = yearLength / 12
         var date: Date!
-        describe("calls timeOffsetString(withAbbreviation)") {
+        describe("calls timeOffsetString(withPrecision:withAbbreviation)") {
             context("as now") {
                 beforeEach {
                     date = Date()
@@ -27,6 +27,16 @@ class DateFormatterSpecs: QuickSpec {
                 context("with default abbreviation") {
                     it("returns correct timeoffset") {
                         expect(date.timeOffsetString()) == "Now"
+                    }
+                }
+                context("with valid precision") {
+                    it("returns correct timeoffset") {
+                        expect(date.timeOffsetString(withPrecision: 1)) == "Now"
+                    }
+                }
+                context("with invalid precision") {
+                    it("returns correct timeoffset") {
+                        expect(date.timeOffsetString(withPrecision: 0)) == ""
                     }
                 }
             }
@@ -47,6 +57,16 @@ class DateFormatterSpecs: QuickSpec {
                 context("with default abbreviation") {
                     it("returns correct timeoffset") {
                         expect(date.timeOffsetString()) == "1 Second Later"
+                    }
+                }
+                context("with valid precision") {
+                    it("returns correct timeoffset") {
+                        expect(date.timeOffsetString(withPrecision: 1)) == "1 Second Later"
+                    }
+                }
+                context("with invalid precision") {
+                    it("returns correct timeoffset") {
+                        expect(date.timeOffsetString(withPrecision: 0)) == ""
                     }
                 }
             }
@@ -70,6 +90,26 @@ class DateFormatterSpecs: QuickSpec {
                         expect(date.timeOffsetString()) == "1 Year 1 Month 1 Day 1 Hour 1 Minute 1 Second Ago"
                     }
                 }
+                context("with valid precision") {
+                    it("returns correct timeoffset") {
+                        expect(date.timeOffsetString(withPrecision: 2)) == "1 Year 1 Month Ago"
+                    }
+                }
+                context("with over precision") {
+                    it("returns correct timeoffset") {
+                        expect(date.timeOffsetString(withPrecision: 100)) == "1 Year 1 Month 1 Day 1 Hour 1 Minute 1 Second Ago"
+                    }
+                }
+                context("with less precision") {
+                    it("returns correct timeoffset") {
+                        expect(date.timeOffsetString(withPrecision: 1)) == "1 Year Ago"
+                    }
+                }
+                context("with invalid precision") {
+                    it("returns correct timeoffset") {
+                        expect(date.timeOffsetString(withPrecision: 0)) == ""
+                    }
+                }
             }
             context("as 1 year and 1 second before") {
                 let timeOffset = TimeInterval(-365 * 24 * 60 * 60 - 1)
@@ -89,6 +129,26 @@ class DateFormatterSpecs: QuickSpec {
                 context("with default abbreviation") {
                     it("returns correct timeoffset") {
                         expect(date.timeOffsetString()) == "1 Year 1 Second Ago"
+                    }
+                }
+                context("with valid precision") {
+                    it("returns correct timeoffset") {
+                        expect(date.timeOffsetString(withPrecision: 2)) == "1 Year 1 Second Ago"
+                    }
+                }
+                context("with over precision") {
+                    it("returns correct timeoffset") {
+                        expect(date.timeOffsetString(withPrecision: 100)) == "1 Year 1 Second Ago"
+                    }
+                }
+                context("with less precision") {
+                    it("returns correct timeoffset") {
+                        expect(date.timeOffsetString(withPrecision: 1)) == "1 Year Ago"
+                    }
+                }
+                context("with invalid precision") {
+                    it("returns correct timeoffset") {
+                        expect(date.timeOffsetString(withPrecision: 0)) == ""
                     }
                 }
             }
@@ -112,6 +172,16 @@ class DateFormatterSpecs: QuickSpec {
                         expect(date.timeOffsetString()) == "1 Second Ago"
                     }
                 }
+                context("with valid precision") {
+                    it("returns correct timeoffset") {
+                        expect(date.timeOffsetString(withPrecision: 1)) == "1 Second Ago"
+                    }
+                }
+                context("with invalid precision") {
+                    it("returns correct timeoffset") {
+                        expect(date.timeOffsetString(withPrecision: 0)) == ""
+                    }
+                }
             }
             context("as 2 seconds before") {
                 let timeOffset = TimeInterval(-2 * secondLength)
@@ -131,6 +201,16 @@ class DateFormatterSpecs: QuickSpec {
                 context("with default abbreviation") {
                     it("returns correct timeoffset") {
                         expect(date.timeOffsetString()) == "2 Seconds Ago"
+                    }
+                }
+                context("with valid precision") {
+                    it("returns correct timeoffset") {
+                        expect(date.timeOffsetString(withPrecision: 1)) == "2 Seconds Ago"
+                    }
+                }
+                context("with invalid precision") {
+                    it("returns correct timeoffset") {
+                        expect(date.timeOffsetString(withPrecision: 0)) == ""
                     }
                 }
             }
@@ -154,6 +234,16 @@ class DateFormatterSpecs: QuickSpec {
                         expect(date.timeOffsetString()) == "1 Minute Ago"
                     }
                 }
+                context("with valid precision") {
+                    it("returns correct timeoffset") {
+                        expect(date.timeOffsetString(withPrecision: 1)) == "1 Minute Ago"
+                    }
+                }
+                context("with invalid precision") {
+                    it("returns correct timeoffset") {
+                        expect(date.timeOffsetString(withPrecision: 0)) == ""
+                    }
+                }
             }
             context("as 2 minutes before") {
                 let timeOffset = TimeInterval(-2 * minuteLength)
@@ -173,6 +263,16 @@ class DateFormatterSpecs: QuickSpec {
                 context("with default abbreviation") {
                     it("returns correct timeoffset") {
                         expect(date.timeOffsetString()) == "2 Minutes Ago"
+                    }
+                }
+                context("with valid precision") {
+                    it("returns correct timeoffset") {
+                        expect(date.timeOffsetString(withPrecision: 1)) == "2 Minutes Ago"
+                    }
+                }
+                context("with invalid precision") {
+                    it("returns correct timeoffset") {
+                        expect(date.timeOffsetString(withPrecision: 0)) == ""
                     }
                 }
             }
@@ -196,6 +296,16 @@ class DateFormatterSpecs: QuickSpec {
                         expect(date.timeOffsetString()) == "1 Hour Ago"
                     }
                 }
+                context("with valid precision") {
+                    it("returns correct timeoffset") {
+                        expect(date.timeOffsetString(withPrecision: 1)) == "1 Hour Ago"
+                    }
+                }
+                context("with invalid precision") {
+                    it("returns correct timeoffset") {
+                        expect(date.timeOffsetString(withPrecision: 0)) == ""
+                    }
+                }
             }
             context("as 2 hours before") {
                 let timeOffset = TimeInterval(-2 * hourLength)
@@ -215,6 +325,16 @@ class DateFormatterSpecs: QuickSpec {
                 context("with default abbreviation") {
                     it("returns correct timeoffset") {
                         expect(date.timeOffsetString()) == "2 Hours Ago"
+                    }
+                }
+                context("with valid precision") {
+                    it("returns correct timeoffset") {
+                        expect(date.timeOffsetString(withPrecision: 1)) == "2 Hours Ago"
+                    }
+                }
+                context("with invalid precision") {
+                    it("returns correct timeoffset") {
+                        expect(date.timeOffsetString(withPrecision: 0)) == ""
                     }
                 }
             }
@@ -238,6 +358,16 @@ class DateFormatterSpecs: QuickSpec {
                         expect(date.timeOffsetString()) == "1 Day Ago"
                     }
                 }
+                context("with valid precision") {
+                    it("returns correct timeoffset") {
+                        expect(date.timeOffsetString(withPrecision: 1)) == "1 Day Ago"
+                    }
+                }
+                context("with invalid precision") {
+                    it("returns correct timeoffset") {
+                        expect(date.timeOffsetString(withPrecision: 0)) == ""
+                    }
+                }
             }
             context("as 2 days before") {
                 let timeOffset = TimeInterval(-2 * dayLength)
@@ -257,6 +387,16 @@ class DateFormatterSpecs: QuickSpec {
                 context("with default abbreviation") {
                     it("returns correct timeoffset") {
                         expect(date.timeOffsetString()) == "2 Days Ago"
+                    }
+                }
+                context("with valid precision") {
+                    it("returns correct timeoffset") {
+                        expect(date.timeOffsetString(withPrecision: 1)) == "2 Days Ago"
+                    }
+                }
+                context("with invalid precision") {
+                    it("returns correct timeoffset") {
+                        expect(date.timeOffsetString(withPrecision: 0)) == ""
                     }
                 }
             }
@@ -280,6 +420,16 @@ class DateFormatterSpecs: QuickSpec {
                         expect(date.timeOffsetString()) == "1 Month Ago"
                     }
                 }
+                context("with valid precision") {
+                    it("returns correct timeoffset") {
+                        expect(date.timeOffsetString(withPrecision: 1)) == "1 Month Ago"
+                    }
+                }
+                context("with invalid precision") {
+                    it("returns correct timeoffset") {
+                        expect(date.timeOffsetString(withPrecision: 0)) == ""
+                    }
+                }
             }
             context("as 2 months before") {
                 let timeOffset = TimeInterval(-2 * monthLength)
@@ -299,6 +449,16 @@ class DateFormatterSpecs: QuickSpec {
                 context("with default abbreviation") {
                     it("returns correct timeoffset") {
                         expect(date.timeOffsetString()) == "2 Months Ago"
+                    }
+                }
+                context("with valid precision") {
+                    it("returns correct timeoffset") {
+                        expect(date.timeOffsetString(withPrecision: 1)) == "2 Months Ago"
+                    }
+                }
+                context("with invalid precision") {
+                    it("returns correct timeoffset") {
+                        expect(date.timeOffsetString(withPrecision: 0)) == ""
                     }
                 }
             }
@@ -322,6 +482,16 @@ class DateFormatterSpecs: QuickSpec {
                         expect(date.timeOffsetString()) == "1 Year Ago"
                     }
                 }
+                context("with valid precision") {
+                    it("returns correct timeoffset") {
+                        expect(date.timeOffsetString(withPrecision: 1)) == "1 Year Ago"
+                    }
+                }
+                context("with invalid precision") {
+                    it("returns correct timeoffset") {
+                        expect(date.timeOffsetString(withPrecision: 0)) == ""
+                    }
+                }
             }
             context("as 2 years before") {
                 let timeOffset = TimeInterval(-2 * yearLength)
@@ -341,6 +511,16 @@ class DateFormatterSpecs: QuickSpec {
                 context("with default abbreviation") {
                     it("returns correct timeoffset") {
                         expect(date.timeOffsetString()) == "2 Years Ago"
+                    }
+                }
+                context("with valid precision") {
+                    it("returns correct timeoffset") {
+                        expect(date.timeOffsetString(withPrecision: 1)) == "2 Years Ago"
+                    }
+                }
+                context("with invalid precision") {
+                    it("returns correct timeoffset") {
+                        expect(date.timeOffsetString(withPrecision: 0)) == ""
                     }
                 }
             }
