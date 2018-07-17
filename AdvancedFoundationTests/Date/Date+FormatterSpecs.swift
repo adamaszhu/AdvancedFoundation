@@ -9,6 +9,36 @@ class DateFormatterSpecs: QuickSpec {
         let yearLength = 365 * dayLength
         let monthLength = yearLength / 12
         var date: Date!
+        describe("calls string(withPattern)") {
+            beforeEach {
+                date = Date()
+            }
+            context("with full year pattern") {
+                it("returns 20xx") {
+                    let string = date.string(withPattern: Date.fullYearPattern)
+                    expect(string.hasPrefix("20")) == true
+                    expect(string.count) == 4
+                }
+            }
+            context("with abbr month pattern") {
+                it("returns XXX") {
+                    let string = date.string(withPattern: Date.abbrMonthPattern)
+                    expect(string.count) == 3
+                }
+            }
+            context("with day pattern") {
+                it("returns XX") {
+                    let string = date.string(withPattern: Date.dayPattern)
+                    expect(string.count) == 2
+                }
+            }
+            context("with month pattern") {
+                it("returns XX") {
+                    let string = date.string(withPattern: Date.monthPattern)
+                    expect(string.count) == 2
+                }
+            }
+        }
         describe("calls timeOffsetString(withPrecision:withAbbreviation)") {
             context("as now") {
                 beforeEach {

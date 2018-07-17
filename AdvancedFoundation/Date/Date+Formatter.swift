@@ -5,6 +5,12 @@
 /// - date: 06/07/2018
 public extension Date {
     
+    /// Common patterns.
+    public static let fullYearPattern = "yyyy"
+    public static let abbrMonthPattern = "MMM"
+    public static let monthPattern = "MM"
+    public static let dayPattern = "dd"
+    
     /// System errors.
     private static let precisionError = "The precision should be at least one."
     
@@ -41,6 +47,16 @@ public extension Date {
         let timeString = NSNumber(value: timeOffset).timeString(withPrecision: precision, withAbbreviation: shouldUseAbbreviation)
         let timeOffsetString = "\(timeString)\(differTag)"
         return timeOffsetString.trimmingCharacters(in: CharacterSet(charactersIn: .space))
+    }
+    
+    /// Format the date with a given pattern
+    ///
+    /// - Parameter pattern: The pattern
+    /// - Returns: The formatted string
+    public func string(withPattern pattern: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = pattern
+        return dateFormatter.string(from: self)
     }
     
 }
