@@ -9,6 +9,37 @@ class DateFormatterSpecs: QuickSpec {
         let yearLength = 365 * dayLength
         let monthLength = yearLength / 12
         var date: Date!
+        describe("has date") {
+            context("with the current date") {
+                it("is different with the current date") {
+                    let date = Date()
+                    expect(date.date) != date
+                }
+            }
+        }
+        describe("calls init(string:pattern)") {
+            context("with invalid string") {
+                let string = ""
+                let pattern = Date.yearPattern
+                it("returns nil") {
+                    expect(Date(string: string, pattern: pattern)).to(beNil())
+                }
+            }
+            context("with invalid pattern") {
+                let string = "19"
+                let pattern = ""
+                it("returns nil") {
+                    expect(Date(string: string, pattern: pattern)).to(beNil())
+                }
+            }
+            context("with valid string and pattern") {
+                let string = "19"
+                let pattern = Date.yearPattern
+                it("returns an date object") {
+                    expect(Date(string: string, pattern: pattern)).toNot(beNil())
+                }
+            }
+         }
         describe("calls string(withPattern)") {
             beforeEach {
                 date = Date()
@@ -24,6 +55,12 @@ class DateFormatterSpecs: QuickSpec {
                 it("returns XXX") {
                     let string = date.string(withPattern: Date.abbrMonthPattern)
                     expect(string.count) == 3
+                }
+            }
+            context("with year pattern") {
+                it("returns XX") {
+                    let string = date.string(withPattern: Date.yearPattern)
+                    expect(string.count) == 2
                 }
             }
             context("with day pattern") {
