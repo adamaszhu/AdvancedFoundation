@@ -9,7 +9,7 @@ public extension TXT {
     ///
     /// - Parameter content: The content containing txt.
     public init(content: String) {
-        let lines = content.components(separatedBy: .newlines).flatMap {
+        let lines = content.components(separatedBy: .newlines).compactMap {
             // Skip comments.
             return $0.hasPrefix("//") ? nil : $0
         }

@@ -1,8 +1,8 @@
 /// AppInfoAccessor provides the information about the app.
 ///
 /// - author: Adamas
-/// - version: 1.2.2
-/// - date: 26/01/2018
+/// - version: 1.3.0
+/// - date: 05/07/2018
 open class AppInfoAccessor {
     
     /// System errors.
@@ -43,6 +43,14 @@ open class AppInfoAccessor {
             return nil
         }
         return version
+    }
+    
+    /// The build number of the app, which is anything defined by the user. It will be nil if the build number cannot be retrieved.
+    var buildNumber: String? {
+        guard let buildNumber = bundle.infoDictionary?[kCFBundleVersionKey as String] as? String else {
+            return nil
+        }
+        return buildNumber
     }
     
     /// The preferred language.
