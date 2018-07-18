@@ -44,6 +44,12 @@ class DateFormatterSpecs: QuickSpec {
             beforeEach {
                 date = Date()
             }
+            context("with time 12 hour pattern") {
+                it("returns xx:xxam/pm") {
+                    let string = date.string(withPattern: Date.time12HourPattern)
+                    expect(string.count) == 7
+                }
+            }
             context("with full year pattern") {
                 it("returns 20xx") {
                     let string = date.string(withPattern: Date.fullYearPattern)

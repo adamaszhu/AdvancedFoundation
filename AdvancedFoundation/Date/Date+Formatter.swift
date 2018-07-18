@@ -11,7 +11,8 @@ public extension Date {
     public static let abbrMonthPattern = "MMM"
     public static let monthPattern = "MM"
     public static let dayPattern = "dd"
-    
+    public static let time12HourPattern = "hh:mma"
+
     /// System errors.
     private static let precisionError = "The precision should be at least one."
     private static let patternError = "The pattern is incorrect."
