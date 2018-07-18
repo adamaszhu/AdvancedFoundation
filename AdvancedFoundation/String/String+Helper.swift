@@ -1,8 +1,8 @@
 /// String+Helper provides additional functions for a string object.
 ///
 /// - author: Adamas
-/// - version: 1.1.0
-/// - date: 11/07/2017
+/// - version: 1.3.0
+/// - date: 13/08/2018
 public extension String {
     
     /// Remove a specific suffix from the string.
@@ -33,6 +33,31 @@ public extension String {
         let prefixRange = Range<String.Index>(uncheckedBounds: (lower: startIndex, upper: prefixEndIndex))
         removeSubrange(prefixRange)
         return true
+    }
+    
+    /// Get a string who is word uppercased. Like "apple banana" -> "Apple Banana"
+    public var wordUppercased: String {
+        var words = lowercased().components(separatedBy: .whitespacesAndNewlines)
+        words = words.map { word in
+            guard !word.isEmpty else {
+                return word
+            }
+            var word = word
+            let firstCharacter = String(word.removeFirst())
+            return firstCharacter.uppercased() + word
+        }
+        var string = words.reduce(.empty) { (result, newString) in
+            return result + newString + .space
+        }
+        string.removeLast()
+        return string
+    }
+    
+    /// Get a string who is phrase uppercased. Like "apple banana" -> "Apple banana"
+    public var phraseUppercased: String {
+        var string = lowercased()
+        let firstCharacter = String(string.removeFirst())
+        return firstCharacter.uppercased() + string
     }
     
 }

@@ -48,6 +48,46 @@ class StringHelperSpecs: QuickSpec {
                 }
             }
         }
+        describe("has phraseUppercased") {
+            context("with lowercased string") {
+                it("returns phrase uppercased string") {
+                    let string = "test phrase"
+                    expect(string.phraseUppercased) == "Test phrase"
+                }
+            }
+            context("with uppercased string") {
+                it("returns phrase uppercased string") {
+                    let string = "TEST PHRASE"
+                    expect(string.phraseUppercased) == "Test phrase"
+                }
+            }
+            context("with parse uppercased string") {
+                it("returns phrase uppercased string") {
+                    let string = "Test phrase"
+                    expect(string.phraseUppercased) == "Test phrase"
+                }
+            }
+        }
+        describe("has wordUppercased") {
+            context("with lowercased string") {
+                it("returns word uppercased string") {
+                    let string = "test phrase"
+                    expect(string.wordUppercased) == "Test Phrase"
+                }
+            }
+            context("with uppercased string") {
+                it("returns word uppercased string") {
+                    let string = "TEST PHRASE"
+                    expect(string.wordUppercased) == "Test Phrase"
+                }
+            }
+            context("with word uppercased string") {
+                it("returns word uppercased string") {
+                    let string = "Test Phrase"
+                    expect(string.wordUppercased) == "Test Phrase"
+                }
+            }
+        }
     }
     
 }

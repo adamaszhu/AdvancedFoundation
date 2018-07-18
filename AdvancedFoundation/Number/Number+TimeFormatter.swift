@@ -1,9 +1,12 @@
 /// Number+TimeFormatter is used to format a number into time span string.
 ///
 /// - author: Adamas
-/// - version: 1.2.2
-/// - date: 27/01/2018
+/// - version: 1.3.0
+/// - date: 06/07/2018
 public extension NSNumber {
+    
+    /// System errors.
+    private static let precisionError = "The precision should be at least one."
     
     /// All localized string tag.
     private static let minuteTag = "Minute"
@@ -32,9 +35,15 @@ public extension NSNumber {
     
     /// Convert the number into time span string. Such as "3 Hrs".
     ///
-    /// - Parameter shouldUseAbbreviation: Whether the time description should be abbreviation or not.
+    /// - Parameters:
+    ///   - precision: How many units should be included.
+    ///   - shouldUseAbbreviation: Whether the time description should be abbreviation or not.
     /// - Returns: The time span string.
-    public func timeString(withAbbreviation shouldUseAbbreviation: Bool = false) -> String {
+    public func timeString(withPrecision precision: Int = Int.max, withAbbreviation shouldUseAbbreviation: Bool = false) -> String {
+        guard precision > 0 else {
+            Logger.standard.log(error: NSNumber.precisionError)
+            return .empty
+        }
         var timeSpan = abs(intValue)
         guard timeSpan > 0 else {
             let spaceTag = NSNumber.spaceTag.localizedInternalString(forType: NSNumber.self)
@@ -60,7 +69,10 @@ public extension NSNumber {
         let hourTag = NSNumber.tag(forUnit: hour, withSingleTag: NSNumber.hourTag, withDoubleTag: NSNumber.hoursTag, withAbbreviationTag: abbrTag)
         let minuteTag = NSNumber.tag(forUnit: minute, withSingleTag: NSNumber.minuteTag, withDoubleTag: NSNumber.minutesTag, withAbbreviationTag: abbrTag)
         let secondTag = NSNumber.tag(forUnit: second, withSingleTag: NSNumber.secondTag, withDoubleTag: NSNumber.secondsTag, withAbbreviationTag: abbrTag)
-        let timeString = "\(yearTag)\(monthTag)\(dayTag)\(hourTag)\(minuteTag)\(secondTag)"
+        let tags = [yearTag, monthTag, dayTag, hourTag, minuteTag, secondTag].filter { !$0.isEmpty }
+        // At least should leave one tag
+        let dropAmount = max(0, tags.count - precision)
+        let timeString = tags.dropLast(dropAmount).reduce(String.empty) { $0 + $1 }
         return timeString.trimmingCharacters(in: CharacterSet(charactersIn: .space))
     }
     
