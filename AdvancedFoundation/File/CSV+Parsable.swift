@@ -1,4 +1,4 @@
-/// CSV+Parser parses a string to a csv object.
+/// CSV+Parsable parses a string to a csv object.
 ///
 /// - author: Adamas
 /// - version: 1.2.0

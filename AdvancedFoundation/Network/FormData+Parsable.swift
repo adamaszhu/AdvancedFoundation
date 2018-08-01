@@ -1,4 +1,4 @@
-/// FormData+Parser parses a form data to a data object, which can be put into a network request.
+/// FormData+Parsable parses a form data to a data object, which can be put into a network request.
 ///
 /// - author: Adamas
 /// - version: 1.1.0

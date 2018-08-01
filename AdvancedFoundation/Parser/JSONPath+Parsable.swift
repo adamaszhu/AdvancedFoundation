@@ -1,4 +1,4 @@
-/// JSONPath+Parser parse a string to a JSON path.
+/// JSONPath+Parsable parse a string to a JSON path.
 ///
 /// - author: Adamas
 /// - version: 1.1.8

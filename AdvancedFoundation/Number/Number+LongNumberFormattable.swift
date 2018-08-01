@@ -1,4 +1,4 @@
-/// Number+LongNumberFormatter is used to format a number into a long number string.
+/// Number+LongNumberFormattable is used to format a number into a long number string.
 ///
 /// - author: Adamas
 /// - version: 1.1.0

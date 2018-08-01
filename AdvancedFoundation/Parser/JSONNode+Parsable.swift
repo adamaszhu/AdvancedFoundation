@@ -1,4 +1,4 @@
-/// JSONNode+Parser parses a node string into a JSONNode.
+/// JSONNode+Parsable parses a node string into a JSONNode.
 ///
 /// - author: Adamas
 /// - version: 1.1.8

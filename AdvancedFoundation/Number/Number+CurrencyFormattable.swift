@@ -1,4 +1,4 @@
-/// Number+CurrencyFormatter is used to format a number into currency string.
+/// Number+CurrencyFormattable is used to format a number into currency string.
 ///
 /// - author: Adamas
 /// - version: 1.1.3

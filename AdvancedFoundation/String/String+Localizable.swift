@@ -1,4 +1,4 @@
-/// String+Localizer localizes a string.
+/// String+Localizable localizes a string.
 ///
 /// - author: Adamas
 /// - version: 1.1.0

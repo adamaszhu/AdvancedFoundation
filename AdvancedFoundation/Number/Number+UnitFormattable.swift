@@ -1,4 +1,4 @@
-/// Number+UnitFormatter provides format for unit strings.
+/// Number+UnitFormattable provides format for unit strings.
 ///
 /// - author: Adamas
 /// - version: 1.3.0

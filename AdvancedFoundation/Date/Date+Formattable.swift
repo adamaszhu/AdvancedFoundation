@@ -1,4 +1,4 @@
-/// Date+Formatter provides additional format function for a date object.
+/// Date+Formattable provides additional format function for a date object.
 ///
 /// - author: Adamas
 /// - version: 1.3.0

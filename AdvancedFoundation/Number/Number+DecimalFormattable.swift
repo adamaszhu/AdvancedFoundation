@@ -1,4 +1,4 @@
-/// Number+DecimalFormatter is used to format a number into a decimal format.
+/// Number+DecimalFormattable is used to format a number into a decimal format.
 ///
 /// - author: Adamas
 /// - version: 1.1.0

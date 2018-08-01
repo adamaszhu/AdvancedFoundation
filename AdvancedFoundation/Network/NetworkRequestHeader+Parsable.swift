@@ -1,4 +1,4 @@
-/// NetworkRequestHeader+Parser converts the request header to a dictionary.
+/// NetworkRequestHeader+Parsable converts the request header to a dictionary.
 ///
 /// - author: Adamas
 /// - version: 1.1.0

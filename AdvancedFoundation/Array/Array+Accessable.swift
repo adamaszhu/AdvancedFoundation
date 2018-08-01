@@ -1,4 +1,4 @@
-/// Array+Accessor provides additional support to access the array.
+/// Array+Accessable provides additional support to access the array.
 ///
 /// - author: Adamas
 /// - version: 1.1.4

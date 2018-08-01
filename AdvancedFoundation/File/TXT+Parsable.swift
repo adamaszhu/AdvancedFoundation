@@ -1,4 +1,4 @@
-/// TXT+Parser provides the ability to convert a string to a TXT object.
+/// TXT+Parsable provides the ability to convert a string to a TXT object.
 ///
 /// - author: Adamas
 /// - version: 1.1.8

@@ -1,4 +1,4 @@
-/// Number+PercentageFormatter is used to format a number into a percentage format.
+/// Number+PercentageFormattable is used to format a number into a percentage format.
 ///
 /// - author: Adamas
 /// - version: 1.1.8

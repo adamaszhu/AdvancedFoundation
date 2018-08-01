@@ -1,4 +1,4 @@
-/// NetworkResponseHeader+Parser parses the header information in a response.
+/// NetworkResponseHeader+Parsable parses the header information in a response.
 ///
 /// - author: Adamas
 /// - version: 1.1.8

@@ -1,4 +1,4 @@
-/// String+Helper provides additional functions for a string object.
+/// String+Editable provides additional functions for a string object.
 ///
 /// - author: Adamas
 /// - version: 1.3.0
