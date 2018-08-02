@@ -53,6 +53,13 @@ class AppInfoAccessorSpecs: QuickSpec {
                 }
             }
         }
+        describe("has region") {
+            context("with valid preferred language") {
+                it("is valid region") {
+                    expect(appInfoAccessor.region).toNot(beNil())
+                }
+            }
+        }
         describe("has version") {
             context("with valid bundle") {
                 it("is correct version") {

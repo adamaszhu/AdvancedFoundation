@@ -55,7 +55,19 @@ open class AppInfoAccessor {
     
     /// The preferred language.
     public var preferredLanguage: String? {
-        return Locale.preferredLanguages.first
+        guard let preferredLocale = Locale.preferredLanguages.first else {
+            return nil
+        }
+        // 3 includes the dash and two charactors country code
+        return String(preferredLocale.dropLast(3))
+    }
+    
+    /// The current region.
+    public var region: String? {
+        guard let preferredLocale = Locale.preferredLanguages.first else {
+            return nil
+        }
+        return preferredLocale.components(separatedBy: String.dash).last
     }
     
     /// The bundle of the app.
