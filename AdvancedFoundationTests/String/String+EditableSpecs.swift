@@ -1,4 +1,4 @@
-class StringHelperSpecs: QuickSpec {
+class StringEditableSpecs: QuickSpec {
     
     override func spec() {
         var string: String!

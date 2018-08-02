@@ -1,4 +1,4 @@
-class DecimalFormatterSpecs: QuickSpec {
+class DecimalFormattableSpecs: QuickSpec {
     
     override func spec() {
         describe("calls decimalString(withPrecision)") {

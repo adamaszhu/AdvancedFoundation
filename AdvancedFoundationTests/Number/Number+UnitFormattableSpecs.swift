@@ -1,4 +1,4 @@
-class NumberUnitFormatterSpecs: QuickSpec {
+class NumberUnitFormattableSpecs: QuickSpec {
     
     override func spec() {
         describe("calls distanceString(withPrecision:withAbbr)") {

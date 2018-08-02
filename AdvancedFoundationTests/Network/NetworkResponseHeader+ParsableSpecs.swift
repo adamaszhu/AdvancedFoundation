@@ -1,4 +1,4 @@
-class NetworkResponseHeaderParserSpecs: QuickSpec {
+class NetworkResponseHeaderParsableSpecs: QuickSpec {
     
     override func spec() {
         let contentTypeHeader = "Content-Type"

@@ -1,4 +1,4 @@
-class JSONPathParserSpecs: QuickSpec {
+class JSONPathParsableSpecs: QuickSpec {
     
     override func spec() {
         describe("calls path(from)") {

@@ -1,4 +1,4 @@
-class FormDataParserSpecs: QuickSpec {
+class FormDataParsableSpecs: QuickSpec {
     
     override func spec() {
         let textField = FormDataTextField(name: "Text", value: "Test")

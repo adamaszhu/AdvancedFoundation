@@ -1,4 +1,4 @@
-class JSONNodeParserSpecs: QuickSpec {
+class JSONNodeParsableSpecs: QuickSpec {
     
     override func spec() {
         describe("calls node(from)") {

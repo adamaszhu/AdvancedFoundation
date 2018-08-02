@@ -1,4 +1,4 @@
-class TXTParserSpecs: QuickSpec {
+class TXTParsableSpecs: QuickSpec {
     
     override func spec() {
         describe("calls txt(from)") {

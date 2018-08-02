@@ -1,4 +1,4 @@
-class ArrayAccessorSpecs: QuickSpec {
+class ArrayAccessableSpecs: QuickSpec {
     
     override func spec() {
         let array = ["First", "Second", "Third"]

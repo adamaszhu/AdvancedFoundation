@@ -1,4 +1,4 @@
-class NetworkRequestHeaderParserSpecs: QuickSpec {
+class NetworkRequestHeaderParsableSpecs: QuickSpec {
     
     override func spec() {
         let ifModifiedSinceHeader = "If-Modified-Since"

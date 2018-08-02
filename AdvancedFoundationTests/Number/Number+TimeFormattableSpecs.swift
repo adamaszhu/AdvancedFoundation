@@ -1,4 +1,4 @@
-class NumberTimeFormatterSpecs: QuickSpec {
+class NumberTimeFormattableSpecs: QuickSpec {
     
     override func spec() {
         let secondLength = 1

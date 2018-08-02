@@ -1,4 +1,4 @@
-class DateFormatterSpecs: QuickSpec {
+class DateFormattableSpecs: QuickSpec {
     
     // Cannot extract date declaration since the test should be done right after the decleration.
     override func spec() {

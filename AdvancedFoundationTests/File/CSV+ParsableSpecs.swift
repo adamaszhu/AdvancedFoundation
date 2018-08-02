@@ -1,4 +1,4 @@
-class CSVParserSpecs: QuickSpec {
+class CSVParsableSpecs: QuickSpec {
     
     override func spec() {
         describe("calls csv(from)") {

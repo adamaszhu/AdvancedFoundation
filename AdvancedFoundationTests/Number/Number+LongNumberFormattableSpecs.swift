@@ -1,4 +1,4 @@
-class LongNumberFormatterSpecs: QuickSpec {
+class LongNumberFormattableSpecs: QuickSpec {
     
     override func spec() {
         describe("calls number(fromLongNumber)") {

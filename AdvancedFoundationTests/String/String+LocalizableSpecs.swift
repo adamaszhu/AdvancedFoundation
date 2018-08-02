@@ -1,16 +1,16 @@
-class StringLocalizerSpecs: QuickSpec {
+class StringLocalizableSpecs: QuickSpec {
     
     override func spec() {
         describe("calls localizedString(withLocalizationFile)") {
             context("as localizable string") {
                 context("with default localization file") {
                     it("returns localized string") {
-                        expect("Test".localizedString()) == "Test string"
+                        expect("Test".localizedString()) == "Test English"
                     }
                 }
                 context("with correct localization file") {
                     it("returns localized string") {
-                        expect("Test".localizedString(withLocalizationFile: "Localizable")) == "Test string"
+                        expect("Test".localizedString(withLocalizationFile: "Localizable")) == "Test English"
                     }
                 }
                 context("with incorrect localization file") {
@@ -41,7 +41,7 @@ class StringLocalizerSpecs: QuickSpec {
             context("as localizable string") {
                 context("with correct class") {
                     it("returns localized string") {
-                        expect("Test".localizedString(for: StringLocalizerSpecs.self)) == "Test string"
+                        expect("Test".localizedString(for: StringLocalizableSpecs.self)) == "Test string"
                     }
                 }
                 context("with incorrect class") {
@@ -53,7 +53,7 @@ class StringLocalizerSpecs: QuickSpec {
             context("as non localizable string") {
                 context("with correct class") {
                     it("returns original string") {
-                        expect("Test1".localizedString(for: StringLocalizerSpecs.self)) == "Test1"
+                        expect("Test1".localizedString(for: StringLocalizableSpecs.self)) == "Test1"
                     }
                 }
                 context("with incorrect class") {

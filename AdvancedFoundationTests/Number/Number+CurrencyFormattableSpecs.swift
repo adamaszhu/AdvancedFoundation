@@ -1,4 +1,4 @@
-class NumberCurrencyFormatterSpecs: QuickSpec {
+class NumberCurrencyFormattableSpecs: QuickSpec {
     
     override func spec() {
         describe("calls moneyString(withCent:withCurrencySymbol)") {
