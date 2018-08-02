@@ -87,7 +87,7 @@
 		425FA3EA1EA056980015E3C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 425FA3E81EA056980015E3C1 /* LaunchScreen.storyboard */; };
 		42622E8D1EA1D59A00E5D5E7 /* String+Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42622E8C1EA1D59A00E5D5E7 /* String+Localizable.swift */; };
 		42622E991EA1E51100E5D5E7 /* String+LocalizableSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42622E981EA1E51100E5D5E7 /* String+LocalizableSpecs.swift */; };
-		42622E9D1EA1ECB200E5D5E7 /* StringLocalizerSpecs.strings in Resources */ = {isa = PBXBuildFile; fileRef = 42622E9C1EA1ECB200E5D5E7 /* StringLocalizerSpecs.strings */; };
+		42622E9D1EA1ECB200E5D5E7 /* StringLocalizableSpecs.strings in Resources */ = {isa = PBXBuildFile; fileRef = 42622E9C1EA1ECB200E5D5E7 /* StringLocalizableSpecs.strings */; };
 		42622EA41EA1FE3500E5D5E7 /* Date+Formattable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42622EA31EA1FE3500E5D5E7 /* Date+Formattable.swift */; };
 		42622EA71EA2182000E5D5E7 /* Date.strings in Resources */ = {isa = PBXBuildFile; fileRef = 42622EA91EA2182000E5D5E7 /* Date.strings */; };
 		42622EAD1EA237F900E5D5E7 /* Date+FormattableSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42622EAC1EA237F900E5D5E7 /* Date+FormattableSpecs.swift */; };
@@ -238,7 +238,7 @@
 		425FA3EB1EA056980015E3C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		42622E8C1EA1D59A00E5D5E7 /* String+Localizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Localizable.swift"; sourceTree = "<group>"; };
 		42622E981EA1E51100E5D5E7 /* String+LocalizableSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+LocalizableSpecs.swift"; sourceTree = "<group>"; };
-		42622E9C1EA1ECB200E5D5E7 /* StringLocalizerSpecs.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = StringLocalizerSpecs.strings; path = AdvancedFoundationTests/String/StringLocalizerSpecs.strings; sourceTree = SOURCE_ROOT; };
+		42622E9C1EA1ECB200E5D5E7 /* StringLocalizableSpecs.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = StringLocalizableSpecs.strings; path = AdvancedFoundationTests/String/StringLocalizableSpecs.strings; sourceTree = SOURCE_ROOT; };
 		42622EA31EA1FE3500E5D5E7 /* Date+Formattable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Formattable.swift"; sourceTree = "<group>"; };
 		42622EA81EA2182000E5D5E7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Date.strings; sourceTree = "<group>"; };
 		42622EAA1EA2182200E5D5E7 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Date.strings"; sourceTree = "<group>"; };
@@ -537,7 +537,7 @@
 			children = (
 				281881D71EA86EEC00E8C85E /* String+EditableSpecs.swift */,
 				42622E981EA1E51100E5D5E7 /* String+LocalizableSpecs.swift */,
-				42622E9C1EA1ECB200E5D5E7 /* StringLocalizerSpecs.strings */,
+				42622E9C1EA1ECB200E5D5E7 /* StringLocalizableSpecs.strings */,
 				2825814921127BB30033D386 /* Bundle+LocalizableSpecs.swift */,
 			);
 			path = String;
@@ -803,7 +803,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42622E9D1EA1ECB200E5D5E7 /* StringLocalizerSpecs.strings in Resources */,
+				42622E9D1EA1ECB200E5D5E7 /* StringLocalizableSpecs.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
