@@ -1,19 +1,9 @@
 /// AppInfoAccessor provides the information about the app.
 ///
 /// - author: Adamas
-/// - version: 1.3.0
-/// - date: 05/07/2018
+/// - version: 1.5.0
+/// - date: 23/03/2019
 open class AppInfoAccessor {
-    
-    /// System errors.
-    private static let bundleNameError = "The bundle name cannot be retrieved."
-    private static let displayNameError = "The display name cannot be retrieved."
-    private static let currentVersionError = "The version cannot be retrieved."
-    
-    /// Dictionary keys.
-    private static let bundleNameKey = "CFBundleName"
-    private static let displayNameKey = "CFBundleDisplayName"
-    private static let versionKey = "CFBundleShortVersionString"
     
     /// The singleton instance in the system.
     public static let shared = AppInfoAccessor()
@@ -46,8 +36,9 @@ open class AppInfoAccessor {
     }
     
     /// The build number of the app, which is anything defined by the user. It will be nil if the build number cannot be retrieved.
-    var buildNumber: String? {
+    public var buildNumber: String? {
         guard let buildNumber = bundle.infoDictionary?[kCFBundleVersionKey as String] as? String else {
+            Logger.standard.log(error: AppInfoAccessor.buildNumberError)
             return nil
         }
         return buildNumber
@@ -79,7 +70,21 @@ open class AppInfoAccessor {
     init(bundle: Bundle = Bundle.main) {
         self.bundle = bundle
     }
+}
+
+/// Constants
+private extension AppInfoAccessor {
     
+    /// System errors.
+    static let bundleNameError = "The bundle name cannot be retrieved."
+    static let displayNameError = "The display name cannot be retrieved."
+    static let currentVersionError = "The version cannot be retrieved."
+    static let buildNumberError = "The build number cannot be retrieved."
+    
+    /// Dictionary keys.
+    static let bundleNameKey = "CFBundleName"
+    static let displayNameKey = "CFBundleDisplayName"
+    static let versionKey = "CFBundleShortVersionString"
 }
 
 import Foundation
