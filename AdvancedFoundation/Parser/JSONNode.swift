@@ -1,8 +1,8 @@
 /// JSONNode represent a node in a json path.
 ///
 /// - author: Adamas
-/// - version: 1.1.0
-/// - date: 12/07/2017
+/// - version: 1.5.0
+/// - date: 23/03/2019
 struct JSONNode {
     
     /// Whether the node represent current node or not. Which is a dot character.

@@ -1,15 +1,12 @@
 /// ResourceHelper improves the ability to access resources.
 ///
 /// - author: Adamas
-/// - version: 1.2.0
-/// - date: 08/12/2017
+/// - version: 1.5.0
+/// - date: 23/03/2019
 open class ResourceHelper {
     
-    /// System error.
-    private static let resourceError = "The resource doesn't exist."
-    
     /// The url of the resource.
-    var url: URL
+    let url: URL
     
     /// Initialize the helper.
     ///
@@ -24,7 +21,13 @@ open class ResourceHelper {
         }
         url =  URL(fileURLWithPath: path)
     }
+}
+
+/// Constants
+private extension ResourceHelper {
     
+    /// System error.
+    private static let resourceError = "The resource doesn't exist."
 }
 
 import Foundation

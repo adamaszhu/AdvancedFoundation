@@ -1,8 +1,8 @@
 /// IDGenerator generates a unique id.
 ///
 /// - author: Adamas
-/// - version: 1.1.4
-/// - date: 13/09/2017
+/// - version: 1.5.0
+/// - date: 23/03/2019
 public class IDGenerator {
     
     /// The singleton instance.

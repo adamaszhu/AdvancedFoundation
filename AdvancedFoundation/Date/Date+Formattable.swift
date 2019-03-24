@@ -68,7 +68,7 @@ public extension Date {
     /// - Parameters:
     ///   - string: The string
     ///   - pattern: The pattern
-    init?(string: String, pattern: String) {
+    public init?(string: String, pattern: String) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = pattern
         if let date = dateFormatter.date(from: string) {
