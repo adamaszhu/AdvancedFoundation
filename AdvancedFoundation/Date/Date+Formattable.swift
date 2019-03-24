@@ -1,8 +1,8 @@
 /// Date+Formattable provides additional format function for a date object.
 ///
 /// - author: Adamas
-/// - version: 1.3.0
-/// - date: 06/07/2018
+/// - version: 1.5.0
+/// - date: 23/03/2019
 public extension Date {
     
     /// Common patterns.
@@ -12,16 +12,6 @@ public extension Date {
     public static let monthPattern = "MM"
     public static let dayPattern = "dd"
     public static let time12HourPattern = "hh:mma"
-
-    /// System errors.
-    private static let precisionError = "The precision should be at least one."
-    private static let patternError = "The pattern is incorrect."
-    
-    /// All localized string tag.
-    private static let agoTag = "Ago"
-    private static let laterTag = "Later"
-    private static let spaceTag = "Space"
-    private static let nowTag = "Now"
     
     /// The object that only contains the date information of the origin object
     public var date: Date {
@@ -87,7 +77,20 @@ public extension Date {
             return nil
         }
     }
+}
+
+/// Constants
+private extension Date {
     
+    /// System errors.
+    static let precisionError = "The precision should be at least one."
+    static let patternError = "The pattern is incorrect."
+    
+    /// All localized string tag.
+    static let agoTag = "Ago"
+    static let laterTag = "Later"
+    static let spaceTag = "Space"
+    static let nowTag = "Now"
 }
 
 import Foundation

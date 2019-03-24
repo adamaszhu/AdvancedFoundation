@@ -11,13 +11,13 @@ class CoreDataHelperSpecs: QuickSpec {
                 expect(coreDataHelper).notTo(beNil())
             }
             it("is useable") {
-                expect(coreDataHelper?.save()).notTo(beNil())
+                expect(coreDataHelper?.saveChanges()).notTo(beNil())
             }
         }
         describe("calls init(modelName:bundle)") {
             context("with existing name") {
                 it("return helper") {
-                    expect(coreDataHelper.save()).notTo(beNil())
+                    expect(coreDataHelper.saveChanges()).notTo(beNil())
                 }
             }
             context("with not existing name") {
@@ -41,7 +41,7 @@ class CoreDataHelperSpecs: QuickSpec {
                 it("can be retrieved") {
                     let object = coreDataHelper.object(of: Test.self)
                     object.testTitle = "Test"
-                    coreDataHelper.save()
+                    coreDataHelper.saveChanges()
                     expect(coreDataHelper.objects(of: Test.self)?.first?.testTitle) == "Test"
                 }
             }
@@ -57,7 +57,7 @@ class CoreDataHelperSpecs: QuickSpec {
                 object.testTitle = "Test1"
                 object = coreDataHelper.object(of: Test.self)
                 object.testTitle = "Test2"
-                coreDataHelper.save()
+                coreDataHelper.saveChanges()
             }
             context("with invalid type") {
                 it("returns nil") {
@@ -86,7 +86,7 @@ class CoreDataHelperSpecs: QuickSpec {
                 object.testTitle = "Test1"
                 object = coreDataHelper.object(of: Test.self)
                 object.testTitle = "Test2"
-                coreDataHelper.save()
+                coreDataHelper.saveChanges()
             }
             context("with invalid type") {
                 it("returns nil") {
@@ -113,7 +113,7 @@ class CoreDataHelperSpecs: QuickSpec {
             beforeEach {
                 let object = coreDataHelper.object(of: Test.self)
                 object.testTitle = "Test"
-                coreDataHelper.save()
+                coreDataHelper.saveChanges()
             }
             context("with existing object") {
                 it("returns true") {
@@ -133,7 +133,7 @@ class CoreDataHelperSpecs: QuickSpec {
             beforeEach {
                 let object = coreDataHelper.object(of: Test.self)
                 object.testTitle = "Test"
-                coreDataHelper.save()
+                coreDataHelper.saveChanges()
             }
             context("with existing type") {
                 it("returns true") {
@@ -151,19 +151,19 @@ class CoreDataHelperSpecs: QuickSpec {
                 it("returns true") {
                     let object = coreDataHelper.object(of: Test.self)
                     object.testTitle = "Test"
-                    expect(coreDataHelper.save()) == true
+                    expect(coreDataHelper.saveChanges()) == true
                 }
             }
             context("if changes are invalid") {
                 it("returns nil") {
                     let object = coreDataHelper.object(of: Test.self)
                     object.testTitle = "This is a title longer than 20 characters"
-                    expect(coreDataHelper.save()).to(beNil())
+                    expect(coreDataHelper.saveChanges()).to(beNil())
                 }
             }
             context("if no change is there") {
                 it("returns false") {
-                    expect(coreDataHelper.save()) == false
+                    expect(coreDataHelper.saveChanges()) == false
                 }
             }
         }
@@ -172,20 +172,20 @@ class CoreDataHelperSpecs: QuickSpec {
                 it("returns true") {
                     let object = coreDataHelper.object(of: Test.self)
                     object.testTitle = "This is a title longer than 20 characters"
-                    coreDataHelper.save()
-                    expect(coreDataHelper.reset()) == true
+                    coreDataHelper.saveChanges()
+                    expect(coreDataHelper.resetChanges()) == true
                 }
                 it("disregards changes") {
                     let object = coreDataHelper.object(of: Test.self)
                     object.testTitle = "This is a title longer than 20 characters"
-                    coreDataHelper.save()
-                    coreDataHelper.reset()
+                    coreDataHelper.saveChanges()
+                    coreDataHelper.resetChanges()
                     expect(coreDataHelper.objects(of: Test.self)?.count) == 0
                 }
             }
             context("if no changes have been made") {
                 it("returns false") {
-                    expect(coreDataHelper.reset()) == false
+                    expect(coreDataHelper.resetChanges()) == false
                 }
             }
         }

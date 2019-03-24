@@ -47,6 +47,7 @@ open class AppInfoAccessor {
     /// The preferred language.
     public var preferredLanguage: String? {
         guard let preferredLocale = Locale.preferredLanguages.first else {
+            Logger.standard.log(error: AppInfoAccessor.preferredLanguageError)
             return nil
         }
         // 3 includes the dash and two charactors country code
@@ -56,6 +57,7 @@ open class AppInfoAccessor {
     /// The current region.
     public var region: String? {
         guard let preferredLocale = Locale.preferredLanguages.first else {
+            Logger.standard.log(error: AppInfoAccessor.preferredLanguageError)
             return nil
         }
         return preferredLocale.components(separatedBy: String.dash).last
@@ -80,6 +82,7 @@ private extension AppInfoAccessor {
     static let displayNameError = "The display name cannot be retrieved."
     static let currentVersionError = "The version cannot be retrieved."
     static let buildNumberError = "The build number cannot be retrieved."
+    static let preferredLanguageError = "The preferre language cannot be retrieved."
     
     /// Dictionary keys.
     static let bundleNameKey = "CFBundleName"

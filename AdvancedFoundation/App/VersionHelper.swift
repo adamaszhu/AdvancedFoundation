@@ -40,8 +40,8 @@ open class VersionHelper {
     ///
     /// - Parameter version: The given version.
     /// - Returns: 1 if current version is larger. 0 if current version equals the given version. -1 if current version is smaller. nil if there has been an error. Nil will be returned if one of the versions is not formatted.
-    public func compare(toVersion version: String) -> Int? {
-        return VersionHelper.compare(version: self.version, toVersion: version)
+    public func compareCurrentVersion(toVersion version: String) -> Int? {
+        return VersionHelper.compareVersion(self.version, toVersion: version)
     }
     
     /// Create current version flag in the user default, indicating that current version has been opened once.
@@ -93,7 +93,7 @@ open class VersionHelper {
     ///   - firstVersion: The first version.
     ///   - secondVersion: The second version.
     /// - Returns: 1 if the first version is larger. 0 if versions equals to each other. -1 if the first version is smaller. nil if one of the versions is not correct. Nil will be returned if one of the versions is not formatted.
-    private static func compare(version firstVersion: String, toVersion secondVersion: String) -> Int? {
+    private static func compareVersion(_ firstVersion: String, toVersion secondVersion: String) -> Int? {
         guard var firstVersionComponents = versionComponents(inVersion: firstVersion), var secondVersionComponents = versionComponents(inVersion: secondVersion) else {
             return nil
         }
@@ -114,7 +114,6 @@ open class VersionHelper {
         }
         return 0
     }
-    
 }
 
 /// Constants

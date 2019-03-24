@@ -1,19 +1,9 @@
 /// CoreDataHelper is used to perform basic level core data interaction.
 ///
 /// - author: Adamas
-/// - version: 1.1.6
-/// - date: 13/10/2017
-final public class CoreDataHelper {
-    
-    /// SQL file suffix.
-    private static let sqlFileSuffix = "sqlite"
-    
-    /// Model file suffix
-    private static let modelFileSuffix = "momd"
-    
-    /// System errors.
-    private static let modelNameError = "The model cannot be found."
-    private static let dataTypeError = "The retrieved data isn't a NSManagedObject object list."
+/// - version: 1.5.0
+/// - date: 23/03/2019
+open class CoreDataHelper {
     
     /// Get the singleton object.
     public static let standard: CoreDataHelper? = {
@@ -118,7 +108,7 @@ final public class CoreDataHelper {
     @discardableResult
     public func delete(_ object: NSManagedObject) -> Bool? {
         context.delete(object)
-        return save()
+        return saveChanges()
     }
     
     /// Delete all objects belonging to a specific class type.
@@ -130,11 +120,9 @@ final public class CoreDataHelper {
         guard let objects = objects(of: type) else {
             return nil
         }
-        var result: Bool?
         for object in objects {
-            result = delete(object)
-            if result != true {
-                return result
+            if delete(object) != true {
+                return false
             }
         }
         return true
@@ -145,7 +133,7 @@ final public class CoreDataHelper {
     ///
     /// - Returns: Whether new changes have been saved or not. Nil if there is an error.
     @discardableResult
-    public func save() -> Bool? {
+    public func saveChanges() -> Bool? {
         guard context.hasChanges else {
             return false
         }
@@ -162,14 +150,27 @@ final public class CoreDataHelper {
     ///
     /// - Returns: Whether the context has been reseted or not.
     @discardableResult
-    public func reset() -> Bool {
+    public func resetChanges() -> Bool {
         guard context.hasChanges else {
             return false
         }
         context.reset()
         return true
     }
+}
+
+/// Constants
+private extension CoreDataHelper {
     
+    /// SQL file suffix.
+    static let sqlFileSuffix = "sqlite"
+    
+    /// Model file suffix
+    static let modelFileSuffix = "momd"
+    
+    /// System errors.
+    static let modelNameError = "The model cannot be found."
+    static let dataTypeError = "The retrieved data isn't a NSManagedObject object list."
 }
 
 import CoreData

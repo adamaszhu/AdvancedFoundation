@@ -65,7 +65,7 @@ class DateFormattableSpecs: QuickSpec {
             }
             context("with year pattern") {
                 it("returns XX") {
-                    let string = date.string(withPattern: Date.yearPattern)
+                    let string = date.string(withPattern: Date.yearPattern )
                     expect(string.count) == 2
                 }
             }
