@@ -17,7 +17,7 @@ extension FormDataTextField: FormDataField {
     var data: Data {
         var data = Data()
         guard let fieldPrefix = String(format: FormDataTextField.fieldPrefixPattern, name, value).data(using: .utf8), let fieldSuffix = "\r\n".data(using: .utf8) else {
-            Logger.standard.log(info: FormDataTextField.dataFormatError)
+            Logger.standard.logInfo(FormDataTextField.dataFormatError)
             return data
         }
         data.append(fieldPrefix)

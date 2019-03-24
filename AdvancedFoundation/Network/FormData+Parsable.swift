@@ -21,7 +21,7 @@ extension FormData {
     var data: Data {
         var data = Data()
         guard let startSeperator = FormData.startSeperator.data(using: .utf8), let endSeperator = FormData.endSeperator.data(using: .utf8) else {
-            Logger.standard.log(error: FormData.dataFormatError)
+            Logger.standard.logError(FormData.dataFormatError)
             return data
         }
         fields.forEach {

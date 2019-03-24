@@ -13,7 +13,7 @@ public extension Bundle {
         let originSelector = #selector(localizedString(forKey:value:table:))
         let targetSelector = #selector(dynamicLocalizedString(forKey:value:table:))
         guard let originMethod = class_getInstanceMethod(Bundle.self, originSelector), let targetMethod = class_getInstanceMethod(Bundle.self, targetSelector) else {
-            Logger.standard.log(error: Bundle.swizzleMethodError)
+            Logger.standard.logError(Bundle.swizzleMethodError)
             return
         }
         method_exchangeImplementations(originMethod, targetMethod);

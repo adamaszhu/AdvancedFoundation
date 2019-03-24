@@ -11,7 +11,7 @@ public extension Array {
     /// - Returns: The element. Nil if the index is invalid.
     public func element(atIndex index: Int) -> Element? {
         guard 0 ..< count ~= index else {
-            Logger.standard.log(error: Array.indexError, withDetail: index)
+            Logger.standard.logError(Array.indexError, withDetail: index)
             return nil
         }
         return self[index]

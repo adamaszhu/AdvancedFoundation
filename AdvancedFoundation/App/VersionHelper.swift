@@ -79,7 +79,7 @@ open class VersionHelper {
         var parsedVersionComponents = [Int]()
         for versionComponent in versionComponents {
             guard let parsedVersionComponent = Int(versionComponent) else {
-                Logger.standard.log(error: VersionHelper.versionFormatError, withDetail: version)
+                Logger.standard.logError(VersionHelper.versionFormatError, withDetail: version)
                 return nil
             }
             parsedVersionComponents.append(parsedVersionComponent)
@@ -119,12 +119,12 @@ open class VersionHelper {
 /// Constants
 private extension VersionHelper {
     
-    /// System error.
-    static let versionFormatError = "The version is not well formatted."
-    
     /// The prefix of the version flag to be saved.
     static let versionFlagPrefix = "v"
     static let versionSeperator = "."
+    
+    /// System error.
+    static let versionFormatError = "The version is not well formatted."
 }
 
 import Foundation

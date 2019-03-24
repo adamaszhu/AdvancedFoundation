@@ -20,7 +20,7 @@ extension FormDataFileField: FormDataField {
         let filename = fileInfo.filename
         let mimeType = fileInfo.mimeType
         guard let fieldPrefix = String(format: FormDataFileField.fieldPrefixPattern, name, filename, mimeType).data(using: .utf8), let fieldSuffix = FormDataFileField.fieldSuffix.data(using: .utf8) else {
-            Logger.standard.log(error: FormDataFileField.dataFormatError)
+            Logger.standard.logError(FormDataFileField.dataFormatError)
             return data
         }
         data.append(fieldPrefix)

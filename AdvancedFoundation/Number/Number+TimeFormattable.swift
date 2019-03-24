@@ -41,7 +41,7 @@ public extension NSNumber {
     /// - Returns: The time span string.
     public func timeString(withPrecision precision: Int = Int.max, withAbbreviation shouldUseAbbreviation: Bool = false) -> String {
         guard precision > 0 else {
-            Logger.standard.log(error: NSNumber.precisionError)
+            Logger.standard.logError(NSNumber.precisionError)
             return .empty
         }
         var timeSpan = abs(intValue)

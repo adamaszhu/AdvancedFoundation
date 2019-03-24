@@ -18,7 +18,7 @@ public extension NSNumber {
     /// - Returns: The formatted string.
     public func percentageString(withPrecision precision: Int? = nil) -> String? {
         if let positivePrecision = precision, positivePrecision < 0 {
-            Logger.standard.log(error: NSNumber.precisionError, withDetail: precision)
+            Logger.standard.logError(NSNumber.precisionError, withDetail: precision)
             return nil
         }
         let number = NSNumber(value: doubleValue * Double(100))
@@ -33,14 +33,14 @@ public extension NSNumber {
     /// - Parameter percentage: The string to be rendered.
     @objc public convenience init?(percentage: String) {
         guard percentage.contains(NSNumber.percentageSymbol) else {
-            Logger.standard.log(error: NSNumber.numberFormatError, withDetail: percentage)
+            Logger.standard.logError(NSNumber.numberFormatError, withDetail: percentage)
             return nil
         }
         let formattedPercentageString = percentage.replacingOccurrences(of: NSNumber.percentageSymbol, with: String.empty)
         let formatter = NumberFormatter()
         formatter.numberStyle = NumberFormatter.Style.decimal
         guard let number = formatter.number(from: formattedPercentageString) else {
-            Logger.standard.log(error: NSNumber.numberFormatError, withDetail: percentage)
+            Logger.standard.logError(NSNumber.numberFormatError, withDetail: percentage)
             return nil
         }
         self.init(value: number.doubleValue / Double(100))

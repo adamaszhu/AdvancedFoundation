@@ -15,7 +15,7 @@ public extension NSNumber {
     /// - Returns: The formatted string.
     public func decimalString(withPrecision precision: Int? = nil) -> String? {
         if let positivePrecision = precision, positivePrecision < 0 {
-            Logger.standard.log(error: NSNumber.precisionError, withDetail: precision)
+            Logger.standard.logError(NSNumber.precisionError, withDetail: precision)
             return nil
         }
         let numberFormatter = NumberFormatter()
@@ -25,7 +25,7 @@ public extension NSNumber {
             numberFormatter.roundingMode = .down
         }
         guard let decimalString = numberFormatter.string(from: self) else {
-            Logger.standard.log(error: NSNumber.numberFormatError)
+            Logger.standard.logError(NSNumber.numberFormatError)
             return nil
         }
         return decimalString

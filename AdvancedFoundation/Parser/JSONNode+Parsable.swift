@@ -20,14 +20,14 @@ extension JSONNode {
             actualPath = path
         } else {
             guard var realLeftBracketIndex = leftBracketIndex, let realRightBracketIndex = rightBracketIndex, realLeftBracketIndex < realRightBracketIndex else {
-                Logger.standard.log(error: JSONNode.pathFormatError, withDetail: path)
+                Logger.standard.logError(JSONNode.pathFormatError, withDetail: path)
                 return nil
             }
             let name = String(path[..<realLeftBracketIndex])
             realLeftBracketIndex = path.index(realLeftBracketIndex, offsetBy: 1)
             let indexRange = Range<String.Index>(uncheckedBounds: (lower: realLeftBracketIndex, upper: realRightBracketIndex))
             guard let index = Int(String(path[indexRange])) else {
-                Logger.standard.log(error: JSONNode.pathFormatError, withDetail: path)
+                Logger.standard.logError(JSONNode.pathFormatError, withDetail: path)
                 return nil
             }
             actualPath = name

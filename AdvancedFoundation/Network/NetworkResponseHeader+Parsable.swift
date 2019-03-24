@@ -19,7 +19,7 @@ extension NetworkResponseHeader {
     /// - Parameter response: The response.
     init?(response: URLResponse) {
         guard let httpResponse = response as? HTTPURLResponse else {
-            Logger.standard.log(error: NetworkResponseHeader.responseTypeError)
+            Logger.standard.logError(NetworkResponseHeader.responseTypeError)
             return nil
         }
         let contentType = httpResponse.allHeaderFields[NetworkResponseHeader.contentTypeHeader] as? String

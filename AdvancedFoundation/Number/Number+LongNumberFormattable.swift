@@ -20,7 +20,7 @@ public extension NSNumber {
         let formatter = NumberFormatter()
         formatter.numberStyle = NumberFormatter.Style.decimal
         guard let number = formatter.number(from: formattedLongNumberString) else {
-            Logger.standard.log(error: NSNumber.numberFormatError, withDetail: longNumber)
+            Logger.standard.logError(NSNumber.numberFormatError, withDetail: longNumber)
             return nil
         }
         self.init(value: number.doubleValue)

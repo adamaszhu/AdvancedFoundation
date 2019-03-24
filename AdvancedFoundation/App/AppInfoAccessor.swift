@@ -11,7 +11,7 @@ open class AppInfoAccessor {
     /// The name of current bundle. It will be nil if the bundle name cannot be retireved.
     public var bundleName: String? {
         guard let name = bundle.infoDictionary?[AppInfoAccessor.bundleNameKey] as? String else {
-            Logger.standard.log(error: AppInfoAccessor.bundleNameError)
+            Logger.standard.logError(AppInfoAccessor.bundleNameError)
             return nil
         }
         return name
@@ -20,7 +20,7 @@ open class AppInfoAccessor {
     /// The name being displayed in the device. It will be nil if the display name cannot be retireved.
     public var displayName: String? {
         guard let name = bundle.infoDictionary?[AppInfoAccessor.displayNameKey] as? String else {
-            Logger.standard.log(error: AppInfoAccessor.displayNameError)
+            Logger.standard.logError(AppInfoAccessor.displayNameError)
             return nil
         }
         return name
@@ -29,7 +29,7 @@ open class AppInfoAccessor {
     /// The short version string of the app, which is like "1.2.3". It will be nil if the version cannot be retrieved.
     public var version: String? {
         guard let version = bundle.infoDictionary?[AppInfoAccessor.versionKey] as? String else {
-            Logger.standard.log(error: AppInfoAccessor.currentVersionError)
+            Logger.standard.logError(AppInfoAccessor.currentVersionError)
             return nil
         }
         return version
@@ -38,7 +38,7 @@ open class AppInfoAccessor {
     /// The build number of the app, which is anything defined by the user. It will be nil if the build number cannot be retrieved.
     public var buildNumber: String? {
         guard let buildNumber = bundle.infoDictionary?[kCFBundleVersionKey as String] as? String else {
-            Logger.standard.log(error: AppInfoAccessor.buildNumberError)
+            Logger.standard.logError(AppInfoAccessor.buildNumberError)
             return nil
         }
         return buildNumber
@@ -47,7 +47,7 @@ open class AppInfoAccessor {
     /// The preferred language.
     public var preferredLanguage: String? {
         guard let preferredLocale = Locale.preferredLanguages.first else {
-            Logger.standard.log(error: AppInfoAccessor.preferredLanguageError)
+            Logger.standard.logError(AppInfoAccessor.preferredLanguageError)
             return nil
         }
         // 3 includes the dash and two charactors country code
@@ -57,7 +57,7 @@ open class AppInfoAccessor {
     /// The current region.
     public var region: String? {
         guard let preferredLocale = Locale.preferredLanguages.first else {
-            Logger.standard.log(error: AppInfoAccessor.preferredLanguageError)
+            Logger.standard.logError(AppInfoAccessor.preferredLanguageError)
             return nil
         }
         return preferredLocale.components(separatedBy: String.dash).last
@@ -77,17 +77,17 @@ open class AppInfoAccessor {
 /// Constants
 private extension AppInfoAccessor {
     
+    /// Dictionary keys.
+    static let bundleNameKey = "CFBundleName"
+    static let displayNameKey = "CFBundleDisplayName"
+    static let versionKey = "CFBundleShortVersionString"
+    
     /// System errors.
     static let bundleNameError = "The bundle name cannot be retrieved."
     static let displayNameError = "The display name cannot be retrieved."
     static let currentVersionError = "The version cannot be retrieved."
     static let buildNumberError = "The build number cannot be retrieved."
     static let preferredLanguageError = "The preferre language cannot be retrieved."
-    
-    /// Dictionary keys.
-    static let bundleNameKey = "CFBundleName"
-    static let displayNameKey = "CFBundleDisplayName"
-    static let versionKey = "CFBundleShortVersionString"
 }
 
 import Foundation

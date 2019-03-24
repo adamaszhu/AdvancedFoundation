@@ -28,7 +28,7 @@ final public class JSONParser {
     /// - Parameter string: The string data.
     public convenience init?(string: String) {
         guard let data = string.data(using: .utf8) else {
-            Logger.standard.log(error: JSONParser.stringError)
+            Logger.standard.logError(JSONParser.stringError)
             return nil
         }
         self.init(data: data)

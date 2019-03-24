@@ -22,7 +22,7 @@ extension NetworkHelper: URLSessionDownloadDelegate {
         let destinationPath = "\(NetworkHelper.documentDirectory)/\(task.identifier)"
         let fileHelper = FileHelper(path: location.relativePath)
         if fileHelper.copy(toPath: destinationPath) != true {
-            Logger.standard.log(error: NetworkHelper.fileSystemError)
+            Logger.standard.logError(NetworkHelper.fileSystemError)
             dispatchError(for: task, withMessage: NetworkHelper.appError)
             return
         }

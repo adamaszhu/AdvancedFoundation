@@ -18,7 +18,7 @@ public extension Date {
         let datePattern = Date.dayPattern + Date.monthPattern + Date.yearPattern
         let string = self.string(withPattern: datePattern)
         guard let date = Date(string: string, pattern: datePattern) else {
-            Logger.standard.log(error: Date.patternError)
+            Logger.standard.logError(Date.patternError)
             return self
         }
         return date
@@ -32,7 +32,7 @@ public extension Date {
     /// - Returns: The time offset string.
     public func timeOffsetString(withPrecision precision: Int = Int.max, withAbbreviation shouldUseAbbreviation: Bool = false) -> String {
         guard precision > 0 else {
-            Logger.standard.log(error: Date.precisionError)
+            Logger.standard.logError(Date.precisionError)
             return .empty
         }
         let currentTimeInterval = Date().timeIntervalSince1970
@@ -82,15 +82,15 @@ public extension Date {
 /// Constants
 private extension Date {
     
-    /// System errors.
-    static let precisionError = "The precision should be at least one."
-    static let patternError = "The pattern is incorrect."
-    
     /// All localized string tag.
     static let agoTag = "Ago"
     static let laterTag = "Later"
     static let spaceTag = "Space"
     static let nowTag = "Now"
+    
+    /// System errors.
+    static let precisionError = "The precision should be at least one."
+    static let patternError = "The pattern is incorrect."
 }
 
 import Foundation

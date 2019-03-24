@@ -28,19 +28,19 @@ extension NetworkHelper: URLSessionDataDelegate {
         }
         guard let httpResponse = response as? HTTPURLResponse else {
             remove(task)
-            Logger.standard.log(error: NetworkHelper.responseTypeError)
+            Logger.standard.logError(NetworkHelper.responseTypeError)
             dispatchError(for: task, withMessage: NetworkHelper.serverError)
             return
         }
         guard 200 ..< 400 ~= httpResponse.statusCode else {
             remove(task)
-            Logger.standard.log(error: NetworkHelper.serverSideError)
+            Logger.standard.logError(NetworkHelper.serverSideError)
             dispatchError(for: task, withMessage: NetworkHelper.serverError)
             return
         }
         guard let header = NetworkResponseHeader(response: response) else {
             remove(task)
-            Logger.standard.log(error: NetworkHelper.responseHeaderError)
+            Logger.standard.logError(NetworkHelper.responseHeaderError)
             dispatchError(for: task, withMessage: NetworkHelper.serverError)
             return 
         }
