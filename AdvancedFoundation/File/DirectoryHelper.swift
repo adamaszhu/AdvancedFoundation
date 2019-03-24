@@ -1,8 +1,8 @@
 /// DiretoryHelper provides actions for an directory.
 ///
 /// - author: Adamas
-/// - version: 1.2.0
-/// - date: 08/12/2017
+/// - version: 1.5.0
+/// - date: 23/03/2019
 open class DirectoryHelper: PathHelper {
     
     /// The path list of all contents in a directory. Nil if the data doesn't exist or there is an error.

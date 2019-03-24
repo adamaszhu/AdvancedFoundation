@@ -1,8 +1,8 @@
 /// String+Localizable localizes a string.
 ///
 /// - author: Adamas
-/// - version: 1.1.0
-/// - date: 11/07/2017
+/// - version: 1.5.0
+/// - date: 23/03/2019
 public extension String {
     
     /// The default localization file.
@@ -33,7 +33,6 @@ public extension String {
         let bundle = Bundle(for: Logger.self)
         return NSLocalizedString(self, tableName: String(describing: type), bundle: bundle, comment: .empty)
     }
-    
 }
 
 import Foundation

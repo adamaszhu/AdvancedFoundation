@@ -1,8 +1,8 @@
 /// String+Constant defines some common string constant.
 ///
 /// - author: Adamas
-/// - version: 1.4.0
-/// - date: 02/08/2018
+/// - version: 1.5.0
+/// - date: 23/03/2019
 public extension String {
     
     // Constants
@@ -13,5 +13,4 @@ public extension String {
     public static let tab = "\t"
     public static let comma = ","
     public static let dash = "-"
-    
 }

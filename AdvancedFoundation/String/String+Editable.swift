@@ -1,8 +1,8 @@
 /// String+Editable provides additional functions for a string object.
 ///
 /// - author: Adamas
-/// - version: 1.3.0
-/// - date: 13/08/2018
+/// - version: 1.5.0
+/// - date: 23/03/2019
 public extension String {
     
     /// Remove a specific suffix from the string.
@@ -10,7 +10,7 @@ public extension String {
     /// - Parameter suffix: The suffix to be removed.
     /// - Returns: Whether the suffix has been removed or not.
     @discardableResult
-    public mutating func remove(suffix: String) -> Bool {
+    public mutating func removeSuffix(_ suffix: String) -> Bool {
         guard hasSuffix(suffix) else {
             return false
         }
@@ -25,7 +25,7 @@ public extension String {
     /// - Parameter prefix: The prefix to be removed.
     /// - Returns: Whether the prefix has been removed or not.
     @discardableResult
-    public mutating func remove(prefix: String) -> Bool {
+    public mutating func removePrefix(_ prefix: String) -> Bool {
         guard hasPrefix(prefix) else {
             return false
         }
@@ -59,7 +59,6 @@ public extension String {
         let firstCharacter = String(string.removeFirst())
         return firstCharacter.uppercased() + string
     }
-    
 }
 
 import Foundation

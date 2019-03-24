@@ -19,7 +19,7 @@ open class PathHelper: FileManager {
         let url = URL(fileURLWithPath: path)
         // The path must contain the last component.
         var parentPath = path
-        parentPath.remove(suffix: url.lastPathComponent)
+        parentPath.removeSuffix(url.lastPathComponent)
         return parentPath
     }
     
@@ -96,7 +96,7 @@ open class PathHelper: FileManager {
     /// - Returns: The formalized path.
     private static func formalizedPath(from path: String) -> String {
         var path = path
-        path.remove(suffix: "/")
+        path.removeSuffix("/")
         return path
     }
     
@@ -108,7 +108,6 @@ open class PathHelper: FileManager {
         let homeDirectory = NSHomeDirectory()
         return path.hasPrefix("/") ? path : "\(homeDirectory)/\(path)"
     }
-    
 }
 
 import Foundation
