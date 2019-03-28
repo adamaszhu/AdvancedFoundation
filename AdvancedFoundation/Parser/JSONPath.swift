@@ -1,8 +1,8 @@
 /// JSONPath present a node in the json. It is similar to xPath in XML.
 ///
 /// - author: Adamas
-/// - version: 1.1.0
-/// - date: 12/07/2017
+/// - version: 1.5.0
+/// - date: 26/03/2019
 struct JSONPath {
     
     /// All JSON nodes in the path
@@ -29,5 +29,4 @@ struct JSONPath {
         nodes.remove(at: 0)
         return true
     }
-    
 }

@@ -6,9 +6,7 @@
 struct JSONNode {
     
     /// Whether the node represent current node or not. Which is a dot character.
-    var isCurrentNode: Bool {
-        return name == "."
-    }
+    let isCurrentNode: Bool
     
     /// Node name
     let name: String
@@ -24,6 +22,6 @@ struct JSONNode {
     init(name: String, index: Int? = nil) {
         self.name = name
         self.index = index
+        isCurrentNode = name == .dot
     }
-    
 }

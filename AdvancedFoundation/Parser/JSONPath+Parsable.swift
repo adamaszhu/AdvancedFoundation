@@ -14,7 +14,7 @@ extension JSONPath {
             return
         }
         var nodes = [JSONNode]()
-        for nodeComponent in path.components(separatedBy: "/") {
+        for nodeComponent in path.components(separatedBy: String.forwardSlash) {
             guard let node = JSONNode(path: nodeComponent) else {
                 return nil
             }
