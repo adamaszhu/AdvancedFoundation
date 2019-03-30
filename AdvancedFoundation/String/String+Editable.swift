@@ -20,6 +20,16 @@ public extension String {
         return true
     }
     
+    /// Remove a specific suffix from the string and return the new string
+    ///
+    /// - Parameter suffix: The suffix to be removed.
+    /// - Returns: The suffix removed string.
+    public func removingSuffix(_ suffix: String) -> String {
+        var string = self
+        string.removeSuffix(suffix)
+        return string
+    }
+    
     /// Remove a specific prefix from the string.
     ///
     /// - Parameter prefix: The prefix to be removed.
@@ -33,6 +43,16 @@ public extension String {
         let prefixRange = Range<String.Index>(uncheckedBounds: (lower: startIndex, upper: prefixEndIndex))
         removeSubrange(prefixRange)
         return true
+    }
+    
+    /// Remove a specific prefix from the string and return the new string
+    ///
+    /// - Parameter prefix: The prefix to be removed.
+    /// - Returns: The prefix removed string.
+    public func removingPrefix(_ prefix: String) -> String {
+        var string = self
+        string.removePrefix(prefix)
+        return string
     }
     
     /// Get a string who is word uppercased. Like "apple banana" -> "Apple Banana"

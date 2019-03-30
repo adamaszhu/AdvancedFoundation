@@ -1,7 +1,7 @@
 class JSONNodeParsableSpecs: QuickSpec {
     
     override func spec() {
-        describe("calls node(from)") {
+        describe("calls init(path)") {
             context("with name only string") {
                 let jsonNode = JSONNode(path: "node")
                 it("returns JSONNode with name") {
@@ -46,7 +46,6 @@ class JSONNodeParsableSpecs: QuickSpec {
             }
         }
     }
-    
 }
 
 import Quick

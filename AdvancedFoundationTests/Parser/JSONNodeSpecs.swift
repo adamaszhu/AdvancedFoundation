@@ -42,7 +42,6 @@ class JSONNodeSpecs: QuickSpec {
             }
         }
     }
-    
 }
 
 import Quick

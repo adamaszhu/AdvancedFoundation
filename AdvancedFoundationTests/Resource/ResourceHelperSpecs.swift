@@ -25,11 +25,9 @@ class ResourceHelperSpecs: QuickSpec {
                 it("returns nil") {
                     expect(resourceHelper).to(beNil())
                 }
-                
             }
         }
     }
-    
 }
 
 import Quick

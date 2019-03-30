@@ -64,7 +64,6 @@ class BundleLocalizableSpecs: QuickSpec {
             }
         }
     }
-    
 }
 
 import Quick

@@ -20,19 +20,6 @@ class AppInfoAccessorSpecs: QuickSpec {
                 }
             }
         }
-        describe("has build number") {
-            context("with valid bundle") {
-                it("is correct bundle name") {
-                    expect(appInfoAccessor.buildNumber) == "1"
-                }
-            }
-            context("with invalid bundle") {
-                let appInfoAccessor = AppInfoAccessor(bundle: Bundle())
-                it("is nil") {
-                    expect(appInfoAccessor.buildNumber).to(beNil())
-                }
-            }
-        }
         describe("has display name") {
             context("with valid bundle") {
                 it("is correct display name") {
@@ -43,6 +30,32 @@ class AppInfoAccessorSpecs: QuickSpec {
                 let appInfoAccessor = AppInfoAccessor(bundle: Bundle())
                 it("is nil") {
                     expect(appInfoAccessor.displayName).to(beNil())
+                }
+            }
+        }
+        describe("has version") {
+            context("with valid bundle") {
+                it("is correct version") {
+                    expect(appInfoAccessor.version) == "1.3.0"
+                }
+            }
+            context("with invalid bundle") {
+                let appInfoAccessor = AppInfoAccessor(bundle: Bundle())
+                it("is nil") {
+                    expect(appInfoAccessor.version).to(beNil())
+                }
+            }
+        }
+        describe("has build number") {
+            context("with valid bundle") {
+                it("is correct bundle name") {
+                    expect(appInfoAccessor.buildNumber) == "1"
+                }
+            }
+            context("with invalid bundle") {
+                let appInfoAccessor = AppInfoAccessor(bundle: Bundle())
+                it("is nil") {
+                    expect(appInfoAccessor.buildNumber).to(beNil())
                 }
             }
         }
@@ -60,19 +73,6 @@ class AppInfoAccessorSpecs: QuickSpec {
                 }
             }
         }
-        describe("has version") {
-            context("with valid bundle") {
-                it("is correct version") {
-                    expect(appInfoAccessor.version) == "1.3.0"
-                }
-            }
-            context("with invalid bundle") {
-                let appInfoAccessor = AppInfoAccessor(bundle: Bundle())
-                it("is nil") {
-                    expect(appInfoAccessor.version).to(beNil())
-                }
-            }
-        }
         describe("calls init(bundle)") {
             context("with default bundle") {
                 it("returns object") {
@@ -87,7 +87,6 @@ class AppInfoAccessorSpecs: QuickSpec {
             }
         }
     }
-    
 }
 
 import Nimble

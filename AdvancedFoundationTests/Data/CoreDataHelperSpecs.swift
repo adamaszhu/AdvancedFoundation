@@ -146,7 +146,7 @@ class CoreDataHelperSpecs: QuickSpec {
                 }
             }
         }
-        describe("calls save()") {
+        describe("calls saveChanges()") {
             context("if changes have been made") {
                 it("returns true") {
                     let object = coreDataHelper.object(of: Test.self)
@@ -167,7 +167,7 @@ class CoreDataHelperSpecs: QuickSpec {
                 }
             }
         }
-        describe("calls reset()") {
+        describe("calls resetChanges()") {
             context("if invalid actions are there") {
                 it("returns true") {
                     let object = coreDataHelper.object(of: Test.self)
@@ -190,7 +190,6 @@ class CoreDataHelperSpecs: QuickSpec {
             }
         }
     }
-    
 }
 
 import Quick

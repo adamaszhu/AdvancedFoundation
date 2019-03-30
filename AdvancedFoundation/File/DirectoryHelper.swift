@@ -6,15 +6,13 @@
 open class DirectoryHelper: PathHelper {
     
     /// The path list of all contents in a directory. Nil if the data doesn't exist or there is an error.
-    @objc public var content: [String]? {
+    public var content: [String]? {
         guard isExisted else {
             return nil
         }
         do {
             let paths = try contentsOfDirectory(atPath: path)
-            return paths.map {
-                "\(path)/\($0)"
-            }
+            return paths.map { path + $0 }
         } catch let error {
             Logger.standard.log(error)
             return nil
@@ -25,7 +23,7 @@ open class DirectoryHelper: PathHelper {
     ///
     /// - Returns: Whether the directory has been created or not. Nil if there is an error.
     @discardableResult
-    public func create() -> Bool? {
+    public func createDirectory() -> Bool? {
         guard !super.isExisted else {
             return false
         }
@@ -47,7 +45,6 @@ open class DirectoryHelper: PathHelper {
         fileExists(atPath: path, isDirectory: &isDictory)
         return isDictory.boolValue
     }
-    
 }
 
 import Foundation

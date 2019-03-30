@@ -26,7 +26,6 @@ class IDGeneratorSpecs: QuickSpec {
             }
         }
     }
-    
 }
 
 import Quick

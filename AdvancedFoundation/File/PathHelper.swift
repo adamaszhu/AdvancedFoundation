@@ -1,37 +1,36 @@
 /// PathHelper is used to perform path related action.
 ///
 /// - author: Adamas
-/// - version: 1.2.0
-/// - date: 08/12/2017
+/// - version: 1.5.0
+/// - date: 29/03/2019
 open class PathHelper: FileManager {
     
     /// Whether the file or a directory exists or not.
-    @objc public var isExisted: Bool {
+    public var isExisted: Bool {
         return fileExists(atPath: path)
     }
     
     /// Get the parent directory path of a formalized path. Nil if current path is the root directory.
     private var parentDirectoryPath: String? {
-        guard path != "/" else {
+        guard path != .forwardSlash else {
             // The path is the root path.
             return nil
         }
         let url = URL(fileURLWithPath: path)
         // The path must contain the last component.
-        var parentPath = path
-        parentPath.removeSuffix(url.lastPathComponent)
-        return parentPath
+        return path.removingSuffix(url.lastPathComponent)
     }
     
     /// The path of the file.
-    @objc public private(set) var path: String
+    public private(set) var path: String
     
     /// Initialize the helper.
     ///
     /// - Parameter path: The path that the helper should hold.
-    @objc public init(path: String) {
-        let formalizedPath = PathHelper.formalizedPath(from: path)
-        self.path = PathHelper.absolutePath(from: formalizedPath)
+    public init(path: String) {
+        let formalizedPath = path.removingSuffix(.forwardSlash)
+        let homeDirectory = NSHomeDirectory()
+        self.path = formalizedPath.hasPrefix(.forwardSlash) ? formalizedPath : homeDirectory + .forwardSlash + formalizedPath
         super.init()
     }
     
@@ -40,7 +39,7 @@ open class PathHelper: FileManager {
     /// - Parameter newPath: The destination file path. It should start with "/"
     /// - Return: Whether the file has been copyed or not.
     @discardableResult
-    public func copy(toPath path: String) -> Bool? {
+    public func copyItem(toPath path: String) -> Bool? {
         let pathHelper = PathHelper(path: path)
         guard isExisted, !pathHelper.isExisted else {
             return false
@@ -61,7 +60,7 @@ open class PathHelper: FileManager {
     ///
     /// - Returns: Whether the file or directory has been removed or not. Nil if there is an error.
     @discardableResult
-    public func remove() -> Bool? {
+    public func removeItem() -> Bool? {
         guard isExisted else {
             return false
         }
@@ -88,25 +87,6 @@ open class PathHelper: FileManager {
             Logger.standard.log(error)
             return nil
         }
-    }
-    
-    /// Formalize the path. Such as change "/temp/" to "/temp"
-    ///
-    /// - Parameter path: The path where the formalize should be performed on.
-    /// - Returns: The formalized path.
-    private static func formalizedPath(from path: String) -> String {
-        var path = path
-        path.removeSuffix("/")
-        return path
-    }
-    
-    /// Update the path to the real path.
-    ///
-    /// - Parameter path: The path where the absolute path should be retrieved from.
-    /// - Returns: The absolute path.
-    private static func absolutePath(from path: String) -> String {
-        let homeDirectory = NSHomeDirectory()
-        return path.hasPrefix("/") ? path : "\(homeDirectory)/\(path)"
     }
 }
 

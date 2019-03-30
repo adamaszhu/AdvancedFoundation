@@ -1,7 +1,7 @@
 class TXTParsableSpecs: QuickSpec {
     
     override func spec() {
-        describe("calls txt(from)") {
+        describe("calls init(content)") {
             context("if content has comment") {
                 let content = "// COMMENT\nLine1\nLine2"
                 let txt = TXT(content: content)
@@ -18,7 +18,6 @@ class TXTParsableSpecs: QuickSpec {
             }
         }
     }
-    
 }
 
 import Quick

@@ -31,27 +31,20 @@ class VersionHelperSpecs: QuickSpec {
                 }
             }
         }
-        describe("calls init(version:versionFlag)") {
-            context("with valid version") {
-                let versionHelper = VersionHelper(version: "1.0.0", versionFlag: versionFlag)
-                it("returns object") {
-                    expect(versionHelper).toNot(beNil())
+        describe("has hasVersionFlag") {
+            context("without version flag saved") {
+                it("misses flag") {
+                    expect(versionHelper?.hasVersionFlag) == false
                 }
             }
-            context("with invalid character in version") {
-                let versionHelper = VersionHelper(version: "1.c", versionFlag: versionFlag)
-                it("returns nil") {
-                    expect(versionHelper).to(beNil())
-                }
-            }
-            context("with invalid format in version") {
-                let versionHelper = VersionHelper(version: "1..0", versionFlag: versionFlag)
-                it("returns nil") {
-                    expect(versionHelper).to(beNil())
+            context("with version flag saved") {
+                it("finds flag") {
+                    versionHelper?.createVersionFlag()
+                    expect(versionHelper?.hasVersionFlag) == true
                 }
             }
         }
-        describe("calls compare(toVersion)") {
+        describe("calls compareCurrentVersion(toVersion)") {
             let versionHelper = VersionHelper(version: "1.0.0", versionFlag: versionFlag)!
             context("with earlier version") {
                 it("returns bigger result") {
@@ -94,19 +87,6 @@ class VersionHelperSpecs: QuickSpec {
                 }
             }
         }
-        describe("calls checkVersionFlag()") {
-            context("without version flag saved") {
-                it("misses flag") {
-                    expect(versionHelper?.hasVersionFlag) == false
-                }
-            }
-            context("with version flag saved") {
-                it("finds flag") {
-                    versionHelper?.createVersionFlag()
-                    expect(versionHelper?.hasVersionFlag) == true
-                }
-            }
-        }
         describe("calls deleteVersionFlag()") {
             context("without version flag saved") {
                 it("misses flag") {
@@ -122,8 +102,27 @@ class VersionHelperSpecs: QuickSpec {
                 }
             }
         }
+        describe("calls init(version:versionFlag)") {
+            context("with valid version") {
+                let versionHelper = VersionHelper(version: "1.0.0", versionFlag: versionFlag)
+                it("returns object") {
+                    expect(versionHelper).toNot(beNil())
+                }
+            }
+            context("with invalid character in version") {
+                let versionHelper = VersionHelper(version: "1.c", versionFlag: versionFlag)
+                it("returns nil") {
+                    expect(versionHelper).to(beNil())
+                }
+            }
+            context("with invalid format in version") {
+                let versionHelper = VersionHelper(version: "1..0", versionFlag: versionFlag)
+                it("returns nil") {
+                    expect(versionHelper).to(beNil())
+                }
+            }
+        }
     }
-    
 }
 
 import Nimble
