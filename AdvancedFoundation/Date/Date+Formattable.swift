@@ -48,8 +48,8 @@ public extension Date {
         }
         var differTag = timeOffset > 0 ? Date.agoTag : Date.laterTag
         differTag = Date.spaceTag.localizedInternalString(forType: Date.self) + differTag.localizedInternalString(forType: Date.self)
-        let timeString = NSNumber(value: timeOffset).timeString(withPrecision: precision, withAbbreviation: shouldUseAbbreviation)
-        let timeOffsetString = "\(timeString)\(differTag)"
+        let timeString = abs(timeOffset).timeString(withPrecision: precision, withAbbreviation: shouldUseAbbreviation)
+        let timeOffsetString = timeString + differTag
         return timeOffsetString.trimmingCharacters(in: CharacterSet(charactersIn: .space))
     }
     

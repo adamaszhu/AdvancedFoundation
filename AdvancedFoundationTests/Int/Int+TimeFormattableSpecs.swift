@@ -1,4 +1,4 @@
-class NumberTimeFormattableSpecs: QuickSpec {
+class IntTimeFormattableSpecs: QuickSpec {
     
     override func spec() {
         let secondLength = 1
@@ -7,12 +7,9 @@ class NumberTimeFormattableSpecs: QuickSpec {
         let dayLength = 24 * hourLength
         let yearLength = 365 * dayLength
         let monthLength = yearLength / 12
-        var number: NSNumber!
         describe("calls timeString(withPrecision:withAbbreviation)") {
             context("as 0") {
-                beforeEach {
-                    number = NSNumber(value: 0)
-                }
+                let number = 0
                 context("with abbreviation") {
                     it("returns correct time") {
                         expect(number.timeString(withAbbreviation: true)) == "0 Sec"
@@ -40,10 +37,7 @@ class NumberTimeFormattableSpecs: QuickSpec {
                 }
             }
             context("as 1 year 1 month 1 day 1 hour 1 minute and 1 second") {
-                let timeSpan = 365 * 24 * 60 * 60 * 13 / 12 + 24 * 60 * 60 + 60 * 60 + 60 + 1
-                beforeEach {
-                    number = NSNumber(value: timeSpan)
-                }
+                let number = 365 * 24 * 60 * 60 * 13 / 12 + 24 * 60 * 60 + 60 * 60 + 60 + 1
                 context("with abbreviation") {
                     it("returns correct time") {
                         expect(number.timeString(withAbbreviation: true)) == "1 Yr 1 Mon 1 Day 1 Hr 1 Min 1 Sec"
@@ -81,10 +75,7 @@ class NumberTimeFormattableSpecs: QuickSpec {
                 }
             }
             context("as 1 year and 1 second") {
-                let timeSpan = 365 * 24 * 60 * 60 + 1
-                beforeEach {
-                    number = NSNumber(value: timeSpan)
-                }
+                let number = 365 * 24 * 60 * 60 + 1
                 context("with abbreviation") {
                     it("returns correct time") {
                         expect(number.timeString(withAbbreviation: true)) == "1 Yr 1 Sec"
@@ -122,10 +113,7 @@ class NumberTimeFormattableSpecs: QuickSpec {
                 }
             }
             context("as 1 second") {
-                let timeSpan = 1 * secondLength
-                beforeEach {
-                    number = NSNumber(value: timeSpan)
-                }
+                let number = 1 * secondLength
                 context("with abbreviation") {
                     it("returns correct time") {
                         expect(number.timeString(withAbbreviation: true)) == "1 Sec"
@@ -153,10 +141,7 @@ class NumberTimeFormattableSpecs: QuickSpec {
                 }
             }
             context("as 2 seconds") {
-                let timeSpan = 2 * secondLength
-                beforeEach {
-                    number = NSNumber(value: timeSpan)
-                }
+                let number = 2 * secondLength
                 context("with abbreviation") {
                     it("returns correct time") {
                         expect(number.timeString(withAbbreviation: true)) == "2 Secs"
@@ -184,10 +169,7 @@ class NumberTimeFormattableSpecs: QuickSpec {
                 }
             }
             context("as 1 minute") {
-                let timeSpan = 1 * minuteLength
-                beforeEach {
-                    number = NSNumber(value: timeSpan)
-                }
+                let number = 1 * minuteLength
                 context("with abbreviation") {
                     it("returns correct time") {
                         expect(number.timeString(withAbbreviation: true)) == "1 Min"
@@ -215,10 +197,7 @@ class NumberTimeFormattableSpecs: QuickSpec {
                 }
             }
             context("as 2 minutes") {
-                let timeSpan = 2 * minuteLength
-                beforeEach {
-                    number = NSNumber(value: timeSpan)
-                }
+                let number = 2 * minuteLength
                 context("with abbreviation") {
                     it("returns correct time") {
                         expect(number.timeString(withAbbreviation: true)) == "2 Mins"
@@ -246,10 +225,7 @@ class NumberTimeFormattableSpecs: QuickSpec {
                 }
             }
             context("as 1 hour") {
-                let timeSpan = 1 * hourLength
-                beforeEach {
-                    number = NSNumber(value: timeSpan)
-                }
+                let number = 1 * hourLength
                 context("with abbreviation") {
                     it("returns correct time") {
                         expect(number.timeString(withAbbreviation: true)) == "1 Hr"
@@ -277,10 +253,7 @@ class NumberTimeFormattableSpecs: QuickSpec {
                 }
             }
             context("as 2 hours") {
-                let timeSpan = 2 * hourLength
-                beforeEach {
-                    number = NSNumber(value: timeSpan)
-                }
+                let number = 2 * hourLength
                 context("with abbreviation") {
                     it("returns correct time") {
                         expect(number.timeString(withAbbreviation: true)) == "2 Hrs"
@@ -308,10 +281,7 @@ class NumberTimeFormattableSpecs: QuickSpec {
                 }
             }
             context("as 1 day") {
-                let timeSpan = 1 * dayLength
-                beforeEach {
-                    number = NSNumber(value: timeSpan)
-                }
+                let number = 1 * dayLength
                 context("with abbreviation") {
                     it("returns correct time") {
                         expect(number.timeString(withAbbreviation: true)) == "1 Day"
@@ -339,10 +309,7 @@ class NumberTimeFormattableSpecs: QuickSpec {
                 }
             }
             context("as 2 days") {
-                let timeSpan = 2 * dayLength
-                beforeEach {
-                    number = NSNumber(value: timeSpan)
-                }
+                let number = 2 * dayLength
                 context("with abbreviation") {
                     it("returns correct time") {
                         expect(number.timeString(withAbbreviation: true)) == "2 Days"
@@ -370,10 +337,7 @@ class NumberTimeFormattableSpecs: QuickSpec {
                 }
             }
             context("as 1 month") {
-                let timeSpan = 1 * monthLength
-                beforeEach {
-                    number = NSNumber(value: timeSpan)
-                }
+                let number = 1 * monthLength
                 context("with abbreviation") {
                     it("returns correct time") {
                         expect(number.timeString(withAbbreviation: true)) == "1 Mon"
@@ -401,10 +365,7 @@ class NumberTimeFormattableSpecs: QuickSpec {
                 }
             }
             context("as 2 months") {
-                let timeSpan = 2 * monthLength
-                beforeEach {
-                    number = NSNumber(value: timeSpan)
-                }
+                let number = 2 * monthLength
                 context("with abbreviation") {
                     it("returns correct time") {
                         expect(number.timeString(withAbbreviation: true)) == "2 Mons"
@@ -432,10 +393,7 @@ class NumberTimeFormattableSpecs: QuickSpec {
                 }
             }
             context("as 1 year") {
-                let timeSpan = 1 * yearLength
-                beforeEach {
-                    number = NSNumber(value: timeSpan)
-                }
+                let number = 1 * yearLength
                 context("with abbreviation") {
                     it("returns correct time") {
                         expect(number.timeString(withAbbreviation: true)) == "1 Yr"
@@ -463,10 +421,7 @@ class NumberTimeFormattableSpecs: QuickSpec {
                 }
             }
             context("as 2 years") {
-                let timeSpan = 2 * yearLength
-                beforeEach {
-                    number = NSNumber(value: timeSpan)
-                }
+                let number = 2 * yearLength
                 context("with abbreviation") {
                     it("returns correct time") {
                         expect(number.timeString(withAbbreviation: true)) == "2 Yrs"
@@ -495,7 +450,6 @@ class NumberTimeFormattableSpecs: QuickSpec {
             }
         }
     }
-    
 }
 
 import Quick

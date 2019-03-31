@@ -1,9 +1,9 @@
-class NumberUnitFormattableSpecs: QuickSpec {
+class DoubleUnitFormattableSpecs: QuickSpec {
     
     override func spec() {
         describe("calls distanceString(withPrecision:withAbbr)") {
             context("as one meter") {
-                let number = NSNumber(value: 1)
+                let number = 1.0
                 context("with abbr") {
                     it("returns corrent distance string") {
                         expect(number.distanceString(withAbbr: true)) == "1.000000M"
@@ -36,7 +36,7 @@ class NumberUnitFormattableSpecs: QuickSpec {
                 }
             }
             context("as one more meter") {
-                let number = NSNumber(value: 1.23)
+                let number = 1.23
                 context("with abbr") {
                     it("returns corrent distance string") {
                         expect(number.distanceString(withAbbr: true)) == "1.230000M"
@@ -69,7 +69,7 @@ class NumberUnitFormattableSpecs: QuickSpec {
                 }
             }
             context("as several meters") {
-                let number = NSNumber(value: 5)
+                let number = 5.0
                 context("with abbr") {
                     it("returns corrent distance string") {
                         expect(number.distanceString(withAbbr: true)) == "5.000000M"
@@ -102,7 +102,7 @@ class NumberUnitFormattableSpecs: QuickSpec {
                 }
             }
             context("as one kilometer") {
-                let number = NSNumber(value: 1000)
+                let number = 1000.0
                 context("with abbr") {
                     it("returns corrent distance string") {
                         expect(number.distanceString(withAbbr: true)) == "1.000000KM"
@@ -135,7 +135,7 @@ class NumberUnitFormattableSpecs: QuickSpec {
                 }
             }
             context("as one more kilometer") {
-                let number = NSNumber(value: 1230)
+                let number = 1230.0
                 context("with abbr") {
                     it("returns corrent distance string") {
                         expect(number.distanceString(withAbbr: true)) == "1.230000KM"
@@ -168,7 +168,7 @@ class NumberUnitFormattableSpecs: QuickSpec {
                 }
             }
             context("as several kilometers") {
-                let number = NSNumber(value: 5000)
+                let number = 5000.0
                 context("with abbr") {
                     it("returns corrent distance string") {
                         expect(number.distanceString(withAbbr: true)) == "5.000000KM"
@@ -202,7 +202,6 @@ class NumberUnitFormattableSpecs: QuickSpec {
             }
         }
     }
-    
 }
 
 import Quick

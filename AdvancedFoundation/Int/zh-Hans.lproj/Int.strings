@@ -1,14 +1,3 @@
-"Space" = "";
-
-/* UnitFormatter */
-"Meter" = "米";
-"Meters" = "米";
-"Kilometer" = "千米";
-"Kilometers" = "千米";
-"MeterAbbr" = "米";
-"KilometerAbbr" = "千米";
-
-/* TimeFormatter */
 "Second" = "秒";
 "Seconds" = "秒";
 "Minute" = "分钟";
@@ -33,4 +22,4 @@
 "MonthsAbbr" = "月";
 "YearAbbr" = "年";
 "YearsAbbr" = "年";
-
+"Space" = "";

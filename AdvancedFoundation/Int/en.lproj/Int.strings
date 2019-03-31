@@ -1,14 +1,3 @@
-"Space" = " ";
-
-/* UnitFormatter */
-"Meter" = "Meter";
-"Meters" = "Meters";
-"Kilometer" = "Kilometer";
-"Kilometers" = "Kilometers";
-"MeterAbbr" = "M";
-"KilometerAbbr" = "KM";
-
-/* TimeFormatter */
 "Second" = "Second";
 "Seconds" = "Seconds";
 "Minute" = "Minute";
@@ -33,4 +22,4 @@
 "MonthsAbbr" = "Mons";
 "YearAbbr" = "Yr";
 "YearsAbbr" = "Yrs";
-
+"Space" = " ";

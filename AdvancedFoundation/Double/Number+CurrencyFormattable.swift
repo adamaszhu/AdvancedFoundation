@@ -1,8 +1,8 @@
 /// Number+CurrencyFormattable is used to format a number into currency string.
 ///
 /// - author: Adamas
-/// - version: 1.1.3
-/// - date: 12/09/2017
+/// - version: 1.5.0
+/// - date: 30/03/2019
 public extension NSNumber {
     
     /// System message.
@@ -35,6 +35,11 @@ public extension NSNumber {
         }
         return moneyString
     }
+    
+}
+
+/// Constants
+private extension NSNumber {
     
 }
 
