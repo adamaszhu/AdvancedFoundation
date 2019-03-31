@@ -1,30 +1,30 @@
-class LongNumberFormattableSpecs: QuickSpec {
+class DoubleLongNumberFormattableSpecs: QuickSpec {
     
     override func spec() {
-        describe("calls number(fromLongNumber)") {
+        describe("calls init(longNumber)") {
             context("with invalid character in string") {
                 it("returns invalid number") {
-                    expect(NSNumber(longNumber: "@1")).to(beNil())
+                    expect(Double(longNumber: "@1")).to(beNil())
                 }
             }
             context("with invalid format in string") {
                 it("returns invalid number") {
-                    expect(NSNumber(longNumber: "10000.00.1")).to(beNil())
+                    expect(Double(longNumber: "10000.00.1")).to(beNil())
                 }
             }
             context("with decimal in string") {
                 it("returns number with correct value") {
-                    expect(NSNumber(longNumber: "10,000.55")) == 10000.55
+                    expect(Double(longNumber: "10,000.55")) == 10000.55
                 }
             }
             context("with large value in string") {
                 it("returns number with correct value") {
-                    expect(NSNumber(longNumber: "10,000")) == 10000
+                    expect(Double(longNumber: "10,000")) == 10000
                 }
             }
             context("with small value in string") {
                 it("returns number with correct value") {
-                    expect(NSNumber(longNumber: "100")) == 100
+                    expect(Double(longNumber: "100")) == 100
                 }
             }
         }

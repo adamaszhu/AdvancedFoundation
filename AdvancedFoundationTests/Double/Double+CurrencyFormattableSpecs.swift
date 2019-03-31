@@ -1,9 +1,9 @@
-class NumberCurrencyFormattableSpecs: QuickSpec {
+class DoubleCurrencyFormattableSpecs: QuickSpec {
     
     override func spec() {
         describe("calls moneyString(withCent:withCurrencySymbol)") {
             context("as double") {
-                let number = NSNumber(value: 999999.55)
+                let number = 999999.55
                 context("with cent") {
                     it("returns money string with cent") {
                         expect(number.moneyString(withCent: true)) == "$999,999.55"
@@ -36,7 +36,7 @@ class NumberCurrencyFormattableSpecs: QuickSpec {
                 }
             }
             context("as int") {
-                let number = NSNumber(value: 999999)
+                let number = 999999.0
                 context("with cent") {
                     it("returns money string with cent") {
                         expect(number.moneyString(withCent: true)) == "$999,999.00"

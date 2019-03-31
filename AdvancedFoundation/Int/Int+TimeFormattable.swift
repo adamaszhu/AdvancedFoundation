@@ -1,4 +1,4 @@
-/// Number+TimeFormattable is used to format a number into time span string.
+/// Int+TimeFormattable is used to format a number into time span string.
 ///
 /// - author: Adamas
 /// - version: 1.5.0

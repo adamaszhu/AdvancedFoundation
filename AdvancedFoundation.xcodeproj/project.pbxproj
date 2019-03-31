@@ -69,14 +69,14 @@
 		28E703BE1EBBF1BA002BEDFC /* NetworkBodyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E703BD1EBBF1BA002BEDFC /* NetworkBodyType.swift */; };
 		28E703C01EBBF237002BEDFC /* NetworkHelperDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E703BF1EBBF237002BEDFC /* NetworkHelperDelegate.swift */; };
 		28E703C61EBC3103002BEDFC /* NetworkRequestHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E703C51EBC3103002BEDFC /* NetworkRequestHeader.swift */; };
-		420F3CAA1EA06B1B00BAA0A4 /* Number+CurrencyFormattable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420F3CA91EA06B1B00BAA0A4 /* Number+CurrencyFormattable.swift */; };
-		420F3CAD1EA0721800BAA0A4 /* Number+LongNumberFormattable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420F3CAB1EA0721800BAA0A4 /* Number+LongNumberFormattable.swift */; };
-		420F3CAE1EA0721800BAA0A4 /* Number+PercentageFormattable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420F3CAC1EA0721800BAA0A4 /* Number+PercentageFormattable.swift */; };
-		420F3CB11EA0798300BAA0A4 /* Number+CurrencyFormattableSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420F3CB01EA0798300BAA0A4 /* Number+CurrencyFormattableSpecs.swift */; };
-		425336C81EA090E100B6D6BF /* Number+LongNumberFormattableSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425336C71EA090E100B6D6BF /* Number+LongNumberFormattableSpecs.swift */; };
-		425336CA1EA0A9E700B6D6BF /* Number+DecimalFormattable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425336C91EA0A9E700B6D6BF /* Number+DecimalFormattable.swift */; };
-		425336CC1EA0ABE800B6D6BF /* Number+DecimalFormattableSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425336CB1EA0ABE800B6D6BF /* Number+DecimalFormattableSpecs.swift */; };
-		425336CE1EA1AB3B00B6D6BF /* Number+PercentageFormattableSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425336CD1EA1AB3B00B6D6BF /* Number+PercentageFormattableSpecs.swift */; };
+		420F3CAA1EA06B1B00BAA0A4 /* Double+CurrencyFormattable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420F3CA91EA06B1B00BAA0A4 /* Double+CurrencyFormattable.swift */; };
+		420F3CAD1EA0721800BAA0A4 /* Double+LongNumberFormattable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420F3CAB1EA0721800BAA0A4 /* Double+LongNumberFormattable.swift */; };
+		420F3CAE1EA0721800BAA0A4 /* Double+PercentageFormattable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420F3CAC1EA0721800BAA0A4 /* Double+PercentageFormattable.swift */; };
+		420F3CB11EA0798300BAA0A4 /* Double+CurrencyFormattableSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420F3CB01EA0798300BAA0A4 /* Double+CurrencyFormattableSpecs.swift */; };
+		425336C81EA090E100B6D6BF /* Double+LongNumberFormattableSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425336C71EA090E100B6D6BF /* Double+LongNumberFormattableSpecs.swift */; };
+		425336CA1EA0A9E700B6D6BF /* Double+DecimalFormattable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425336C91EA0A9E700B6D6BF /* Double+DecimalFormattable.swift */; };
+		425336CC1EA0ABE800B6D6BF /* Double+DecimalFormattableSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425336CB1EA0ABE800B6D6BF /* Double+DecimalFormattableSpecs.swift */; };
+		425336CE1EA1AB3B00B6D6BF /* Double+PercentageFormattableSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425336CD1EA1AB3B00B6D6BF /* Double+PercentageFormattableSpecs.swift */; };
 		425DCD171EB43DE200A0ED26 /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42283BEC1EA470E200E93EE3 /* FileHelper.swift */; };
 		425DCD181EB43DE700A0ED26 /* FileHelperSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4278038F1EA78676007AF7DF /* FileHelperSpecs.swift */; };
 		425EAD531EAEDC1D001F1F81 /* DirectoryHelperSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425EAD521EAEDC1D001F1F81 /* DirectoryHelperSpecs.swift */; };
@@ -220,15 +220,15 @@
 		28E703BD1EBBF1BA002BEDFC /* NetworkBodyType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkBodyType.swift; sourceTree = "<group>"; };
 		28E703BF1EBBF237002BEDFC /* NetworkHelperDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkHelperDelegate.swift; sourceTree = "<group>"; };
 		28E703C51EBC3103002BEDFC /* NetworkRequestHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRequestHeader.swift; sourceTree = "<group>"; };
-		420F3CA91EA06B1B00BAA0A4 /* Number+CurrencyFormattable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Number+CurrencyFormattable.swift"; sourceTree = "<group>"; };
-		420F3CAB1EA0721800BAA0A4 /* Number+LongNumberFormattable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Number+LongNumberFormattable.swift"; sourceTree = "<group>"; };
-		420F3CAC1EA0721800BAA0A4 /* Number+PercentageFormattable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Number+PercentageFormattable.swift"; sourceTree = "<group>"; };
-		420F3CB01EA0798300BAA0A4 /* Number+CurrencyFormattableSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Number+CurrencyFormattableSpecs.swift"; sourceTree = "<group>"; };
+		420F3CA91EA06B1B00BAA0A4 /* Double+CurrencyFormattable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+CurrencyFormattable.swift"; sourceTree = "<group>"; };
+		420F3CAB1EA0721800BAA0A4 /* Double+LongNumberFormattable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+LongNumberFormattable.swift"; sourceTree = "<group>"; };
+		420F3CAC1EA0721800BAA0A4 /* Double+PercentageFormattable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+PercentageFormattable.swift"; sourceTree = "<group>"; };
+		420F3CB01EA0798300BAA0A4 /* Double+CurrencyFormattableSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+CurrencyFormattableSpecs.swift"; sourceTree = "<group>"; };
 		42283BEC1EA470E200E93EE3 /* FileHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileHelper.swift; sourceTree = "<group>"; };
-		425336C71EA090E100B6D6BF /* Number+LongNumberFormattableSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Number+LongNumberFormattableSpecs.swift"; sourceTree = "<group>"; };
-		425336C91EA0A9E700B6D6BF /* Number+DecimalFormattable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Number+DecimalFormattable.swift"; sourceTree = "<group>"; };
-		425336CB1EA0ABE800B6D6BF /* Number+DecimalFormattableSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Number+DecimalFormattableSpecs.swift"; sourceTree = "<group>"; };
-		425336CD1EA1AB3B00B6D6BF /* Number+PercentageFormattableSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Number+PercentageFormattableSpecs.swift"; sourceTree = "<group>"; };
+		425336C71EA090E100B6D6BF /* Double+LongNumberFormattableSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+LongNumberFormattableSpecs.swift"; sourceTree = "<group>"; };
+		425336C91EA0A9E700B6D6BF /* Double+DecimalFormattable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+DecimalFormattable.swift"; sourceTree = "<group>"; };
+		425336CB1EA0ABE800B6D6BF /* Double+DecimalFormattableSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+DecimalFormattableSpecs.swift"; sourceTree = "<group>"; };
+		425336CD1EA1AB3B00B6D6BF /* Double+PercentageFormattableSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+PercentageFormattableSpecs.swift"; sourceTree = "<group>"; };
 		425EAD521EAEDC1D001F1F81 /* DirectoryHelperSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectoryHelperSpecs.swift; sourceTree = "<group>"; };
 		425FA3DD1EA056980015E3C1 /* AdvancedFoundationHost.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdvancedFoundationHost.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		425FA3DF1EA056980015E3C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -486,10 +486,10 @@
 			isa = PBXGroup;
 			children = (
 				2817B9BF200FFF9A00D0814B /* Double.strings */,
-				420F3CA91EA06B1B00BAA0A4 /* Number+CurrencyFormattable.swift */,
-				425336C91EA0A9E700B6D6BF /* Number+DecimalFormattable.swift */,
-				420F3CAB1EA0721800BAA0A4 /* Number+LongNumberFormattable.swift */,
-				420F3CAC1EA0721800BAA0A4 /* Number+PercentageFormattable.swift */,
+				420F3CA91EA06B1B00BAA0A4 /* Double+CurrencyFormattable.swift */,
+				425336C91EA0A9E700B6D6BF /* Double+DecimalFormattable.swift */,
+				420F3CAB1EA0721800BAA0A4 /* Double+LongNumberFormattable.swift */,
+				420F3CAC1EA0721800BAA0A4 /* Double+PercentageFormattable.swift */,
 				2817B9B9200FFE0800D0814B /* Double+UnitFormattable.swift */,
 			);
 			path = Double;
@@ -498,10 +498,10 @@
 		420F3CAF1EA0759500BAA0A4 /* Double */ = {
 			isa = PBXGroup;
 			children = (
-				420F3CB01EA0798300BAA0A4 /* Number+CurrencyFormattableSpecs.swift */,
-				425336CB1EA0ABE800B6D6BF /* Number+DecimalFormattableSpecs.swift */,
-				425336C71EA090E100B6D6BF /* Number+LongNumberFormattableSpecs.swift */,
-				425336CD1EA1AB3B00B6D6BF /* Number+PercentageFormattableSpecs.swift */,
+				420F3CB01EA0798300BAA0A4 /* Double+CurrencyFormattableSpecs.swift */,
+				425336CB1EA0ABE800B6D6BF /* Double+DecimalFormattableSpecs.swift */,
+				425336C71EA090E100B6D6BF /* Double+LongNumberFormattableSpecs.swift */,
+				425336CD1EA1AB3B00B6D6BF /* Double+PercentageFormattableSpecs.swift */,
 				289C49932010115C00ABB4CD /* Double+UnitFormattableSpecs.swift */,
 			);
 			path = Double;
@@ -907,9 +907,9 @@
 				28451A171EBC45FA00793441 /* NetworkTaskType.swift in Sources */,
 				2848AB0A1E9DA039004C6A66 /* Logger.swift in Sources */,
 				284EEFDC1EC001C30022EB6B /* FormDataTextField+Field.swift in Sources */,
-				420F3CAA1EA06B1B00BAA0A4 /* Number+CurrencyFormattable.swift in Sources */,
+				420F3CAA1EA06B1B00BAA0A4 /* Double+CurrencyFormattable.swift in Sources */,
 				425DCD171EB43DE200A0ED26 /* FileHelper.swift in Sources */,
-				425336CA1EA0A9E700B6D6BF /* Number+DecimalFormattable.swift in Sources */,
+				425336CA1EA0A9E700B6D6BF /* Double+DecimalFormattable.swift in Sources */,
 				284EEFDA1EC001A50022EB6B /* FormDataTextField.swift in Sources */,
 				42D342711EB4CFB800064B1C /* JSONNode.swift in Sources */,
 				28E703B51EBADFE3002BEDFC /* NetworkHelper+DataSessionDelegate.swift in Sources */,
@@ -936,12 +936,12 @@
 				28451A131EBC3D0400793441 /* NetworkHelperDelegate+Optional.swift in Sources */,
 				2878F8FF201BE3B800CB48BD /* Int+TimeFormattable.swift in Sources */,
 				284EEFDE1EC001CF0022EB6B /* FormDataFileField+Field.swift in Sources */,
-				420F3CAD1EA0721800BAA0A4 /* Number+LongNumberFormattable.swift in Sources */,
+				420F3CAD1EA0721800BAA0A4 /* Double+LongNumberFormattable.swift in Sources */,
 				42F30E441E9E412900AC0249 /* VersionHelper.swift in Sources */,
 				42C13A751EBEC130000D2E50 /* NetworkTask+Equatable.swift in Sources */,
 				281881D61EA86AB800E8C85E /* String+Editable.swift in Sources */,
 				284EEFD61EBFFEE30022EB6B /* FormDataField.swift in Sources */,
-				420F3CAE1EA0721800BAA0A4 /* Number+PercentageFormattable.swift in Sources */,
+				420F3CAE1EA0721800BAA0A4 /* Double+PercentageFormattable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -950,7 +950,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				28CC3FE71EB8200200C632A5 /* CoreDataHelperSpecs.swift in Sources */,
-				425336CE1EA1AB3B00B6D6BF /* Number+PercentageFormattableSpecs.swift in Sources */,
+				425336CE1EA1AB3B00B6D6BF /* Double+PercentageFormattableSpecs.swift in Sources */,
 				2854752E1ED3A6D000821F83 /* FormDataFileFieldSpecs.swift in Sources */,
 				28E703BC1EBAE504002BEDFC /* NetworkHelperSpecs.swift in Sources */,
 				42D3427C1EB5502900064B1C /* JSONPath+ParsableSpecs.swift in Sources */,
@@ -959,7 +959,7 @@
 				286353F01ED54306000B7A7F /* APIMocker.swift in Sources */,
 				285475341ED3B02300821F83 /* NetworkResponseHeaderSpecs.swift in Sources */,
 				28E246071ED4114D00C32C87 /* URLSessionMocker.swift in Sources */,
-				425336C81EA090E100B6D6BF /* Number+LongNumberFormattableSpecs.swift in Sources */,
+				425336C81EA090E100B6D6BF /* Double+LongNumberFormattableSpecs.swift in Sources */,
 				429202711EC7358200C4E909 /* FileInfoAccessorSpecs.swift in Sources */,
 				28B942821ED3BD2400FFACA1 /* AppInfoAccessorSpecs.swift in Sources */,
 				42D342541EB4968100064B1C /* TextResourceHelperSpecs.swift in Sources */,
@@ -971,7 +971,7 @@
 				284EEFE41EC04D640022EB6B /* FormData+ParsableSpecs.swift in Sources */,
 				429202781EC7ECE100C4E909 /* NetworkResponseHeader+ParsableSpecs.swift in Sources */,
 				42D342761EB4D55400064B1C /* JSONParserSpecs.swift in Sources */,
-				420F3CB11EA0798300BAA0A4 /* Number+CurrencyFormattableSpecs.swift in Sources */,
+				420F3CB11EA0798300BAA0A4 /* Double+CurrencyFormattableSpecs.swift in Sources */,
 				286353F21ED55974000B7A7F /* ErrorMocker.swift in Sources */,
 				28CC40111EB83F9600C632A5 /* Test+CoreDataClass.swift in Sources */,
 				425EAD531EAEDC1D001F1F81 /* DirectoryHelperSpecs.swift in Sources */,
@@ -981,7 +981,7 @@
 				284EF0081EC28F440022EB6B /* NetworkTask+EquatableSpecs.swift in Sources */,
 				4292027A1EC7EF6600C4E909 /* NetworkRequestHeader+ParsableSpecs.swift in Sources */,
 				42F1B2A11ED1631E00788234 /* PathHelperSpecs.swift in Sources */,
-				425336CC1EA0ABE800B6D6BF /* Number+DecimalFormattableSpecs.swift in Sources */,
+				425336CC1EA0ABE800B6D6BF /* Double+DecimalFormattableSpecs.swift in Sources */,
 				281881D81EA86EEC00E8C85E /* String+EditableSpecs.swift in Sources */,
 				425DCD181EB43DE700A0ED26 /* FileHelperSpecs.swift in Sources */,
 				286353F41ED55D92000B7A7F /* ResponseMocker.swift in Sources */,

@@ -1,4 +1,4 @@
-/// Number+UnitFormattable provides format for unit strings.
+/// Double+UnitFormattable provides format for unit strings.
 ///
 /// - author: Adamas
 /// - version: 1.5.0
