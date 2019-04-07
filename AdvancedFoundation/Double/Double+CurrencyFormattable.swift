@@ -35,12 +35,12 @@ public extension Double {
 private extension Double {
     
     /// System message.
-    private static let numberFormatError = "The string doesn't have correct format."
+    static let numberFormatError = "The string doesn't have correct format."
     
     /// Symbols.
-    private static let positiveSymbol = "+"
-    private static let unlimitedSymbol = "∞"
-    private static let dotSymbol = "."
+    static let positiveSymbol = "+"
+    static let unlimitedSymbol = "∞"
+    static let dotSymbol = "."
 }
 
 import Foundation

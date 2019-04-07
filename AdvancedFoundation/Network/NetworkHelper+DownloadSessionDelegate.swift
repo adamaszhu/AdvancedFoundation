@@ -1,25 +1,16 @@
 /// NetworkHelper+DownloadSessionDelegate delegates the action for a download task.
 ///
 // - author: Adamas
-/// - version: 1.1.3
-/// - date: 13/09/2017
+/// - version: 1.5.0
+/// - date: 07/04/2019
 extension NetworkHelper: URLSessionDownloadDelegate {
-    
-    /// System error.
-    private static let fileSystemError = "The downloaded file cannot be moved to the sandbox."
-    
-    /// User error.
-    private static let appError = "AppError"
-    
-    /// System document directory. Which is used to store downloaded files.
-    private static let documentDirectory = "Documents"
     
     public func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
         guard let task = task(of: downloadTask) else {
             downloadTask.cancel()
             return
         }
-        let destinationPath = "\(NetworkHelper.documentDirectory)/\(task.identifier)"
+        let destinationPath = NetworkHelper.documentDirectory + task.identifier
         let fileHelper = FileHelper(path: location.relativePath)
         if fileHelper.copyItem(toPath: destinationPath) != true {
             Logger.standard.logError(NetworkHelper.fileSystemError)
@@ -27,7 +18,7 @@ extension NetworkHelper: URLSessionDownloadDelegate {
             return
         }
         DispatchQueue.main.async { [unowned self] in
-            self.networkHelperDelegate?.networkHelper(self, withIdentifier: task.identifier, didDownloadToURL: destinationPath)
+            self.delegate?.networkHelper(self, withIdentifier: task.identifier, didDownloadToURL: destinationPath)
         }
     }
     
@@ -37,10 +28,22 @@ extension NetworkHelper: URLSessionDownloadDelegate {
             return
         }
         DispatchQueue.main.async { [unowned self] in
-            self.networkHelperDelegate?.networkHelper(self, withIdentifier: task.identifier, didDownloadPercentage: Double(totalBytesWritten) / Double(totalBytesExpectedToWrite))
+            self.delegate?.networkHelper(self, withIdentifier: task.identifier, didDownloadPercentage: Double(totalBytesWritten) / Double(totalBytesExpectedToWrite))
         }
     }
+}
+
+/// Constants
+private extension NetworkHelper {
     
+    /// System error.
+    static let fileSystemError = "The downloaded file cannot be moved to the sandbox."
+    
+    /// User error.
+    static let appError = "AppError"
+    
+    /// System document directory. Which is used to store downloaded files.
+    static let documentDirectory = "Documents"
 }
 
 import Foundation

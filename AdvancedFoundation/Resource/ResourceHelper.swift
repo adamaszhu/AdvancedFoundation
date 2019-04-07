@@ -27,7 +27,7 @@ open class ResourceHelper {
 private extension ResourceHelper {
     
     /// System error.
-    private static let resourceError = "The resource doesn't exist."
+    static let resourceError = "The resource doesn't exist."
 }
 
 import Foundation

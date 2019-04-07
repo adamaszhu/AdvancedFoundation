@@ -16,7 +16,6 @@
 		28258143211275270033D386 /* Bundle+Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28258142211275270033D386 /* Bundle+Localizable.swift */; };
 		2825814421127B1E0033D386 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2825814621127B1E0033D386 /* Localizable.strings */; };
 		2825814A21127BB30033D386 /* Bundle+LocalizableSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2825814921127BB30033D386 /* Bundle+LocalizableSpecs.swift */; };
-		28451A131EBC3D0400793441 /* NetworkHelperDelegate+Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28451A121EBC3D0400793441 /* NetworkHelperDelegate+Optional.swift */; };
 		28451A151EBC3E7800793441 /* NetworkRequestType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28451A141EBC3E7800793441 /* NetworkRequestType.swift */; };
 		28451A171EBC45FA00793441 /* NetworkTaskType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28451A161EBC45FA00793441 /* NetworkTaskType.swift */; };
 		28451A191EBC463300793441 /* NetworkTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28451A181EBC463300793441 /* NetworkTask.swift */; };
@@ -164,7 +163,6 @@
 		2825814721127B250033D386 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2825814821127B270033D386 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		2825814921127BB30033D386 /* Bundle+LocalizableSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+LocalizableSpecs.swift"; sourceTree = "<group>"; };
-		28451A121EBC3D0400793441 /* NetworkHelperDelegate+Optional.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NetworkHelperDelegate+Optional.swift"; sourceTree = "<group>"; };
 		28451A141EBC3E7800793441 /* NetworkRequestType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRequestType.swift; sourceTree = "<group>"; };
 		28451A161EBC45FA00793441 /* NetworkTaskType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTaskType.swift; sourceTree = "<group>"; };
 		28451A181EBC463300793441 /* NetworkTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTask.swift; sourceTree = "<group>"; };
@@ -439,7 +437,6 @@
 				28E703B81EBAE017002BEDFC /* NetworkHelper+DownloadSessionDelegate.swift */,
 				28E703B61EBAE000002BEDFC /* NetworkHelper+SessionTaskDelegate.swift */,
 				28E703BF1EBBF237002BEDFC /* NetworkHelperDelegate.swift */,
-				28451A121EBC3D0400793441 /* NetworkHelperDelegate+Optional.swift */,
 				28E703C51EBC3103002BEDFC /* NetworkRequestHeader.swift */,
 				42C13A721EBEA04F000D2E50 /* NetworkRequestHeader+Parsable.swift */,
 				28451A141EBC3E7800793441 /* NetworkRequestType.swift */,
@@ -933,7 +930,6 @@
 				42D3427A1EB54E7E00064B1C /* JSONPath+Parsable.swift in Sources */,
 				42A1633C1F163799004C04E9 /* TXT+Parsable.swift in Sources */,
 				42C13A6D1EBCC345000D2E50 /* IDGenerator.swift in Sources */,
-				28451A131EBC3D0400793441 /* NetworkHelperDelegate+Optional.swift in Sources */,
 				2878F8FF201BE3B800CB48BD /* Int+TimeFormattable.swift in Sources */,
 				284EEFDE1EC001CF0022EB6B /* FormDataFileField+Field.swift in Sources */,
 				420F3CAD1EA0721800BAA0A4 /* Double+LongNumberFormattable.swift in Sources */,

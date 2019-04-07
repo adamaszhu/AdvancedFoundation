@@ -34,5 +34,5 @@ extension JSONNode {
 private extension JSONNode {
     
     /// System error
-    private static let pathFormatError = "The path is incorrect."
+    static let pathFormatError = "The path is incorrect."
 }

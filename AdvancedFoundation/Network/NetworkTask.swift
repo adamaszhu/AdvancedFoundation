@@ -1,8 +1,8 @@
 /// NetworkTask is a customized task.
 ///
 /// - author: Adamas
-/// - version: 1.1.3
-/// - date: 13/09/2017
+/// - version: 1.5.0
+/// - date: 30/03/2019
 struct NetworkTask {
     
     /// The task type of the task.
@@ -33,11 +33,11 @@ struct NetworkTask {
     ///
     /// - Parameters:
     ///   - task: The task object.
-    ///   - idGenerator: The generator to generate the id.
+    ///   - identifier: The unique id of the task.
     ///   - cache: The cache data.
-    init(task: URLSessionTask, idGenerator: IDGenerator, cache: Data) {
+    init(task: URLSessionTask, identifier: String, cache: Data) {
         self.task = task
-        identifier = idGenerator.uniqueID
+        self.identifier = identifier
         self.cache = cache
     }
     
@@ -52,7 +52,6 @@ struct NetworkTask {
     func cancel() {
         task.cancel()
     }
-    
 }
 
 import Foundation

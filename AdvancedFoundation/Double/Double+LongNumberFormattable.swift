@@ -24,10 +24,10 @@ public extension Double {
 private extension Double {
     
     /// System message.
-    private static let numberFormatError = "The string doesn't have correct format."
+    static let numberFormatError = "The string doesn't have correct format."
     
     /// Symbols.
-    private static let commaSymbol = ","
+    static let commaSymbol = ","
 }
 
 import Foundation

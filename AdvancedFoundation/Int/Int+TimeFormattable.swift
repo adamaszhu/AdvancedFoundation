@@ -72,32 +72,32 @@ public extension Int {
 private extension Int {
     
     /// System errors.
-    private static let precisionError = "The precision should be at least one."
+    static let precisionError = "The precision should be at least one."
     
     /// All localized string tag.
-    private static let minuteTag = "Minute"
-    private static let minutesTag = "Minutes"
-    private static let secondTag = "Second"
-    private static let secondsTag = "Seconds"
-    private static let hourTag = "Hour"
-    private static let hoursTag = "Hours"
-    private static let dayTag = "Day"
-    private static let daysTag = "Days"
-    private static let monthTag = "Month"
-    private static let monthsTag = "Months"
-    private static let yearTag = "Year"
-    private static let yearsTag = "Years"
-    private static let spaceTag = "Space"
-    private static let abbrTag = "Abbr"
-    private static let nowTag = "0"
+    static let minuteTag = "Minute"
+    static let minutesTag = "Minutes"
+    static let secondTag = "Second"
+    static let secondsTag = "Seconds"
+    static let hourTag = "Hour"
+    static let hoursTag = "Hours"
+    static let dayTag = "Day"
+    static let daysTag = "Days"
+    static let monthTag = "Month"
+    static let monthsTag = "Months"
+    static let yearTag = "Year"
+    static let yearsTag = "Years"
+    static let spaceTag = "Space"
+    static let abbrTag = "Abbr"
+    static let nowTag = "0"
     
     /// All unit in second.
-    private static let yearLength = 365 * dayLength
-    private static let monthLength = yearLength / 12
-    private static let dayLength = 24 * hourLength
-    private static let hourLength = 60 * minuteLength
-    private static let minuteLength = 60 * secondLength
-    private static let secondLength = 1
+    static let yearLength = 365 * dayLength
+    static let monthLength = yearLength / 12
+    static let dayLength = 24 * hourLength
+    static let hourLength = 60 * minuteLength
+    static let minuteLength = 60 * secondLength
+    static let secondLength = 1
 }
 
 import Foundation

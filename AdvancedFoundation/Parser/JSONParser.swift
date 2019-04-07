@@ -125,7 +125,7 @@ final public class JSONParser {
 private extension JSONParser {
     
     /// System error
-    private static let stringError = "The string cannot be convert to data."
+    static let stringError = "The string cannot be convert to data."
 }
 
 import Foundation

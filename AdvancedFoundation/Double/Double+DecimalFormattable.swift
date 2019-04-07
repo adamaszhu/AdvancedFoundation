@@ -32,8 +32,8 @@ public extension Double {
 private extension Double {
     
     /// System message.
-    private static let numberFormatError = "The string doesn't have correct format."
-    private static let precisionError = "The precision parameter is incorrect."
+    static let numberFormatError = "The string doesn't have correct format."
+    static let precisionError = "The precision parameter is incorrect."
 }
 
 

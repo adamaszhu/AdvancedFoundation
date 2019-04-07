@@ -22,7 +22,7 @@ public extension Array {
 private extension Array {
     
     /// System error.
-    private static var indexError: String { return "The index is out of rage." }
+    static var indexError: String { return "The index is out of rage." }
 }
 
 import Foundation

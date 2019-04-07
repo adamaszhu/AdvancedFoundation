@@ -1,9 +1,24 @@
 /// FormDataTextField+Field implements how a text field should be convert to a data.
 ///
 /// - author: Adamas
-/// - version: 1.1.0
-/// - date: 13/07/2017
+/// - version: 1.5.0
+/// - date: 02/04/2019
 extension FormDataTextField: FormDataField {
+    
+    var data: Data {
+        var data = Data()
+        guard let fieldPrefix = String(format: FormDataTextField.fieldPrefixPattern, name, value).data(using: .utf8), let fieldSuffix = FormDataTextField.fieldSuffix.data(using: .utf8) else {
+            Logger.standard.logInfo(FormDataTextField.dataFormatError)
+            return data
+        }
+        data.append(fieldPrefix)
+        data.append(fieldSuffix)
+        return data
+    }
+}
+
+/// Constants
+private extension FormDataTextField {
     
     /// System error
     private static let dataFormatError = "The string cannot be converted into data."
@@ -13,18 +28,6 @@ extension FormDataTextField: FormDataField {
     
     /// The pattern of the suffix data of a file field.
     private static let fieldSuffix = "\r\n"
-    
-    var data: Data {
-        var data = Data()
-        guard let fieldPrefix = String(format: FormDataTextField.fieldPrefixPattern, name, value).data(using: .utf8), let fieldSuffix = "\r\n".data(using: .utf8) else {
-            Logger.standard.logInfo(FormDataTextField.dataFormatError)
-            return data
-        }
-        data.append(fieldPrefix)
-        data.append(fieldSuffix)
-        return data
-    }
-    
 }
 
 import Foundation

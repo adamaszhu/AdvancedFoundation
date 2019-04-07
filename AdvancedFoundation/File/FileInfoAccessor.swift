@@ -47,7 +47,7 @@ final public class FileInfoAccessor {
 private extension FileInfoAccessor {
     
     /// The default MIME type.
-    private static let defaultMIMEType = "application/octet-stream"
+    static let defaultMIMEType = "application/octet-stream"
 }
 
 import Foundation

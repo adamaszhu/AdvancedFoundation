@@ -45,20 +45,20 @@ public extension Double {
 private extension Double {
     
     /// All localized string tag.
-    private static let spaceTag = "Space";
-    private static let meterTag = "Meter";
-    private static let metersTag = "Meters";
-    private static let kilometerTag = "Kilometer";
-    private static let kilometersTag = "Kilometers";
-    private static let meterAbbrTag = "MeterAbbr";
-    private static let kilometerAbbrTag = "KilometerAbbr";
+    static let spaceTag = "Space";
+    static let meterTag = "Meter";
+    static let metersTag = "Meters";
+    static let kilometerTag = "Kilometer";
+    static let kilometersTag = "Kilometers";
+    static let meterAbbrTag = "MeterAbbr";
+    static let kilometerAbbrTag = "KilometerAbbr";
     
     /// Patterns
-    private static let defaultPattern = "%f%@%@"
-    private static let stringPattern = "%%.%df%%@%%@"
+    static let defaultPattern = "%f%@%@"
+    static let stringPattern = "%%.%df%%@%%@"
     
     /// Units
-    private static let kilometer = 1000.0
+    static let kilometer = 1000.0
 }
 
 import Foundation
