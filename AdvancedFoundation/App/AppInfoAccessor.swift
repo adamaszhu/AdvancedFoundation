@@ -2,7 +2,7 @@
 ///
 /// - author: Adamas
 /// - version: 1.5.0
-/// - date: 23/03/2019
+/// - date: 08/05/2019
 open class AppInfoAccessor {
     
     /// The singleton instance in the system.
@@ -50,8 +50,12 @@ open class AppInfoAccessor {
             Logger.standard.logError(AppInfoAccessor.preferredLanguageError)
             return nil
         }
-        // 3 includes the dash and two charactors country code
-        return String(preferredLocale.dropLast(3))
+        if preferredLocale.count > 3 {
+            // 3 includes the dash and two charactors country code
+            return String(preferredLocale.dropLast(3))
+        } else {
+            return preferredLocale
+        }
     }
     
     /// The current region.
