@@ -2,7 +2,7 @@
 ///
 /// - author: Adamas
 /// - version: 1.5.0
-/// - date: 07/04/2019
+/// - date: 08/05/2019
 extension NetworkHelper: URLSessionTaskDelegate {
     
     public func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
@@ -10,7 +10,7 @@ extension NetworkHelper: URLSessionTaskDelegate {
             task.cancel()
             return
         }
-        removeTask(networkTask)
+        remove(networkTask)
         if let error = error {
             Logger.standard.log(error)
             dispatchError(for: networkTask, withMessage: NetworkHelper.internetError)

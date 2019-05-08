@@ -2,7 +2,7 @@
 ///
 /// - author: Adamas
 /// - version: 1.5.0
-/// - date: 23/03/2019
+/// - date: 08/05/2019
 open class CoreDataHelper {
     
     /// Get the singleton object.
@@ -116,7 +116,7 @@ open class CoreDataHelper {
     /// - Parameter type: The type of objects should be deleted.
     /// - Returns: Whether the object has been deleted or not. Nil will be returned if there has been an error.
     @discardableResult
-    public func deleteAllObjects(of type: AnyClass) -> Bool? {
+    public func deleteObjects(of type: AnyClass) -> Bool? {
         guard let objects = objects(of: type) else {
             return nil
         }

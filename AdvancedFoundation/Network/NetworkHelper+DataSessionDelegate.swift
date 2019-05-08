@@ -10,7 +10,7 @@ extension NetworkHelper: URLSessionDataDelegate {
             dataTask.cancel()
             return
         }
-        appendData(data, toCacheOf: task)
+        append(data, toCacheOf: task)
     }
     
     public func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive response: URLResponse, completionHandler: @escaping (URLSession.ResponseDisposition) -> Void) {
@@ -19,19 +19,19 @@ extension NetworkHelper: URLSessionDataDelegate {
             return
         }
         guard let httpResponse = response as? HTTPURLResponse else {
-            removeTask(task)
+            remove(task)
             Logger.standard.logError(NetworkHelper.responseTypeError)
             dispatchError(for: task, withMessage: NetworkHelper.serverError)
             return
         }
         guard 200 ..< 400 ~= httpResponse.statusCode else {
-            removeTask(task)
+            remove(task)
             Logger.standard.logError(NetworkHelper.serverSideError)
             dispatchError(for: task, withMessage: NetworkHelper.serverError)
             return
         }
         guard let header = NetworkResponseHeader(response: response) else {
-            removeTask(task)
+            remove(task)
             Logger.standard.logError(NetworkHelper.responseHeaderError)
             dispatchError(for: task, withMessage: NetworkHelper.serverError)
             return 
@@ -42,7 +42,7 @@ extension NetworkHelper: URLSessionDataDelegate {
         let shouldContinue = delegate?.networkHelperShouldReceiveData(self, withIdentifier: task.identifier)
         if shouldContinue == false {
             // Only the response is required.
-            removeTask(task)
+            remove(task)
             completionHandler(.cancel)
         } else {
             completionHandler(.allow)
