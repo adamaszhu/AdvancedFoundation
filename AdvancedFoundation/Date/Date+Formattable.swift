@@ -1,8 +1,8 @@
 /// Date+Formattable provides additional format function for a date object.
 ///
 /// - author: Adamas
-/// - version: 1.3.0
-/// - date: 06/07/2018
+/// - version: 1.5.0
+/// - date: 23/03/2019
 public extension Date {
     
     /// Common patterns.
@@ -12,23 +12,13 @@ public extension Date {
     public static let monthPattern = "MM"
     public static let dayPattern = "dd"
     public static let time12HourPattern = "hh:mma"
-
-    /// System errors.
-    private static let precisionError = "The precision should be at least one."
-    private static let patternError = "The pattern is incorrect."
-    
-    /// All localized string tag.
-    private static let agoTag = "Ago"
-    private static let laterTag = "Later"
-    private static let spaceTag = "Space"
-    private static let nowTag = "Now"
     
     /// The object that only contains the date information of the origin object
     public var date: Date {
         let datePattern = Date.dayPattern + Date.monthPattern + Date.yearPattern
         let string = self.string(withPattern: datePattern)
         guard let date = Date(string: string, pattern: datePattern) else {
-            Logger.standard.log(error: Date.patternError)
+            Logger.standard.logError(Date.patternError)
             return self
         }
         return date
@@ -42,7 +32,7 @@ public extension Date {
     /// - Returns: The time offset string.
     public func timeOffsetString(withPrecision precision: Int = Int.max, withAbbreviation shouldUseAbbreviation: Bool = false) -> String {
         guard precision > 0 else {
-            Logger.standard.log(error: Date.precisionError)
+            Logger.standard.logError(Date.precisionError)
             return .empty
         }
         let currentTimeInterval = Date().timeIntervalSince1970
@@ -58,8 +48,8 @@ public extension Date {
         }
         var differTag = timeOffset > 0 ? Date.agoTag : Date.laterTag
         differTag = Date.spaceTag.localizedInternalString(forType: Date.self) + differTag.localizedInternalString(forType: Date.self)
-        let timeString = NSNumber(value: timeOffset).timeString(withPrecision: precision, withAbbreviation: shouldUseAbbreviation)
-        let timeOffsetString = "\(timeString)\(differTag)"
+        let timeString = abs(timeOffset).timeString(withPrecision: precision, withAbbreviation: shouldUseAbbreviation)
+        let timeOffsetString = timeString + differTag
         return timeOffsetString.trimmingCharacters(in: CharacterSet(charactersIn: .space))
     }
     
@@ -78,7 +68,7 @@ public extension Date {
     /// - Parameters:
     ///   - string: The string
     ///   - pattern: The pattern
-    init?(string: String, pattern: String) {
+    public init?(string: String, pattern: String) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = pattern
         if let date = dateFormatter.date(from: string) {
@@ -87,7 +77,20 @@ public extension Date {
             return nil
         }
     }
+}
+
+/// Constants
+private extension Date {
     
+    /// All localized string tag.
+    static let agoTag = "Ago"
+    static let laterTag = "Later"
+    static let spaceTag = "Space"
+    static let nowTag = "Now"
+    
+    /// System errors.
+    static let precisionError = "The precision should be at least one."
+    static let patternError = "The pattern is incorrect."
 }
 
 import Foundation

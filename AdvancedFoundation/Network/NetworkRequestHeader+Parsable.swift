@@ -1,15 +1,9 @@
 /// NetworkRequestHeader+Parsable converts the request header to a dictionary.
 ///
 /// - author: Adamas
-/// - version: 1.1.0
-/// - date: 13/07/2017
+/// - version: 1.5.0
+/// - date: 02/04/2019
 extension NetworkRequestHeader {
-    
-    /// All header keys.
-    private static let ifModifiedSinceHeader = "If-Modified-Since"
-    private static let ifNoneMatchHeader = "If-None-Match"
-    private static let contentTypeHeader = "Content-Type"
-    private static let contentLengthHeader = "Content-Length"
     
     /// Convert the header to a dictionary.
     var dictionary: [String: String] {
@@ -28,7 +22,16 @@ extension NetworkRequestHeader {
         }
         return dictionary
     }
+}
+
+/// Constants
+private extension NetworkRequestHeader {
     
+    /// All header keys.
+    static let ifModifiedSinceHeader = "If-Modified-Since"
+    static let ifNoneMatchHeader = "If-None-Match"
+    static let contentTypeHeader = "Content-Type"
+    static let contentLengthHeader = "Content-Length"
 }
 
 import Foundation

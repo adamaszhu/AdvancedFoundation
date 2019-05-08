@@ -1,8 +1,8 @@
 /// NetworkHelperDelegate is used when a futher action need to be performed while receiving the network response.
 ///
 /// - author: Adamas
-/// - version: 1.1.0
-/// - date: 13/07/2017
+/// - version: 1.5.0
+/// - date: 02/04/2019
 public protocol NetworkHelperDelegate {
     
     /// Error catched during the operation.
@@ -46,7 +46,6 @@ public protocol NetworkHelperDelegate {
     ///   - identifier: The id of the task.
     ///   - percentage: The percentage received.
     func networkHelper(_ networkHelper: NetworkHelper, withIdentifier identifier: String, didDownloadPercentage percentage: Double)
-    
 }
 
 import Foundation

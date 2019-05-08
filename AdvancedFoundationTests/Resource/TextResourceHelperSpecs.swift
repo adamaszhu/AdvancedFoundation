@@ -22,7 +22,6 @@ class TextResourceHelperSpecs: QuickSpec {
             }
         }
     }
-    
 }
 
 import Quick

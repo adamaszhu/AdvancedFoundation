@@ -5,9 +5,9 @@ class PathHelperSpecs: QuickSpec {
         let fileHelper = FileHelper(path: "temp/temp.tmp")
         afterEach {
             var pathHelper = PathHelper(path: "temp/temp.tmp")
-            _ = pathHelper.remove()
+            _ = pathHelper.removeItem()
             pathHelper = PathHelper(path: "temp")
-            _ = pathHelper.remove()
+            _ = pathHelper.removeItem()
         }
         describe("has path") {
             it("is correct") {
@@ -17,7 +17,7 @@ class PathHelperSpecs: QuickSpec {
         describe("has isExisted") {
             context("if the path exists") {
                 it("is true") {
-                    _ = fileHelper.create(with: Data())
+                    _ = fileHelper.createFile(with: Data())
                     expect(pathHelper.isExisted) == true
                 }
             }
@@ -27,41 +27,41 @@ class PathHelperSpecs: QuickSpec {
                 }
             }
         }
-        describe("calls copy(toPath)") {
+        describe("calls copyCurrentItem(toPath)") {
             afterEach {
                 let destinationPathHelper = PathHelper(path: "temp1.tmp")
-                _ = destinationPathHelper.remove()
+                _ = destinationPathHelper.removeItem()
             }
             context("if the original path exists and the destination doesn't exist") {
                 it("returns true") {
-                    _ = fileHelper.create(with: Data())
-                    expect(pathHelper.copy(toPath: "temp1.tmp")) == true
+                    _ = fileHelper.createFile(with: Data())
+                    expect(pathHelper.copyItem(toPath: "temp1.tmp")) == true
                 }
             }
             context("if the original path exists and the destionation exists") {
                 it("returns false") {
-                    _ = fileHelper.create(with: Data())
+                    _ = fileHelper.createFile(with: Data())
                     let destinationFileHelper = FileHelper(path: "temp1.tmp")
-                    _ = destinationFileHelper.create(with: Data())
-                    expect(fileHelper.copy(toPath: "temp1.tmp")) == false
+                    _ = destinationFileHelper.createFile(with: Data())
+                    expect(fileHelper.copyItem(toPath: "temp1.tmp")) == false
                 }
             }
             context("if the path doesn't exists") {
                 it("returns false") {
-                    expect(pathHelper.copy(toPath: "temp1.tmp")) == false
+                    expect(pathHelper.copyItem(toPath: "temp1.tmp")) == false
                 }
             }
         }
-        describe("calls remove()") {
+        describe("calls removeCurrentItem()") {
             context("if the path exists") {
                 it("returns true") {
-                    _ = fileHelper.create(with: Data())
-                    expect(pathHelper.remove()) == true
+                    _ = fileHelper.createFile(with: Data())
+                    expect(pathHelper.removeItem()) == true
                 }
             }
             context("if the path doesn't exist") {
                 it("returns false") {
-                    expect(pathHelper .remove()) == false
+                    expect(pathHelper .removeItem()) == false
                 }
             }
         }
@@ -69,7 +69,7 @@ class PathHelperSpecs: QuickSpec {
             context("if the parent directory exists") {
                 it("returns true") {
                     let directoryHelper = DirectoryHelper(path: "temp")
-                    _ = directoryHelper.create()
+                    _ = directoryHelper.createDirectory()
                     expect(pathHelper.createParentDirectory()) == true
                 }
             }
@@ -81,13 +81,12 @@ class PathHelperSpecs: QuickSpec {
             context("if the parent path is a file") {
                 it("returns nil") {
                     let fileHelper = FileHelper(path: "temp")
-                    _ = fileHelper.create(with: Data())
+                    _ = fileHelper.createFile(with: Data())
                     expect(pathHelper.createParentDirectory()).to(beNil())
                 }
             }
         }
     }
-    
 }
 
 import Quick

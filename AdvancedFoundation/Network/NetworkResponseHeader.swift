@@ -1,8 +1,8 @@
 /// NetworkResponseHeader includes the header information in a network response.
 ///
 /// - author: Adamas
-/// - version: 1.1.0
-/// - date: 13/07/2017
+/// - version: 1.5.0
+/// - date: 02/04/2019
 public struct NetworkResponseHeader {
     
     /// The content type of the response.
@@ -16,5 +16,4 @@ public struct NetworkResponseHeader {
     
     /// The tag of the resource, it is only obtainable if the server apply HTTP cache mechanism.
     let eTag: String?
-    
 }

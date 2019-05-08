@@ -46,7 +46,6 @@ class JSONPathSpecs: QuickSpec {
             }
         }
     }
-    
 }
 
 import Quick

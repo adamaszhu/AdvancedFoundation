@@ -8,20 +8,45 @@ class StringEditableSpecs: QuickSpec {
             }
             context("with existing suffix") {
                 it("removes suffix") {
-                    string.remove(suffix: "Suffix")
+                    string.removeSuffix("Suffix")
                     expect(string) == "Test"
                 }
                 it("returns true") {
-                    expect(string.remove(suffix: "Suffix")) == true
+                    expect(string.removeSuffix("Suffix")) == true
                 }
             }
             context("without existing suffix") {
                 it("does nothing to the string") {
-                    string.remove(suffix: "Suffix1")
+                    string.removeSuffix("Suffix1")
                     expect(string) == "TestSuffix"
                 }
                 it("returns false") {
-                    expect(string.remove(suffix: "Suffix1")) == false
+                    expect(string.removeSuffix("Suffix1")) == false
+                }
+            }
+        }
+        describe("calls removing(suffix)") {
+            beforeEach {
+                string = "TestSuffix"
+            }
+            context("with existing suffix") {
+                it("removes suffix") {
+                    let newString = string.removingSuffix("Suffix")
+                    expect(newString) == "Test"
+                }
+                it("keeps the old string") {
+                    let _ = string.removingSuffix("Suffix")
+                    expect(string) == "TestSuffix"
+                }
+            }
+            context("without existing suffix") {
+                it("does nothing to the string") {
+                    let newString = string.removingSuffix("Suffix1")
+                    expect(newString) == "TestSuffix"
+                }
+                it("keeps the old string") {
+                    let _ = string.removingSuffix("Suffix1")
+                    expect(string) == "TestSuffix"
                 }
             }
         }
@@ -31,20 +56,45 @@ class StringEditableSpecs: QuickSpec {
             }
             context("with existing prefix") {
                 it("removes prefix") {
-                    string.remove(prefix: "Prefix")
+                    string.removePrefix("Prefix")
                     expect(string) == "Test"
                 }
                 it("returns true") {
-                    expect(string.remove(prefix: "Prefix")) == true
+                    expect(string.removePrefix("Prefix")) == true
                 }
             }
             context("without existing prefix") {
                 it("does nothing to the string") {
-                    string.remove(prefix: "Prefix1")
+                    string.removePrefix("Prefix1")
                     expect(string) == "PrefixTest"
                 }
                 it("returns false") {
-                    expect(string.remove(prefix: "Prefix1")) == false
+                    expect(string.removePrefix("Prefix1")) == false
+                }
+            }
+        }
+        describe("calls removing(prefix)") {
+            beforeEach {
+                string = "PrefixTest"
+            }
+            context("with existing prefix") {
+                it("removes prefix") {
+                    let newString = string.removingPrefix("Prefix")
+                    expect(newString) == "Test"
+                }
+                it("keeps the old string") {
+                    let _ = string.removingPrefix("Prefix")
+                    expect(string) == "PrefixTest"
+                }
+            }
+            context("without existing prefix") {
+                it("does nothing to the string") {
+                    let newString = string.removingPrefix("Prefix1")
+                    expect(newString) == "PrefixTest"
+                }
+                it("keeps the old string") {
+                    let _ = string.removingPrefix("Prefix1")
+                    expect(string) == "PrefixTest"
                 }
             }
         }
@@ -89,7 +139,6 @@ class StringEditableSpecs: QuickSpec {
             }
         }
     }
-    
 }
 
 import Quick

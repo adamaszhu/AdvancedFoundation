@@ -90,7 +90,6 @@ class StringLocalizableSpecs: QuickSpec {
             }
         }
     }
-    
 }
 
 import Quick

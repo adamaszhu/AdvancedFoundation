@@ -1,7 +1,7 @@
 class JSONPathParsableSpecs: QuickSpec {
     
     override func spec() {
-        describe("calls path(from)") {
+        describe("calls init(path)") {
             context("with correct format") {
                 let jsonPath = JSONPath(path: "node1/node2[3]/node3")
                 it("returns JSONPath with 3 nodes") {

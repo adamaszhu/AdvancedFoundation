@@ -1,9 +1,9 @@
-class DecimalFormattableSpecs: QuickSpec {
+class DoubleDecimalFormattableSpecs: QuickSpec {
     
     override func spec() {
         describe("calls decimalString(withPrecision)") {
             context("as double") {
-                let number = NSNumber(value: 100.55)
+                let number = 100.55
                 context("with more decimal") {
                     it("returns decimal string with correct precision") {
                         expect(number.decimalString(withPrecision: 3)) == "100.55"
@@ -31,7 +31,7 @@ class DecimalFormattableSpecs: QuickSpec {
                 }
             }
             context("as int") {
-                let number = NSNumber(value: 100)
+                let number = 100.0
                 context("with decimal") {
                     it("returns decimal string with no decimal") {
                         expect(number.decimalString(withPrecision: 1)) == "100"
@@ -56,7 +56,6 @@ class DecimalFormattableSpecs: QuickSpec {
             }
         }
     }
-    
 }
 
 import Quick

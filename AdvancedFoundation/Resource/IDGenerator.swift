@@ -1,8 +1,8 @@
 /// IDGenerator generates a unique id.
 ///
 /// - author: Adamas
-/// - version: 1.1.4
-/// - date: 13/09/2017
+/// - version: 1.5.0
+/// - date: 23/03/2019
 public class IDGenerator {
     
     /// The singleton instance.
@@ -15,7 +15,7 @@ public class IDGenerator {
             iterator = 0
             timeSeed = newTimeSeed
         }
-        let generatedID = "\(timeSeed)\(iterator)"
+        let generatedID = String(format: IDGenerator.idPattern, timeSeed, iterator)
         iterator += 1
         return generatedID
     }
@@ -31,6 +31,13 @@ public class IDGenerator {
         timeSeed = 0
         iterator = 0
     }
+}
+
+/// Constants
+private extension IDGenerator {
+    
+    /// ID pattern as "\(timeSeed)\(iterator)".
+    static let idPattern = "%d%d"
 }
 
 import Foundation

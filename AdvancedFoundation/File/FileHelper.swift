@@ -1,12 +1,12 @@
 /// FileHelper is used to perform file related action.
 ///
 /// - author: Adamas
-/// - version: 1.2.0
-/// - date: 08/12/2017
+/// - version: 1.5.0
+/// - date: 29/03/2019
 open class FileHelper: PathHelper {
     
     /// The data of a file. Nil if the file doesn't exists or there is an error.
-    @objc public var content: Data? {
+    public var content: Data? {
         guard isExisted else {
             return nil
         }
@@ -17,7 +17,7 @@ open class FileHelper: PathHelper {
     ///
     /// - Parameter data: The data used to create the file.
     /// - Returns: whether the file has been created or not. Nil if there is an error.
-    public func create(with data: Data) -> Bool? {
+    public func createFile(with data: Data) -> Bool? {
         guard !super.isExisted else {
             return false
         }
@@ -36,7 +36,6 @@ open class FileHelper: PathHelper {
         fileExists(atPath: path, isDirectory: &isDictory)
         return !isDictory.boolValue
     }
-    
 }
 
 import Foundation

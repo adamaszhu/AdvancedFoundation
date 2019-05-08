@@ -1,17 +1,8 @@
 /// Logger is used to format a log.
 /// - author: Adamas
-/// - version: 1.1.4
-/// - date: 13/09/2017
+/// - version: 1.5.0
+/// - date: 23/03/2019
 final public class Logger {
-    
-    /// Message tags.
-    private static let errorTag = "Error"
-    private static let infoTag = "Info"
-    private static let warningTag = "Warning"
-    private static let detailSeperator = "=========="
-    
-    /// The date format.
-    private static let dateFormat = "yyyy/MM/dd HH:mm:ss.SSS"
     
     /// The default logger.
     public static let standard = Logger()
@@ -21,8 +12,8 @@ final public class Logger {
     /// - Parameters:
     ///   - info: The info.
     ///   - detail: The detail of the info.
-    public func log(info: String, withDetail detail: Any? = nil) {
-        log(message: info, withTag: Logger.infoTag, withDetail: detail)
+    public func logInfo(_ info: String, withDetail detail: Any? = nil) {
+        logMessage(info, withTag: Logger.infoTag, withDetail: detail)
     }
     
     /// Log a warning.
@@ -30,8 +21,8 @@ final public class Logger {
     /// - Parameters:
     ///   - warning: The warning.
     ///   - detail: The detail of the warning.
-    public func log(warning: String, withDetail detail: Any? = nil) {
-        log(message: warning, withTag: Logger.warningTag, withDetail: detail)
+    public func logWarning(_ warning: String, withDetail detail: Any? = nil) {
+        logMessage(warning, withTag: Logger.warningTag, withDetail: detail)
     }
     
     /// Log an error.
@@ -39,15 +30,15 @@ final public class Logger {
     /// - Parameters:
     ///   - error: The error.
     ///   - detail: The detail of the error.
-    public func log(error: String, withDetail detail: Any? = nil) {
-        log(message: error, withTag: Logger.errorTag, withDetail: detail)
+    public func logError(_ error: String, withDetail detail: Any? = nil) {
+        logMessage(error, withTag: Logger.errorTag, withDetail: detail)
     }
     
     /// Log an error.
     ///
     /// - Parameter error: The error.
     public func log(_ error: Error) {
-        log(message: error.localizedDescription, withTag: Logger.errorTag)
+        logMessage(error.localizedDescription, withTag: Logger.errorTag)
     }
     
     /// Log a message.
@@ -56,18 +47,37 @@ final public class Logger {
     ///   - tag: The type of the message.
     ///   - message: The message.
     ///   - detail: The detail of the message.
-    private func log(message: String, withTag tag: String, withDetail detail: Any? = nil) {
+    private func logMessage(_ message: String, withTag tag: String, withDetail detail: Any? = nil) {
         let date = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = Logger.dateFormat
         let dateString = dateFormatter.string(from: date)
-        var log = "\(tag) \(dateString): \(message)"
+        var log = String(format: Logger.logPattern, tag, dateString, message)
         if let detail = detail {
-            log = log + "\n\(Logger.detailSeperator)\n\(detail)\n\(Logger.detailSeperator)"
+            let detailString = "\(detail)"
+            log = String(format: Logger.detailPattern, log, detailString)
         }
         print(log)
     }
+}
+
+/// Constants
+private extension Logger {
     
+    /// The date format.
+    static let dateFormat = "yyyy/MM/dd HH:mm:ss.SSS"
+    
+    /// The log pattern as "\(tag) \(dateString): \(message)".
+    static let logPattern = "%@ %@: %@"
+    
+    /// The detail pattern as "\(log)\n==========\n\(detail)\n==========".
+    static let detailPattern = "%@\n\(Logger.detailSeperator)\n%@\n\(Logger.detailSeperator)"
+    
+    /// Message tags.
+    static let errorTag = "Error"
+    static let infoTag = "Info"
+    static let warningTag = "Warning"
+    static let detailSeperator = "=========="
 }
 
 import Foundation

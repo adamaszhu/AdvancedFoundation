@@ -1,8 +1,8 @@
 /// FormDataFileField contains the information about a file field.
 ///
 /// - author: Adamas
-/// - version: 1.1.0
-/// - date: 13/07/2017
+/// - version: 1.5.0
+/// - date: 02/04/2019
 public struct FormDataFileField {
     
     /// The name of the field.
@@ -13,7 +13,6 @@ public struct FormDataFileField {
     
     /// The path of the file, which will be used to extract the file name and file extension.
     let path: String
-    
 }
 
 import Foundation

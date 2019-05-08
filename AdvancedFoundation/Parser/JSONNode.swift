@@ -1,14 +1,12 @@
 /// JSONNode represent a node in a json path.
 ///
 /// - author: Adamas
-/// - version: 1.1.0
-/// - date: 12/07/2017
+/// - version: 1.5.0
+/// - date: 23/03/2019
 struct JSONNode {
     
     /// Whether the node represent current node or not. Which is a dot character.
-    var isCurrentNode: Bool {
-        return name == "."
-    }
+    let isCurrentNode: Bool
     
     /// Node name
     let name: String
@@ -24,6 +22,6 @@ struct JSONNode {
     init(name: String, index: Int? = nil) {
         self.name = name
         self.index = index
+        isCurrentNode = name == .dot
     }
-    
 }

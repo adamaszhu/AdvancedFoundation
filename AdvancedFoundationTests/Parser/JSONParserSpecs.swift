@@ -310,7 +310,6 @@ class JSONParserSpecs: QuickSpec {
             }
         }
     }
-    
 }
 
 import Quick

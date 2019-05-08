@@ -1,8 +1,8 @@
 /// CSV+Parsable parses a string to a csv object.
 ///
 /// - author: Adamas
-/// - version: 1.2.0
-/// - date: 08/12/2017
+/// - version: 1.5.0
+/// - date: 23/03/2019
 public extension CSV {
     
     /// Parse the content to a two dimention array.
@@ -17,7 +17,6 @@ public extension CSV {
         }
         self.init(table: table)
     }
-    
 }
 
 import Foundation

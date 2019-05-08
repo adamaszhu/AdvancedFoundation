@@ -20,7 +20,7 @@ class URLSessionDownloadTaskMocker: URLSessionDownloadTask {
         }
         let fileHelper = FileHelper(path: "Test")
         let data = "Test".data(using: .utf8)!
-        _ = fileHelper.create(with: data)
+        _ = fileHelper.createFile(with: data)
         delegate?.urlSession?(session, downloadTask: self, didWriteData: Int64(data.count), totalBytesWritten: Int64(data.count), totalBytesExpectedToWrite: Int64(data.count))
         delegate?.urlSession(session, downloadTask: self, didFinishDownloadingTo: URL(fileURLWithPath: "Test"))
         delegate?.urlSession?(session, task: self, didCompleteWithError: nil)

@@ -1,12 +1,9 @@
 /// JSONParser parses the data of a JSON structure.
 ///
 /// - author: Adamas
-/// - version: 1.1.8
-/// - date: 08/12/2017
+/// - version: 1.5.0
+/// - date: 26/03/2019
 final public class JSONParser {
-    
-    /// System error
-    private static let stringError = "The string cannot be convert to data."
     
     /// The content of the json file.
     private var json: Any
@@ -28,7 +25,7 @@ final public class JSONParser {
     /// - Parameter string: The string data.
     public convenience init?(string: String) {
         guard let data = string.data(using: .utf8) else {
-            Logger.standard.log(error: JSONParser.stringError)
+            Logger.standard.logError(JSONParser.stringError)
             return nil
         }
         self.init(data: data)
@@ -83,8 +80,8 @@ final public class JSONParser {
     private func node(atPath path: String, fromNode node: Any?) -> Any? {
         var realPath = path
         var realNode = node
-        if path.hasPrefix("/") {
-            realPath.remove(prefix: "/")
+        if path.hasPrefix(.forwardSlash) {
+            realPath.removePrefix(.forwardSlash)
             realNode = json
         }
         guard let jsonPath = JSONPath(path: realPath) else {
@@ -122,7 +119,13 @@ final public class JSONParser {
         path.removeFirstNode()
         return path.isEmpty ? realNode : self.node(at: path, fromNode: realNode)
     }
+}
+
+/// Constants
+private extension JSONParser {
     
+    /// System error
+    static let stringError = "The string cannot be convert to data."
 }
 
 import Foundation

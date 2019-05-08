@@ -4,7 +4,7 @@ class DirectoryHelperSpecs: QuickSpec {
         let directoryHelper = DirectoryHelper(path: "temp")
         afterEach {
             let pathHelper = PathHelper(path: "temp")
-            _ = pathHelper.remove()
+            _ = pathHelper.removeItem()
         }
         describe("has path") {
             it("is correct") {
@@ -14,7 +14,7 @@ class DirectoryHelperSpecs: QuickSpec {
         describe("has isExisted") {
             context("if the directory exists") {
                 it("returns true") {
-                    _ = directoryHelper.create()
+                    _ = directoryHelper.createDirectory()
                     expect(directoryHelper.isExisted) == true
                 }
             }
@@ -26,7 +26,7 @@ class DirectoryHelperSpecs: QuickSpec {
             context("if the path is a file") {
                 it("returns false") {
                     let fileHelper = FileHelper(path: "temp")
-                    _ = fileHelper.create(with: Data())
+                    _ = fileHelper.createFile(with: Data())
                     expect(directoryHelper.isExisted) == false
                 }
             }
@@ -34,14 +34,14 @@ class DirectoryHelperSpecs: QuickSpec {
         describe("calls create()") {
             context("if the directory doesn't exist") {
                 it("returns true") {
-                    let result = directoryHelper.create()
+                    let result = directoryHelper.createDirectory()
                     expect(result) == true
                 }
             }
             context("if the directory exists") {
                 it("returns false") {
-                    _ = directoryHelper.create()
-                    let result = directoryHelper.create()
+                    _ = directoryHelper.createDirectory()
+                    let result = directoryHelper.createDirectory()
                     expect(result) == false
                 }
             }
@@ -49,15 +49,15 @@ class DirectoryHelperSpecs: QuickSpec {
         describe("has content") {
             context("if the directory is empty") {
                 it("returns empty array") {
-                    _ = directoryHelper.create()
+                    _ = directoryHelper.createDirectory()
                     expect(directoryHelper.content?.count) == 0
                 }
             }
             context("if the directory is not empty") {
                 it("returns the file list") {
-                    _ = directoryHelper.create()
+                    _ = directoryHelper.createDirectory()
                     let fileHelper = FileHelper(path: "temp/temp.tmp")
-                    _ = fileHelper.create(with: Data())
+                    _ = fileHelper.createFile(with: Data())
                     expect(directoryHelper.content?.count) == 1
                 }
             }
@@ -70,46 +70,46 @@ class DirectoryHelperSpecs: QuickSpec {
         describe("calls remove()") {
             context("if the directory exists") {
                 it("returns true") {
-                    _ = directoryHelper.create()
-                    expect(directoryHelper.remove()) == true
+                    _ = directoryHelper.createDirectory()
+                    expect(directoryHelper.removeItem()) == true
                 }
             }
             context("if the directory doesn't exist") {
                 it("returns false") {
-                    expect(directoryHelper.remove()) == false
+                    expect(directoryHelper.removeItem()) == false
                 }
             }
         }
         describe("calls copy(toPath)") {
             afterEach {
                 let destinationPathHelper = PathHelper(path: "temp1")
-                _ = destinationPathHelper.remove()
+                _ = destinationPathHelper.removeItem()
             }
             context("if the directory exists and the destination doesn't exist") {
                 it("returns true") {
-                    _ = directoryHelper.create()
-                    expect(directoryHelper.copy(toPath: "temp1")) == true
+                    _ = directoryHelper.createDirectory()
+                    expect(directoryHelper.copyItem(toPath: "temp1")) == true
                 }
             }
             context("if the directory exists and the destionation directory exists") {
                 it("returns false") {
-                    _ = directoryHelper.create()
+                    _ = directoryHelper.createDirectory()
                     let destinationDirectoryHelper = DirectoryHelper(path: "temp1")
-                    _ = destinationDirectoryHelper.create()
-                    expect(directoryHelper.copy(toPath: "temp1")) == false
+                    _ = destinationDirectoryHelper.createDirectory()
+                    expect(directoryHelper.copyItem(toPath: "temp1")) == false
                 }
             }
             context("if the directory exists and the destionation file exists") {
                 it("returns false") {
-                    _ = directoryHelper.create()
+                    _ = directoryHelper.createDirectory()
                     let destinationFileHelper = FileHelper(path: "temp1")
-                    _ = destinationFileHelper.create(with: Data())
-                    expect(directoryHelper.copy(toPath: "temp1")) == false
+                    _ = destinationFileHelper.createFile(with: Data())
+                    expect(directoryHelper.copyItem(toPath: "temp1")) == false
                 }
             }
             context("if the directory doesn't exists") {
                 it("returns false") {
-                    expect(directoryHelper.copy(toPath: "temp1")) == false
+                    expect(directoryHelper.copyItem(toPath: "temp1")) == false
                 }
             }
         }
