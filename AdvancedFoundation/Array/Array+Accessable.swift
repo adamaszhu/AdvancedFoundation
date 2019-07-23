@@ -9,7 +9,7 @@ public extension Array {
     ///
     /// - Parameter index: The index.
     /// - Returns: The element. Nil if the index is invalid.
-    public func element(atIndex index: Int) -> Element? {
+    func element(atIndex index: Int) -> Element? {
         guard 0 ..< count ~= index else {
             Logger.standard.logError(Array.indexError, withDetail: index)
             return nil

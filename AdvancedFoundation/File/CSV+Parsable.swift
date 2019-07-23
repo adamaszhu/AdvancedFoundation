@@ -8,7 +8,7 @@ public extension CSV {
     /// Parse the content to a two dimention array.
     ///
     /// - Parameter content: The content containing the csv.
-    public init(content: String) {
+    init(content: String) {
         let txt = TXT(content: content)
         var table = [[String]]()
         txt.lines.forEach {

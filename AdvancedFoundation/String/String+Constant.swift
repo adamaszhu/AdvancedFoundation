@@ -6,16 +6,16 @@
 public extension String {
     
     // Constants
-    public static let space = " "
-    public static let linebreak = "\n"
-    public static let empty = ""
-    public static let plus = "+"
-    public static let dot = "."
-    public static let tab = "\t"
-    public static let comma = ","
-    public static let dash = "-"
-    public static let comment = "//"
-    public static let leftSquareBracket = "["
-    public static let rightSquareBracket = "]"
-    public static let forwardSlash = "/"
+    static let space = " "
+    static let linebreak = "\n"
+    static let empty = ""
+    static let plus = "+"
+    static let dot = "."
+    static let tab = "\t"
+    static let comma = ","
+    static let dash = "-"
+    static let comment = "//"
+    static let leftSquareBracket = "["
+    static let rightSquareBracket = "]"
+    static let forwardSlash = "/"
 }

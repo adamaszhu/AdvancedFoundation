@@ -10,7 +10,7 @@ public extension String {
     /// - Parameter suffix: The suffix to be removed.
     /// - Returns: Whether the suffix has been removed or not.
     @discardableResult
-    public mutating func removeSuffix(_ suffix: String) -> Bool {
+    mutating func removeSuffix(_ suffix: String) -> Bool {
         guard hasSuffix(suffix) else {
             return false
         }
@@ -24,7 +24,7 @@ public extension String {
     ///
     /// - Parameter suffix: The suffix to be removed.
     /// - Returns: The suffix removed string.
-    public func removingSuffix(_ suffix: String) -> String {
+    func removingSuffix(_ suffix: String) -> String {
         var string = self
         string.removeSuffix(suffix)
         return string
@@ -35,7 +35,7 @@ public extension String {
     /// - Parameter prefix: The prefix to be removed.
     /// - Returns: Whether the prefix has been removed or not.
     @discardableResult
-    public mutating func removePrefix(_ prefix: String) -> Bool {
+    mutating func removePrefix(_ prefix: String) -> Bool {
         guard hasPrefix(prefix) else {
             return false
         }
@@ -49,14 +49,14 @@ public extension String {
     ///
     /// - Parameter prefix: The prefix to be removed.
     /// - Returns: The prefix removed string.
-    public func removingPrefix(_ prefix: String) -> String {
+    func removingPrefix(_ prefix: String) -> String {
         var string = self
         string.removePrefix(prefix)
         return string
     }
     
     /// Get a string who is word uppercased. Like "apple banana" -> "Apple Banana"
-    public var wordUppercased: String {
+    var wordUppercased: String {
         var words = lowercased().components(separatedBy: .whitespacesAndNewlines)
         words = words.map { word in
             guard !word.isEmpty else {
@@ -74,7 +74,7 @@ public extension String {
     }
     
     /// Get a string who is phrase uppercased. Like "apple banana" -> "Apple banana"
-    public var phraseUppercased: String {
+    var phraseUppercased: String {
         var string = lowercased()
         let firstCharacter = String(string.removeFirst())
         return firstCharacter.uppercased() + string
