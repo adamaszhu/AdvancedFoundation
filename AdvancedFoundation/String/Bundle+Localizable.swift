@@ -6,10 +6,10 @@
 public extension Bundle {
     
     /// The language that all resources should use.
-    public static var currentLanguage = AppInfoAccessor.shared.preferredLanguage
+    static var currentLanguage = AppInfoAccessor.shared.preferredLanguage
     
     /// Swizzle the localizeString method
-    public static func switchLanguage() {
+    static func switchLanguage() {
         let originSelector = #selector(localizedString(forKey:value:table:))
         let targetSelector = #selector(dynamicLocalizedString(forKey:value:table:))
         guard let originMethod = class_getInstanceMethod(Bundle.self, originSelector), let targetMethod = class_getInstanceMethod(Bundle.self, targetSelector) else {
