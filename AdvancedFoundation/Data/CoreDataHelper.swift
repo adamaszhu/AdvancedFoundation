@@ -2,7 +2,7 @@
 ///
 /// - author: Adamas
 /// - version: 1.5.0
-/// - date: 08/05/2019
+/// - date: 24/07/2019
 open class CoreDataHelper {
     
     /// Get the singleton object.

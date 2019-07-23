@@ -8,7 +8,7 @@ public extension TXT {
     /// Parse TXT from the content.
     ///
     /// - Parameter content: The content containing txt.
-    public init(content: String) {
+    init(content: String) {
         let lines = content.components(separatedBy: .newlines).filter { !$0.hasPrefix(.comment) }
         self.init(lines: lines)
     }
