@@ -3,7 +3,7 @@
 /// - author: Adamas
 /// - version: 1.5.0
 /// - date: 23/03/2019
-open class VersionHelper {
+final class VersionHelper {
     
     /// The shared helper that presents current version. It will be nil if the version cannot be retrieved.
     public static let shared: VersionHelper? = {

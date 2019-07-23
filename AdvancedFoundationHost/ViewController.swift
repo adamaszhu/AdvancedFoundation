@@ -1,4 +1,3 @@
-class ViewController: UIViewController {
-}
+class ViewController: UIViewController {}
 
 import UIKit
