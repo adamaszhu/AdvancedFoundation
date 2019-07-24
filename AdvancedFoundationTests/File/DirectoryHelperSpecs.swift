@@ -114,7 +114,6 @@ class DirectoryHelperSpecs: QuickSpec {
             }
         }
     }
-    
 }
 
 import Quick

@@ -38,7 +38,6 @@ public extension Double {
         }
         self = number.doubleValue / 100
     }
-    
 }
 
 /// Constants
@@ -51,6 +50,5 @@ private extension Double {
     /// Symbols.
     static let percentageSymbol = "%"
 }
-
 
 import Foundation

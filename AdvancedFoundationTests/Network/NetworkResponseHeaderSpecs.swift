@@ -17,7 +17,6 @@ class NetworkResponseHeaderSpecs: QuickSpec {
             }
         }
     }
-    
 }
 
 import Quick

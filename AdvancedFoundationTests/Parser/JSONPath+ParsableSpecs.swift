@@ -16,10 +16,8 @@ class JSONPathParsableSpecs: QuickSpec {
             }
         }
     }
-    
 }
 
 import Quick
 import Nimble
 @testable import AdvancedFoundation
-

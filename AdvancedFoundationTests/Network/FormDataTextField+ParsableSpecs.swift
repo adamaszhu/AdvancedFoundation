@@ -9,7 +9,6 @@ class FormDataTextFieldParsableSpecs: QuickSpec {
             }
         }
     }
-    
 }
 
 import Quick

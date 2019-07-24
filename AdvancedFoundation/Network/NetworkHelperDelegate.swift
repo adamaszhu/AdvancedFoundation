@@ -49,4 +49,3 @@ public protocol NetworkHelperDelegate {
 }
 
 import Foundation
-

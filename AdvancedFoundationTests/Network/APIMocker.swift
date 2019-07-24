@@ -34,7 +34,6 @@ enum APIMocker: String {
             return "Test".data(using: .utf8)!
         }
     }
-    
 }
 
 import Foundation

@@ -55,5 +55,3 @@ struct NetworkTask {
 }
 
 import Foundation
-
-

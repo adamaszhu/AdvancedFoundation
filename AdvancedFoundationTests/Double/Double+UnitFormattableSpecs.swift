@@ -207,4 +207,3 @@ class DoubleUnitFormattableSpecs: QuickSpec {
 import Quick
 import Nimble
 @testable import AdvancedFoundation
-

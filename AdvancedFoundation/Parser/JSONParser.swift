@@ -3,7 +3,7 @@
 /// - author: Adamas
 /// - version: 1.5.0
 /// - date: 26/03/2019
-final public class JSONParser {
+public class JSONParser {
     
     /// The content of the json file.
     private var json: Any

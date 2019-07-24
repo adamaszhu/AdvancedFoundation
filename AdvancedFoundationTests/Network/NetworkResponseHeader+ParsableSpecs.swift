@@ -71,7 +71,6 @@ class NetworkResponseHeaderParsableSpecs: QuickSpec {
             }
         }
     }
-    
 }
 
 import Quick

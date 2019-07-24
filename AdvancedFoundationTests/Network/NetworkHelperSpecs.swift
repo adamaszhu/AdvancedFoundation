@@ -258,7 +258,6 @@ class NetworkHelperHelperSpecs: QuickSpec {
             // This has been tested in other tests.
         }
     }
-    
 }
 
 import Quick

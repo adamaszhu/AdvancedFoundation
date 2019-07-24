@@ -36,5 +36,4 @@ private extension Double {
     static let precisionError = "The precision parameter is incorrect."
 }
 
-
 import Foundation

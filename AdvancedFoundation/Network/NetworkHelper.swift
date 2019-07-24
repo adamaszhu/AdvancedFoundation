@@ -3,7 +3,7 @@
 /// - author: Adamas
 /// - version: 1.5.0
 /// - date: 08/05/2019
-open class NetworkHelper: NSObject {
+public class NetworkHelper: NSObject {
     
     /// The default helper.
     public static var standard: NetworkHelper? {
@@ -271,6 +271,3 @@ private extension NetworkHelper {
 
 import Foundation
 import SystemConfiguration
-
-
-
