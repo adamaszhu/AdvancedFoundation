@@ -47,4 +47,3 @@ class JSONNodeSpecs: QuickSpec {
 import Quick
 import Nimble
 @testable import AdvancedFoundation
-

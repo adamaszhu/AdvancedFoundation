@@ -9,7 +9,7 @@ public extension Double {
     ///
     /// - Rarameter precision: The precision spedified. If it is nil, the original value will be returned.
     /// - Returns: The formatted string.
-    public func percentageString(withPrecision precision: Int? = nil) -> String? {
+    func percentageString(withPrecision precision: Int? = nil) -> String? {
         if let positivePrecision = precision, positivePrecision < 0 {
             Logger.standard.logError(Double.precisionError, withDetail: precision)
             return nil
@@ -24,7 +24,7 @@ public extension Double {
     /// Read a percent string.
     ///
     /// - Parameter percentage: The string to be rendered.
-    public init?(percentage: String) {
+    init?(percentage: String) {
         guard percentage.contains(Double.percentageSymbol) else {
             Logger.standard.logError(Double.numberFormatError, withDetail: percentage)
             return nil
@@ -38,7 +38,6 @@ public extension Double {
         }
         self = number.doubleValue / 100
     }
-    
 }
 
 /// Constants
@@ -51,6 +50,5 @@ private extension Double {
     /// Symbols.
     static let percentageSymbol = "%"
 }
-
 
 import Foundation

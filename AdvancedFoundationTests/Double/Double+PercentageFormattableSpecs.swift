@@ -52,11 +52,3 @@ class DoublePercentageFormattableSpecs: QuickSpec {
 import Quick
 import Nimble
 @testable import AdvancedFoundation
-
-
-
-
-
-
-
-

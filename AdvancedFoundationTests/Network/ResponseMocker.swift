@@ -31,7 +31,6 @@ enum ResponseMocker {
             return "Fail".data(using: .utf8)!
         }
     }
-    
 }
 
 import Foundation

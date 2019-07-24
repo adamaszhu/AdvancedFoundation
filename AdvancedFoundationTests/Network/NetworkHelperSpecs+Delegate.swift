@@ -24,7 +24,6 @@ extension NetworkHelperHelperSpecs: NetworkHelperDelegate {
     func networkHelper(_ networkHelper: NetworkHelper, withIdentifier identifier: String, didDownloadPercentage percentage: Double) {
         results[identifier]?.percentage = percentage
     }
-    
 }
 
 import AdvancedFoundation

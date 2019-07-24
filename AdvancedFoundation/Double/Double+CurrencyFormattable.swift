@@ -6,13 +6,13 @@
 public extension Double {
     
     /// Symbols.
-    public static let dollarSymbol = "$"
+    static let dollarSymbol = "$"
     
     /// Print the number as a string using money format. For example, $1,000,000.00.
     ///
     /// - Parameter shouldDisplayCent: Whether the cent should be displayed or not.
     /// - Returns: The formatted string.
-    public func moneyString(withCent shouldDisplayCent: Bool = false, withCurrencySymbol currencySymbol: String = dollarSymbol) -> String? {
+    func moneyString(withCent shouldDisplayCent: Bool = false, withCurrencySymbol currencySymbol: String = dollarSymbol) -> String? {
         let numberFormatter = NumberFormatter()
         numberFormatter.currencySymbol = currencySymbol
         numberFormatter.numberStyle = NumberFormatter.Style.currency

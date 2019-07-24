@@ -29,7 +29,6 @@ class DoubleLongNumberFormattableSpecs: QuickSpec {
             }
         }
     }
-    
 }
 
 import Quick

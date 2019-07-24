@@ -70,7 +70,6 @@ class DoubleCurrencyFormattableSpecs: QuickSpec {
             }
         }
     }
-    
 }
 
 import Quick

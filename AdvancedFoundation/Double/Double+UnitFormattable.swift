@@ -11,7 +11,7 @@ public extension Double {
     ///   - precision: The precision of the string.
     ///   - shouldUseAbbr: Whether the unit should be abbr or not.
     /// - Returns: The distance streen
-    public func distanceString(withPrecision precision: Int? = nil, withAbbr shouldUseAbbr: Bool = true) -> String {
+    func distanceString(withPrecision precision: Int? = nil, withAbbr shouldUseAbbr: Bool = true) -> String {
         let stringPattern: String
         if let precision = precision {
             stringPattern = String(format: Double.stringPattern, precision)

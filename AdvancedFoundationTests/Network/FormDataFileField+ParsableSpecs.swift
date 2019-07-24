@@ -9,7 +9,6 @@ class FormDataFileParsableSpecs: QuickSpec {
             }
         }
     }
-    
 }
 
 import Foundation

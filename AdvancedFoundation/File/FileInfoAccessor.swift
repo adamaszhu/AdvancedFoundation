@@ -3,7 +3,7 @@
 /// - author: Adamas
 /// - version: 1.5.0
 /// - date: 29/03/2019
-final public class FileInfoAccessor {
+public class FileInfoAccessor {
     
     /// Get the MIME type of the file.
     public var mimeType: String {
@@ -52,5 +52,3 @@ private extension FileInfoAccessor {
 
 import Foundation
 import MobileCoreServices
-
-

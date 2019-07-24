@@ -8,7 +8,7 @@ public extension Double {
     /// Read a long number string.
     ///
     /// - Parameter longNumber: The string to be rendered.
-    public init?(longNumber: String) {
+    init?(longNumber: String) {
         // TODO: Validate the comma format.
         let formattedLongNumberString = longNumber.replacingOccurrences(of: Double.commaSymbol, with: String.empty)
         let formatter = NumberFormatter()

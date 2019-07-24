@@ -604,11 +604,3 @@ class DateFormattableSpecs: QuickSpec {
 import Quick
 import Nimble
 @testable import AdvancedFoundation
-
-
-
-
-
-
-
-

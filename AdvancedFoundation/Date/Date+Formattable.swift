@@ -6,15 +6,15 @@
 public extension Date {
     
     /// Common patterns.
-    public static let fullYearPattern = "yyyy"
-    public static let yearPattern = "yy"
-    public static let abbrMonthPattern = "MMM"
-    public static let monthPattern = "MM"
-    public static let dayPattern = "dd"
-    public static let time12HourPattern = "hh:mma"
+    static let fullYearPattern = "yyyy"
+    static let yearPattern = "yy"
+    static let abbrMonthPattern = "MMM"
+    static let monthPattern = "MM"
+    static let dayPattern = "dd"
+    static let time12HourPattern = "hh:mma"
     
     /// The object that only contains the date information of the origin object
-    public var date: Date {
+    var date: Date {
         let datePattern = Date.dayPattern + Date.monthPattern + Date.yearPattern
         let string = self.string(withPattern: datePattern)
         guard let date = Date(string: string, pattern: datePattern) else {
@@ -30,7 +30,7 @@ public extension Date {
     ///   - precision: How many units should be included.
     ///   - shouldUseAbbreviation: Whether the time description should be abbreviation or not.
     /// - Returns: The time offset string.
-    public func timeOffsetString(withPrecision precision: Int = Int.max, withAbbreviation shouldUseAbbreviation: Bool = false) -> String {
+    func timeOffsetString(withPrecision precision: Int = Int.max, withAbbreviation shouldUseAbbreviation: Bool = false) -> String {
         guard precision > 0 else {
             Logger.standard.logError(Date.precisionError)
             return .empty
@@ -57,7 +57,7 @@ public extension Date {
     ///
     /// - Parameter pattern: The pattern
     /// - Returns: The formatted string
-    public func string(withPattern pattern: String) -> String {
+    func string(withPattern pattern: String) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = pattern
         return dateFormatter.string(from: self)
@@ -68,7 +68,7 @@ public extension Date {
     /// - Parameters:
     ///   - string: The string
     ///   - pattern: The pattern
-    public init?(string: String, pattern: String) {
+    init?(string: String, pattern: String) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = pattern
         if let date = dateFormatter.date(from: string) {

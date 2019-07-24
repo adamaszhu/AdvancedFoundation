@@ -2,8 +2,8 @@
 ///
 /// - author: Adamas
 /// - version: 1.5.0
-/// - date: 02/04/2019
-open class NetworkHelper: NSObject {
+/// - date: 08/05/2019
+public class NetworkHelper: NSObject {
     
     /// The default helper.
     public static var standard: NetworkHelper? {
@@ -83,7 +83,7 @@ open class NetworkHelper: NSObject {
         }
         request.httpBody = body
         let type = isUploadTask ? NetworkTaskType.upload : NetworkTaskType.data
-        return sendRequest(request, as: type)
+        return send(request, as: type)
     }
     
     /// Post a form to a specific url.
@@ -112,7 +112,7 @@ open class NetworkHelper: NSObject {
             return nil
         }
         let type = isDownloadTask ? NetworkTaskType.download : NetworkTaskType.data
-        return sendRequest(request, as: type)
+        return send(request, as: type)
     }
     
     /// Send a delete request.
@@ -126,7 +126,7 @@ open class NetworkHelper: NSObject {
         guard let request = request(withURL: urlString, with: header, as: .delete) else {
             return nil
         }
-        return sendRequest(request, as: .data)
+        return send(request, as: .data)
     }
     
     /// Reset the internet, which will cancel all the current internet connections.
@@ -157,7 +157,7 @@ open class NetworkHelper: NSObject {
     /// - Parameters:
     ///   - data: The attached data.
     ///   - task: The task.
-    func appendData(_ data: Data, toCacheOf task: NetworkTask) {
+    func append(_ data: Data, toCacheOf task: NetworkTask) {
         guard let index = tasks.index(of: task) else {
             Logger.standard.logError(NetworkHelper.taskError, withDetail: task.task.originalRequest?.url?.absoluteString)
             return
@@ -180,7 +180,7 @@ open class NetworkHelper: NSObject {
     /// Remove a task from the task stack.
     ///
     /// - Parameter task: The task.
-    func removeTask(_ task: NetworkTask) {
+    func remove(_ task: NetworkTask) {
         task.cancel()
         guard let index = tasks.index(of: task) else {
             Logger.standard.logError(NetworkHelper.taskError, withDetail: task.task.originalRequest?.url?.absoluteString)
@@ -237,7 +237,7 @@ open class NetworkHelper: NSObject {
     ///   - request: The request to be sent.
     ///   - type: The type of the request.
     /// - Returns: The identifier of the task.
-    private func sendRequest(_ request: URLRequest, as type: NetworkTaskType) -> String? {
+    private func send(_ request: URLRequest, as type: NetworkTaskType) -> String? {
         var task: NetworkTask
         let idGenerator = IDGenerator.standard
         let emptyCache = Data()
@@ -271,6 +271,3 @@ private extension NetworkHelper {
 
 import Foundation
 import SystemConfiguration
-
-
-

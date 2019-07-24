@@ -8,9 +8,7 @@ struct NetworkHelperSpecsTask {
     var statusCode: Int?
     var percentage: Double?
     
-    init() {
-    }
-    
+    init() {}
 }
 
 import AdvancedFoundation

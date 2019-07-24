@@ -34,7 +34,6 @@ class NetworkRequestHeaderSpecs: QuickSpec {
             }
         }
     }
-    
 }
 
 import Quick

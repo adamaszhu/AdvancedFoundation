@@ -9,7 +9,7 @@ public extension Double {
     ///
     /// - Parameter precision: The precision spedified. If it is nil, the original value will be returned.
     /// - Returns: The formatted string.
-    public func decimalString(withPrecision precision: Int? = nil) -> String? {
+    func decimalString(withPrecision precision: Int? = nil) -> String? {
         if let positivePrecision = precision, positivePrecision < 0 {
             Logger.standard.logError(Double.precisionError, withDetail: precision)
             return nil
@@ -35,6 +35,5 @@ private extension Double {
     static let numberFormatError = "The string doesn't have correct format."
     static let precisionError = "The precision parameter is incorrect."
 }
-
 
 import Foundation

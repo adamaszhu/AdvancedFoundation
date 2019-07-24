@@ -3,7 +3,7 @@ class CoreDataHelperSpecs: QuickSpec {
     override func spec() {
         let coreDataHelper = CoreDataHelper(modelName: AppInfoAccessor.shared.bundleName!)!
         afterEach {
-            coreDataHelper.deleteAllObjects(of: Test.self)
+            coreDataHelper.deleteObjects(of: Test.self)
         }
         describe("has standard helper") {
             let coreDataHelper = CoreDataHelper.standard
@@ -137,12 +137,12 @@ class CoreDataHelperSpecs: QuickSpec {
             }
             context("with existing type") {
                 it("returns true") {
-                    expect(coreDataHelper.deleteAllObjects(of: Test.self)) == true
+                    expect(coreDataHelper.deleteObjects(of: Test.self)) == true
                 }
             }
             context("with non existing type") {
                 it("returns nil") {
-                    expect(coreDataHelper.deleteAllObjects(of: CoreDataHelperSpecs.self)).to(raiseException())
+                    expect(coreDataHelper.deleteObjects(of: CoreDataHelperSpecs.self)).to(raiseException())
                 }
             }
         }

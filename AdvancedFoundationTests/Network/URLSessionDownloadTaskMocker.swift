@@ -26,9 +26,7 @@ class URLSessionDownloadTaskMocker: URLSessionDownloadTask {
         delegate?.urlSession?(session, task: self, didCompleteWithError: nil)
     }
     
-    override func cancel() {
-    }
-    
+    override func cancel() {}
 }
 
 import Foundation

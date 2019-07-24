@@ -90,7 +90,6 @@ class NetworkTaskSpecs: QuickSpec {
             // The result is not noticeable.
         }
     }
-    
 }
 
 import Quick

@@ -9,7 +9,6 @@ class FormDataSpecs: QuickSpec {
             }
         }
     }
-    
 }
 
 import Quick

@@ -11,7 +11,7 @@ public extension Int {
     ///   - precision: How many units should be included.
     ///   - shouldUseAbbreviation: Whether the time description should be abbreviation or not.
     /// - Returns: The time span string.
-    public func timeString(withPrecision precision: Int = Int.max, withAbbreviation shouldUseAbbreviation: Bool = false) -> String {
+    func timeString(withPrecision precision: Int = Int.max, withAbbreviation shouldUseAbbreviation: Bool = false) -> String {
         guard precision > 0 else {
             Logger.standard.logError(Int.precisionError)
             return .empty

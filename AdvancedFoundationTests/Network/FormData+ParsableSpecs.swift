@@ -11,7 +11,6 @@ class FormDataParsableSpecs: QuickSpec {
             }
         }
     }
-    
 }
 
 import Quick
