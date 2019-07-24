@@ -68,6 +68,8 @@
 		28E703BE1EBBF1BA002BEDFC /* NetworkBodyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E703BD1EBBF1BA002BEDFC /* NetworkBodyType.swift */; };
 		28E703C01EBBF237002BEDFC /* NetworkHelperDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E703BF1EBBF237002BEDFC /* NetworkHelperDelegate.swift */; };
 		28E703C61EBC3103002BEDFC /* NetworkRequestHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E703C51EBC3103002BEDFC /* NetworkRequestHeader.swift */; };
+		35808B19229222AF0052FFA4 /* String+Matchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35808B18229222AF0052FFA4 /* String+Matchable.swift */; };
+		35808B1C229228A60052FFA4 /* String+MatchableSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35808B1B229228A60052FFA4 /* String+MatchableSpecs.swift */; };
 		420F3CAA1EA06B1B00BAA0A4 /* Double+CurrencyFormattable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420F3CA91EA06B1B00BAA0A4 /* Double+CurrencyFormattable.swift */; };
 		420F3CAD1EA0721800BAA0A4 /* Double+LongNumberFormattable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420F3CAB1EA0721800BAA0A4 /* Double+LongNumberFormattable.swift */; };
 		420F3CAE1EA0721800BAA0A4 /* Double+PercentageFormattable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420F3CAC1EA0721800BAA0A4 /* Double+PercentageFormattable.swift */; };
@@ -218,6 +220,8 @@
 		28E703BD1EBBF1BA002BEDFC /* NetworkBodyType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkBodyType.swift; sourceTree = "<group>"; };
 		28E703BF1EBBF237002BEDFC /* NetworkHelperDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkHelperDelegate.swift; sourceTree = "<group>"; };
 		28E703C51EBC3103002BEDFC /* NetworkRequestHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRequestHeader.swift; sourceTree = "<group>"; };
+		35808B18229222AF0052FFA4 /* String+Matchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Matchable.swift"; sourceTree = "<group>"; };
+		35808B1B229228A60052FFA4 /* String+MatchableSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+MatchableSpecs.swift"; sourceTree = "<group>"; };
 		420F3CA91EA06B1B00BAA0A4 /* Double+CurrencyFormattable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+CurrencyFormattable.swift"; sourceTree = "<group>"; };
 		420F3CAB1EA0721800BAA0A4 /* Double+LongNumberFormattable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+LongNumberFormattable.swift"; sourceTree = "<group>"; };
 		420F3CAC1EA0721800BAA0A4 /* Double+PercentageFormattable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+PercentageFormattable.swift"; sourceTree = "<group>"; };
@@ -528,6 +532,7 @@
 				42622E8C1EA1D59A00E5D5E7 /* String+Localizable.swift */,
 				28CB19351F747622006CFE05 /* String+Constant.swift */,
 				28258142211275270033D386 /* Bundle+Localizable.swift */,
+				35808B18229222AF0052FFA4 /* String+Matchable.swift */,
 			);
 			path = String;
 			sourceTree = "<group>";
@@ -539,6 +544,7 @@
 				42622E981EA1E51100E5D5E7 /* String+LocalizableSpecs.swift */,
 				42622E9C1EA1ECB200E5D5E7 /* StringLocalizableSpecs.strings */,
 				2825814921127BB30033D386 /* Bundle+LocalizableSpecs.swift */,
+				35808B1B229228A60052FFA4 /* String+MatchableSpecs.swift */,
 			);
 			path = String;
 			sourceTree = "<group>";
@@ -886,6 +892,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35808B19229222AF0052FFA4 /* String+Matchable.swift in Sources */,
 				28E703B31EBADF62002BEDFC /* NetworkHelper.swift in Sources */,
 				28E703B71EBAE000002BEDFC /* NetworkHelper+SessionTaskDelegate.swift in Sources */,
 				42D3426D1EB4AFB700064B1C /* JSONParser.swift in Sources */,
@@ -953,6 +960,7 @@
 				42D3427C1EB5502900064B1C /* JSONPath+ParsableSpecs.swift in Sources */,
 				28E246091ED412B400C32C87 /* URLSessionDataTaskMocker.swift in Sources */,
 				286353EC1ED53D08000B7A7F /* URLSessionUploadTaskMocker.swift in Sources */,
+				35808B1C229228A60052FFA4 /* String+MatchableSpecs.swift in Sources */,
 				286353F01ED54306000B7A7F /* APIMocker.swift in Sources */,
 				285475341ED3B02300821F83 /* NetworkResponseHeaderSpecs.swift in Sources */,
 				28E246071ED4114D00C32C87 /* URLSessionMocker.swift in Sources */,
