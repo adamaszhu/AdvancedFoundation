@@ -137,6 +137,12 @@ class StringEditableSpecs: QuickSpec {
                     expect(string.wordUppercased) == "Test Phrase"
                 }
             }
+            context("with double spacing string") {
+                it("returns word uppercased string") {
+                    let string = "Test  Phrase"
+                    expect(string.wordUppercased) == "Test  Phrase"
+                }
+            }
         }
     }
 }
