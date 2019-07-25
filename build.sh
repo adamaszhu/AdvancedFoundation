@@ -20,3 +20,9 @@ rm -rf "${BUILD_DIR}"
 rm -rf "${TEMP_DIR}"
 
 open "${PRODUCT_DIR}"
+
+if ! gem spec jazzy > /dev/null 2>&1; then
+  sudo gem install jazzy
+fi
+
+jazzy -o Doc
