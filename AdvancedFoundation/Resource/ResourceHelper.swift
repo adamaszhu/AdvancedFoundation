@@ -1,15 +1,12 @@
 /// ResourceHelper improves the ability to access resources.
 ///
 /// - author: Adamas
-/// - version: 1.2.0
-/// - date: 08/12/2017
+/// - version: 1.5.0
+/// - date: 23/03/2019
 open class ResourceHelper {
     
-    /// System error.
-    private static let resourceError = "The resource doesn't exist."
-    
     /// The url of the resource.
-    var url: URL
+    let url: URL
     
     /// Initialize the helper.
     ///
@@ -19,12 +16,18 @@ open class ResourceHelper {
     public init?(name: String, bundle: Bundle = Bundle.main) {
         let fileInfoAccessor = FileInfoAccessor(path: name)
         guard let path = bundle.path(forResource: fileInfoAccessor.filename, ofType: fileInfoAccessor.fileExtension) else {
-            Logger.standard.log(error: ResourceHelper.resourceError, withDetail: name)
+            Logger.standard.logError(ResourceHelper.resourceError, withDetail: name)
             return nil
         }
         url =  URL(fileURLWithPath: path)
     }
+}
+
+/// Constants
+private extension ResourceHelper {
     
+    /// System error.
+    static let resourceError = "The resource doesn't exist."
 }
 
 import Foundation

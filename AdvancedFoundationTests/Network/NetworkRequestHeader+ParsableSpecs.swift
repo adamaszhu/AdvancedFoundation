@@ -38,7 +38,6 @@ class NetworkRequestHeaderParsableSpecs: QuickSpec {
             }
         }
     }
-    
 }
 
 import Quick

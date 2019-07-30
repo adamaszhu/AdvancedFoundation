@@ -19,7 +19,6 @@ class URLSessionMocker: URLSession {
         downloadTaskMocker.delegate = urlSessionDelegate as? (URLSessionDataDelegate & URLSessionTaskDelegate & URLSessionDownloadDelegate)
         return downloadTaskMocker
     }
-    
 }
 
 import Foundation

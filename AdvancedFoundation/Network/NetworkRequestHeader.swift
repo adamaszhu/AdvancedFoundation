@@ -1,8 +1,8 @@
 /// NetworkRequestHeader includes the header information in a network request.
 ///
 /// - author: Adamas
-/// - version: 1.1.0
-/// - date: 13/07/2017
+/// - version: 1.5.0
+/// - date: 02/04/2019
 public struct NetworkRequestHeader {
     
     /// Whether the resource has been modified after this date, it should be retrieved from lastModified property of a response.
@@ -30,7 +30,6 @@ public struct NetworkRequestHeader {
         self.contentType = contentType
         self.contentLength = contentLength
     }
-    
 }
 
 import Foundation

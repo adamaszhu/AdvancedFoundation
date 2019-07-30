@@ -1,8 +1,8 @@
 /// TextResourceHelper provides support for a text resource file.
 ///
 /// - author: Adamas
-/// - version: 1.2.0
-/// - date: 08/12/2017
+/// - version: 1.5.0
+/// - date: 23/03/2019
 open class TextResourceHelper: ResourceHelper {
     
     /// The content as a string.
@@ -14,7 +14,6 @@ open class TextResourceHelper: ResourceHelper {
             return nil
         }
     }
-    
 }
 
 import Foundation

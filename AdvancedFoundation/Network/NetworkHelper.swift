@@ -1,41 +1,20 @@
 /// NetowrkHelper is used to perform basic level internet connection.
 ///
 /// - author: Adamas
-/// - version: 1.2.0
-/// - date: 08/12/2017
-open class NetworkHelper: NSObject {
-    
-    /// System error.
-    private static let urlError = "The url address is invalid."
-    private static let taskError = "The task doesn't exist."
-    private static let taskTypeError = "The task type hasn't been supported yet."
-    private static let settingError = "The network setting cannot be read."
+/// - version: 1.5.0
+/// - date: 08/05/2019
+public class NetworkHelper: NSObject {
     
     /// The default helper.
-    @objc public static var standard: NetworkHelper? {
+    public static var standard: NetworkHelper? {
         guard let bundleName = AppInfoAccessor.shared.bundleName else {
             return nil
         }
         return NetworkHelper(identifier: bundleName)
     }
     
-    /// The delegate of the NetworkHelper.
-    public var networkHelperDelegate: NetworkHelperDelegate?
-    
-    /// The session connecting to the network. Declare as internal is for DI.
-    @objc var normalSession: URLSession!
-    
-    /// The session used to download or upload in background mode. Declare as internal is for DI.
-    @objc var backgroundSession: URLSession!
-    
-    /// The task list. Declare as internal is for testing.
-    var tasks: [NetworkTask]
-    
-    /// The cache used in the app.
-    private var cache: URLCache
-    
     /// Whether the network is available or not. This method is referenced from http://stackoverflow.com/questions/39558868/check-internet-connection-ios-10
-    @objc public var isNetworkAvailable: Bool {
+    public static var isNetworkAvailable: Bool {
         var zeroAddress = sockaddr_in()
         zeroAddress.sin_len = UInt8(MemoryLayout.size(ofValue: zeroAddress))
         zeroAddress.sin_family = sa_family_t(AF_INET)
@@ -46,7 +25,7 @@ open class NetworkHelper: NSObject {
         }
         var flags = SCNetworkReachabilityFlags()
         guard SCNetworkReachabilityGetFlags(defaultRouteReachability!, &flags) else {
-            Logger.standard.log(error: NetworkHelper.settingError)
+            Logger.standard.logError(NetworkHelper.settingError)
             return false
         }
         let isReachable = (flags.rawValue & UInt32(kSCNetworkFlagsReachable)) != 0
@@ -54,12 +33,27 @@ open class NetworkHelper: NSObject {
         return isReachable && !needsConnection
     }
     
+    /// The delegate of the NetworkHelper.
+    public var delegate: NetworkHelperDelegate?
+    
+    /// The session connecting to the network. Declare as internal is for DI.
+    var normalSession: URLSession!
+    
+    /// The session used to download or upload in background mode. Declare as internal is for DI.
+    var backgroundSession: URLSession!
+    
+    /// The task list. Declare as internal is for testing.
+    var tasks: [NetworkTask]
+    
+    /// The cache used in the app.
+    private var cache: URLCache
+    
     /// Initialize the object.
     ///
     /// - Parameter:
     ///   - identifier: The identifier used to identify the URL download session running in the background.
     ///   - cache: The cache to cache all request. Nil means use the default one.
-    @objc public init(identifier: String = "\(Date().timeIntervalSince1970)", cache: URLCache = URLCache.shared) {
+    public init(identifier: String = String(Date().timeIntervalSince1970), cache: URLCache = URLCache.shared) {
         tasks = []
         self.cache = cache
         super.init()
@@ -80,7 +74,7 @@ open class NetworkHelper: NSObject {
     ///   - type: The type of the request.
     ///   - isUploadTask: Whether the task should be run in the background or not.
     /// - Returns: The identifier of the task.
-    public func post(toURL urlString: String, with body: Data, as type: NetworkBodyType, with header: NetworkRequestHeader? = nil, asUploadTask isUploadTask: Bool = false) -> String? {
+    public func postData(toURL urlString: String, with body: Data, as type: NetworkBodyType, with header: NetworkRequestHeader? = nil, asUploadTask isUploadTask: Bool = false) -> String? {
         var header = header ?? NetworkRequestHeader()
         header.contentType = type.rawValue
         header.contentLength = body.count
@@ -100,8 +94,8 @@ open class NetworkHelper: NSObject {
     ///   - formData: The form data to be posted.
     ///   - isUploadTask: Whether the task should be run in the background or not.
     /// - Returns: The identifier of the task.
-    public func post(toURL urlString: String, with formData: FormData, with header: NetworkRequestHeader? = nil, asUploadTask isUploadTask: Bool = false) -> String? {
-        return post(toURL: urlString, with: formData.data, as: .formData, with: header, asUploadTask: isUploadTask)
+    public func postData(toURL urlString: String, with formData: FormData, with header: NetworkRequestHeader? = nil, asUploadTask isUploadTask: Bool = false) -> String? {
+        return postData(toURL: urlString, with: formData.data, as: .formData, with: header, asUploadTask: isUploadTask)
     }
     
     
@@ -112,7 +106,7 @@ open class NetworkHelper: NSObject {
     ///   - header: The header of the get.
     ///   - isDownloadTask: Whether current task is a download task or not.
     /// - Returns: The task identifier.
-    public func get(fromURL urlString: String, with header: NetworkRequestHeader? = nil, asDownloadTask isDownloadTask: Bool = false) -> String? {
+    public func getData(fromURL urlString: String, with header: NetworkRequestHeader? = nil, asDownloadTask isDownloadTask: Bool = false) -> String? {
         let header = header ?? NetworkRequestHeader()
         guard let request = request(withURL: urlString, with: header, as: .get) else {
             return nil
@@ -127,7 +121,7 @@ open class NetworkHelper: NSObject {
     ///   - urlString: The address of the destination.
     ///   - header: The header of the delete.
     /// - Returns: The identifier of the new task.
-    public func delete(atURL urlString: String, with header: NetworkRequestHeader? = nil) -> String? {
+    public func deleteData(atURL urlString: String, with header: NetworkRequestHeader? = nil) -> String? {
         let header = header ?? NetworkRequestHeader()
         guard let request = request(withURL: urlString, with: header, as: .delete) else {
             return nil
@@ -136,24 +130,22 @@ open class NetworkHelper: NSObject {
     }
     
     /// Reset the internet, which will cancel all the current internet connections.
-    @objc public func reset() {
-        tasks.forEach {
-            $0.task.cancel()
-        }
+    public func reset() {
+        tasks.forEach { $0.task.cancel() }
         tasks.removeAll()
     }
     
     /// Clear all cache data.
-    @objc public func clearCache() {
+    public func clearCache() {
         cache.removeAllCachedResponses()
     }
     
     /// Clear the cache for a specific request.
     ///
     // - Parameter urlString: The address of the destination.
-    @objc public func clearCache(forURL urlString: String) {
+    public func clearCache(forURL urlString: String) {
         guard let parsedURLString = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed), let url = URL(string: parsedURLString) else {
-            Logger.standard.log(error: NetworkHelper.urlError, withDetail: urlString)
+            Logger.standard.logError(NetworkHelper.urlError, withDetail: urlString)
             return
         }
         let request = URLRequest(url: url)
@@ -167,7 +159,7 @@ open class NetworkHelper: NSObject {
     ///   - task: The task.
     func append(_ data: Data, toCacheOf task: NetworkTask) {
         guard let index = tasks.index(of: task) else {
-            Logger.standard.log(error: NetworkHelper.taskError, withDetail: task.task.originalRequest?.url?.absoluteString)
+            Logger.standard.logError(NetworkHelper.taskError, withDetail: task.task.originalRequest?.url?.absoluteString)
             return
         }
         tasks[index].append(data)
@@ -178,13 +170,11 @@ open class NetworkHelper: NSObject {
     /// - Parameter sessionTask: The task.
     /// - Returns: The task. Nil would be returned if no task is found, which shouldn't happen.
     func task(of sessionTask: URLSessionTask) -> NetworkTask? {
-        for task in tasks {
-            if task.task === sessionTask {
-                return task
-            }
+        let foundTask = tasks.first { $0.task === sessionTask }
+        if foundTask == nil {
+            Logger.standard.logError(NetworkHelper.taskError, withDetail: sessionTask.originalRequest?.url?.absoluteString)
         }
-        Logger.standard.log(error: NetworkHelper.taskError, withDetail: sessionTask.originalRequest?.url?.absoluteString)
-        return nil
+        return foundTask
     }
     
     /// Remove a task from the task stack.
@@ -193,7 +183,7 @@ open class NetworkHelper: NSObject {
     func remove(_ task: NetworkTask) {
         task.cancel()
         guard let index = tasks.index(of: task) else {
-            Logger.standard.log(error: NetworkHelper.taskError, withDetail: task.task.originalRequest?.url?.absoluteString)
+            Logger.standard.logError(NetworkHelper.taskError, withDetail: task.task.originalRequest?.url?.absoluteString)
             return
         }
         tasks.remove(at: index)
@@ -207,7 +197,7 @@ open class NetworkHelper: NSObject {
     func dispatchError(for task: NetworkTask, withMessage message: String) {
         let localizedMessage = message.localizedInternalString(forType: NetworkHelper.self)
         DispatchQueue.main.async { [unowned self] in
-            self.networkHelperDelegate?.networkHelper(self, withIdentifier: task.identifier, didCatchError: localizedMessage)
+            self.delegate?.networkHelper(self, withIdentifier: task.identifier, didCatchError: localizedMessage)
         }
     }
     
@@ -220,12 +210,12 @@ open class NetworkHelper: NSObject {
     /// - Returns: The request.
     private func request(withURL urlString: String, with header: NetworkRequestHeader, as type: NetworkRequestType) -> URLRequest? {
         guard let parsedURLString = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed), let url = URL(string: parsedURLString) else {
-            Logger.standard.log(error: NetworkHelper.urlError, withDetail: urlString)
+            Logger.standard.logError(NetworkHelper.urlError, withDetail: urlString)
             return nil
         }
         var header = header
         var request = URLRequest(url: url)
-        if !isNetworkAvailable {
+        if !NetworkHelper.isNetworkAvailable {
             // Support offline mode.
             request.cachePolicy = URLRequest.CachePolicy.returnCacheDataElseLoad
         }
@@ -253,26 +243,31 @@ open class NetworkHelper: NSObject {
         let emptyCache = Data()
         switch type {
         case .download:
-            task = NetworkTask(task: backgroundSession.downloadTask(with: request), idGenerator: idGenerator, cache: emptyCache)
+            task = NetworkTask(task: backgroundSession.downloadTask(with: request), identifier: idGenerator.uniqueID, cache: emptyCache)
         case .data:
-            task = NetworkTask(task: normalSession.dataTask(with: request), idGenerator: idGenerator, cache: emptyCache)
+            task = NetworkTask(task: normalSession.dataTask(with: request), identifier: idGenerator.uniqueID, cache: emptyCache)
         case .upload:
             let data = request.httpBody ?? Data()
-            task = NetworkTask(task: normalSession.uploadTask(with: request, from: data), idGenerator: idGenerator, cache: emptyCache)
+            task = NetworkTask(task: normalSession.uploadTask(with: request, from: data), identifier: idGenerator.uniqueID, cache: emptyCache)
         default:
-            Logger.standard.log(error: NetworkHelper.taskTypeError, withDetail: type)
+            Logger.standard.logError(NetworkHelper.taskTypeError, withDetail: type)
             return nil
         }
         tasks.append(task)
         task.task.resume()
         return task.identifier
     }
-    
 }
 
+/// Constants
+private extension NetworkHelper {
+    
+    /// System error.
+    static let urlError = "The url address is invalid."
+    static let taskError = "The task doesn't exist."
+    static let taskTypeError = "The task type hasn't been supported yet."
+    static let settingError = "The network setting cannot be read."
+}
 
 import Foundation
 import SystemConfiguration
-
-
-

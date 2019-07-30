@@ -65,9 +65,7 @@ class URLSessionDataTaskMocker: URLSessionDataTask {
         }
     }
     
-    override func cancel() {
-    }
-    
+    override func cancel() {}
 }
 
 import Foundation

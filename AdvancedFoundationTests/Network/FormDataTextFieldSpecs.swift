@@ -11,7 +11,6 @@ class FormDataTextFieldSpecs: QuickSpec {
             }
         }
     }
-    
 }
 
 import Foundation

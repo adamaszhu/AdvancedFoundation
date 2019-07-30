@@ -9,7 +9,6 @@ extension NSManagedObject {
             setValue(newValue, forKey: "title")
         }
     }
-    
 }
 
 import CoreData

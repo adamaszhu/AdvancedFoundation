@@ -1,11 +1,11 @@
 class NetworkTaskSpecs: QuickSpec {
     
     override func spec() {
-        let idGenerator = IDGeneratorMocker()
+        let identifier = IDGeneratorMocker().uniqueID
         let cache = Data()
         describe("calls init(task:idGenerator:cache)") {
             context("with download task") {
-                let downloadTask = NetworkTask(task: URLSessionDownloadTask(), idGenerator: idGenerator, cache: cache)
+                let downloadTask = NetworkTask(task: URLSessionDownloadTask(), identifier: identifier, cache: cache)
                 it("returns task with download type") {
                     expect(downloadTask.type == .download) == true
                 }
@@ -20,7 +20,7 @@ class NetworkTaskSpecs: QuickSpec {
                 }
             }
             context("with upload task") {
-                let uploadTask = NetworkTask(task: URLSessionUploadTask(), idGenerator: idGenerator, cache: cache)
+                let uploadTask = NetworkTask(task: URLSessionUploadTask(), identifier: identifier, cache: cache)
                 it("returns task with upload type") {
                     expect(uploadTask.type == .upload) == true
                 }
@@ -36,7 +36,7 @@ class NetworkTaskSpecs: QuickSpec {
             }
             if #available(iOS 9.0, *) {
                 context("with stream task") {
-                    let streamTask = NetworkTask(task: URLSessionStreamTask(), idGenerator: idGenerator, cache: cache)
+                    let streamTask = NetworkTask(task: URLSessionStreamTask(), identifier: identifier, cache: cache)
                     it("returns task with stream type") {
                         expect(streamTask.type == .stream) == true
                     }
@@ -52,7 +52,7 @@ class NetworkTaskSpecs: QuickSpec {
                 }
             }
             context("with data task") {
-                let dataTask = NetworkTask(task: URLSessionDataTask(), idGenerator: idGenerator, cache: cache)
+                let dataTask = NetworkTask(task: URLSessionDataTask(), identifier: identifier, cache: cache)
                 it("returns task with data type") {
                     expect(dataTask.type == .data) == true
                 }
@@ -67,7 +67,7 @@ class NetworkTaskSpecs: QuickSpec {
                 }
             }
             context("with any task") {
-                let task = NetworkTask(task: URLSessionTask(), idGenerator: idGenerator, cache: cache)
+                let task = NetworkTask(task: URLSessionTask(), identifier: identifier, cache: cache)
                 it("returns task with data type") {
                     expect(task.type == .data) == true
                 }
@@ -80,7 +80,7 @@ class NetworkTaskSpecs: QuickSpec {
             }
         }
         describe("calls append(_)") {
-            var task = NetworkTask(task: URLSessionTask(), idGenerator: idGenerator, cache: cache)
+            var task = NetworkTask(task: URLSessionTask(), identifier: identifier, cache: cache)
             task.append("Test".data(using: .utf8)!)
             it("has new cached") {
                 expect(String(data: task.cache, encoding: .utf8)) == "Test"
@@ -90,7 +90,6 @@ class NetworkTaskSpecs: QuickSpec {
             // The result is not noticeable.
         }
     }
-    
 }
 
 import Quick

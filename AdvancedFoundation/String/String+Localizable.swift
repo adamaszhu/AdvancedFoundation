@@ -1,18 +1,18 @@
 /// String+Localizable localizes a string.
 ///
 /// - author: Adamas
-/// - version: 1.1.0
-/// - date: 11/07/2017
+/// - version: 1.5.0
+/// - date: 23/03/2019
 public extension String {
     
     /// The default localization file.
-    public static let defaultLocalizationFilename = "Localizable"
+    static let defaultLocalizationFilename = "Localizable"
     
     /// Localize a string within the class using a localization file in the main bundle.
     ///
     /// - Parameter filename: The string file used to localize the string.
     /// - Returns: The localized string.
-    public func localizedString(withLocalizationFile filename: String = defaultLocalizationFilename) -> String {
+    func localizedString(withLocalizationFile filename: String = defaultLocalizationFilename) -> String {
         return NSLocalizedString(self, tableName: filename, comment: .empty)
     }
     
@@ -20,7 +20,7 @@ public extension String {
     ///
     /// - Parameter anyClass: The class used to find the localization file.
     /// - Returns: The localized string.
-    public func localizedString(for anyClass: AnyClass) -> String {
+    func localizedString(for anyClass: AnyClass) -> String {
         let bundle = Bundle(for: anyClass)
         return NSLocalizedString(self, tableName: String(describing: anyClass), bundle: bundle, comment: .empty)
     }
@@ -33,8 +33,6 @@ public extension String {
         let bundle = Bundle(for: Logger.self)
         return NSLocalizedString(self, tableName: String(describing: type), bundle: bundle, comment: .empty)
     }
-    
 }
 
 import Foundation
-
