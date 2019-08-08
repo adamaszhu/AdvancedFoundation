@@ -69,6 +69,9 @@
 		28E703C01EBBF237002BEDFC /* NetworkHelperDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E703BF1EBBF237002BEDFC /* NetworkHelperDelegate.swift */; };
 		28E703C61EBC3103002BEDFC /* NetworkRequestHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E703C51EBC3103002BEDFC /* NetworkRequestHeader.swift */; };
 		35094C2822FBBAC80071D0D1 /* KeyedDecodingContainer+Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35094C2722FBBAC80071D0D1 /* KeyedDecodingContainer+Decodable.swift */; };
+		35094C2B22FBBD4C0071D0D1 /* KeyedDecodingContainerDecodableSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35094C2A22FBBD4C0071D0D1 /* KeyedDecodingContainerDecodableSpecs.swift */; };
+		35094C3722FBC85E0071D0D1 /* Exception+Inspectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35094C3622FBC85E0071D0D1 /* Exception+Inspectable.swift */; };
+		35094C3922FBC94F0071D0D1 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35094C3822FBC94F0071D0D1 /* JSON.swift */; };
 		35808B19229222AF0052FFA4 /* String+Matchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35808B18229222AF0052FFA4 /* String+Matchable.swift */; };
 		35808B1C229228A60052FFA4 /* String+MatchableSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35808B1B229228A60052FFA4 /* String+MatchableSpecs.swift */; };
 		420F3CAA1EA06B1B00BAA0A4 /* Double+CurrencyFormattable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420F3CA91EA06B1B00BAA0A4 /* Double+CurrencyFormattable.swift */; };
@@ -222,6 +225,9 @@
 		28E703BF1EBBF237002BEDFC /* NetworkHelperDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkHelperDelegate.swift; sourceTree = "<group>"; };
 		28E703C51EBC3103002BEDFC /* NetworkRequestHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRequestHeader.swift; sourceTree = "<group>"; };
 		35094C2722FBBAC80071D0D1 /* KeyedDecodingContainer+Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyedDecodingContainer+Decodable.swift"; sourceTree = "<group>"; };
+		35094C2A22FBBD4C0071D0D1 /* KeyedDecodingContainerDecodableSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyedDecodingContainerDecodableSpecs.swift; sourceTree = "<group>"; };
+		35094C3622FBC85E0071D0D1 /* Exception+Inspectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Exception+Inspectable.swift"; sourceTree = "<group>"; };
+		35094C3822FBC94F0071D0D1 /* JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
 		35808B18229222AF0052FFA4 /* String+Matchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Matchable.swift"; sourceTree = "<group>"; };
 		35808B1B229228A60052FFA4 /* String+MatchableSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+MatchableSpecs.swift"; sourceTree = "<group>"; };
 		420F3CA91EA06B1B00BAA0A4 /* Double+CurrencyFormattable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+CurrencyFormattable.swift"; sourceTree = "<group>"; };
@@ -384,6 +390,7 @@
 		2848AAF81E9D9E4C004C6A66 /* AdvancedFoundationTests */ = {
 			isa = PBXGroup;
 			children = (
+				35094C3522FBC8480071D0D1 /* Utility */,
 				42F30E451E9E413400AC0249 /* App */,
 				2803797E1EFCDE160043682D /* Array */,
 				28CC3FE51EB81FEF00C632A5 /* Data */,
@@ -517,6 +524,23 @@
 			path = Codable;
 			sourceTree = "<group>";
 		};
+		35094C2922FBBD320071D0D1 /* Codable */ = {
+			isa = PBXGroup;
+			children = (
+				35094C2A22FBBD4C0071D0D1 /* KeyedDecodingContainerDecodableSpecs.swift */,
+				35094C3822FBC94F0071D0D1 /* JSON.swift */,
+			);
+			path = Codable;
+			sourceTree = "<group>";
+		};
+		35094C3522FBC8480071D0D1 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				35094C3622FBC85E0071D0D1 /* Exception+Inspectable.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
 		420F3CA81EA06B1B00BAA0A4 /* Double */ = {
 			isa = PBXGroup;
 			children = (
@@ -629,6 +653,7 @@
 		42D342741EB4D54600064B1C /* Parser */ = {
 			isa = PBXGroup;
 			children = (
+				35094C2922FBBD320071D0D1 /* Codable */,
 				35094C2522FBBA780071D0D1 /* Path */,
 			);
 			path = Parser;
@@ -1011,6 +1036,7 @@
 				42D3426A1EB4AB3800064B1C /* TXTSpecs.swift in Sources */,
 				286247231EB994DF007D531D /* NSManagedObject+Test.swift in Sources */,
 				42A163401F1655D5004C04E9 /* CSV+ParsableSpecs.swift in Sources */,
+				35094C3922FBC94F0071D0D1 /* JSON.swift in Sources */,
 				284EF0081EC28F440022EB6B /* NetworkTask+EquatableSpecs.swift in Sources */,
 				4292027A1EC7EF6600C4E909 /* NetworkRequestHeader+ParsableSpecs.swift in Sources */,
 				42F1B2A11ED1631E00788234 /* PathHelperSpecs.swift in Sources */,
@@ -1019,6 +1045,7 @@
 				425DCD181EB43DE700A0ED26 /* FileHelperSpecs.swift in Sources */,
 				286353F41ED55D92000B7A7F /* ResponseMocker.swift in Sources */,
 				280379801EFCDE2F0043682D /* Array+AccessableSpecs.swift in Sources */,
+				35094C2B22FBBD4C0071D0D1 /* KeyedDecodingContainerDecodableSpecs.swift in Sources */,
 				284EEFE81EC137500022EB6B /* FormDataFileField+ParsableSpecs.swift in Sources */,
 				429202861EC81CA700C4E909 /* NetworkHelperSpecsTask.swift in Sources */,
 				287BFC5B201BEEEF003B3AE7 /* Int+TimeFormattableSpecs.swift in Sources */,
@@ -1028,6 +1055,7 @@
 				2825814A21127BB30033D386 /* Bundle+LocalizableSpecs.swift in Sources */,
 				28E7039E1EBAA0A3002BEDFC /* JSONPathSpecs.swift in Sources */,
 				284EEFE61EC137390022EB6B /* FormDataTextField+ParsableSpecs.swift in Sources */,
+				35094C3722FBC85E0071D0D1 /* Exception+Inspectable.swift in Sources */,
 				286353EA1ED52B55000B7A7F /* URLSessionDownloadTaskMocker.swift in Sources */,
 				42F30E471E9E413400AC0249 /* VersionHelperSpecs.swift in Sources */,
 				429202761EC7DDFB00C4E909 /* ResourceHelperSpecs.swift in Sources */,
