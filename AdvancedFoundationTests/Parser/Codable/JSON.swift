@@ -1,3 +1,5 @@
+infix operator ~>: CodableKeyPrecedence
+
 struct JSON {
     let attribute1: String?
     let attribute2: [[String: String]]?
@@ -15,8 +17,12 @@ enum JSONKeys: CodingKey {
 extension JSON: Decodable {
     
     public init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: JSONKeys.self)
-        let attribute2: [[String: String]]? = try container.decodeArrayIfPresent(for: .attribute2)
-        self.init(attribute1: "", attribute2: attribute2, attribute3: 0, attribute4: [:])
+        let container = try decoder ~> JSONKeys.self
+        self.init(attribute1: "",
+                  attribute2: try container ~> .attribute2,
+                  attribute3: 0,
+                  attribute4: [:])
     }
 }
+
+@testable import AdvancedFoundation
