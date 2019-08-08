@@ -1,7 +1,3 @@
-infix operator ~>: CodableKeyPrecedence
-infix operator .>: CodableKeyPrecedence
-infix operator ..>: CodableKeyPrecedence
-
 struct JSON {
     let attribute1: String?
     let attribute2: [[String: String]]?
@@ -21,12 +17,12 @@ enum JSONKeys: CodingKey {
 extension JSON: Decodable {
     
     public init(from decoder: Decoder) throws {
-        let container = try decoder ~> JSONKeys.self
-        self.init(attribute1: try container .> .attribute1,
-                  attribute2: try container ..> .attribute2,
-                  attribute3: try container .> .attribute3,
-                  attribute4: try container .> .attribute4,
-                  attribute5: try container .> .attribute5)
+        let container = try decoder ~~> JSONKeys.self
+        self.init(attribute1: try container *> .attribute1,
+                  attribute2: try container **> .attribute2,
+                  attribute3: try container *> .attribute3,
+                  attribute4: try container *> .attribute4,
+                  attribute5: try container *> .attribute5)
     }
 }
 

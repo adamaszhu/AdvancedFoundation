@@ -13,13 +13,10 @@ precedencegroup CodableKeyPrecedence {
 }
 
 /// Container retriever
-infix operator ~>: CodableKeyPrecedence
+infix operator ~~>: CodableKeyPrecedence
 
 /// Decoding operator
-infix operator .>: CodableKeyPrecedence
-
-/// Array decoding operator
-infix operator ..>: CodableKeyPrecedence
+infix operator *>: CodableKeyPrecedence
 
 /// Get a keyed container using a coding key
 ///
@@ -29,7 +26,7 @@ infix operator ..>: CodableKeyPrecedence
 /// - Returns: A keyed container
 /// - Throws: `DecodingError.typeMismatch` if the encountered stored value is
 ///   not a keyed container.
-public func ~> <K: CodingKey>(decoder: Decoder, keyType: K.Type) throws -> KeyedDecodingContainer<K> {
+public func ~~> <K: CodingKey>(decoder: Decoder, keyType: K.Type) throws -> KeyedDecodingContainer<K> {
     return try decoder.container(keyedBy: keyType)
 }
 
@@ -41,7 +38,7 @@ public func ~> <K: CodingKey>(decoder: Decoder, keyType: K.Type) throws -> Keyed
 /// - Returns: An array of objects
 /// - Throws: `DecodingError.typeMismatch` if the encountered stored value is not an unkeyed container or a contained object doesn't match the object type.
 /// - Throws: `DecodingError.valueNotFound` if the encountered encoded value is null, or of there are no more values to decode.
-public func ..> <O: Decodable, K: CodingKey>(container: KeyedDecodingContainer<K>, key: K) throws -> [O]? {
+public func **> <O: Decodable, K: CodingKey>(container: KeyedDecodingContainer<K>, key: K) throws -> [O]? {
     return try container.decodeArrayIfPresent(for: key)
 }
 
@@ -53,6 +50,6 @@ public func ..> <O: Decodable, K: CodingKey>(container: KeyedDecodingContainer<K
 /// - Returns: The value or object
 /// - Throws: `DecodingError.typeMismatch` if the encountered encoded value
 ///   is not convertible to the requested type.
-public func .> <O: Decodable, K: CodingKey>(container: KeyedDecodingContainer<K>, key: K) throws -> O? {
+public func *> <O: Decodable, K: CodingKey>(container: KeyedDecodingContainer<K>, key: K) throws -> O? {
     return try container.decodeIfPresent(for: key)
 }
