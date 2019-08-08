@@ -18,6 +18,9 @@ infix operator ~~>: CodableKeyPrecedence
 /// Decoding operator
 infix operator *>: CodableKeyPrecedence
 
+/// Array decoding operator
+infix operator **>: CodableKeyPrecedence
+
 /// Get a keyed container using a coding key
 ///
 /// - Parameters:
