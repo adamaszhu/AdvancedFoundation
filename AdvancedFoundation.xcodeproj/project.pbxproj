@@ -73,6 +73,8 @@
 		35094C3722FBC85E0071D0D1 /* Exception+Inspectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35094C3622FBC85E0071D0D1 /* Exception+Inspectable.swift */; };
 		35094C3922FBC94F0071D0D1 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35094C3822FBC94F0071D0D1 /* JSON.swift */; };
 		35094C3F22FBDC250071D0D1 /* CodableOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35094C3E22FBDC250071D0D1 /* CodableOperator.swift */; };
+		35094C6522FCF9A30071D0D1 /* KeyedEncodingContainer+Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35094C6422FCF9A30071D0D1 /* KeyedEncodingContainer+Encodable.swift */; };
+		35094C6722FCF9DA0071D0D1 /* KeyedEncodingContainerEncodableSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35094C6622FCF9DA0071D0D1 /* KeyedEncodingContainerEncodableSpecs.swift */; };
 		35808B19229222AF0052FFA4 /* String+Matchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35808B18229222AF0052FFA4 /* String+Matchable.swift */; };
 		35808B1C229228A60052FFA4 /* String+MatchableSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35808B1B229228A60052FFA4 /* String+MatchableSpecs.swift */; };
 		420F3CAA1EA06B1B00BAA0A4 /* Double+CurrencyFormattable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420F3CA91EA06B1B00BAA0A4 /* Double+CurrencyFormattable.swift */; };
@@ -230,6 +232,8 @@
 		35094C3622FBC85E0071D0D1 /* Exception+Inspectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Exception+Inspectable.swift"; sourceTree = "<group>"; };
 		35094C3822FBC94F0071D0D1 /* JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
 		35094C3E22FBDC250071D0D1 /* CodableOperator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableOperator.swift; sourceTree = "<group>"; };
+		35094C6422FCF9A30071D0D1 /* KeyedEncodingContainer+Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyedEncodingContainer+Encodable.swift"; sourceTree = "<group>"; };
+		35094C6622FCF9DA0071D0D1 /* KeyedEncodingContainerEncodableSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyedEncodingContainerEncodableSpecs.swift; sourceTree = "<group>"; };
 		35808B18229222AF0052FFA4 /* String+Matchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Matchable.swift"; sourceTree = "<group>"; };
 		35808B1B229228A60052FFA4 /* String+MatchableSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+MatchableSpecs.swift"; sourceTree = "<group>"; };
 		420F3CA91EA06B1B00BAA0A4 /* Double+CurrencyFormattable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+CurrencyFormattable.swift"; sourceTree = "<group>"; };
@@ -523,6 +527,7 @@
 			children = (
 				35094C2722FBBAC80071D0D1 /* KeyedDecodingContainer+Decodable.swift */,
 				35094C3E22FBDC250071D0D1 /* CodableOperator.swift */,
+				35094C6422FCF9A30071D0D1 /* KeyedEncodingContainer+Encodable.swift */,
 			);
 			path = Codable;
 			sourceTree = "<group>";
@@ -532,6 +537,7 @@
 			children = (
 				35094C2A22FBBD4C0071D0D1 /* KeyedDecodingContainerDecodableSpecs.swift */,
 				35094C3822FBC94F0071D0D1 /* JSON.swift */,
+				35094C6622FCF9DA0071D0D1 /* KeyedEncodingContainerEncodableSpecs.swift */,
 			);
 			path = Codable;
 			sourceTree = "<group>";
@@ -992,6 +998,7 @@
 				28CC3FE21EB812DB00C632A5 /* CoreDataHelper.swift in Sources */,
 				28525CB41EAD7C20006F6FDE /* PathHelper.swift in Sources */,
 				28E703C01EBBF237002BEDFC /* NetworkHelperDelegate.swift in Sources */,
+				35094C6522FCF9A30071D0D1 /* KeyedEncodingContainer+Encodable.swift in Sources */,
 				42D3427A1EB54E7E00064B1C /* JSONPath+Parsable.swift in Sources */,
 				42A1633C1F163799004C04E9 /* TXT+Parsable.swift in Sources */,
 				42C13A6D1EBCC345000D2E50 /* IDGenerator.swift in Sources */,
@@ -1026,6 +1033,7 @@
 				28B942821ED3BD2400FFACA1 /* AppInfoAccessorSpecs.swift in Sources */,
 				42D342541EB4968100064B1C /* TextResourceHelperSpecs.swift in Sources */,
 				429202731EC73B3400C4E909 /* IDGeneratorSpecs.swift in Sources */,
+				35094C6722FCF9DA0071D0D1 /* KeyedEncodingContainerEncodableSpecs.swift in Sources */,
 				285475321ED3AC0300821F83 /* NetworkTaskSpecs.swift in Sources */,
 				429202841EC8167B00C4E909 /* NetworkHelperSpecs+Delegate.swift in Sources */,
 				286353E81ED5096E000B7A7F /* IDGeneratorMocker.swift in Sources */,

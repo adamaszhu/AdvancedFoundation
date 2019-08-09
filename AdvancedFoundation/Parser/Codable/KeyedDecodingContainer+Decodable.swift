@@ -5,7 +5,6 @@
 /// - date: 30/03/2019
 public extension KeyedDecodingContainer {
     
-    
     /// Decode an array if presented
     ///
     /// - Parameter key: The coding key
