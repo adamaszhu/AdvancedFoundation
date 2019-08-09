@@ -24,7 +24,7 @@ public extension KeyedDecodingContainer {
         return array
     }
     
-    /// Decode a value or object
+    /// Decode an optional value or object
     ///
     /// - Parameter key: The coding key
     /// - Returns: The value or object
@@ -64,6 +64,49 @@ public extension KeyedDecodingContainer {
             return try decodeIfPresent(UInt64.self, forKey: key) as? O
         default:
             return try decodeIfPresent(O.self, forKey: key)
+        }
+    }
+    
+    /// Decode a value or object
+    ///
+    /// - Parameter key: The coding key
+    /// - Returns: The value or object
+    /// - throws: `DecodingError.typeMismatch` if the encountered encoded value
+    ///   is not convertible to the requested type.
+    func decode<O: Decodable>(for key: K) throws -> O {
+        switch O.self {
+        case is Float.Type:
+            return try decode(Float.self, forKey: key) as! O
+        case is Double.Type:
+            return try decode(Double.self, forKey: key) as! O
+        case is Date.Type:
+            return try decode(Date.self, forKey: key) as! O
+        case is String.Type:
+            return try decode(String.self, forKey: key) as! O
+        case is Bool.Type:
+            return try decode(Bool.self, forKey: key) as! O
+        case is Int.Type:
+            return try decode(Int.self, forKey: key) as! O
+        case is Int8.Type:
+            return try decode(Int8.self, forKey: key) as! O
+        case is Int16.Type:
+            return try decode(Int16.self, forKey: key) as! O
+        case is Int32.Type:
+            return try decode(Int32.self, forKey: key) as! O
+        case is Int64.Type:
+            return try decode(Int64.self, forKey: key) as! O
+        case is UInt.Type:
+            return try decode(UInt.self, forKey: key) as! O
+        case is UInt8.Type:
+            return try decode(UInt8.self, forKey: key) as! O
+        case is UInt16.Type:
+            return try decode(UInt16.self, forKey: key) as! O
+        case is UInt32.Type:
+            return try decode(UInt32.self, forKey: key) as! O
+        case is UInt64.Type:
+            return try decode(UInt64.self, forKey: key) as! O
+        default:
+            return try decode(O.self, forKey: key)
         }
     }
 }

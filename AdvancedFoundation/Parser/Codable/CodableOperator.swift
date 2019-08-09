@@ -24,6 +24,9 @@ precedencegroup RightCodableKeyPrecedence {
 infix operator ~~>: LeftCodableKeyPrecedence
 
 /// Decoding operator
+infix operator *>: LeftCodableKeyPrecedence
+
+/// Decoding operator
 infix operator ?*>: LeftCodableKeyPrecedence
 
 /// Array decoding operator
@@ -50,6 +53,30 @@ public func ~~> <K: CodingKey>(decoder: Decoder, keyType: K.Type) throws -> Keye
     return try decoder.container(keyedBy: keyType)
 }
 
+/// Decode a value or object
+///
+/// - Parameter:
+///   - container: The container
+///   - key: The coding key
+/// - Returns: The value or object
+/// - Throws: `DecodingError.typeMismatch` if the encountered encoded value
+///   is not convertible to the requested type.
+public func *> <O: Decodable, K: CodingKey>(container: KeyedDecodingContainer<K>, key: K) throws -> O {
+    return try container.decode(for: key)
+}
+
+/// Decode a optional value or object
+///
+/// - Parameter:
+///   - container: The container
+///   - key: The coding key
+/// - Returns: The value or object
+/// - Throws: `DecodingError.typeMismatch` if the encountered encoded value
+///   is not convertible to the requested type.
+public func ?*> <O: Decodable, K: CodingKey>(container: KeyedDecodingContainer<K>, key: K) throws -> O? {
+    return try container.decodeIfPresent(for: key)
+}
+
 /// Decode an array
 ///
 /// - Parameters:
@@ -60,18 +87,6 @@ public func ~~> <K: CodingKey>(decoder: Decoder, keyType: K.Type) throws -> Keye
 /// - Throws: `DecodingError.valueNotFound` if the encountered encoded value is null, or of there are no more values to decode.
 public func ?**> <O: Decodable, K: CodingKey>(container: KeyedDecodingContainer<K>, key: K) throws -> [O]? {
     return try container.decodeArrayIfPresent(for: key)
-}
-
-/// Decode a value or object
-///
-/// - Parameter:
-///   - container: The container
-///   - key: The coding key
-/// - Returns: The value or object
-/// - Throws: `DecodingError.typeMismatch` if the encountered encoded value
-///   is not convertible to the requested type.
-public func ?*> <O: Decodable, K: CodingKey>(container: KeyedDecodingContainer<K>, key: K) throws -> O? {
-    return try container.decodeIfPresent(for: key)
 }
 
 /// Get a keyed encoding container using a coding key
