@@ -2,6 +2,34 @@ class KeyedDecodingContainerDecodableSpecs: QuickSpec {
     
     override func spec() {
         describe("calls decodeArrayIfPresent(for)") {
+            context("with the key") {
+                let jsonString = "{\"attribute2\":[{\"arrayAttribute1\":\"arrayValue1\"},{\"arrayAttribute2\":\"arrayValue2\"}]}"
+                let data = jsonString.data(using: .utf8)!
+                let json = try? JSONDecoder().decode(JSON.self, from: data)
+                it("parses the attribute") {
+                    expect(json?.attribute2?.count) == 2
+                }
+            }
+            context("without the key") {
+                let jsonString = "{}"
+                let data = jsonString.data(using: .utf8)!
+                let json = try? JSONDecoder().decode(JSON.self, from: data)
+                it("parses the attribute as nil") {
+                    expect(json).toNot(beNil())
+                    expect(json?.attribute2).to(beNil())
+                }
+            }
+            context("with an incorrect key") {
+                let jsonString = "{\"attribute2\":0}"
+                let data = jsonString.data(using: .utf8)!
+                let json = try? JSONDecoder().decode(JSON.self, from: data)
+                it("parses the attribute as nil") {
+                    expect(json).toNot(beNil())
+                    expect(json?.attribute2).to(beNil())
+                }
+            }
+        }
+        describe("calls decodeIfPresent(for)") {
             context("for string values") {
                 context("with the key") {
                     let jsonString = "{\"attribute1\":\"value1\"}"
@@ -31,34 +59,6 @@ class KeyedDecodingContainerDecodableSpecs: QuickSpec {
                     }
                 }
             }
-            context("with the key") {
-                let jsonString = "{\"attribute2\":[{\"arrayAttribute1\":\"arrayValue1\"},{\"arrayAttribute2\":\"arrayValue2\"}]}"
-                let data = jsonString.data(using: .utf8)!
-                let json = try? JSONDecoder().decode(JSON.self, from: data)
-                it("parses the attribute") {
-                    expect(json?.attribute2?.count) == 2
-                }
-            }
-            context("without the key") {
-                let jsonString = "{}"
-                let data = jsonString.data(using: .utf8)!
-                let json = try? JSONDecoder().decode(JSON.self, from: data)
-                it("parses the attribute as nil") {
-                    expect(json).toNot(beNil())
-                    expect(json?.attribute2).to(beNil())
-                }
-            }
-            context("with an incorrect key") {
-                let jsonString = "{\"attribute2\":0}"
-                let data = jsonString.data(using: .utf8)!
-                let json = try? JSONDecoder().decode(JSON.self, from: data)
-                it("parses the attribute as nil") {
-                    expect(json).toNot(beNil())
-                    expect(json?.attribute2).to(beNil())
-                }
-            }
-        }
-        describe("calls decodeIfPresent(for)") {
             context("for double values") {
                 context("with the key") {
                     let jsonString = "{\"attribute3\":0}"

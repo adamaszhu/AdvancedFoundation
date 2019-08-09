@@ -5,23 +5,40 @@
 /// - date: 30/03/2019
 
 /// The precedence for the operator
-precedencegroup CodableKeyPrecedence {
+precedencegroup LeftCodableKeyPrecedence {
     lowerThan: BitwiseShiftPrecedence
     higherThan: MultiplicationPrecedence
     associativity: left
     assignment: true
 }
 
-/// Container retriever
-infix operator ~~>: CodableKeyPrecedence
+/// The precedence for the operator
+precedencegroup RightCodableKeyPrecedence {
+    lowerThan: BitwiseShiftPrecedence
+    higherThan: MultiplicationPrecedence
+    associativity: right
+    assignment: true
+}
+
+/// Coding container retriever
+infix operator ~~>: LeftCodableKeyPrecedence
 
 /// Decoding operator
-infix operator *>: CodableKeyPrecedence
+infix operator *>: LeftCodableKeyPrecedence
 
 /// Array decoding operator
-infix operator **>: CodableKeyPrecedence
+infix operator **>: LeftCodableKeyPrecedence
 
-/// Get a keyed container using a coding key
+/// Key value combiner
+infix operator <~~: RightCodableKeyPrecedence
+
+/// Encoding operator
+infix operator <*: RightCodableKeyPrecedence
+
+/// Array encoding operator
+infix operator <**: RightCodableKeyPrecedence
+
+/// Get a keyed decoding container using a coding key
 ///
 /// - Parameters:
 ///   - decoder: The decoder
@@ -55,4 +72,36 @@ public func **> <O: Decodable, K: CodingKey>(container: KeyedDecodingContainer<K
 ///   is not convertible to the requested type.
 public func *> <O: Decodable, K: CodingKey>(container: KeyedDecodingContainer<K>, key: K) throws -> O? {
     return try container.decodeIfPresent(for: key)
+}
+
+/// Get a keyed encoding container using a coding key
+///
+/// - Parameters:
+///   - encoder: The encoder
+///   - keyType: The key type
+/// - Returns: A keyed container
+public func ~~> <K: CodingKey>(encoder: Encoder, keyType: K.Type) -> KeyedEncodingContainer<K> {
+    return encoder.container(keyedBy: keyType)
+}
+
+/// Combine a coding key and a coding value
+///
+/// - Parameters:
+///   - key: The coding key
+///   - object: The coding value
+/// - Returns: The coding pair
+public func <~~ <O: Encodable, K: CodingKey>(key: K, value: O?) -> (key: K, value: O?) {
+    return (key, value)
+}
+
+/// Encode a value
+///
+/// - Parameters:
+///   - container: The encoding container
+///   - pair: The key value pair that need to be encoded
+/// - Throws: `EncodingError.invalidValue` if the given value is invalid in
+///   the current context for this format.
+public func <* <O: Encodable, K: CodingKey>(container: KeyedEncodingContainer<K>, pair: (key: K, value: O?)) throws {
+    var container = container
+    return try container.encodeIfPresent(pair.value, forKey: pair.key)
 }
