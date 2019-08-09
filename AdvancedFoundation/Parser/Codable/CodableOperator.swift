@@ -24,19 +24,19 @@ precedencegroup RightCodableKeyPrecedence {
 infix operator ~~>: LeftCodableKeyPrecedence
 
 /// Decoding operator
-infix operator *>: LeftCodableKeyPrecedence
+infix operator ?*>: LeftCodableKeyPrecedence
 
 /// Array decoding operator
-infix operator **>: LeftCodableKeyPrecedence
+infix operator ?**>: LeftCodableKeyPrecedence
 
 /// Key value combiner
 infix operator <~~: RightCodableKeyPrecedence
 
 /// Encoding operator
-infix operator <*: RightCodableKeyPrecedence
+infix operator <*?: RightCodableKeyPrecedence
 
 /// Array encoding operator
-infix operator <**: RightCodableKeyPrecedence
+infix operator <**?: RightCodableKeyPrecedence
 
 /// Get a keyed decoding container using a coding key
 ///
@@ -58,7 +58,7 @@ public func ~~> <K: CodingKey>(decoder: Decoder, keyType: K.Type) throws -> Keye
 /// - Returns: An array of objects
 /// - Throws: `DecodingError.typeMismatch` if the encountered stored value is not an unkeyed container or a contained object doesn't match the object type.
 /// - Throws: `DecodingError.valueNotFound` if the encountered encoded value is null, or of there are no more values to decode.
-public func **> <O: Decodable, K: CodingKey>(container: KeyedDecodingContainer<K>, key: K) throws -> [O]? {
+public func ?**> <O: Decodable, K: CodingKey>(container: KeyedDecodingContainer<K>, key: K) throws -> [O]? {
     return try container.decodeArrayIfPresent(for: key)
 }
 
@@ -70,7 +70,7 @@ public func **> <O: Decodable, K: CodingKey>(container: KeyedDecodingContainer<K
 /// - Returns: The value or object
 /// - Throws: `DecodingError.typeMismatch` if the encountered encoded value
 ///   is not convertible to the requested type.
-public func *> <O: Decodable, K: CodingKey>(container: KeyedDecodingContainer<K>, key: K) throws -> O? {
+public func ?*> <O: Decodable, K: CodingKey>(container: KeyedDecodingContainer<K>, key: K) throws -> O? {
     return try container.decodeIfPresent(for: key)
 }
 
@@ -101,7 +101,7 @@ public func <~~ <O: Encodable, K: CodingKey>(key: K, value: O?) -> (key: K, valu
 ///   - pair: The key value pair that need to be encoded
 /// - Throws: `EncodingError.invalidValue` if the given value is invalid in
 ///   the current context for this format.
-public func <* <O: Encodable, K: CodingKey>(container: KeyedEncodingContainer<K>, pair: (key: K, value: O?)) throws {
+public func <*? <O: Encodable, K: CodingKey>(container: KeyedEncodingContainer<K>, pair: (key: K, value: O?)) throws {
     var container = container
     return try container.encodeIfPresent(pair.value, forKey: pair.key)
 }

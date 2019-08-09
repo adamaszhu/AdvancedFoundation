@@ -30,20 +30,20 @@ extension JSON: Codable {
     
     public init(from decoder: Decoder) throws {
         let container = try decoder ~~> JSONKeys.self
-        self.init(attribute1: try container *> .attribute1,
-                  attribute2: try container **> .attribute2,
-                  attribute3: try container *> .attribute3,
-                  attribute4: try container *> .attribute4,
-                  attribute5: try container *> .attribute5)
+        self.init(attribute1: try container ?*> .attribute1,
+                  attribute2: try container ?**> .attribute2,
+                  attribute3: try container ?*> .attribute3,
+                  attribute4: try container ?*> .attribute4,
+                  attribute5: try container ?*> .attribute5)
     }
     
     public func encode(to encoder: Encoder) throws {
         let container = encoder ~~> JSONKeys.self
-        try container <* .attribute1 <~~ attribute1
-        try container <* .attribute2 <~~ attribute2
-        try container <* .attribute3 <~~ attribute3
-        try container <* .attribute4 <~~ attribute4
-        try container <* .attribute5 <~~ attribute5
+        try container <*? .attribute1 <~~ attribute1
+        try container <*? .attribute2 <~~ attribute2
+        try container <*? .attribute3 <~~ attribute3
+        try container <*? .attribute4 <~~ attribute4
+        try container <*? .attribute5 <~~ attribute5
     }
 }
 
