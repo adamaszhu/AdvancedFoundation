@@ -1,6 +1,26 @@
 class KeyedEncodingContainerDecodableSpecs: QuickSpec {
     
     override func spec() {
+        describe("calls encode(_:for)") {
+            context("for string values") {
+                context("with the key") {
+                    let json = JSON(attribute1: "value1", attribute2: [])
+                    let data = try? JSONEncoder().encode(json)
+                    let jsonString = String(data: data ?? Data(), encoding: .utf8)
+                    it("parses the attribute") {
+                        expect(jsonString) == "{\"attribute1\":\"value1\",\"attribute2\":[]}"
+                    }
+                }
+                context("without the key") {
+                    let json = JSON(attribute2: [])
+                    let data = try? JSONEncoder().encode(json)
+                    let jsonString = String(data: data ?? Data(), encoding: .utf8)
+                    it("parses the attribute as null") {
+                        expect(jsonString) == "{\"attribute1\":null,\"attribute2\":[]}"
+                    }
+                }
+            }
+        }
         describe("calls encodeIfPresent(_:for)") {
             context("for string values") {
                 context("with the key") {

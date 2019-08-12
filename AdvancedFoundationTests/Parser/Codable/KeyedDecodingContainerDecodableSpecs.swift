@@ -7,7 +7,7 @@ class KeyedDecodingContainerDecodableSpecs: QuickSpec {
                 let data = jsonString.data(using: .utf8)!
                 let json = try? JSONDecoder().decode(JSON.self, from: data)
                 it("parses the attribute") {
-                    expect(json?.attribute2.count) == 2
+                    expect(json?.attribute2?.count) == 2
                 }
             }
             context("without the key") {

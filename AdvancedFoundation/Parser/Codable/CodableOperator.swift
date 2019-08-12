@@ -39,7 +39,13 @@ infix operator ?**>: LeftCodableKeyPrecedence
 infix operator <~~: RightCodableKeyPrecedence
 
 /// Encoding operator
+infix operator <*: RightCodableKeyPrecedence
+
+/// Encoding operator
 infix operator <*?: RightCodableKeyPrecedence
+
+/// Array encoding operator
+infix operator <**: RightCodableKeyPrecedence
 
 /// Array encoding operator
 infix operator <**?: RightCodableKeyPrecedence
@@ -125,6 +131,18 @@ public func <~~ <O: Encodable, K: CodingKey>(key: K, value: O?) -> (key: K, valu
 }
 
 /// Encode a value
+///
+/// - Parameters:
+///   - container: The encoding container
+///   - pair: The key value pair that need to be encoded
+/// - Throws: `EncodingError.invalidValue` if the given value is invalid in
+///   the current context for this format.
+public func <* <O: Encodable, K: CodingKey>(container: KeyedEncodingContainer<K>, pair: (key: K, value: O?)) throws {
+    var container = container
+    return try container.encode(pair.value, forKey: pair.key)
+}
+
+/// Encode an optional value
 ///
 /// - Parameters:
 ///   - container: The encoding container

@@ -1,10 +1,10 @@
 struct JSON {
     
-    let attribute1: String
-    let attribute2: [[String: String]]
+    let attribute1: String?
+    let attribute2: [[String: String]]?
     
-    init(attribute1: String = "",
-         attribute2: [[String: String]] = []) {
+    init(attribute1: String? = nil,
+         attribute2: [[String: String]]? = nil) {
         self.attribute1 = attribute1
         self.attribute2 = attribute2
     }
@@ -25,8 +25,8 @@ extension JSON: Codable {
     
     public func encode(to encoder: Encoder) throws {
         let container = encoder ~~> JSONKeys.self
-        try container <*? .attribute1 <~~ attribute1
-        try container <*? .attribute2 <~~ attribute2
+        try container <* .attribute1 <~~ attribute1
+        try container <* .attribute2 <~~ attribute2
     }
 }
 
