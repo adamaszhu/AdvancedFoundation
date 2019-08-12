@@ -153,3 +153,27 @@ public func <*? <O: Encodable, K: CodingKey>(container: KeyedEncodingContainer<K
     var container = container
     return try container.encodeIfPresent(pair.value, forKey: pair.key)
 }
+
+/// Encode an array
+///
+/// - Parameters:
+///   - container: The encoding container
+///   - pair: The key value pair that need to be encoded
+/// - Throws: `EncodingError.invalidValue` if the given value is invalid in
+///   the current context for this format.
+public func <** <O: Encodable, K: CodingKey>(container: KeyedEncodingContainer<K>, pair: (key: K, value: [O]?)) throws {
+    var container = container
+    return try container.encodeArray(pair.value, for: pair.key)
+}
+
+/// Encode an optional array
+///
+/// - Parameters:
+///   - container: The encoding container
+///   - pair: The key value pair that need to be encoded
+/// - Throws: `EncodingError.invalidValue` if the given value is invalid in
+///   the current context for this format.
+public func <**? <O: Encodable, K: CodingKey>(container: KeyedEncodingContainer<K>, pair: (key: K, value: [O]?)) throws {
+    var container = container
+    return try container.encodeArrayIfPresent(pair.value, for: pair.key)
+}

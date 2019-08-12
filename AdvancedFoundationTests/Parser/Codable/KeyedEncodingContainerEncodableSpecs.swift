@@ -71,6 +71,42 @@ class KeyedEncodingContainerDecodableSpecs: QuickSpec {
                 }
             }
         }
+        describe("calls encodeArray(_:for)") {
+            context("with the key") {
+                let json = JSON(attribute1: "value1", attribute2: [["arrayAttribute1":"arrayValue1"],["arrayAttribute2":"arrayValue2"]])
+                let data = try? JSONEncoder().encode(json)
+                let jsonString = String(data: data ?? Data(), encoding: .utf8)
+                it("parses the attribute") {
+                    expect(jsonString) == "{\"attribute1\":\"value1\",\"attribute2\":[{\"arrayAttribute1\":\"arrayValue1\"},{\"arrayAttribute2\":\"arrayValue2\"}]}"
+                }
+            }
+            context("without the key") {
+                let json = JSON(attribute1: "value1")
+                let data = try? JSONEncoder().encode(json)
+                let jsonString = String(data: data ?? Data(), encoding: .utf8)
+                it("parses the attribute as null") {
+                    expect(jsonString) == "{\"attribute1\":\"value1\",\"attribute2\":null}"
+                }
+            }
+        }
+        describe("calls encodeArrayIfPresent(_:for)") {
+            context("with the key") {
+                let json = OptionalJSON(attribute2: [["arrayAttribute1":"arrayValue1"],["arrayAttribute2":"arrayValue2"]])
+                let data = try? JSONEncoder().encode(json)
+                let jsonString = String(data: data ?? Data(), encoding: .utf8)
+                it("parses the attribute") {
+                    expect(jsonString) == "{\"attribute2\":[{\"arrayAttribute1\":\"arrayValue1\"},{\"arrayAttribute2\":\"arrayValue2\"}]}"
+                }
+            }
+            context("without the key") {
+                let json = OptionalJSON()
+                let data = try? JSONEncoder().encode(json)
+                let jsonString = String(data: data ?? Data(), encoding: .utf8)
+                it("encodes nothing") {
+                    expect(jsonString) == "{}"
+                }
+            }
+        }
     }
 }
 
