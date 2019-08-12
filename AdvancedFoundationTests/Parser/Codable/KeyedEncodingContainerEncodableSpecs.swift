@@ -4,7 +4,7 @@ class KeyedEncodingContainerDecodableSpecs: QuickSpec {
         describe("calls encodeIfPresent(_:for)") {
             context("for string values") {
                 context("with the key") {
-                    let json = JSON(attribute1: "value1")
+                    let json = OptionalJSON(attribute1: "value1")
                     let data = try? JSONEncoder().encode(json)
                     let jsonString = String(data: data ?? Data(), encoding: .utf8)
                     it("parses the attribute") {
@@ -12,7 +12,7 @@ class KeyedEncodingContainerDecodableSpecs: QuickSpec {
                     }
                 }
                 context("without the key") {
-                    let json = JSON()
+                    let json = OptionalJSON()
                     let data = try? JSONEncoder().encode(json)
                     let jsonString = String(data: data ?? Data(), encoding: .utf8)
                     it("encodes nothing") {
@@ -22,7 +22,7 @@ class KeyedEncodingContainerDecodableSpecs: QuickSpec {
             }
             context("for double values") {
                 context("with the key") {
-                    let json = JSON(attribute3: 0)
+                    let json = OptionalJSON(attribute3: 0)
                     let data = try? JSONEncoder().encode(json)
                     let jsonString = String(data: data ?? Data(), encoding: .utf8)
                     it("encodes the attribute") {
@@ -32,7 +32,7 @@ class KeyedEncodingContainerDecodableSpecs: QuickSpec {
             }
             context("for dictionary values") {
                 context("with the key") {
-                    let json = JSON(attribute4: ["subAttribute1":"subValue1"])
+                    let json = OptionalJSON(attribute4: ["subAttribute1":"subValue1"])
                     let data = try? JSONEncoder().encode(json)
                     let jsonString = String(data: data ?? Data(), encoding: .utf8)
                     it("parses the attribute") {
@@ -42,7 +42,7 @@ class KeyedEncodingContainerDecodableSpecs: QuickSpec {
             }
             context("for bool values") {
                 context("with the key") {
-                    let json = JSON(attribute5: true)
+                    let json = OptionalJSON(attribute5: true)
                     let data = try? JSONEncoder().encode(json)
                     let jsonString = String(data: data ?? Data(), encoding: .utf8)
                     it("parses the attribute") {

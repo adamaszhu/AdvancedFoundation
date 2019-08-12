@@ -30,6 +30,9 @@ infix operator *>: LeftCodableKeyPrecedence
 infix operator ?*>: LeftCodableKeyPrecedence
 
 /// Array decoding operator
+infix operator **>: LeftCodableKeyPrecedence
+
+/// Array decoding operator
 infix operator ?**>: LeftCodableKeyPrecedence
 
 /// Key value combiner
@@ -75,6 +78,18 @@ public func *> <O: Decodable, K: CodingKey>(container: KeyedDecodingContainer<K>
 ///   is not convertible to the requested type.
 public func ?*> <O: Decodable, K: CodingKey>(container: KeyedDecodingContainer<K>, key: K) throws -> O? {
     return try container.decodeIfPresent(for: key)
+}
+
+/// Decode an array
+///
+/// - Parameters:
+///   - container: The container
+///   - key: The coding key
+/// - Returns: An array of objects
+/// - Throws: `DecodingError.typeMismatch` if the encountered stored value is not an unkeyed container or a contained object doesn't match the object type.
+/// - Throws: `DecodingError.valueNotFound` if the encountered encoded value is null, or of there are no more values to decode.
+public func **> <O: Decodable, K: CodingKey>(container: KeyedDecodingContainer<K>, key: K) throws -> [O] {
+    return try container.decodeArray(for: key)
 }
 
 /// Decode an array

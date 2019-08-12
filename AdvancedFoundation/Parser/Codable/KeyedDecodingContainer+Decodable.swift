@@ -24,6 +24,22 @@ public extension KeyedDecodingContainer {
         return array
     }
     
+    /// Decode an array
+    ///
+    /// - Parameter key: The coding key
+    /// - Returns: An array of objects
+    /// - Throws: `DecodingError.typeMismatch` if the encountered stored value is not an unkeyed container or a contained object doesn't match the object type.
+    /// - throws: `DecodingError.valueNotFound` if the encountered encoded value is null, or of there are no more values to decode.
+    func decodeArray<O: Decodable>(for key: K) throws -> [O] {
+        var unkeyedContainer = try nestedUnkeyedContainer(forKey: key)
+        var array = [O]()
+        while !unkeyedContainer.isAtEnd {
+            let object = try unkeyedContainer.decode(O.self)
+            array.append(object)
+        }
+        return array
+    }
+    
     /// Decode an optional value or object
     ///
     /// - Parameter key: The coding key

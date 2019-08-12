@@ -77,6 +77,7 @@
 		35094C6722FCF9DA0071D0D1 /* KeyedEncodingContainerEncodableSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35094C6622FCF9DA0071D0D1 /* KeyedEncodingContainerEncodableSpecs.swift */; };
 		35808B19229222AF0052FFA4 /* String+Matchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35808B18229222AF0052FFA4 /* String+Matchable.swift */; };
 		35808B1C229228A60052FFA4 /* String+MatchableSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35808B1B229228A60052FFA4 /* String+MatchableSpecs.swift */; };
+		35EF429B2300E96C00EB9182 /* OptionalJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EF429A2300E96C00EB9182 /* OptionalJSON.swift */; };
 		420F3CAA1EA06B1B00BAA0A4 /* Double+CurrencyFormattable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420F3CA91EA06B1B00BAA0A4 /* Double+CurrencyFormattable.swift */; };
 		420F3CAD1EA0721800BAA0A4 /* Double+LongNumberFormattable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420F3CAB1EA0721800BAA0A4 /* Double+LongNumberFormattable.swift */; };
 		420F3CAE1EA0721800BAA0A4 /* Double+PercentageFormattable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420F3CAC1EA0721800BAA0A4 /* Double+PercentageFormattable.swift */; };
@@ -236,6 +237,7 @@
 		35094C6622FCF9DA0071D0D1 /* KeyedEncodingContainerEncodableSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyedEncodingContainerEncodableSpecs.swift; sourceTree = "<group>"; };
 		35808B18229222AF0052FFA4 /* String+Matchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Matchable.swift"; sourceTree = "<group>"; };
 		35808B1B229228A60052FFA4 /* String+MatchableSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+MatchableSpecs.swift"; sourceTree = "<group>"; };
+		35EF429A2300E96C00EB9182 /* OptionalJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalJSON.swift; sourceTree = "<group>"; };
 		420F3CA91EA06B1B00BAA0A4 /* Double+CurrencyFormattable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+CurrencyFormattable.swift"; sourceTree = "<group>"; };
 		420F3CAB1EA0721800BAA0A4 /* Double+LongNumberFormattable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+LongNumberFormattable.swift"; sourceTree = "<group>"; };
 		420F3CAC1EA0721800BAA0A4 /* Double+PercentageFormattable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+PercentageFormattable.swift"; sourceTree = "<group>"; };
@@ -535,8 +537,9 @@
 		35094C2922FBBD320071D0D1 /* Codable */ = {
 			isa = PBXGroup;
 			children = (
-				35094C2A22FBBD4C0071D0D1 /* KeyedDecodingContainerDecodableSpecs.swift */,
 				35094C3822FBC94F0071D0D1 /* JSON.swift */,
+				35EF429A2300E96C00EB9182 /* OptionalJSON.swift */,
+				35094C2A22FBBD4C0071D0D1 /* KeyedDecodingContainerDecodableSpecs.swift */,
 				35094C6622FCF9DA0071D0D1 /* KeyedEncodingContainerEncodableSpecs.swift */,
 			);
 			path = Codable;
@@ -1018,6 +1021,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				28CC3FE71EB8200200C632A5 /* CoreDataHelperSpecs.swift in Sources */,
+				35EF429B2300E96C00EB9182 /* OptionalJSON.swift in Sources */,
 				425336CE1EA1AB3B00B6D6BF /* Double+PercentageFormattableSpecs.swift in Sources */,
 				2854752E1ED3A6D000821F83 /* FormDataFileFieldSpecs.swift in Sources */,
 				28E703BC1EBAE504002BEDFC /* NetworkHelperSpecs.swift in Sources */,
