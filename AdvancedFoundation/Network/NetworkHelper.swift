@@ -6,12 +6,12 @@
 public class NetworkHelper: NSObject {
     
     /// The default helper.
-    public static var standard: NetworkHelper? {
-        guard let bundleName = AppInfoAccessor.shared.bundleName else {
+    public static let standard: NetworkHelper? = {
+        guard let bundleName = AppInfoAccessor.standard.bundleName else {
             return nil
         }
         return NetworkHelper(identifier: bundleName)
-    }
+    }()
     
     /// Whether the network is available or not. This method is referenced from http://stackoverflow.com/questions/39558868/check-internet-connection-ios-10
     public static var isNetworkAvailable: Bool {

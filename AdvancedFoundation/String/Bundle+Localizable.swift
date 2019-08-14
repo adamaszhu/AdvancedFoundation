@@ -6,7 +6,7 @@
 public extension Bundle {
     
     /// The language that all resources should use.
-    static var currentLanguage = AppInfoAccessor.shared.preferredLanguage
+    static var currentLanguage = AppInfoAccessor.standard.preferredLanguage
     
     /// Swizzle the localizeString method
     static func switchLanguage() {

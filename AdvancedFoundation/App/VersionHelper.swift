@@ -6,8 +6,8 @@
 public class VersionHelper {
     
     /// The shared helper that presents current version. It will be nil if the version cannot be retrieved.
-    public static let shared: VersionHelper? = {
-        let appInfoAccessor = AppInfoAccessor.shared
+    public static let standard: VersionHelper? = {
+        let appInfoAccessor = AppInfoAccessor.standard
         guard let version = appInfoAccessor.version, let bundleName = appInfoAccessor.bundleName else {
             return nil
         }
@@ -61,7 +61,7 @@ public class VersionHelper {
     ///   - version: The version binded to the helper.
     ///   - versionFlag: The flag used to identify whether the version has been launched before or not.
     ///   - userDefaults: The UserDefaults used to store the flag.
-    init?(version: String, versionFlag: String, userDefaults: UserDefaults = UserDefaults.standard) {
+    public init?(version: String, versionFlag: String, userDefaults: UserDefaults = UserDefaults.standard) {
         guard VersionHelper.versionComponents(inVersion: version) != nil else {
             return nil
         }

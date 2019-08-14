@@ -6,7 +6,7 @@
 public class AppInfoAccessor {
     
     /// The singleton instance in the system.
-    public static let shared = AppInfoAccessor()
+    public static let standard = AppInfoAccessor()
     
     /// The name of current bundle. It will be nil if the bundle name cannot be retireved.
     public var bundleName: String? {
@@ -73,7 +73,7 @@ public class AppInfoAccessor {
     /// The initializer.
     ///
     /// - Parameter bundle: The bundle of the app.
-    init(bundle: Bundle = Bundle.main) {
+    public init(bundle: Bundle = Bundle.main) {
         self.bundle = bundle
     }
 }
