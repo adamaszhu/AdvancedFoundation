@@ -14,7 +14,7 @@ public class NetworkHelper: NSObject {
     }()
     
     /// Whether the network is available or not. This method is referenced from http://stackoverflow.com/questions/39558868/check-internet-connection-ios-10
-    public static var isNetworkAvailable: Bool {
+    public var isNetworkAvailable: Bool {
         var zeroAddress = sockaddr_in()
         zeroAddress.sin_len = UInt8(MemoryLayout.size(ofValue: zeroAddress))
         zeroAddress.sin_family = sa_family_t(AF_INET)
@@ -215,7 +215,7 @@ public class NetworkHelper: NSObject {
         }
         var header = header
         var request = URLRequest(url: url)
-        if !NetworkHelper.isNetworkAvailable {
+        if !isNetworkAvailable {
             // Support offline mode.
             request.cachePolicy = URLRequest.CachePolicy.returnCacheDataElseLoad
         }

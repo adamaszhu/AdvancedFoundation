@@ -26,7 +26,7 @@ class NetworkHelperHelperSpecs: QuickSpec {
         }
         describe("has isNetworkAvailable") {
             it("is true") {
-                expect(NetworkHelper.isNetworkAvailable) == true
+                expect(networkHelper.isNetworkAvailable) == true
             }
         }
         describe("calls init(identifier:cache)") {
