@@ -1,7 +1,7 @@
 class CoreDataHelperSpecs: QuickSpec {
     
     override func spec() {
-        let coreDataHelper = CoreDataHelper(modelName: AppInfoAccessor.shared.bundleName!)!
+        let coreDataHelper = CoreDataHelper(modelName: AppInfoAccessor.standard.bundleName!)!
         afterEach {
             coreDataHelper.deleteObjects(of: Test.self)
         }
@@ -27,7 +27,7 @@ class CoreDataHelperSpecs: QuickSpec {
                 }
             }
             context("with incorrect bundle") {
-                let coreDataHelper = CoreDataHelper(modelName: AppInfoAccessor.shared.bundleName!, bundle: Bundle())
+                let coreDataHelper = CoreDataHelper(modelName: AppInfoAccessor.standard.bundleName!, bundle: Bundle())
                 it("return nil") {
                     expect(coreDataHelper).to(beNil())
                 }
