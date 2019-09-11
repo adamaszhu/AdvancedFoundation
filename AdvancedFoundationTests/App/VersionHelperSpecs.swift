@@ -2,13 +2,13 @@ class VersionHelperSpecs: QuickSpec {
     
     override func spec() {
         let versionFlag = "VersionFlag"
-        let versionHelper = VersionHelper.shared
+        let versionHelper = VersionHelper.standard
         afterEach {
             versionHelper?.deleteVersionFlag()
         }
         describe("has shared object") {
             it("is not nil") {
-                expect(VersionHelper.shared).toNot(beNil())
+                expect(VersionHelper.standard).toNot(beNil())
             }
         }
         describe("has grand version") {

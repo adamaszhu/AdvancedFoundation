@@ -6,7 +6,7 @@ class BundleLocalizableSpecs: QuickSpec {
                 context("with existing string") {
                     it("returns localized string") {
                         Bundle.switchLanguage()
-                        Bundle.currentLanguage = AppInfoAccessor.shared.preferredLanguage
+                        Bundle.currentLanguage = AppInfoAccessor.standard.preferredLanguage
                         let string = Bundle.main.localizedString(forKey: "Test", value: nil, table: nil)
                         expect(string) == "Test English"
                         Bundle.switchLanguage()
@@ -15,7 +15,7 @@ class BundleLocalizableSpecs: QuickSpec {
                 context("with non-existing string") {
                     it("returns original string") {
                         Bundle.switchLanguage()
-                        Bundle.currentLanguage = AppInfoAccessor.shared.preferredLanguage
+                        Bundle.currentLanguage = AppInfoAccessor.standard.preferredLanguage
                         let string = Bundle.main.localizedString(forKey: "Test1", value: nil, table: nil)
                         expect(string) == "Test1"
                         Bundle.switchLanguage()

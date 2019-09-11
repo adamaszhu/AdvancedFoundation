@@ -4,7 +4,7 @@ class AppInfoAccessorSpecs: QuickSpec {
         let appInfoAccessor = AppInfoAccessor()
         describe("has shared") {
             it("is not nil") {
-                expect(AppInfoAccessor.shared).toNot(beNil())
+                expect(AppInfoAccessor.standard).toNot(beNil())
             }
         }
         describe("has bundle name") {

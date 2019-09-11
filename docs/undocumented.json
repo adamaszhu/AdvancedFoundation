@@ -1,215 +1,215 @@
 {
   "warnings": [
     {
-      "file": "/Users/Adamas/Documents/Project/IOS/AdvancedFoundation/AdvancedFoundation/Date/Date+Formattable.swift",
+      "file": "/Users/azhu/Documents/Projects/AdvancedFoundation/AdvancedFoundation/Date/Date+Formattable.swift",
       "line": 10,
       "symbol": "Date.yearPattern",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/Adamas/Documents/Project/IOS/AdvancedFoundation/AdvancedFoundation/Date/Date+Formattable.swift",
+      "file": "/Users/azhu/Documents/Projects/AdvancedFoundation/AdvancedFoundation/Date/Date+Formattable.swift",
       "line": 11,
       "symbol": "Date.abbrMonthPattern",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/Adamas/Documents/Project/IOS/AdvancedFoundation/AdvancedFoundation/Date/Date+Formattable.swift",
+      "file": "/Users/azhu/Documents/Projects/AdvancedFoundation/AdvancedFoundation/Date/Date+Formattable.swift",
       "line": 12,
       "symbol": "Date.monthPattern",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/Adamas/Documents/Project/IOS/AdvancedFoundation/AdvancedFoundation/Date/Date+Formattable.swift",
+      "file": "/Users/azhu/Documents/Projects/AdvancedFoundation/AdvancedFoundation/Date/Date+Formattable.swift",
       "line": 13,
       "symbol": "Date.dayPattern",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/Adamas/Documents/Project/IOS/AdvancedFoundation/AdvancedFoundation/Date/Date+Formattable.swift",
+      "file": "/Users/azhu/Documents/Projects/AdvancedFoundation/AdvancedFoundation/Date/Date+Formattable.swift",
       "line": 14,
       "symbol": "Date.time12HourPattern",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/Adamas/Documents/Project/IOS/AdvancedFoundation/AdvancedFoundation/Network/NetworkBodyType.swift",
+      "file": "/Users/azhu/Documents/Projects/AdvancedFoundation/AdvancedFoundation/Network/NetworkBodyType.swift",
       "line": 7,
       "symbol": "NetworkBodyType.json",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/Adamas/Documents/Project/IOS/AdvancedFoundation/AdvancedFoundation/Network/NetworkBodyType.swift",
+      "file": "/Users/azhu/Documents/Projects/AdvancedFoundation/AdvancedFoundation/Network/NetworkBodyType.swift",
       "line": 8,
       "symbol": "NetworkBodyType.text",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/Adamas/Documents/Project/IOS/AdvancedFoundation/AdvancedFoundation/Network/NetworkBodyType.swift",
+      "file": "/Users/azhu/Documents/Projects/AdvancedFoundation/AdvancedFoundation/Network/NetworkBodyType.swift",
       "line": 9,
       "symbol": "NetworkBodyType.javascript",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/Adamas/Documents/Project/IOS/AdvancedFoundation/AdvancedFoundation/Network/NetworkBodyType.swift",
+      "file": "/Users/azhu/Documents/Projects/AdvancedFoundation/AdvancedFoundation/Network/NetworkBodyType.swift",
       "line": 10,
       "symbol": "NetworkBodyType.xml",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/Adamas/Documents/Project/IOS/AdvancedFoundation/AdvancedFoundation/Network/NetworkBodyType.swift",
+      "file": "/Users/azhu/Documents/Projects/AdvancedFoundation/AdvancedFoundation/Network/NetworkBodyType.swift",
       "line": 11,
       "symbol": "NetworkBodyType.html",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/Adamas/Documents/Project/IOS/AdvancedFoundation/AdvancedFoundation/Network/NetworkBodyType.swift",
+      "file": "/Users/azhu/Documents/Projects/AdvancedFoundation/AdvancedFoundation/Network/NetworkBodyType.swift",
       "line": 12,
       "symbol": "NetworkBodyType.wwwForm",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/Adamas/Documents/Project/IOS/AdvancedFoundation/AdvancedFoundation/Network/NetworkBodyType.swift",
+      "file": "/Users/azhu/Documents/Projects/AdvancedFoundation/AdvancedFoundation/Network/NetworkBodyType.swift",
       "line": 13,
       "symbol": "NetworkBodyType.formData",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/Adamas/Documents/Project/IOS/AdvancedFoundation/AdvancedFoundation/Network/NetworkHelper+DataSessionDelegate.swift",
+      "file": "/Users/azhu/Documents/Projects/AdvancedFoundation/AdvancedFoundation/Network/NetworkHelper+DataSessionDelegate.swift",
       "line": 8,
       "symbol": "NetworkHelper.urlSession(_:dataTask:didReceive:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/Adamas/Documents/Project/IOS/AdvancedFoundation/AdvancedFoundation/Network/NetworkHelper+DataSessionDelegate.swift",
+      "file": "/Users/azhu/Documents/Projects/AdvancedFoundation/AdvancedFoundation/Network/NetworkHelper+DataSessionDelegate.swift",
       "line": 16,
       "symbol": "NetworkHelper.urlSession(_:dataTask:didReceive:completionHandler:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/Adamas/Documents/Project/IOS/AdvancedFoundation/AdvancedFoundation/Network/NetworkHelper+DownloadSessionDelegate.swift",
+      "file": "/Users/azhu/Documents/Projects/AdvancedFoundation/AdvancedFoundation/Network/NetworkHelper+DownloadSessionDelegate.swift",
       "line": 8,
       "symbol": "NetworkHelper.urlSession(_:downloadTask:didFinishDownloadingTo:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/Adamas/Documents/Project/IOS/AdvancedFoundation/AdvancedFoundation/Network/NetworkHelper+DownloadSessionDelegate.swift",
+      "file": "/Users/azhu/Documents/Projects/AdvancedFoundation/AdvancedFoundation/Network/NetworkHelper+DownloadSessionDelegate.swift",
       "line": 25,
       "symbol": "NetworkHelper.urlSession(_:downloadTask:didWriteData:totalBytesWritten:totalBytesExpectedToWrite:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/Adamas/Documents/Project/IOS/AdvancedFoundation/AdvancedFoundation/Network/NetworkHelper+SessionTaskDelegate.swift",
+      "file": "/Users/azhu/Documents/Projects/AdvancedFoundation/AdvancedFoundation/Network/NetworkHelper+SessionTaskDelegate.swift",
       "line": 8,
       "symbol": "NetworkHelper.urlSession(_:task:didCompleteWithError:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/Adamas/Documents/Project/IOS/AdvancedFoundation/AdvancedFoundation/Network/NetworkHelper.swift",
+      "file": "/Users/azhu/Documents/Projects/AdvancedFoundation/AdvancedFoundation/Network/NetworkHelper.swift",
       "line": 146,
       "symbol": "NetworkHelper.clearCache(forURL:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/Adamas/Documents/Project/IOS/AdvancedFoundation/AdvancedFoundation/String/String+Constant.swift",
+      "file": "/Users/azhu/Documents/Projects/AdvancedFoundation/AdvancedFoundation/String/String+Constant.swift",
       "line": 9,
       "symbol": "String.space",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/Adamas/Documents/Project/IOS/AdvancedFoundation/AdvancedFoundation/String/String+Constant.swift",
+      "file": "/Users/azhu/Documents/Projects/AdvancedFoundation/AdvancedFoundation/String/String+Constant.swift",
       "line": 10,
       "symbol": "String.linebreak",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/Adamas/Documents/Project/IOS/AdvancedFoundation/AdvancedFoundation/String/String+Constant.swift",
+      "file": "/Users/azhu/Documents/Projects/AdvancedFoundation/AdvancedFoundation/String/String+Constant.swift",
       "line": 11,
       "symbol": "String.empty",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/Adamas/Documents/Project/IOS/AdvancedFoundation/AdvancedFoundation/String/String+Constant.swift",
+      "file": "/Users/azhu/Documents/Projects/AdvancedFoundation/AdvancedFoundation/String/String+Constant.swift",
       "line": 12,
       "symbol": "String.plus",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/Adamas/Documents/Project/IOS/AdvancedFoundation/AdvancedFoundation/String/String+Constant.swift",
+      "file": "/Users/azhu/Documents/Projects/AdvancedFoundation/AdvancedFoundation/String/String+Constant.swift",
       "line": 13,
       "symbol": "String.dot",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/Adamas/Documents/Project/IOS/AdvancedFoundation/AdvancedFoundation/String/String+Constant.swift",
+      "file": "/Users/azhu/Documents/Projects/AdvancedFoundation/AdvancedFoundation/String/String+Constant.swift",
       "line": 14,
       "symbol": "String.tab",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/Adamas/Documents/Project/IOS/AdvancedFoundation/AdvancedFoundation/String/String+Constant.swift",
+      "file": "/Users/azhu/Documents/Projects/AdvancedFoundation/AdvancedFoundation/String/String+Constant.swift",
       "line": 15,
       "symbol": "String.comma",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/Adamas/Documents/Project/IOS/AdvancedFoundation/AdvancedFoundation/String/String+Constant.swift",
+      "file": "/Users/azhu/Documents/Projects/AdvancedFoundation/AdvancedFoundation/String/String+Constant.swift",
       "line": 16,
       "symbol": "String.dash",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/Adamas/Documents/Project/IOS/AdvancedFoundation/AdvancedFoundation/String/String+Constant.swift",
+      "file": "/Users/azhu/Documents/Projects/AdvancedFoundation/AdvancedFoundation/String/String+Constant.swift",
       "line": 17,
       "symbol": "String.comment",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/Adamas/Documents/Project/IOS/AdvancedFoundation/AdvancedFoundation/String/String+Constant.swift",
+      "file": "/Users/azhu/Documents/Projects/AdvancedFoundation/AdvancedFoundation/String/String+Constant.swift",
       "line": 18,
       "symbol": "String.leftSquareBracket",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/Adamas/Documents/Project/IOS/AdvancedFoundation/AdvancedFoundation/String/String+Constant.swift",
+      "file": "/Users/azhu/Documents/Projects/AdvancedFoundation/AdvancedFoundation/String/String+Constant.swift",
       "line": 19,
       "symbol": "String.rightSquareBracket",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/Adamas/Documents/Project/IOS/AdvancedFoundation/AdvancedFoundation/String/String+Constant.swift",
+      "file": "/Users/azhu/Documents/Projects/AdvancedFoundation/AdvancedFoundation/String/String+Constant.swift",
       "line": 20,
       "symbol": "String.forwardSlash",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     }
   ],
-  "source_directory": "/Users/Adamas/Documents/Project/IOS/AdvancedFoundation"
+  "source_directory": "/Users/azhu/Documents/Projects/AdvancedFoundation"
 }

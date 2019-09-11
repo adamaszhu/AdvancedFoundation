@@ -7,7 +7,7 @@ public class CoreDataHelper {
     
     /// Get the singleton object.
     public static let standard: CoreDataHelper? = {
-        guard let bundleName = AppInfoAccessor.shared.bundleName else {
+        guard let bundleName = AppInfoAccessor.standard.bundleName else {
             return nil
         }
         return CoreDataHelper(modelName: bundleName)

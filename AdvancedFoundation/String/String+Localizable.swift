@@ -29,7 +29,7 @@ public extension String {
     ///
     /// - Parameter type: Any structure or class used to find the localization file.
     /// - Returns: The localized string.
-    func localizedInternalString(forType type: Any) -> String {
+    internal func localizedInternalString(forType type: Any) -> String {
         let bundle = Bundle(for: Logger.self)
         return NSLocalizedString(self, tableName: String(describing: type), bundle: bundle, comment: .empty)
     }
