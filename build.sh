@@ -2,7 +2,9 @@ PROJECT_NAME="AdvancedFoundation"
 PRODUCT_DIR="Product"
 TEMP_DIR="Temp"
 BUILD_DIR="build"
+DOC_DIR="doc"
 
+rm -rf "${DOC_DIR}"
 rm -rf "${PRODUCT_DIR}"
 rm -rf "${TEMP_DIR}"
 rm -rf "${BUILD_DIR}"
@@ -16,9 +18,6 @@ cp -R "${TEMP_DIR}/Release-iphoneos/${PROJECT_NAME}.framework" "${PRODUCT_DIR}"
 cp -R "${TEMP_DIR}/Release-iphonesimulator/${PROJECT_NAME}.framework/Modules/${PROJECT_NAME}.swiftmodule/." "${PRODUCT_DIR}/${PROJECT_NAME}.framework/Modules/${PROJECT_NAME}.swiftmodule"
 lipo -create -output "${PRODUCT_DIR}/${PROJECT_NAME}.framework/${PROJECT_NAME}" "${TEMP_DIR}/Release-iphoneos/${PROJECT_NAME}.framework/${PROJECT_NAME}" "${TEMP_DIR}/Release-iphonesimulator/${PROJECT_NAME}.framework/${PROJECT_NAME}"
 
-rm -rf "${BUILD_DIR}"
-rm -rf "${TEMP_DIR}"
-
 open "${PRODUCT_DIR}"
 
 if ! gem spec jazzy > /dev/null 2>&1; then
@@ -26,3 +25,6 @@ if ! gem spec jazzy > /dev/null 2>&1; then
 fi
 
 jazzy
+
+rm -rf "${BUILD_DIR}"
+rm -rf "${TEMP_DIR}"
