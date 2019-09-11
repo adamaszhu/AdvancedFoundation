@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Functions  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Section/Functions" class="dashAnchor"></a>
+    <a title="Functions  Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="index.html"> Docs</a> (84% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="index.html"> Reference</a>
+        <img id="carat" src="img/carat.png" />
+        Functions  Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Classes/AppInfoAccessor.html">AppInfoAccessor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/CoreDataHelper.html">CoreDataHelper</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/DirectoryHelper.html">DirectoryHelper</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/FileHelper.html">FileHelper</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/FileInfoAccessor.html">FileInfoAccessor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/IDGenerator.html">IDGenerator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/JSONParser.html">JSONParser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/Logger.html">Logger</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/NetworkHelper.html">NetworkHelper</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/PathHelper.html">PathHelper</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/ResourceHelper.html">ResourceHelper</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/TextResourceHelper.html">TextResourceHelper</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/VersionHelper.html">VersionHelper</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Enums/NetworkBodyType.html">NetworkBodyType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Extensions/Array.html">Array</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/Bundle.html">Bundle</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/Date.html">Date</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/Double.html">Double</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/Int.html">Int</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/KeyedDecodingContainer.html">KeyedDecodingContainer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/KeyedEncodingContainer.html">KeyedEncodingContainer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/String.html">String</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/UserDefaults.html">UserDefaults</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Functions.html#/s:18AdvancedFoundation3mmgoiySayxGs22KeyedDecodingContainerVyq_G_q_tKSeRzs9CodingKeyR_r0_lF">**&gt;(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Functions.html#/s:18AdvancedFoundation2mgoiyxs22KeyedDecodingContainerVyq_G_q_tKSeRzs9CodingKeyR_r0_lF">*&gt;(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Functions.html#/s:18AdvancedFoundation2lmoiyys22KeyedEncodingContainerVyq_G_q_3key_xSg5valuettKSERzs9CodingKeyR_r0_lF">&lt;*(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Functions.html#/s:18AdvancedFoundation3lmmoiyys22KeyedEncodingContainerVyq_G_q_3key_SayxGSg5valuettKSERzs9CodingKeyR_r0_lF">&lt;**(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Functions.html#/s:18AdvancedFoundation4lmmqoiyys22KeyedEncodingContainerVyq_G_q_3key_SayxGSg5valuettKSERzs9CodingKeyR_r0_lF">&lt;**?(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Functions.html#/s:18AdvancedFoundation3lmqoiyys22KeyedEncodingContainerVyq_G_q_3key_xSg5valuettKSERzs9CodingKeyR_r0_lF">&lt;*?(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Functions.html#/s:18AdvancedFoundation3lttoiyq_3key_xSg5valuetq__ADtSERzs9CodingKeyR_r0_lF">&lt;~~(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Functions.html#/s:18AdvancedFoundation4qmmgoiySayxGSgs22KeyedDecodingContainerVyq_G_q_tKSeRzs9CodingKeyR_r0_lF">?**&gt;(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Functions.html#/s:18AdvancedFoundation3qmgoiyxSgs22KeyedDecodingContainerVyq_G_q_tKSeRzs9CodingKeyR_r0_lF">?*&gt;(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Functions.html#/s:18AdvancedFoundation2teoiySbSS_SStF">~=(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Functions.html#/s:18AdvancedFoundation3ttgoiys22KeyedDecodingContainerVyxGs7Decoder_p_xmtKs9CodingKeyRzlF">~~&gt;(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Functions.html#/s:18AdvancedFoundation3ttgoiys22KeyedEncodingContainerVyxGs7Encoder_p_xmts9CodingKeyRzlF">~~&gt;(_:_:)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Protocols/NetworkHelperDelegate.html">NetworkHelperDelegate</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Structs/CSV.html">CSV</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs.html#/s:18AdvancedFoundation8FormDataV">FormData</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs.html#/s:18AdvancedFoundation17FormDataFileFieldV">FormDataFileField</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs.html#/s:18AdvancedFoundation17FormDataTextFieldV">FormDataTextField</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/NetworkRequestHeader.html">NetworkRequestHeader</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs.html#/s:18AdvancedFoundation21NetworkResponseHeaderV">NetworkResponseHeader</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/TXT.html">TXT</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>Functions</h1>
+            <p>The following functions are available globally.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:18AdvancedFoundation3ttgoiys22KeyedDecodingContainerVyxGs7Decoder_p_xmtKs9CodingKeyRzlF"></a>
+                    <a name="//apple_ref/swift/Function/~~&gt;(_:_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:18AdvancedFoundation3ttgoiys22KeyedDecodingContainerVyxGs7Decoder_p_xmtKs9CodingKeyRzlF">~~&gt;(_:_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get a keyed decoding container using a coding key</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <code>DecodingError.typeMismatch</code> if the encountered stored value is
+not a keyed container.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="o">~~&gt;</span> <span class="o">&lt;</span><span class="kt">K</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">decoder</span><span class="p">:</span> <span class="kt">Decoder</span><span class="p">,</span> <span class="nv">keyType</span><span class="p">:</span> <span class="kt">K</span><span class="o">.</span><span class="k">Type</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">KeyedDecodingContainer</span><span class="o">&lt;</span><span class="kt">K</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">K</span> <span class="p">:</span> <span class="kt">CodingKey</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>decoder</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The decoder</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>keyType</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The key type</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A keyed container</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:18AdvancedFoundation2mgoiyxs22KeyedDecodingContainerVyq_G_q_tKSeRzs9CodingKeyR_r0_lF"></a>
+                    <a name="//apple_ref/swift/Function/*&gt;(_:_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:18AdvancedFoundation2mgoiyxs22KeyedDecodingContainerVyq_G_q_tKSeRzs9CodingKeyR_r0_lF">*&gt;(_:_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Decode a value or object</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <code>DecodingError.typeMismatch</code> if the encountered encoded value
+is not convertible to the requested type.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="o">*&gt;</span> <span class="o">&lt;</span><span class="kt">O</span><span class="p">,</span> <span class="kt">K</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">container</span><span class="p">:</span> <span class="kt">KeyedDecodingContainer</span><span class="o">&lt;</span><span class="kt">K</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">key</span><span class="p">:</span> <span class="kt">K</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">O</span> <span class="k">where</span> <span class="kt">O</span> <span class="p">:</span> <span class="kt">Decodable</span><span class="p">,</span> <span class="kt">K</span> <span class="p">:</span> <span class="kt">CodingKey</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The value or object</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:18AdvancedFoundation3qmgoiyxSgs22KeyedDecodingContainerVyq_G_q_tKSeRzs9CodingKeyR_r0_lF"></a>
+                    <a name="//apple_ref/swift/Function/?*&gt;(_:_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:18AdvancedFoundation3qmgoiyxSgs22KeyedDecodingContainerVyq_G_q_tKSeRzs9CodingKeyR_r0_lF">?*&gt;(_:_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Decode a optional value or object</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <code>DecodingError.typeMismatch</code> if the encountered encoded value
+is not convertible to the requested type.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="p">?</span><span class="o">*&gt;</span> <span class="o">&lt;</span><span class="kt">O</span><span class="p">,</span> <span class="kt">K</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">container</span><span class="p">:</span> <span class="kt">KeyedDecodingContainer</span><span class="o">&lt;</span><span class="kt">K</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">key</span><span class="p">:</span> <span class="kt">K</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">O</span><span class="p">?</span> <span class="k">where</span> <span class="kt">O</span> <span class="p">:</span> <span class="kt">Decodable</span><span class="p">,</span> <span class="kt">K</span> <span class="p">:</span> <span class="kt">CodingKey</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The value or object</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:18AdvancedFoundation3mmgoiySayxGs22KeyedDecodingContainerVyq_G_q_tKSeRzs9CodingKeyR_r0_lF"></a>
+                    <a name="//apple_ref/swift/Function/**&gt;(_:_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:18AdvancedFoundation3mmgoiySayxGs22KeyedDecodingContainerVyq_G_q_tKSeRzs9CodingKeyR_r0_lF">**&gt;(_:_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Decode an array</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <code>DecodingError.typeMismatch</code> if the encountered stored value is not an unkeyed container or a contained object doesn&rsquo;t match the object type.
+
+</div>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <code>DecodingError.valueNotFound</code> if the encountered encoded value is null, or of there are no more values to decode.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="o">**&gt;</span> <span class="o">&lt;</span><span class="kt">O</span><span class="p">,</span> <span class="kt">K</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">container</span><span class="p">:</span> <span class="kt">KeyedDecodingContainer</span><span class="o">&lt;</span><span class="kt">K</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">key</span><span class="p">:</span> <span class="kt">K</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">O</span><span class="p">]</span> <span class="k">where</span> <span class="kt">O</span> <span class="p">:</span> <span class="kt">Decodable</span><span class="p">,</span> <span class="kt">K</span> <span class="p">:</span> <span class="kt">CodingKey</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>container</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The container</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The coding key</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An array of objects</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:18AdvancedFoundation4qmmgoiySayxGSgs22KeyedDecodingContainerVyq_G_q_tKSeRzs9CodingKeyR_r0_lF"></a>
+                    <a name="//apple_ref/swift/Function/?**&gt;(_:_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:18AdvancedFoundation4qmmgoiySayxGSgs22KeyedDecodingContainerVyq_G_q_tKSeRzs9CodingKeyR_r0_lF">?**&gt;(_:_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Decode an array</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <code>DecodingError.typeMismatch</code> if the encountered stored value is not an unkeyed container or a contained object doesn&rsquo;t match the object type.
+
+</div>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <code>DecodingError.valueNotFound</code> if the encountered encoded value is null, or of there are no more values to decode.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="p">?</span><span class="o">**&gt;</span> <span class="o">&lt;</span><span class="kt">O</span><span class="p">,</span> <span class="kt">K</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">container</span><span class="p">:</span> <span class="kt">KeyedDecodingContainer</span><span class="o">&lt;</span><span class="kt">K</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">key</span><span class="p">:</span> <span class="kt">K</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">O</span><span class="p">]?</span> <span class="k">where</span> <span class="kt">O</span> <span class="p">:</span> <span class="kt">Decodable</span><span class="p">,</span> <span class="kt">K</span> <span class="p">:</span> <span class="kt">CodingKey</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>container</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The container</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The coding key</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An array of objects</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:18AdvancedFoundation3ttgoiys22KeyedEncodingContainerVyxGs7Encoder_p_xmts9CodingKeyRzlF"></a>
+                    <a name="//apple_ref/swift/Function/~~&gt;(_:_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:18AdvancedFoundation3ttgoiys22KeyedEncodingContainerVyxGs7Encoder_p_xmts9CodingKeyRzlF">~~&gt;(_:_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get a keyed encoding container using a coding key</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="o">~~&gt;</span> <span class="o">&lt;</span><span class="kt">K</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">encoder</span><span class="p">:</span> <span class="kt">Encoder</span><span class="p">,</span> <span class="nv">keyType</span><span class="p">:</span> <span class="kt">K</span><span class="o">.</span><span class="k">Type</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">KeyedEncodingContainer</span><span class="o">&lt;</span><span class="kt">K</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">K</span> <span class="p">:</span> <span class="kt">CodingKey</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>encoder</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The encoder</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>keyType</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The key type</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A keyed container</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:18AdvancedFoundation3lttoiyq_3key_xSg5valuetq__ADtSERzs9CodingKeyR_r0_lF"></a>
+                    <a name="//apple_ref/swift/Function/&lt;~~(_:_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:18AdvancedFoundation3lttoiyq_3key_xSg5valuetq__ADtSERzs9CodingKeyR_r0_lF">&lt;~~(_:_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Combine a coding key and a coding value</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="o">&lt;~~</span> <span class="o">&lt;</span><span class="kt">O</span><span class="p">,</span> <span class="kt">K</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="kt">K</span><span class="p">,</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">O</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="kt">K</span><span class="p">,</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">O</span><span class="p">?)</span> <span class="k">where</span> <span class="kt">O</span> <span class="p">:</span> <span class="kt">Encodable</span><span class="p">,</span> <span class="kt">K</span> <span class="p">:</span> <span class="kt">CodingKey</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The coding key</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>object</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The coding value</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The coding pair</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:18AdvancedFoundation2lmoiyys22KeyedEncodingContainerVyq_G_q_3key_xSg5valuettKSERzs9CodingKeyR_r0_lF"></a>
+                    <a name="//apple_ref/swift/Function/&lt;*(_:_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:18AdvancedFoundation2lmoiyys22KeyedEncodingContainerVyq_G_q_3key_xSg5valuettKSERzs9CodingKeyR_r0_lF">&lt;*(_:_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Encode a value</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <code>EncodingError.invalidValue</code> if the given value is invalid in
+the current context for this format.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="o">&lt;*</span> <span class="o">&lt;</span><span class="kt">O</span><span class="p">,</span> <span class="kt">K</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">container</span><span class="p">:</span> <span class="kt">KeyedEncodingContainer</span><span class="o">&lt;</span><span class="kt">K</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">pair</span><span class="p">:</span> <span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="kt">K</span><span class="p">,</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">O</span><span class="p">?))</span> <span class="k">throws</span> <span class="k">where</span> <span class="kt">O</span> <span class="p">:</span> <span class="kt">Encodable</span><span class="p">,</span> <span class="kt">K</span> <span class="p">:</span> <span class="kt">CodingKey</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>container</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The encoding container</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>pair</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The key value pair that need to be encoded</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:18AdvancedFoundation3lmqoiyys22KeyedEncodingContainerVyq_G_q_3key_xSg5valuettKSERzs9CodingKeyR_r0_lF"></a>
+                    <a name="//apple_ref/swift/Function/&lt;*?(_:_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:18AdvancedFoundation3lmqoiyys22KeyedEncodingContainerVyq_G_q_3key_xSg5valuettKSERzs9CodingKeyR_r0_lF">&lt;*?(_:_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Encode an optional value</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <code>EncodingError.invalidValue</code> if the given value is invalid in
+the current context for this format.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="o">&lt;*</span><span class="p">?</span> <span class="o">&lt;</span><span class="kt">O</span><span class="p">,</span> <span class="kt">K</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">container</span><span class="p">:</span> <span class="kt">KeyedEncodingContainer</span><span class="o">&lt;</span><span class="kt">K</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">pair</span><span class="p">:</span> <span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="kt">K</span><span class="p">,</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">O</span><span class="p">?))</span> <span class="k">throws</span> <span class="k">where</span> <span class="kt">O</span> <span class="p">:</span> <span class="kt">Encodable</span><span class="p">,</span> <span class="kt">K</span> <span class="p">:</span> <span class="kt">CodingKey</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>container</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The encoding container</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>pair</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The key value pair that need to be encoded</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:18AdvancedFoundation3lmmoiyys22KeyedEncodingContainerVyq_G_q_3key_SayxGSg5valuettKSERzs9CodingKeyR_r0_lF"></a>
+                    <a name="//apple_ref/swift/Function/&lt;**(_:_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:18AdvancedFoundation3lmmoiyys22KeyedEncodingContainerVyq_G_q_3key_SayxGSg5valuettKSERzs9CodingKeyR_r0_lF">&lt;**(_:_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Encode an array</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <code>EncodingError.invalidValue</code> if the given value is invalid in
+the current context for this format.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="o">&lt;**</span> <span class="o">&lt;</span><span class="kt">O</span><span class="p">,</span> <span class="kt">K</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">container</span><span class="p">:</span> <span class="kt">KeyedEncodingContainer</span><span class="o">&lt;</span><span class="kt">K</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">pair</span><span class="p">:</span> <span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="kt">K</span><span class="p">,</span> <span class="nv">value</span><span class="p">:</span> <span class="p">[</span><span class="kt">O</span><span class="p">]?))</span> <span class="k">throws</span> <span class="k">where</span> <span class="kt">O</span> <span class="p">:</span> <span class="kt">Encodable</span><span class="p">,</span> <span class="kt">K</span> <span class="p">:</span> <span class="kt">CodingKey</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>container</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The encoding container</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>pair</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The key value pair that need to be encoded</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:18AdvancedFoundation4lmmqoiyys22KeyedEncodingContainerVyq_G_q_3key_SayxGSg5valuettKSERzs9CodingKeyR_r0_lF"></a>
+                    <a name="//apple_ref/swift/Function/&lt;**?(_:_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:18AdvancedFoundation4lmmqoiyys22KeyedEncodingContainerVyq_G_q_3key_SayxGSg5valuettKSERzs9CodingKeyR_r0_lF">&lt;**?(_:_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Encode an optional array</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <code>EncodingError.invalidValue</code> if the given value is invalid in
+the current context for this format.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="o">&lt;**</span><span class="p">?</span> <span class="o">&lt;</span><span class="kt">O</span><span class="p">,</span> <span class="kt">K</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">container</span><span class="p">:</span> <span class="kt">KeyedEncodingContainer</span><span class="o">&lt;</span><span class="kt">K</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">pair</span><span class="p">:</span> <span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="kt">K</span><span class="p">,</span> <span class="nv">value</span><span class="p">:</span> <span class="p">[</span><span class="kt">O</span><span class="p">]?))</span> <span class="k">throws</span> <span class="k">where</span> <span class="kt">O</span> <span class="p">:</span> <span class="kt">Encodable</span><span class="p">,</span> <span class="kt">K</span> <span class="p">:</span> <span class="kt">CodingKey</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>container</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The encoding container</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>pair</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The key value pair that need to be encoded</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:18AdvancedFoundation2teoiySbSS_SStF"></a>
+                    <a name="//apple_ref/swift/Function/~=(_:_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:18AdvancedFoundation2teoiySbSS_SStF">~=(_:_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Defines operators for doing regex operations.</p>
+<div class="aside aside-author">
+    <p class="aside-title">Author</p>
+    Adamas
+
+</div>
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    1.5.0
+
+</div>
+<div class="aside aside-date">
+    <p class="aside-title">Date</p>
+    <p>20/05/2019
+Compare a string to a regex.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="o">~=</span> <span class="p">(</span><span class="nv">regex</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">string</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>string</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The string to be compared.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>pattern</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The regex to be used</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Whether the regex can be found in the string or not.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2019 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2019-09-11)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.10.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
