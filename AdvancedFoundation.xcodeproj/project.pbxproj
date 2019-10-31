@@ -77,6 +77,8 @@
 		35094C6722FCF9DA0071D0D1 /* KeyedEncodingContainerEncodableSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35094C6622FCF9DA0071D0D1 /* KeyedEncodingContainerEncodableSpecs.swift */; };
 		352D87ED231CDF1D00AAE40D /* UserDefaults+Accessable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352D87EC231CDF1D00AAE40D /* UserDefaults+Accessable.swift */; };
 		352D87EF231CE01500AAE40D /* UserDefaults+AccessableSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352D87EE231CE01500AAE40D /* UserDefaults+AccessableSpecs.swift */; };
+		35758B61232F44FE0024B723 /* URL+Accessible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35758B60232F44FE0024B723 /* URL+Accessible.swift */; };
+		35758B63232F45B50024B723 /* URL+AccessibleSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35758B62232F45B50024B723 /* URL+AccessibleSpecs.swift */; };
 		35808B19229222AF0052FFA4 /* String+Matchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35808B18229222AF0052FFA4 /* String+Matchable.swift */; };
 		35808B1C229228A60052FFA4 /* String+MatchableSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35808B1B229228A60052FFA4 /* String+MatchableSpecs.swift */; };
 		35EF429B2300E96C00EB9182 /* OptionalJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EF429A2300E96C00EB9182 /* OptionalJSON.swift */; };
@@ -239,6 +241,8 @@
 		35094C6622FCF9DA0071D0D1 /* KeyedEncodingContainerEncodableSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyedEncodingContainerEncodableSpecs.swift; sourceTree = "<group>"; };
 		352D87EC231CDF1D00AAE40D /* UserDefaults+Accessable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Accessable.swift"; sourceTree = "<group>"; };
 		352D87EE231CE01500AAE40D /* UserDefaults+AccessableSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+AccessableSpecs.swift"; sourceTree = "<group>"; };
+		35758B60232F44FE0024B723 /* URL+Accessible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Accessible.swift"; sourceTree = "<group>"; };
+		35758B62232F45B50024B723 /* URL+AccessibleSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+AccessibleSpecs.swift"; sourceTree = "<group>"; };
 		35808B18229222AF0052FFA4 /* String+Matchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Matchable.swift"; sourceTree = "<group>"; };
 		35808B1B229228A60052FFA4 /* String+MatchableSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+MatchableSpecs.swift"; sourceTree = "<group>"; };
 		35EF429A2300E96C00EB9182 /* OptionalJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalJSON.swift; sourceTree = "<group>"; };
@@ -472,6 +476,7 @@
 				28451A181EBC463300793441 /* NetworkTask.swift */,
 				42C13A741EBEC130000D2E50 /* NetworkTask+Equatable.swift */,
 				28451A161EBC45FA00793441 /* NetworkTaskType.swift */,
+				35758B60232F44FE0024B723 /* URL+Accessible.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -502,6 +507,7 @@
 				286353E91ED52B55000B7A7F /* URLSessionDownloadTaskMocker.swift */,
 				28E246061ED4114D00C32C87 /* URLSessionMocker.swift */,
 				286353EB1ED53D08000B7A7F /* URLSessionUploadTaskMocker.swift */,
+				35758B62232F45B50024B723 /* URL+AccessibleSpecs.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -985,6 +991,7 @@
 				28451A171EBC45FA00793441 /* NetworkTaskType.swift in Sources */,
 				2848AB0A1E9DA039004C6A66 /* Logger.swift in Sources */,
 				284EEFDC1EC001C30022EB6B /* FormDataTextField+Field.swift in Sources */,
+				35758B61232F44FE0024B723 /* URL+Accessible.swift in Sources */,
 				420F3CAA1EA06B1B00BAA0A4 /* Double+CurrencyFormattable.swift in Sources */,
 				425DCD171EB43DE200A0ED26 /* FileHelper.swift in Sources */,
 				425336CA1EA0A9E700B6D6BF /* Double+DecimalFormattable.swift in Sources */,
@@ -1060,6 +1067,7 @@
 				286247231EB994DF007D531D /* NSManagedObject+Test.swift in Sources */,
 				42A163401F1655D5004C04E9 /* CSV+ParsableSpecs.swift in Sources */,
 				35094C3922FBC94F0071D0D1 /* JSON.swift in Sources */,
+				35758B63232F45B50024B723 /* URL+AccessibleSpecs.swift in Sources */,
 				284EF0081EC28F440022EB6B /* NetworkTask+EquatableSpecs.swift in Sources */,
 				4292027A1EC7EF6600C4E909 /* NetworkRequestHeader+ParsableSpecs.swift in Sources */,
 				352D87EF231CE01500AAE40D /* UserDefaults+AccessableSpecs.swift in Sources */,
@@ -1315,6 +1323,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MARKETING_VERSION = 1.5.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.adamas.foundation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1335,6 +1344,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MARKETING_VERSION = 1.5.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.adamas.foundation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

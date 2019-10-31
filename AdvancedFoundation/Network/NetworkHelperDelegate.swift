@@ -48,4 +48,26 @@ public protocol NetworkHelperDelegate {
     func networkHelper(_ networkHelper: NetworkHelper, withIdentifier identifier: String, didDownloadPercentage percentage: Double)
 }
 
+/// Optional
+public extension NetworkHelperDelegate {
+    
+    func networkHelperShouldReceiveData(_ networkHelper: NetworkHelper,
+                                        withIdentifier identifier: String) -> Bool {
+        return true
+    }
+    
+    func networkHelper(_ networkHelper: NetworkHelper,
+                       withIdentifier identifier: String,
+                       didDownloadToURL url: String) {}
+    
+    func networkHelper(_ networkHelper: NetworkHelper,
+                       withIdentifier identifier: String,
+                       didReceive header: NetworkResponseHeader,
+                       withStatusCode statusCode: Int) {}
+    
+    func networkHelper(_ networkHelper: NetworkHelper,
+                       withIdentifier identifier: String,
+                       didDownloadPercentage percentage: Double) {}
+}
+
 import Foundation
