@@ -849,7 +849,7 @@
 				TargetAttributes = {
 					2848AAEA1E9D9E4C004C6A66 = {
 						CreatedOnToolsVersion = 8.3;
-						LastSwiftMigration = 0920;
+						LastSwiftMigration = 1110;
 						ProvisioningStyle = Automatic;
 					};
 					2848AAF31E9D9E4C004C6A66 = {
@@ -1327,7 +1327,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.adamas.foundation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -1348,7 +1348,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.adamas.foundation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
