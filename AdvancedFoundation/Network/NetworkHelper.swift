@@ -158,7 +158,7 @@ public class NetworkHelper: NSObject {
     ///   - data: The attached data.
     ///   - task: The task.
     func append(_ data: Data, toCacheOf task: NetworkTask) {
-        guard let index = tasks.index(of: task) else {
+        guard let index = tasks.firstIndex(of: task) else {
             Logger.standard.logError(NetworkHelper.taskError, withDetail: task.task.originalRequest?.url?.absoluteString)
             return
         }
@@ -182,7 +182,7 @@ public class NetworkHelper: NSObject {
     /// - Parameter task: The task.
     func remove(_ task: NetworkTask) {
         task.cancel()
-        guard let index = tasks.index(of: task) else {
+        guard let index = tasks.firstIndex(of: task) else {
             Logger.standard.logError(NetworkHelper.taskError, withDetail: task.task.originalRequest?.url?.absoluteString)
             return
         }
