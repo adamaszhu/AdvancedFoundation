@@ -928,7 +928,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-AdvancedFoundationTests/Pods-AdvancedFoundationTests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-AdvancedFoundationTests/Pods-AdvancedFoundationTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
 				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
 			);
@@ -939,7 +939,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AdvancedFoundationTests/Pods-AdvancedFoundationTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AdvancedFoundationTests/Pods-AdvancedFoundationTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C4B99332F5026D854B0D11DF /* [CP] Check Pods Manifest.lock */ = {
