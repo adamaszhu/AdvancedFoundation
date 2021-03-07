@@ -15,10 +15,10 @@ public extension Date {
     
     /// The object that only contains the date information of the origin object
     var date: Date {
-        let datePattern = Date.dayPattern + Date.monthPattern + Date.yearPattern
+        let datePattern = Self.dayPattern + Self.monthPattern + Self.yearPattern
         let string = self.string(withPattern: datePattern)
         guard let date = Date(string: string, pattern: datePattern) else {
-            Logger.standard.logError(Date.patternError)
+            Logger.standard.logError(Self.patternError)
             return self
         }
         return date
@@ -32,7 +32,7 @@ public extension Date {
     /// - Returns: The time offset string.
     func timeOffsetString(withPrecision precision: Int = Int.max, withAbbreviation shouldUseAbbreviation: Bool = false) -> String {
         guard precision > 0 else {
-            Logger.standard.logError(Date.precisionError)
+            Logger.standard.logError(Self.precisionError)
             return .empty
         }
         let currentTimeInterval = Date().timeIntervalSince1970
@@ -44,10 +44,10 @@ public extension Date {
             timeOffset = Int(Date().timeIntervalSince1970 - timeIntervalSince1970 - 1)
         }
         guard timeOffset != 0 else {
-            return Date.nowTag.localizedInternalString(forType: Date.self)
+            return Self.nowTag.localizedInternalString(forType: Self.self)
         }
-        var differTag = timeOffset > 0 ? Date.agoTag : Date.laterTag
-        differTag = Date.spaceTag.localizedInternalString(forType: Date.self) + differTag.localizedInternalString(forType: Date.self)
+        var differTag = timeOffset > 0 ? Self.agoTag : Self.laterTag
+        differTag = Self.spaceTag.localizedInternalString(forType: Self.self) + differTag.localizedInternalString(forType: Self.self)
         let timeString = abs(timeOffset).timeString(withPrecision: precision, withAbbreviation: shouldUseAbbreviation)
         let timeOffsetString = timeString + differTag
         return timeOffsetString.trimmingCharacters(in: CharacterSet(charactersIn: .space))

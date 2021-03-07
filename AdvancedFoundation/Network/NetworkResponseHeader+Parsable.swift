@@ -10,16 +10,16 @@ extension NetworkResponseHeader {
     /// - Parameter response: The response.
     init?(response: URLResponse) {
         guard let httpResponse = response as? HTTPURLResponse else {
-            Logger.standard.logError(NetworkResponseHeader.responseTypeError)
+            Logger.standard.logError(Self.responseTypeError)
             return nil
         }
-        let contentType = httpResponse.allHeaderFields[NetworkResponseHeader.contentTypeHeader] as? String
+        let contentType = httpResponse.allHeaderFields[Self.contentTypeHeader] as? String
         var contentLength: Int?
-        if let contentLengthString = httpResponse.allHeaderFields[NetworkResponseHeader.contentLengthHeader] as? String {
+        if let contentLengthString = httpResponse.allHeaderFields[Self.contentLengthHeader] as? String {
             contentLength = Int(contentLengthString)
         }
-        let lastModified = httpResponse.allHeaderFields[NetworkResponseHeader.lastModifiedHeader] as? String
-        let eTag = httpResponse.allHeaderFields[NetworkResponseHeader.eTagHeader] as? String
+        let lastModified = httpResponse.allHeaderFields[Self.lastModifiedHeader] as? String
+        let eTag = httpResponse.allHeaderFields[Self.eTagHeader] as? String
         self.init(contentType: contentType, contentLength: contentLength, lastModified: lastModified, eTag: eTag)
     }
 }

@@ -16,7 +16,7 @@ public class VersionHelper {
     
     /// Return the grand version number.
     public var grandVersion: Int? {
-        return VersionHelper.versionComponents(inVersion: version)?.first
+        Self.versionComponents(inVersion: version)?.first
     }
     
     /// Whether current version flag has been settled in the user default or not.
@@ -41,7 +41,7 @@ public class VersionHelper {
     /// - Parameter version: The given version.
     /// - Returns: 1 if current version is larger. 0 if current version equals the given version. -1 if current version is smaller. nil if there has been an error. Nil will be returned if one of the versions is not formatted.
     public func compareCurrentVersion(toVersion version: String) -> Int? {
-        return VersionHelper.compareVersion(self.version, toVersion: version)
+        Self.compareVersion(self.version, toVersion: version)
     }
     
     /// Create current version flag in the user default, indicating that current version has been opened once.
@@ -62,7 +62,7 @@ public class VersionHelper {
     ///   - versionFlag: The flag used to identify whether the version has been launched before or not.
     ///   - userDefaults: The UserDefaults used to store the flag.
     public init?(version: String, versionFlag: String, userDefaults: UserDefaults = UserDefaults.standard) {
-        guard VersionHelper.versionComponents(inVersion: version) != nil else {
+        guard Self.versionComponents(inVersion: version) != nil else {
             return nil
         }
         self.userDefaults = userDefaults
@@ -75,11 +75,11 @@ public class VersionHelper {
     /// - Parameter version: The version string.
     /// - Returns: An array containing integer version numbers. Nil will be returned if the version is not formatted.
     private static func versionComponents(inVersion version: String) -> [Int]? {
-        let versionComponents = version.components(separatedBy: VersionHelper.versionSeperator)
+        let versionComponents = version.components(separatedBy: Self.versionSeperator)
         var parsedVersionComponents = [Int]()
         for versionComponent in versionComponents {
             guard let parsedVersionComponent = Int(versionComponent) else {
-                Logger.standard.logError(VersionHelper.versionFormatError, withDetail: version)
+                Logger.standard.logError(Self.versionFormatError, withDetail: version)
                 return nil
             }
             parsedVersionComponents.append(parsedVersionComponent)

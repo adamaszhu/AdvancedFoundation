@@ -10,11 +10,11 @@ extension NetworkHelper: URLSessionDownloadDelegate {
             downloadTask.cancel()
             return
         }
-        let destinationPath = NetworkHelper.documentDirectory + task.identifier
+        let destinationPath = Self.documentDirectory + task.identifier
         let fileHelper = FileHelper(path: location.relativePath)
         if fileHelper.copyItem(toPath: destinationPath) != true {
-            Logger.standard.logError(NetworkHelper.fileSystemError)
-            dispatchError(for: task, withMessage: NetworkHelper.appError)
+            Logger.standard.logError(Self.fileSystemError)
+            dispatchError(for: task, withMessage: Self.appError)
             return
         }
         DispatchQueue.main.async { [unowned self] in

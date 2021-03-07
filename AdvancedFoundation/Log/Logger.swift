@@ -13,7 +13,7 @@ public class Logger {
     ///   - info: The info.
     ///   - detail: The detail of the info.
     public func logInfo(_ info: String, withDetail detail: Any? = nil) {
-        logMessage(info, withTag: Logger.infoTag, withDetail: detail)
+        logMessage(info, withTag: Self.infoTag, withDetail: detail)
     }
     
     /// Log a warning.
@@ -22,7 +22,7 @@ public class Logger {
     ///   - warning: The warning.
     ///   - detail: The detail of the warning.
     public func logWarning(_ warning: String, withDetail detail: Any? = nil) {
-        logMessage(warning, withTag: Logger.warningTag, withDetail: detail)
+        logMessage(warning, withTag: Self.warningTag, withDetail: detail)
     }
     
     /// Log an error.
@@ -31,14 +31,14 @@ public class Logger {
     ///   - error: The error.
     ///   - detail: The detail of the error.
     public func logError(_ error: String, withDetail detail: Any? = nil) {
-        logMessage(error, withTag: Logger.errorTag, withDetail: detail)
+        logMessage(error, withTag: Self.errorTag, withDetail: detail)
     }
     
     /// Log an error.
     ///
     /// - Parameter error: The error.
     public func log(_ error: Error) {
-        logMessage(error.localizedDescription, withTag: Logger.errorTag)
+        logMessage(error.localizedDescription, withTag: Self.errorTag)
     }
     
     /// Log a message.
@@ -50,12 +50,12 @@ public class Logger {
     private func logMessage(_ message: String, withTag tag: String, withDetail detail: Any? = nil) {
         let date = Date()
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = Logger.dateFormat
+        dateFormatter.dateFormat = Self.dateFormat
         let dateString = dateFormatter.string(from: date)
-        var log = String(format: Logger.logPattern, tag, dateString, message)
+        var log = String(format: Self.logPattern, tag, dateString, message)
         if let detail = detail {
             let detailString = "\(detail)"
-            log = String(format: Logger.detailPattern, log, detailString)
+            log = String(format: Self.detailPattern, log, detailString)
         }
         print(log)
     }

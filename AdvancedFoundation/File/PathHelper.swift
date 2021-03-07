@@ -7,7 +7,7 @@ open class PathHelper: FileManager {
     
     /// Whether the file or a directory exists or not.
     public var isExisted: Bool {
-        return fileExists(atPath: path)
+        fileExists(atPath: path)
     }
     
     /// Get the parent directory path of a formalized path. Nil if current path is the root directory.

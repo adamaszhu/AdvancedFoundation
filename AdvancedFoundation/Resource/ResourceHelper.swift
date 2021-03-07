@@ -16,7 +16,7 @@ open class ResourceHelper {
     public init?(name: String, bundle: Bundle = Bundle.main) {
         let fileInfoAccessor = FileInfoAccessor(path: name)
         guard let path = bundle.path(forResource: fileInfoAccessor.filename, ofType: fileInfoAccessor.fileExtension) else {
-            Logger.standard.logError(ResourceHelper.resourceError, withDetail: name)
+            Logger.standard.logError(Self.resourceError, withDetail: name)
             return nil
         }
         url =  URL(fileURLWithPath: path)

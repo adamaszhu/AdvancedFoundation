@@ -9,16 +9,16 @@ extension NetworkRequestHeader {
     var dictionary: [String: String] {
         var dictionary = [String: String]()
         if let ifModifiedSince = ifModifiedSince {
-            dictionary[NetworkRequestHeader.ifModifiedSinceHeader] = ifModifiedSince
+            dictionary[Self.ifModifiedSinceHeader] = ifModifiedSince
         }
         if let ifNoneMatch = ifNoneMatch {
-            dictionary[NetworkRequestHeader.ifNoneMatchHeader] = ifNoneMatch
+            dictionary[Self.ifNoneMatchHeader] = ifNoneMatch
         }
         if let contentType = contentType {
-            dictionary[NetworkRequestHeader.contentTypeHeader] = contentType
+            dictionary[Self.contentTypeHeader] = contentType
         }
         if let contentLength = contentLength {
-            dictionary[NetworkRequestHeader.contentLengthHeader] = String(contentLength)
+            dictionary[Self.contentLengthHeader] = String(contentLength)
         }
         return dictionary
     }

@@ -25,18 +25,18 @@ public class CoreDataHelper {
         // The directory used to store the Core Data store file. This code uses a directory in the application's documents Application Support directory.
         let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         guard var url = urls.last else {
-            Logger.standard.logError(CoreDataHelper.modelNameError, withDetail: modelName)
+            Logger.standard.logError(Self.modelNameError, withDetail: modelName)
             return nil
         }
         url = url.appendingPathComponent(modelName)
-        url = url.appendingPathExtension(CoreDataHelper.sqlFileSuffix)
+        url = url.appendingPathExtension(Self.sqlFileSuffix)
         // The managed object model for the application. This property is not optional. It is a fatal error for the application not to be able to find and load its model.
-        guard let modelURL = bundle.url(forResource: modelName, withExtension: CoreDataHelper.modelFileSuffix) else {
-            Logger.standard.logError(CoreDataHelper.modelNameError, withDetail: modelName)
+        guard let modelURL = bundle.url(forResource: modelName, withExtension: Self.modelFileSuffix) else {
+            Logger.standard.logError(Self.modelNameError, withDetail: modelName)
             return nil
         }
         guard let model = NSManagedObjectModel(contentsOf: modelURL) else {
-            Logger.standard.logError(CoreDataHelper.modelNameError, withDetail: modelName)
+            Logger.standard.logError(Self.modelNameError, withDetail: modelName)
             return nil
         }
         // The persistent store coordinator for the application. This implementation creates and returns a coordinator, having added the store for the application to it. This property is optional since there are legitimate error conditions that could cause the creation of the store to fail. Create the coordinator and store
@@ -77,7 +77,7 @@ public class CoreDataHelper {
                 request.predicate = predicate
             }
             guard let objects = try context.fetch(request) as? [NSManagedObject] else {
-                Logger.standard.logError(CoreDataHelper.dataTypeError)
+                Logger.standard.logError(Self.dataTypeError)
                 return nil
             }
             return objects
