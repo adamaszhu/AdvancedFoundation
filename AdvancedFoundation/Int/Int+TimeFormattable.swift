@@ -11,36 +11,36 @@ public extension Int {
     ///   - precision: How many units should be included.
     ///   - shouldUseAbbreviation: Whether the time description should be abbreviation or not.
     /// - Returns: The time span string.
-    func timeString(withPrecision precision: Int = Int.max, withAbbreviation shouldUseAbbreviation: Bool = false) -> String {
+    func timeString(withPrecision precision: Int = Self.max, withAbbreviation shouldUseAbbreviation: Bool = false) -> String {
         guard precision > 0 else {
-            Logger.standard.logError(Int.precisionError)
+            Logger.standard.logError(Self.precisionError)
             return .empty
         }
         var timeSpan = self
         guard timeSpan > 0 else {
-            let spaceTag = Int.spaceTag.localizedInternalString(forType: Int.self)
-            let abbrTag = shouldUseAbbreviation ? Int.abbrTag : .empty
-            var unitTag = Int.secondTag + abbrTag
-            unitTag = unitTag.localizedInternalString(forType: Int.self)
-            return Int.nowTag + spaceTag + unitTag
+            let spaceTag = Self.spaceTag.localizedInternalString(forType: Self.self)
+            let abbrTag = shouldUseAbbreviation ? Self.abbrTag : .empty
+            var unitTag = Self.secondTag + abbrTag
+            unitTag = unitTag.localizedInternalString(forType: Self.self)
+            return Self.nowTag + spaceTag + unitTag
         }
-        let year = timeSpan / Int.yearLength
-        timeSpan = timeSpan - year * Int.yearLength
-        let month = timeSpan / Int.monthLength
-        timeSpan = timeSpan - month * Int.monthLength
-        let day = timeSpan / Int.dayLength
-        timeSpan = timeSpan - day * Int.dayLength
-        let hour = timeSpan / Int.hourLength
-        timeSpan = timeSpan - hour *  Int.hourLength
-        let minute = timeSpan / Int.minuteLength
-        let second = timeSpan - minute * Int.minuteLength
-        let abbrTag = shouldUseAbbreviation ? Int.abbrTag : .empty
-        let yearTag = Int.tag(forUnit: year, withSingleTag: Int.yearTag, withDoubleTag: Int.yearsTag, withAbbreviationTag: abbrTag)
-        let monthTag = Int.tag(forUnit: month, withSingleTag: Int.monthTag, withDoubleTag: Int.monthsTag, withAbbreviationTag: abbrTag)
-        let dayTag = Int.tag(forUnit: day, withSingleTag: Int.dayTag, withDoubleTag: Int.daysTag, withAbbreviationTag: abbrTag)
-        let hourTag = Int.tag(forUnit: hour, withSingleTag: Int.hourTag, withDoubleTag: Int.hoursTag, withAbbreviationTag: abbrTag)
-        let minuteTag = Int.tag(forUnit: minute, withSingleTag: Int.minuteTag, withDoubleTag: Int.minutesTag, withAbbreviationTag: abbrTag)
-        let secondTag = Int.tag(forUnit: second, withSingleTag: Int.secondTag, withDoubleTag: Int.secondsTag, withAbbreviationTag: abbrTag)
+        let year = timeSpan / Self.yearLength
+        timeSpan = timeSpan - year * Self.yearLength
+        let month = timeSpan / Self.monthLength
+        timeSpan = timeSpan - month * Self.monthLength
+        let day = timeSpan / Self.dayLength
+        timeSpan = timeSpan - day * Self.dayLength
+        let hour = timeSpan / Self.hourLength
+        timeSpan = timeSpan - hour *  Self.hourLength
+        let minute = timeSpan / Self.minuteLength
+        let second = timeSpan - minute * Self.minuteLength
+        let abbrTag = shouldUseAbbreviation ? Self.abbrTag : .empty
+        let yearTag = Self.tag(forUnit: year, withSingleTag: Self.yearTag, withDoubleTag: Self.yearsTag, withAbbreviationTag: abbrTag)
+        let monthTag = Self.tag(forUnit: month, withSingleTag: Self.monthTag, withDoubleTag: Self.monthsTag, withAbbreviationTag: abbrTag)
+        let dayTag = Self.tag(forUnit: day, withSingleTag: Self.dayTag, withDoubleTag: Self.daysTag, withAbbreviationTag: abbrTag)
+        let hourTag = Self.tag(forUnit: hour, withSingleTag: Self.hourTag, withDoubleTag: Self.hoursTag, withAbbreviationTag: abbrTag)
+        let minuteTag = Self.tag(forUnit: minute, withSingleTag: Self.minuteTag, withDoubleTag: Self.minutesTag, withAbbreviationTag: abbrTag)
+        let secondTag = Self.tag(forUnit: second, withSingleTag: Self.secondTag, withDoubleTag: Self.secondsTag, withAbbreviationTag: abbrTag)
         let tags = [yearTag, monthTag, dayTag, hourTag, minuteTag, secondTag].filter { !$0.isEmpty }
         // At least should leave one tag
         let dropAmount = tags.count > precision ? tags.count - precision : 0
@@ -60,10 +60,10 @@ public extension Int {
         guard unit != 0 else {
             return .empty
         }
-        let spaceTag = Int.spaceTag.localizedInternalString(forType: Int.self)
+        let spaceTag = Self.spaceTag.localizedInternalString(forType: Self.self)
         var unitTag = unit == 1 ? singleTag : doubleTag
         unitTag = unitTag + abbreviationTag
-        unitTag = unitTag.localizedInternalString(forType: Int.self)
+        unitTag = unitTag.localizedInternalString(forType: Self.self)
         return spaceTag + String(unit) + spaceTag + unitTag
     }
 }

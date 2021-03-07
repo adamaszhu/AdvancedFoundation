@@ -20,20 +20,20 @@ extension NetworkHelper: URLSessionDataDelegate {
         }
         guard let httpResponse = response as? HTTPURLResponse else {
             remove(task)
-            Logger.standard.logError(NetworkHelper.responseTypeError)
-            dispatchError(for: task, withMessage: NetworkHelper.serverError)
+            Logger.standard.logError(Self.responseTypeError)
+            dispatchError(for: task, withMessage: Self.serverError)
             return
         }
         guard 200 ..< 400 ~= httpResponse.statusCode else {
             remove(task)
-            Logger.standard.logError(NetworkHelper.serverSideError)
-            dispatchError(for: task, withMessage: NetworkHelper.serverError)
+            Logger.standard.logError(Self.serverSideError)
+            dispatchError(for: task, withMessage: Self.serverError)
             return
         }
         guard let header = NetworkResponseHeader(response: response) else {
             remove(task)
-            Logger.standard.logError(NetworkHelper.responseHeaderError)
-            dispatchError(for: task, withMessage: NetworkHelper.serverError)
+            Logger.standard.logError(Self.responseHeaderError)
+            dispatchError(for: task, withMessage: Self.serverError)
             return 
         }
         DispatchQueue.main.async { [unowned self] in

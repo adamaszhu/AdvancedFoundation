@@ -25,7 +25,7 @@ public class NetworkHelper: NSObject {
         }
         var flags = SCNetworkReachabilityFlags()
         guard SCNetworkReachabilityGetFlags(defaultRouteReachability!, &flags) else {
-            Logger.standard.logError(NetworkHelper.settingError)
+            Logger.standard.logError(Self.settingError)
             return false
         }
         let isReachable = (flags.rawValue & UInt32(kSCNetworkFlagsReachable)) != 0
@@ -33,7 +33,7 @@ public class NetworkHelper: NSObject {
         return isReachable && !needsConnection
     }
     
-    /// The delegate of the NetworkHelper.
+    /// The delegate of the Self.
     public var delegate: NetworkHelperDelegate?
     
     /// The session connecting to the network. Declare as internal is for DI.
@@ -145,7 +145,7 @@ public class NetworkHelper: NSObject {
     // - Parameter urlString: The address of the destination.
     public func clearCache(forURL urlString: String) {
         guard let parsedURLString = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed), let url = URL(string: parsedURLString) else {
-            Logger.standard.logError(NetworkHelper.urlError, withDetail: urlString)
+            Logger.standard.logError(Self.urlError, withDetail: urlString)
             return
         }
         let request = URLRequest(url: url)
@@ -159,7 +159,7 @@ public class NetworkHelper: NSObject {
     ///   - task: The task.
     func append(_ data: Data, toCacheOf task: NetworkTask) {
         guard let index = tasks.firstIndex(of: task) else {
-            Logger.standard.logError(NetworkHelper.taskError, withDetail: task.task.originalRequest?.url?.absoluteString)
+            Logger.standard.logError(Self.taskError, withDetail: task.task.originalRequest?.url?.absoluteString)
             return
         }
         tasks[index].append(data)
@@ -172,7 +172,7 @@ public class NetworkHelper: NSObject {
     func task(of sessionTask: URLSessionTask) -> NetworkTask? {
         let foundTask = tasks.first { $0.task === sessionTask }
         if foundTask == nil {
-            Logger.standard.logError(NetworkHelper.taskError, withDetail: sessionTask.originalRequest?.url?.absoluteString)
+            Logger.standard.logError(Self.taskError, withDetail: sessionTask.originalRequest?.url?.absoluteString)
         }
         return foundTask
     }
@@ -183,7 +183,7 @@ public class NetworkHelper: NSObject {
     func remove(_ task: NetworkTask) {
         task.cancel()
         guard let index = tasks.firstIndex(of: task) else {
-            Logger.standard.logError(NetworkHelper.taskError, withDetail: task.task.originalRequest?.url?.absoluteString)
+            Logger.standard.logError(Self.taskError, withDetail: task.task.originalRequest?.url?.absoluteString)
             return
         }
         tasks.remove(at: index)
@@ -195,7 +195,7 @@ public class NetworkHelper: NSObject {
     ///   - task: The task.
     ///   - message: The error message.
     func dispatchError(for task: NetworkTask, withMessage message: String) {
-        let localizedMessage = message.localizedInternalString(forType: NetworkHelper.self)
+        let localizedMessage = message.localizedInternalString(forType: Self.self)
         DispatchQueue.main.async { [unowned self] in
             self.delegate?.networkHelper(self, withIdentifier: task.identifier, didCatchError: localizedMessage)
         }
@@ -210,7 +210,7 @@ public class NetworkHelper: NSObject {
     /// - Returns: The request.
     private func request(withURL urlString: String, with header: NetworkRequestHeader, as type: NetworkRequestType) -> URLRequest? {
         guard let parsedURLString = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed), let url = URL(string: parsedURLString) else {
-            Logger.standard.logError(NetworkHelper.urlError, withDetail: urlString)
+            Logger.standard.logError(Self.urlError, withDetail: urlString)
             return nil
         }
         var header = header
@@ -250,7 +250,7 @@ public class NetworkHelper: NSObject {
             let data = request.httpBody ?? Data()
             task = NetworkTask(task: normalSession.uploadTask(with: request, from: data), identifier: idGenerator.uniqueID, cache: emptyCache)
         default:
-            Logger.standard.logError(NetworkHelper.taskTypeError, withDetail: type)
+            Logger.standard.logError(Self.taskTypeError, withDetail: type)
             return nil
         }
         tasks.append(task)

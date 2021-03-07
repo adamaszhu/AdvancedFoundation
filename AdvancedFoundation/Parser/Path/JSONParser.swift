@@ -25,7 +25,7 @@ public class JSONParser {
     /// - Parameter string: The string data.
     public convenience init?(string: String) {
         guard let data = string.data(using: .utf8) else {
-            Logger.standard.logError(JSONParser.stringError)
+            Logger.standard.logError(Self.stringError)
             return nil
         }
         self.init(data: data)
@@ -38,7 +38,7 @@ public class JSONParser {
     ///   - node: Current node.
     /// - Returns: The array element. Nil if it cannot be found.
     public func array(atPath path: String, fromNode node: Any? = nil) -> [Any]? {
-        return self.node(atPath: path, fromNode: node) as? [Any]
+        self.node(atPath: path, fromNode: node) as? [Any]
     }
     
     /// Get a string element.
@@ -48,7 +48,7 @@ public class JSONParser {
     ///   - element: Current element.
     /// - Returns: The string element. Nil if it cannot be found.
     public func string(atPath path: String, fromNode node: Any? = nil) -> String? {
-        return self.node(atPath: path, fromNode: node) as? String
+        self.node(atPath: path, fromNode: node) as? String
     }
     
     /// Get a double element.
@@ -58,7 +58,7 @@ public class JSONParser {
     ///   - element: Current element.
     /// - Returns: The double element. Nil if it cannot be found.
     public func double(atPath path: String, fromNode node: Any? = nil) -> Double? {
-        return self.node(atPath: path, fromNode: node) as? Double
+        self.node(atPath: path, fromNode: node) as? Double
     }
     
     /// Get a dictionary element.
@@ -68,7 +68,7 @@ public class JSONParser {
     ///   - element: Current element.
     /// - Returns: The dictionary element. Nil if it cannot be found.
     public func dictionary(atPath path: String, fromNode node: Any? = nil) -> [String: Any]? {
-        return self.node(atPath: path, fromNode: node) as? [String: Any]
+        self.node(atPath: path, fromNode: node) as? [String: Any]
     }
     
     /// Get a node.

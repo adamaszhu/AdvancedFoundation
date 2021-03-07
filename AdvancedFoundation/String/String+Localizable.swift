@@ -13,7 +13,7 @@ public extension String {
     /// - Parameter filename: The string file used to localize the string.
     /// - Returns: The localized string.
     func localizedString(withLocalizationFile filename: String = defaultLocalizationFilename) -> String {
-        return NSLocalizedString(self, tableName: filename, comment: .empty)
+        NSLocalizedString(self, tableName: filename, comment: .empty)
     }
     
     /// Localize a string using the the class name as the localization file within the bundle of a class.

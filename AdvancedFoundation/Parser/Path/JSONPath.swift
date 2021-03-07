@@ -9,14 +9,10 @@ struct JSONPath {
     private (set) var nodes: [JSONNode]
     
     /// Whether the path is empty or not.
-    var isEmpty: Bool {
-        return nodes.count == 0
-    }
+    var isEmpty: Bool { nodes.count == 0 }
     
     /// The first node in the path.
-    var firstNode: JSONNode? {
-        return nodes.first
-    }
+    var firstNode: JSONNode? { nodes.first }
     
     /// Consume the first node in the path.
     ///

@@ -17,17 +17,17 @@ public extension Double {
         numberFormatter.currencySymbol = currencySymbol
         numberFormatter.numberStyle = NumberFormatter.Style.currency
         guard var moneyString = numberFormatter.string(from: NSNumber(value: self)) else {
-            Logger.standard.logError(Double.numberFormatError, withDetail: self)
+            Logger.standard.logError(Self.numberFormatError, withDetail: self)
             return nil
         }
-        guard moneyString != Double.positiveSymbol + Double.unlimitedSymbol else {
-            return Double.unlimitedSymbol
+        guard moneyString != Self.positiveSymbol + Self.unlimitedSymbol else {
+            return Self.unlimitedSymbol
         }
-        if !shouldDisplayCent && moneyString.contains(Double.dotSymbol),
-            let dotIndex = moneyString.range(of: Double.dotSymbol)?.lowerBound {
+        if !shouldDisplayCent && moneyString.contains(Self.dotSymbol),
+            let dotIndex = moneyString.range(of: Self.dotSymbol)?.lowerBound {
             moneyString = String(moneyString[..<dotIndex])
         }
-        return moneyString
+        return moneyString.replacingOccurrences(of: Self.space, with: String.empty)
     }
 }
 
@@ -36,6 +36,10 @@ private extension Double {
     
     /// System message.
     static let numberFormatError = "The string doesn't have correct format."
+
+    /// The space between the customized currency symbol and the currency since iOS 13
+    /// REF: https://developer.apple.com/forums/thread/124911
+    static let space = " "
     
     /// Symbols.
     static let positiveSymbol = "+"
