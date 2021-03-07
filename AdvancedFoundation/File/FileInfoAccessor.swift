@@ -8,11 +8,11 @@ public class FileInfoAccessor {
     /// Get the MIME type of the file.
     public var mimeType: String {
         guard !fileExtension.isEmpty else {
-            return FileInfoAccessor.defaultMIMEType
+            return Self.defaultMIMEType
         }
         // Decode the name of the MIME type.
         guard let uti = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, fileExtension as CFString, nil), let tag = UTTypeCopyPreferredTagWithClass(uti.takeRetainedValue(), kUTTagClassMIMEType) else {
-            return FileInfoAccessor.defaultMIMEType
+            return Self.defaultMIMEType
         }
         return tag.takeRetainedValue() as String
     }

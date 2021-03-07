@@ -14,29 +14,29 @@ public extension Double {
     func distanceString(withPrecision precision: Int? = nil, withAbbr shouldUseAbbr: Bool = true) -> String {
         let stringPattern: String
         if let precision = precision {
-            stringPattern = String(format: Double.stringPattern, precision)
+            stringPattern = String(format: Self.stringPattern, precision)
         } else {
-            stringPattern = Double.defaultPattern
+            stringPattern = Self.defaultPattern
         }
-        let isMoreThanAKilometer = self >= Double.kilometer
-        let unit = isMoreThanAKilometer ? self / Double.kilometer : self
+        let isMoreThanAKilometer = self >= Self.kilometer
+        let unit = isMoreThanAKilometer ? self / Self.kilometer : self
         var unitTag: String
         switch (isMoreThanAKilometer, shouldUseAbbr, unit >= 2) {
         case (true, true, _):
-            unitTag = Double.kilometerAbbrTag
+            unitTag = Self.kilometerAbbrTag
         case (true, false, true):
-            unitTag = Double.kilometersTag
+            unitTag = Self.kilometersTag
         case (true, false, false):
-            unitTag = Double.kilometerTag
+            unitTag = Self.kilometerTag
         case (false, true, _):
-            unitTag = Double.meterAbbrTag
+            unitTag = Self.meterAbbrTag
         case (false, false, true):
-            unitTag = Double.metersTag
+            unitTag = Self.metersTag
         case (false, false, false):
-            unitTag = Double.meterTag
+            unitTag = Self.meterTag
         }
-        unitTag = unitTag.localizedInternalString(forType: Double.self)
-        let spaceTag = shouldUseAbbr ? String.empty : Double.spaceTag.localizedInternalString(forType: Double.self)
+        unitTag = unitTag.localizedInternalString(forType: Self.self)
+        let spaceTag = shouldUseAbbr ? String.empty : Self.spaceTag.localizedInternalString(forType: Self.self)
         return String(format: stringPattern, unit, spaceTag, unitTag)
     }
 }

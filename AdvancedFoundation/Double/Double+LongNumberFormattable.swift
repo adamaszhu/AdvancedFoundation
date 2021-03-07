@@ -10,11 +10,11 @@ public extension Double {
     /// - Parameter longNumber: The string to be rendered.
     init?(longNumber: String) {
         // TODO: Validate the comma format.
-        let formattedLongNumberString = longNumber.replacingOccurrences(of: Double.commaSymbol, with: String.empty)
+        let formattedLongNumberString = longNumber.replacingOccurrences(of: Self.commaSymbol, with: String.empty)
         let formatter = NumberFormatter()
         formatter.numberStyle = NumberFormatter.Style.decimal
         guard let number = formatter.number(from: formattedLongNumberString) else {
-            Logger.standard.logError(Double.numberFormatError, withDetail: longNumber)
+            Logger.standard.logError(Self.numberFormatError, withDetail: longNumber)
             return nil
         }
         self = number.doubleValue

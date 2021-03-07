@@ -10,8 +10,8 @@ public class AppInfoAccessor {
     
     /// The name of current bundle. It will be nil if the bundle name cannot be retireved.
     public var bundleName: String? {
-        guard let name = bundle.infoDictionary?[AppInfoAccessor.bundleNameKey] as? String else {
-            Logger.standard.logError(AppInfoAccessor.bundleNameError)
+        guard let name = bundle.infoDictionary?[Self.bundleNameKey] as? String else {
+            Logger.standard.logError(Self.bundleNameError)
             return nil
         }
         return name
@@ -19,8 +19,8 @@ public class AppInfoAccessor {
     
     /// The name being displayed in the device. It will be nil if the display name cannot be retireved.
     public var displayName: String? {
-        guard let name = bundle.infoDictionary?[AppInfoAccessor.displayNameKey] as? String else {
-            Logger.standard.logError(AppInfoAccessor.displayNameError)
+        guard let name = bundle.infoDictionary?[Self.displayNameKey] as? String else {
+            Logger.standard.logError(Self.displayNameError)
             return nil
         }
         return name
@@ -28,8 +28,8 @@ public class AppInfoAccessor {
     
     /// The short version string of the app, which is like "1.2.3". It will be nil if the version cannot be retrieved.
     public var version: String? {
-        guard let version = bundle.infoDictionary?[AppInfoAccessor.versionKey] as? String else {
-            Logger.standard.logError(AppInfoAccessor.currentVersionError)
+        guard let version = bundle.infoDictionary?[Self.versionKey] as? String else {
+            Logger.standard.logError(Self.currentVersionError)
             return nil
         }
         return version
@@ -38,7 +38,7 @@ public class AppInfoAccessor {
     /// The build number of the app, which is anything defined by the user. It will be nil if the build number cannot be retrieved.
     public var buildNumber: String? {
         guard let buildNumber = bundle.infoDictionary?[kCFBundleVersionKey as String] as? String else {
-            Logger.standard.logError(AppInfoAccessor.buildNumberError)
+            Logger.standard.logError(Self.buildNumberError)
             return nil
         }
         return buildNumber
@@ -47,7 +47,7 @@ public class AppInfoAccessor {
     /// The preferred language.
     public var preferredLanguage: String? {
         guard let preferredLocale = Locale.preferredLanguages.first else {
-            Logger.standard.logError(AppInfoAccessor.preferredLanguageError)
+            Logger.standard.logError(Self.preferredLanguageError)
             return nil
         }
         if preferredLocale.count > 3 {
@@ -61,7 +61,7 @@ public class AppInfoAccessor {
     /// The current region.
     public var region: String? {
         guard let preferredLocale = Locale.preferredLanguages.first else {
-            Logger.standard.logError(AppInfoAccessor.preferredLanguageError)
+            Logger.standard.logError(Self.preferredLanguageError)
             return nil
         }
         return preferredLocale.components(separatedBy: String.dash).last

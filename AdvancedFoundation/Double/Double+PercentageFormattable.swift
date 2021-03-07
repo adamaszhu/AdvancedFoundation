@@ -11,29 +11,29 @@ public extension Double {
     /// - Returns: The formatted string.
     func percentageString(withPrecision precision: Int? = nil) -> String? {
         if let positivePrecision = precision, positivePrecision < 0 {
-            Logger.standard.logError(Double.precisionError, withDetail: precision)
+            Logger.standard.logError(Self.precisionError, withDetail: precision)
             return nil
         }
         let number = self * 100
         guard let decimalString = number.decimalString(withPrecision: precision) else {
             return nil
         }
-        return decimalString + Double.percentageSymbol
+        return decimalString + Self.percentageSymbol
     }
     
     /// Read a percent string.
     ///
     /// - Parameter percentage: The string to be rendered.
     init?(percentage: String) {
-        guard percentage.contains(Double.percentageSymbol) else {
-            Logger.standard.logError(Double.numberFormatError, withDetail: percentage)
+        guard percentage.contains(Self.percentageSymbol) else {
+            Logger.standard.logError(Self.numberFormatError, withDetail: percentage)
             return nil
         }
-        let formattedPercentageString = percentage.replacingOccurrences(of: Double.percentageSymbol, with: String.empty)
+        let formattedPercentageString = percentage.replacingOccurrences(of: Self.percentageSymbol, with: String.empty)
         let formatter = NumberFormatter()
         formatter.numberStyle = NumberFormatter.Style.decimal
         guard let number = formatter.number(from: formattedPercentageString) else {
-            Logger.standard.logError(Double.numberFormatError, withDetail: percentage)
+            Logger.standard.logError(Self.numberFormatError, withDetail: percentage)
             return nil
         }
         self = number.doubleValue / 100

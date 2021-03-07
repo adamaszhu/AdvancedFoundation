@@ -13,7 +13,7 @@ extension NetworkHelper: URLSessionTaskDelegate {
         remove(networkTask)
         if let error = error {
             Logger.standard.log(error)
-            dispatchError(for: networkTask, withMessage: NetworkHelper.internetError)
+            dispatchError(for: networkTask, withMessage: Self.internetError)
             return
         }
         DispatchQueue.main.async { [unowned self] in

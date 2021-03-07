@@ -15,7 +15,7 @@ public class IDGenerator {
             iterator = 0
             timeSeed = newTimeSeed
         }
-        let generatedID = String(format: IDGenerator.idPattern, timeSeed, iterator)
+        let generatedID = String(format: Self.idPattern, timeSeed, iterator)
         iterator += 1
         return generatedID
     }
