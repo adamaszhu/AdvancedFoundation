@@ -9,7 +9,7 @@ s.version = "1.6.1"
 s.license = { :type => "MIT", :file => "LICENSE" }
 s.author = { "Adamas Zhu" => "developer@adamaszhu.com" }
 s.homepage = "https://github.com/adamaszhu/AdvancedFoundation"
-s.source = { :git => "https://git@github.com:adamaszhu/AdvancedFoundation.git",
+s.source = { :git => "https://github.com/adamaszhu/AdvancedFoundation.git",
              :tag => "#{s.version}" }
 s.framework = "Foundation"
 s.source_files = "AdvancedFoundation/**/*.{swift}"
