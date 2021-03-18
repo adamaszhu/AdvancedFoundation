@@ -5,7 +5,7 @@ s.ios.deployment_target = '9.0'
 s.name = "AdvancedFoundation"
 s.summary = "AdvancedFoundation contains utility functions built on top of Foundation framework."
 s.requires_arc = true
-s.version = "1.6.1"
+s.version = "1.6.2"
 s.license = { :type => "MIT", :file => "LICENSE" }
 s.author = { "Adamas Zhu" => "developer@adamaszhu.com" }
 s.homepage = "https://github.com/adamaszhu/AdvancedFoundation"
