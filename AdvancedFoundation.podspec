@@ -13,7 +13,6 @@ s.source = { :git => "https://github.com/adamaszhu/AdvancedFoundation.git",
              :tag => "v#{s.version}" }
 s.framework = "Foundation"
 s.source_files = "AdvancedFoundation/**/*.{swift}"
-s.resources = "AdvancedFoundation/**/*.{plist}"
 s.swift_version = "5"
 
 end
