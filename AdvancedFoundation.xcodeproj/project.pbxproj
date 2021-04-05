@@ -850,7 +850,7 @@
 					2848AAEA1E9D9E4C004C6A66 = {
 						CreatedOnToolsVersion = 8.3;
 						LastSwiftMigration = 1110;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					2848AAF31E9D9E4C004C6A66 = {
 						CreatedOnToolsVersion = 8.3;
@@ -1316,7 +1316,8 @@
 		2848AB001E9D9E4C004C6A66 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1326,9 +1327,11 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MARKETING_VERSION = 1.6.3;
+				MARKETING_VERSION = 1.6.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.adamas.foundation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 			};
@@ -1337,7 +1340,8 @@
 		2848AB011E9D9E4C004C6A66 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1347,9 +1351,11 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MARKETING_VERSION = 1.6.3;
+				MARKETING_VERSION = 1.6.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.adamas.foundation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 			};
@@ -1404,7 +1410,7 @@
 				INFOPLIST_FILE = AdvancedFoundationHost/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.6.3;
+				MARKETING_VERSION = 1.6.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.adamas.foundationHost;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = XCode;
@@ -1421,7 +1427,7 @@
 				INFOPLIST_FILE = AdvancedFoundationHost/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.6.3;
+				MARKETING_VERSION = 1.6.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.adamas.foundationHost;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = XCode;
