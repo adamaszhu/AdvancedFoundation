@@ -79,7 +79,8 @@ class DateFormattableSpecs: QuickSpec {
                 }
             }
             context("as 1 year 1 month 1 day 1 hour 1 minute and 1 second before") {
-                let timeOffset = TimeInterval(-365 * 24 * 60 * 60 * 13 / 12 - 24 * 60 * 60 - 60 * 60 - 60 - 1)
+                let timeOffsetSeconds = -365 * 24 * 60 * 60 * 13 / 12 - 24 * 60 * 60 - 60 * 60 - 60 - 1
+                let timeOffset = TimeInterval(timeOffsetSeconds)
                 beforeEach {
                     date = Date().addingTimeInterval(timeOffset)
                 }
