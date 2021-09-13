@@ -73,6 +73,7 @@ class NetworkResponseHeaderParsableSpecs: QuickSpec {
     }
 }
 
+import Foundation
 import Quick
 import Nimble
 @testable import AdvancedFoundation

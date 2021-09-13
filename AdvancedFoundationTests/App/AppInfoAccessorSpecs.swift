@@ -89,6 +89,7 @@ class AppInfoAccessorSpecs: QuickSpec {
     }
 }
 
+import Foundation
 import Nimble
 import Quick
 @testable import AdvancedFoundation
