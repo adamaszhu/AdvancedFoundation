@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,8 @@
 		28258143211275270033D386 /* Bundle+Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28258142211275270033D386 /* Bundle+Localizable.swift */; };
 		2825814421127B1E0033D386 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2825814621127B1E0033D386 /* Localizable.strings */; };
 		2825814A21127BB30033D386 /* Bundle+LocalizableSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2825814921127BB30033D386 /* Bundle+LocalizableSpecs.swift */; };
+		282FF94726EF100E00981743 /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = 282FF94626EF100E00981743 /* Quick */; };
+		282FF94A26EF103300981743 /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = 282FF94926EF103300981743 /* Nimble */; };
 		28451A151EBC3E7800793441 /* NetworkRequestType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28451A141EBC3E7800793441 /* NetworkRequestType.swift */; };
 		28451A171EBC45FA00793441 /* NetworkTaskType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28451A161EBC45FA00793441 /* NetworkTaskType.swift */; };
 		28451A191EBC463300793441 /* NetworkTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28451A181EBC463300793441 /* NetworkTask.swift */; };
@@ -144,7 +146,6 @@
 		42F30E431E9E412900AC0249 /* AppInfoAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F30E411E9E412900AC0249 /* AppInfoAccessor.swift */; };
 		42F30E441E9E412900AC0249 /* VersionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F30E421E9E412900AC0249 /* VersionHelper.swift */; };
 		42F30E471E9E413400AC0249 /* VersionHelperSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F30E461E9E413400AC0249 /* VersionHelperSpecs.swift */; };
-		44288731CD0DB5D0FB861C8C /* Pods_AdvancedFoundationTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86FC5B98651D3B1381244FFD /* Pods_AdvancedFoundationTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -313,9 +314,6 @@
 		42F30E421E9E412900AC0249 /* VersionHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersionHelper.swift; sourceTree = "<group>"; };
 		42F30E461E9E413400AC0249 /* VersionHelperSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersionHelperSpecs.swift; sourceTree = "<group>"; };
 		42F30E4A1E9E4CE200AC0249 /* AppInfoAccessorSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppInfoAccessorSpecs.swift; sourceTree = "<group>"; };
-		57ED9B2EE2FA2F6771B7AD04 /* Pods-AdvancedFoundationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdvancedFoundationTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AdvancedFoundationTests/Pods-AdvancedFoundationTests.release.xcconfig"; sourceTree = "<group>"; };
-		86FC5B98651D3B1381244FFD /* Pods_AdvancedFoundationTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AdvancedFoundationTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D29E49528E53C08AF22ACA11 /* Pods-AdvancedFoundationTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdvancedFoundationTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AdvancedFoundationTests/Pods-AdvancedFoundationTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -330,8 +328,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				282FF94726EF100E00981743 /* Quick in Frameworks */,
+				282FF94A26EF103300981743 /* Nimble in Frameworks */,
 				2848AAF51E9D9E4C004C6A66 /* AdvancedFoundation.framework in Frameworks */,
-				44288731CD0DB5D0FB861C8C /* Pods_AdvancedFoundationTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,8 +366,6 @@
 				2848AAED1E9D9E4C004C6A66 /* AdvancedFoundation */,
 				425FA3DE1EA056980015E3C1 /* AdvancedFoundationHost */,
 				2848AAF81E9D9E4C004C6A66 /* AdvancedFoundationTests */,
-				80D516811EEC4BCCD529B51B /* Frameworks */,
-				7DB45D186EA72BE2A52B00CE /* Pods */,
 				2848AAEC1E9D9E4C004C6A66 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -751,23 +748,6 @@
 			path = App;
 			sourceTree = "<group>";
 		};
-		7DB45D186EA72BE2A52B00CE /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				D29E49528E53C08AF22ACA11 /* Pods-AdvancedFoundationTests.debug.xcconfig */,
-				57ED9B2EE2FA2F6771B7AD04 /* Pods-AdvancedFoundationTests.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		80D516811EEC4BCCD529B51B /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				86FC5B98651D3B1381244FFD /* Pods_AdvancedFoundationTests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -803,11 +783,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2848AB021E9D9E4C004C6A66 /* Build configuration list for PBXNativeTarget "AdvancedFoundationTests" */;
 			buildPhases = (
-				C4B99332F5026D854B0D11DF /* [CP] Check Pods Manifest.lock */,
 				2848AAF01E9D9E4C004C6A66 /* Sources */,
 				2848AAF11E9D9E4C004C6A66 /* Frameworks */,
 				2848AAF21E9D9E4C004C6A66 /* Resources */,
-				A2D2793C75E9C46641CCE754 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -816,6 +794,10 @@
 				425FA3F01EA056B50015E3C1 /* PBXTargetDependency */,
 			);
 			name = AdvancedFoundationTests;
+			packageProductDependencies = (
+				282FF94626EF100E00981743 /* Quick */,
+				282FF94926EF103300981743 /* Nimble */,
+			);
 			productName = AdvancedFoundationTests;
 			productReference = 2848AAF41E9D9E4C004C6A66 /* AdvancedFoundationTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -877,6 +859,10 @@
 				"zh-Hans",
 			);
 			mainGroup = 2848AAE11E9D9E4C004C6A66;
+			packageReferences = (
+				282FF94526EF100E00981743 /* XCRemoteSwiftPackageReference "Quick" */,
+				282FF94826EF103300981743 /* XCRemoteSwiftPackageReference "Nimble" */,
+			);
 			productRefGroup = 2848AAEC1E9D9E4C004C6A66 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -922,47 +908,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		A2D2793C75E9C46641CCE754 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AdvancedFoundationTests/Pods-AdvancedFoundationTests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
-				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AdvancedFoundationTests/Pods-AdvancedFoundationTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C4B99332F5026D854B0D11DF /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-AdvancedFoundationTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2848AAE61E9D9E4C004C6A66 /* Sources */ = {
@@ -1305,7 +1250,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1326,7 +1272,11 @@
 				INFOPLIST_FILE = AdvancedFoundation/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.6.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.adamas.foundation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1350,7 +1300,11 @@
 				INFOPLIST_FILE = AdvancedFoundation/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.6.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.adamas.foundation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1363,7 +1317,6 @@
 		};
 		2848AB031E9D9E4C004C6A66 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D29E49528E53C08AF22ACA11 /* Pods-AdvancedFoundationTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1371,7 +1324,11 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = V276VB2699;
 				INFOPLIST_FILE = AdvancedFoundationTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.adamaszhu.AdvancedFoundationTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1383,7 +1340,6 @@
 		};
 		2848AB041E9D9E4C004C6A66 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 57ED9B2EE2FA2F6771B7AD04 /* Pods-AdvancedFoundationTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1391,7 +1347,11 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = V276VB2699;
 				INFOPLIST_FILE = AdvancedFoundationTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.adamaszhu.AdvancedFoundationTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1409,7 +1369,10 @@
 				DEVELOPMENT_TEAM = V276VB2699;
 				INFOPLIST_FILE = AdvancedFoundationHost/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.6.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.adamas.foundationHost;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1426,7 +1389,10 @@
 				DEVELOPMENT_TEAM = V276VB2699;
 				INFOPLIST_FILE = AdvancedFoundationHost/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.6.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.adamas.foundationHost;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1475,6 +1441,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		282FF94526EF100E00981743 /* XCRemoteSwiftPackageReference "Quick" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Quick";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+		282FF94826EF103300981743 /* XCRemoteSwiftPackageReference "Nimble" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Nimble";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		282FF94626EF100E00981743 /* Quick */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 282FF94526EF100E00981743 /* XCRemoteSwiftPackageReference "Quick" */;
+			productName = Quick;
+		};
+		282FF94926EF103300981743 /* Nimble */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 282FF94826EF103300981743 /* XCRemoteSwiftPackageReference "Nimble" */;
+			productName = Nimble;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		28CC3FE81EB8204700C632A5 /* AdvancedFoundationHost.xcdatamodeld */ = {

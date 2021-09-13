@@ -47,7 +47,7 @@ class CoreDataHelperSpecs: QuickSpec {
             }
             context("with invalid type") {
                 it("throws exception") {
-                    expect(coreDataHelper.object(of: CoreDataHelperSpecs.self)).to(raiseException())
+                    expect(coreDataHelper.object(of: CoreDataHelperSpecs.self)).to(throwError())
                 }
             }
         }
@@ -61,7 +61,7 @@ class CoreDataHelperSpecs: QuickSpec {
             }
             context("with invalid type") {
                 it("returns nil") {
-                    expect(coreDataHelper.objects(of: CoreDataHelperSpecs.self)).to(raiseException())
+                    expect(coreDataHelper.objects(of: CoreDataHelperSpecs.self)).to(throwError())
                 }
             }
             context("with valid type") {
@@ -90,7 +90,7 @@ class CoreDataHelperSpecs: QuickSpec {
             }
             context("with invalid type") {
                 it("returns nil") {
-                    expect(coreDataHelper.isObjectExisted(of: CoreDataHelperSpecs.self)).to(raiseException())
+                    expect(coreDataHelper.isObjectExisted(of: CoreDataHelperSpecs.self)).to(throwError())
                 }
             }
             context("with valid type") {
@@ -142,7 +142,7 @@ class CoreDataHelperSpecs: QuickSpec {
             }
             context("with non existing type") {
                 it("returns nil") {
-                    expect(coreDataHelper.deleteObjects(of: CoreDataHelperSpecs.self)).to(raiseException())
+                    expect(coreDataHelper.deleteObjects(of: CoreDataHelperSpecs.self)).to(throwError())
                 }
             }
         }
@@ -192,6 +192,7 @@ class CoreDataHelperSpecs: QuickSpec {
     }
 }
 
+import Foundation
 import Quick
 import Nimble
 @testable import AdvancedFoundation
