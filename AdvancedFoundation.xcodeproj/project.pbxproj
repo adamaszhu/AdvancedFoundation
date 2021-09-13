@@ -54,9 +54,9 @@
 		28B942821ED3BD2400FFACA1 /* AppInfoAccessorSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F30E4A1E9E4CE200AC0249 /* AppInfoAccessorSpecs.swift */; };
 		28CB19361F747622006CFE05 /* String+Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CB19351F747622006CFE05 /* String+Constant.swift */; };
 		28CC3FE21EB812DB00C632A5 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CC3FE11EB812DB00C632A5 /* CoreDataHelper.swift */; };
-		28CC3FE71EB8200200C632A5 /* CoreDataHelperSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CC3FE61EB8200200C632A5 /* CoreDataHelperSpecs.swift */; };
 		28CC3FEA1EB8204700C632A5 /* AdvancedFoundationHost.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 28CC3FE81EB8204700C632A5 /* AdvancedFoundationHost.xcdatamodeld */; };
 		28CC40111EB83F9600C632A5 /* Test+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CC400F1EB83F9600C632A5 /* Test+CoreDataClass.swift */; };
+		28DC77CB26EF84E300B3F121 /* CoreDataHelperSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CC3FE61EB8200200C632A5 /* CoreDataHelperSpecs.swift */; };
 		28E246071ED4114D00C32C87 /* URLSessionMocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E246061ED4114D00C32C87 /* URLSessionMocker.swift */; };
 		28E246091ED412B400C32C87 /* URLSessionDataTaskMocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E246081ED412B400C32C87 /* URLSessionDataTaskMocker.swift */; };
 		28E7039E1EBAA0A3002BEDFC /* JSONPathSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E7039D1EBAA0A3002BEDFC /* JSONPathSpecs.swift */; };
@@ -980,7 +980,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28CC3FE71EB8200200C632A5 /* CoreDataHelperSpecs.swift in Sources */,
 				35EF429B2300E96C00EB9182 /* OptionalJSON.swift in Sources */,
 				425336CE1EA1AB3B00B6D6BF /* Double+PercentageFormattableSpecs.swift in Sources */,
 				2854752E1ED3A6D000821F83 /* FormDataFileFieldSpecs.swift in Sources */,
@@ -1014,6 +1013,7 @@
 				42A163401F1655D5004C04E9 /* CSV+ParsableSpecs.swift in Sources */,
 				35094C3922FBC94F0071D0D1 /* JSON.swift in Sources */,
 				35758B63232F45B50024B723 /* URL+AccessibleSpecs.swift in Sources */,
+				28DC77CB26EF84E300B3F121 /* CoreDataHelperSpecs.swift in Sources */,
 				284EF0081EC28F440022EB6B /* NetworkTask+EquatableSpecs.swift in Sources */,
 				4292027A1EC7EF6600C4E909 /* NetworkRequestHeader+ParsableSpecs.swift in Sources */,
 				352D87EF231CE01500AAE40D /* UserDefaults+AccessableSpecs.swift in Sources */,
@@ -1456,7 +1456,7 @@
 			repositoryURL = "https://github.com/Quick/Nimble";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 8.0.0;
+				minimumVersion = 9.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
