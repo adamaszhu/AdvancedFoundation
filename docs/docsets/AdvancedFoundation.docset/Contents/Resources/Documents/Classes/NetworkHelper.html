@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>NetworkHelper Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/NetworkHelper" class="dashAnchor"></a>
+    <a title="NetworkHelper Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">AdvancedFoundation 1.7.0 Docs</a> (85% documented)</p>
+        <p class="header-right">
+          <form role="search" action="../search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">AdvancedFoundation Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        NetworkHelper Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AppInfoAccessor.html">AppInfoAccessor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CoreDataHelper.html">CoreDataHelper</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DirectoryHelper.html">DirectoryHelper</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FileHelper.html">FileHelper</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FileInfoAccessor.html">FileInfoAccessor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/IDGenerator.html">IDGenerator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/JSONParser.html">JSONParser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Logger.html">Logger</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NetworkHelper.html">NetworkHelper</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PathHelper.html">PathHelper</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ResourceHelper.html">ResourceHelper</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TextResourceHelper.html">TextResourceHelper</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VersionHelper.html">VersionHelper</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/NetworkBodyType.html">NetworkBodyType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/Array.html">Array</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Bundle.html">Bundle</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Date.html">Date</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Double.html">Double</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Int.html">Int</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/KeyedDecodingContainer.html">KeyedDecodingContainer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/KeyedEncodingContainer.html">KeyedEncodingContainer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/String.html">String</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/URL.html">URL</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/UserDefaults.html">UserDefaults</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:18AdvancedFoundation3mmgoiySayxGs22KeyedDecodingContainerVyq_G_q_tKSeRzs9CodingKeyR_r0_lF">**&gt;(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:18AdvancedFoundation2mgoiyxs22KeyedDecodingContainerVyq_G_q_tKSeRzs9CodingKeyR_r0_lF">*&gt;(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:18AdvancedFoundation2lmoiyys22KeyedEncodingContainerVyq_G_q_3key_xSg5valuettKSERzs9CodingKeyR_r0_lF">&lt;*(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:18AdvancedFoundation3lmmoiyys22KeyedEncodingContainerVyq_G_q_3key_SayxGSg5valuettKSERzs9CodingKeyR_r0_lF">&lt;**(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:18AdvancedFoundation4lmmqoiyys22KeyedEncodingContainerVyq_G_q_3key_SayxGSg5valuettKSERzs9CodingKeyR_r0_lF">&lt;**?(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:18AdvancedFoundation3lmqoiyys22KeyedEncodingContainerVyq_G_q_3key_xSg5valuettKSERzs9CodingKeyR_r0_lF">&lt;*?(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:18AdvancedFoundation3lttoiyq_3key_xSg5valuetq__ADtSERzs9CodingKeyR_r0_lF">&lt;~~(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:18AdvancedFoundation4qmmgoiySayxGSgs22KeyedDecodingContainerVyq_G_q_tKSeRzs9CodingKeyR_r0_lF">?**&gt;(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:18AdvancedFoundation3qmgoiyxSgs22KeyedDecodingContainerVyq_G_q_tKSeRzs9CodingKeyR_r0_lF">?*&gt;(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:18AdvancedFoundation2teoiySbSS_SStF">~=(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:18AdvancedFoundation3ttgoiys22KeyedDecodingContainerVyxGs7Decoder_p_xmtKs9CodingKeyRzlF">~~&gt;(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:18AdvancedFoundation3ttgoiys22KeyedEncodingContainerVyxGs7Encoder_p_xmts9CodingKeyRzlF">~~&gt;(_:_:)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/NetworkHelperDelegate.html">NetworkHelperDelegate</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/CSV.html">CSV</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs.html#/s:18AdvancedFoundation8FormDataV">FormData</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs.html#/s:18AdvancedFoundation17FormDataFileFieldV">FormDataFileField</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs.html#/s:18AdvancedFoundation17FormDataTextFieldV">FormDataTextField</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/NetworkRequestHeader.html">NetworkRequestHeader</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs.html#/s:18AdvancedFoundation21NetworkResponseHeaderV">NetworkResponseHeader</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/TXT.html">TXT</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>NetworkHelper</h1>
+              <div class="declaration">
+                <div class="language">
+                  
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">NetworkHelper</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">NetworkHelper</span><span class="p">:</span> <span class="kt">URLSessionDataDelegate</span></code></pre>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">NetworkHelper</span><span class="p">:</span> <span class="kt">URLSessionDownloadDelegate</span></code></pre>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">NetworkHelper</span><span class="p">:</span> <span class="kt">URLSessionTaskDelegate</span></code></pre>
+
+                </div>
+              </div>
+            <p>NetowrkHelper is used to perform basic level internet connection.</p>
+<div class="aside aside-author">
+    <p class="aside-title">Author</p>
+    Adamas
+
+</div><div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    1.5.0
+
+</div><div class="aside aside-date">
+    <p class="aside-title">Date</p>
+    08/05/2019
+
+</div>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:18AdvancedFoundation13NetworkHelperC8standardACSgvpZ"></a>
+                    <a name="//apple_ref/swift/Variable/standard" class="dashAnchor"></a>
+                    <a class="token" href="#/s:18AdvancedFoundation13NetworkHelperC8standardACSgvpZ">standard</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The default helper.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">let</span> <span class="nv">standard</span><span class="p">:</span> <span class="kt">NetworkHelper</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:18AdvancedFoundation13NetworkHelperC02isC9AvailableSbvp"></a>
+                    <a name="//apple_ref/swift/Property/isNetworkAvailable" class="dashAnchor"></a>
+                    <a class="token" href="#/s:18AdvancedFoundation13NetworkHelperC02isC9AvailableSbvp">isNetworkAvailable</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Whether the network is available or not. This method is referenced from <a href="http://stackoverflow.com/questions/39558868/check-internet-connection-ios-10">http://stackoverflow.com/questions/39558868/check-internet-connection-ios-10</a></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isNetworkAvailable</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:18AdvancedFoundation13NetworkHelperC8delegateAA0cD8Delegate_pSgvp"></a>
+                    <a name="//apple_ref/swift/Property/delegate" class="dashAnchor"></a>
+                    <a class="token" href="#/s:18AdvancedFoundation13NetworkHelperC8delegateAA0cD8Delegate_pSgvp">delegate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The delegate of the Self.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">delegate</span><span class="p">:</span> <span class="kt"><a href="../Protocols/NetworkHelperDelegate.html">NetworkHelperDelegate</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:18AdvancedFoundation13NetworkHelperC10identifier5cacheACSS_So10NSURLCacheCtcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(identifier:cache:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:18AdvancedFoundation13NetworkHelperC10identifier5cacheACSS_So10NSURLCacheCtcfc">init(identifier:<wbr>cache:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initialize the object.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">identifier</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="kt">String</span><span class="p">(</span><span class="kt">Date</span><span class="p">()</span><span class="o">.</span><span class="n">timeIntervalSince1970</span><span class="p">),</span> <span class="nv">cache</span><span class="p">:</span> <span class="kt">URLCache</span> <span class="o">=</span> <span class="kt">URLCache</span><span class="o">.</span><span class="n">shared</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:18AdvancedFoundation13NetworkHelperC8postData5toURL4with2asAF0J10UploadTaskSSSgSS_0B00F0VAA0C8BodyTypeOAA0C13RequestHeaderVSgSbtF"></a>
+                    <a name="//apple_ref/swift/Method/postData(toURL:with:as:with:asUploadTask:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:18AdvancedFoundation13NetworkHelperC8postData5toURL4with2asAF0J10UploadTaskSSSgSS_0B00F0VAA0C8BodyTypeOAA0C13RequestHeaderVSgSbtF">postData(toURL:<wbr>with:<wbr>as:<wbr>with:<wbr>asUploadTask:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Send a asychoronous post request.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">postData</span><span class="p">(</span><span class="n">toURL</span> <span class="nv">urlString</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">with</span> <span class="nv">body</span><span class="p">:</span> <span class="kt">Data</span><span class="p">,</span> <span class="k">as</span> <span class="nv">type</span><span class="p">:</span> <span class="kt"><a href="../Enums/NetworkBodyType.html">NetworkBodyType</a></span><span class="p">,</span> <span class="n">with</span> <span class="nv">header</span><span class="p">:</span> <span class="kt"><a href="../Structs/NetworkRequestHeader.html">NetworkRequestHeader</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="n">asUploadTask</span> <span class="nv">isUploadTask</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>urlString</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The url of the destination.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>header</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The header of the post.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>body</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The content of the request.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>type</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The type of the request.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>isUploadTask</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Whether the task should be run in the background or not.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The identifier of the task.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:18AdvancedFoundation13NetworkHelperC8postData5toURL4withAF12asUploadTaskSSSgSS_AA04FormF0VAA0C13RequestHeaderVSgSbtF"></a>
+                    <a name="//apple_ref/swift/Method/postData(toURL:with:with:asUploadTask:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:18AdvancedFoundation13NetworkHelperC8postData5toURL4withAF12asUploadTaskSSSgSS_AA04FormF0VAA0C13RequestHeaderVSgSbtF">postData(toURL:<wbr>with:<wbr>with:<wbr>asUploadTask:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Post a form to a specific url.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">postData</span><span class="p">(</span><span class="n">toURL</span> <span class="nv">urlString</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">with</span> <span class="nv">formData</span><span class="p">:</span> <span class="kt"><a href="../Structs.html#/s:18AdvancedFoundation8FormDataV">FormData</a></span><span class="p">,</span> <span class="n">with</span> <span class="nv">header</span><span class="p">:</span> <span class="kt"><a href="../Structs/NetworkRequestHeader.html">NetworkRequestHeader</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="n">asUploadTask</span> <span class="nv">isUploadTask</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>urlString</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The url of the destination.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>header</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The header of the post.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>formData</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The form data to be posted.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>isUploadTask</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Whether the task should be run in the background or not.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The identifier of the task.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:18AdvancedFoundation13NetworkHelperC7getData7fromURL4with14asDownloadTaskSSSgSS_AA0C13RequestHeaderVSgSbtF"></a>
+                    <a name="//apple_ref/swift/Method/getData(fromURL:with:asDownloadTask:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:18AdvancedFoundation13NetworkHelperC7getData7fromURL4with14asDownloadTaskSSSgSS_AA0C13RequestHeaderVSgSbtF">getData(fromURL:<wbr>with:<wbr>asDownloadTask:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Send a get request.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getData</span><span class="p">(</span><span class="n">fromURL</span> <span class="nv">urlString</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">with</span> <span class="nv">header</span><span class="p">:</span> <span class="kt"><a href="../Structs/NetworkRequestHeader.html">NetworkRequestHeader</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="n">asDownloadTask</span> <span class="nv">isDownloadTask</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>urlString</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The url of the destination.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>header</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The header of the get.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>isDownloadTask</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Whether current task is a download task or not.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The task identifier.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:18AdvancedFoundation13NetworkHelperC10deleteData5atURL4withSSSgSS_AA0C13RequestHeaderVSgtF"></a>
+                    <a name="//apple_ref/swift/Method/deleteData(atURL:with:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:18AdvancedFoundation13NetworkHelperC10deleteData5atURL4withSSSgSS_AA0C13RequestHeaderVSgtF">deleteData(atURL:<wbr>with:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Send a delete request.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">deleteData</span><span class="p">(</span><span class="n">atURL</span> <span class="nv">urlString</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">with</span> <span class="nv">header</span><span class="p">:</span> <span class="kt"><a href="../Structs/NetworkRequestHeader.html">NetworkRequestHeader</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>urlString</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The address of the destination.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>header</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The header of the delete.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The identifier of the new task.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:18AdvancedFoundation13NetworkHelperC5resetyyF"></a>
+                    <a name="//apple_ref/swift/Method/reset()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:18AdvancedFoundation13NetworkHelperC5resetyyF">reset()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Reset the internet, which will cancel all the current internet connections.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">reset</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:18AdvancedFoundation13NetworkHelperC10clearCacheyyF"></a>
+                    <a name="//apple_ref/swift/Method/clearCache()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:18AdvancedFoundation13NetworkHelperC10clearCacheyyF">clearCache()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Clear all cache data.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">clearCache</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:18AdvancedFoundation13NetworkHelperC10clearCache6forURLySS_tF"></a>
+                    <a name="//apple_ref/swift/Method/clearCache(forURL:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:18AdvancedFoundation13NetworkHelperC10clearCache6forURLySS_tF">clearCache(forURL:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">clearCache</span><span class="p">(</span><span class="n">forURL</span> <span class="nv">urlString</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@AdvancedFoundation@objc(cs)NetworkHelper(im)URLSession:dataTask:didReceiveData:"></a>
+                    <a name="//apple_ref/swift/Method/urlSession(_:dataTask:didReceive:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@AdvancedFoundation@objc(cs)NetworkHelper(im)URLSession:dataTask:didReceiveData:">urlSession(_:<wbr>dataTask:<wbr>didReceive:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">urlSession</span><span class="p">(</span><span class="n">_</span> <span class="nv">session</span><span class="p">:</span> <span class="kt">URLSession</span><span class="p">,</span> <span class="nv">dataTask</span><span class="p">:</span> <span class="kt">URLSessionDataTask</span><span class="p">,</span> <span class="n">didReceive</span> <span class="nv">data</span><span class="p">:</span> <span class="kt">Data</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@AdvancedFoundation@objc(cs)NetworkHelper(im)URLSession:dataTask:didReceiveResponse:completionHandler:"></a>
+                    <a name="//apple_ref/swift/Method/urlSession(_:dataTask:didReceive:completionHandler:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@AdvancedFoundation@objc(cs)NetworkHelper(im)URLSession:dataTask:didReceiveResponse:completionHandler:">urlSession(_:<wbr>dataTask:<wbr>didReceive:<wbr>completionHandler:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">urlSession</span><span class="p">(</span><span class="n">_</span> <span class="nv">session</span><span class="p">:</span> <span class="kt">URLSession</span><span class="p">,</span> <span class="nv">dataTask</span><span class="p">:</span> <span class="kt">URLSessionDataTask</span><span class="p">,</span> <span class="n">didReceive</span> <span class="nv">response</span><span class="p">:</span> <span class="kt">URLResponse</span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">URLSession</span><span class="o">.</span><span class="kt">ResponseDisposition</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@AdvancedFoundation@objc(cs)NetworkHelper(im)URLSession:downloadTask:didFinishDownloadingToURL:"></a>
+                    <a name="//apple_ref/swift/Method/urlSession(_:downloadTask:didFinishDownloadingTo:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@AdvancedFoundation@objc(cs)NetworkHelper(im)URLSession:downloadTask:didFinishDownloadingToURL:">urlSession(_:<wbr>downloadTask:<wbr>didFinishDownloadingTo:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">urlSession</span><span class="p">(</span><span class="n">_</span> <span class="nv">session</span><span class="p">:</span> <span class="kt">URLSession</span><span class="p">,</span> <span class="nv">downloadTask</span><span class="p">:</span> <span class="kt">URLSessionDownloadTask</span><span class="p">,</span> <span class="n">didFinishDownloadingTo</span> <span class="nv">location</span><span class="p">:</span> <span class="kt">URL</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@AdvancedFoundation@objc(cs)NetworkHelper(im)URLSession:downloadTask:didWriteData:totalBytesWritten:totalBytesExpectedToWrite:"></a>
+                    <a name="//apple_ref/swift/Method/urlSession(_:downloadTask:didWriteData:totalBytesWritten:totalBytesExpectedToWrite:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@AdvancedFoundation@objc(cs)NetworkHelper(im)URLSession:downloadTask:didWriteData:totalBytesWritten:totalBytesExpectedToWrite:">urlSession(_:<wbr>downloadTask:<wbr>didWriteData:<wbr>totalBytesWritten:<wbr>totalBytesExpectedToWrite:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">urlSession</span><span class="p">(</span><span class="n">_</span> <span class="nv">session</span><span class="p">:</span> <span class="kt">URLSession</span><span class="p">,</span> <span class="nv">downloadTask</span><span class="p">:</span> <span class="kt">URLSessionDownloadTask</span><span class="p">,</span> <span class="n">didWriteData</span> <span class="nv">bytesWritten</span><span class="p">:</span> <span class="kt">Int64</span><span class="p">,</span> <span class="nv">totalBytesWritten</span><span class="p">:</span> <span class="kt">Int64</span><span class="p">,</span> <span class="nv">totalBytesExpectedToWrite</span><span class="p">:</span> <span class="kt">Int64</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@AdvancedFoundation@objc(cs)NetworkHelper(im)URLSession:task:didCompleteWithError:"></a>
+                    <a name="//apple_ref/swift/Method/urlSession(_:task:didCompleteWithError:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@AdvancedFoundation@objc(cs)NetworkHelper(im)URLSession:task:didCompleteWithError:">urlSession(_:<wbr>task:<wbr>didCompleteWithError:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">urlSession</span><span class="p">(</span><span class="n">_</span> <span class="nv">session</span><span class="p">:</span> <span class="kt">URLSession</span><span class="p">,</span> <span class="nv">task</span><span class="p">:</span> <span class="kt">URLSessionTask</span><span class="p">,</span> <span class="n">didCompleteWithError</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">Error</span><span class="p">?)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2021 <a class="link" href="https://github.com/adamaszhu/AdvancedFoundation" target="_blank" rel="noopener" rel="external">Adamas Zhu</a>. All rights reserved. (Last updated: 2021-09-15)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="noopener" rel="external">jazzy ♪♫ v0.14.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="noopener" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
