@@ -4,7 +4,7 @@
 ![Cocoapods](https://img.shields.io/badge/pod-v1.7.0-3a7db8.svg)
 ![PM](https://img.shields.io/badge/swift%20package%20manager-v1.7.0-72c147.svg)
 
-`AdvancedFoundation` provide additional utilities to `Foundation.framework`.
+`AdvancedFoundation` provides additional utilities to `Foundation.framework`.
 
 ## Installation
 ### Cocoapods
