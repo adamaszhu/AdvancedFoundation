@@ -121,7 +121,7 @@
     },
     {
       "file": "/Users/adamaszhu/Documents/Projects/AdvancedFoundation/AdvancedFoundation/Network/NetworkHelper.swift",
-      "line": 146,
+      "line": 148,
       "symbol": "NetworkHelper.clearCache(forURL:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
