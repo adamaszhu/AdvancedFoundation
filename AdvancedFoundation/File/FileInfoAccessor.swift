@@ -51,4 +51,6 @@ private extension FileInfoAccessor {
 }
 
 import Foundation
+#if !os(macOS)
 import MobileCoreServices
+#endif

@@ -60,7 +60,9 @@ public class NetworkHelper: NSObject {
         var configuration = URLSessionConfiguration.default
         normalSession = URLSession(configuration: configuration, delegate: self, delegateQueue: nil)
         configuration = URLSessionConfiguration.background(withIdentifier: identifier)
-        configuration.sessionSendsLaunchEvents = true
+        if #available(macOS 11.0, iOS 9.0, *) {
+            configuration.sessionSendsLaunchEvents = true
+        }
         configuration.isDiscretionary = true
         backgroundSession = URLSession(configuration: configuration, delegate: self, delegateQueue: nil)
     }
