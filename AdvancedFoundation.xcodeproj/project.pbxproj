@@ -18,6 +18,9 @@
 		2825814A21127BB30033D386 /* Bundle+LocalizableSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2825814921127BB30033D386 /* Bundle+LocalizableSpecs.swift */; };
 		282FF94726EF100E00981743 /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = 282FF94626EF100E00981743 /* Quick */; };
 		282FF94A26EF103300981743 /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = 282FF94926EF103300981743 /* Nimble */; };
+		283B4FC526F1C62400FCE3B6 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 283B4FC426F1C62400FCE3B6 /* MobileCoreServices.framework */; };
+		283B4FC726F1C65900FCE3B6 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 283B4FC626F1C65900FCE3B6 /* CoreData.framework */; };
+		283B4FC926F1C66E00FCE3B6 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 283B4FC826F1C66E00FCE3B6 /* SystemConfiguration.framework */; };
 		28451A151EBC3E7800793441 /* NetworkRequestType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28451A141EBC3E7800793441 /* NetworkRequestType.swift */; };
 		28451A171EBC45FA00793441 /* NetworkTaskType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28451A161EBC45FA00793441 /* NetworkTaskType.swift */; };
 		28451A191EBC463300793441 /* NetworkTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28451A181EBC463300793441 /* NetworkTask.swift */; };
@@ -178,6 +181,9 @@
 		2825814721127B250033D386 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2825814821127B270033D386 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		2825814921127BB30033D386 /* Bundle+LocalizableSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+LocalizableSpecs.swift"; sourceTree = "<group>"; };
+		283B4FC426F1C62400FCE3B6 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk/System/iOSSupport/System/Library/Frameworks/MobileCoreServices.framework; sourceTree = DEVELOPER_DIR; };
+		283B4FC626F1C65900FCE3B6 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
+		283B4FC826F1C66E00FCE3B6 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
 		28451A141EBC3E7800793441 /* NetworkRequestType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRequestType.swift; sourceTree = "<group>"; };
 		28451A161EBC45FA00793441 /* NetworkTaskType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTaskType.swift; sourceTree = "<group>"; };
 		28451A181EBC463300793441 /* NetworkTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTask.swift; sourceTree = "<group>"; };
@@ -321,6 +327,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				283B4FC526F1C62400FCE3B6 /* MobileCoreServices.framework in Frameworks */,
+				283B4FC926F1C66E00FCE3B6 /* SystemConfiguration.framework in Frameworks */,
+				283B4FC726F1C65900FCE3B6 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,6 +369,16 @@
 			path = Array;
 			sourceTree = "<group>";
 		};
+		283B4FC326F1C62400FCE3B6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				283B4FC826F1C66E00FCE3B6 /* SystemConfiguration.framework */,
+				283B4FC626F1C65900FCE3B6 /* CoreData.framework */,
+				283B4FC426F1C62400FCE3B6 /* MobileCoreServices.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		2848AAE11E9D9E4C004C6A66 = {
 			isa = PBXGroup;
 			children = (
@@ -367,6 +386,7 @@
 				425FA3DE1EA056980015E3C1 /* AdvancedFoundationHost */,
 				2848AAF81E9D9E4C004C6A66 /* AdvancedFoundationTests */,
 				2848AAEC1E9D9E4C004C6A66 /* Products */,
+				283B4FC326F1C62400FCE3B6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1190,6 +1210,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1248,6 +1269,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -1271,7 +1293,6 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = AdvancedFoundation/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1299,7 +1320,6 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = AdvancedFoundation/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1368,7 +1388,6 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = V276VB2699;
 				INFOPLIST_FILE = AdvancedFoundationHost/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1388,7 +1407,6 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = V276VB2699;
 				INFOPLIST_FILE = AdvancedFoundationHost/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
