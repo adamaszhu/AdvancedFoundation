@@ -15,5 +15,10 @@ Include the following line in the `Podfile`
 ### Swift package manager
 Add a `Package Dependency` using the current Github URL
 
+## Unit tests
+Open the project file and run unit tests
+
+*Note: Since swift package manager doesn't support testing on a host application, running unit tests via the package file or `swift run` will crash.*
+
 ## Reference
 - [Documentation](https://adamaszhu.github.io/AdvancedFoundation/)
