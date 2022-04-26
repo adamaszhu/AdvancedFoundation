@@ -18,6 +18,7 @@
 		28258143211275270033D386 /* Bundle+Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28258142211275270033D386 /* Bundle+Localizable.swift */; };
 		2825814421127B1E0033D386 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2825814621127B1E0033D386 /* Localizable.strings */; };
 		2825814A21127BB30033D386 /* Bundle+LocalizableSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2825814921127BB30033D386 /* Bundle+LocalizableSpecs.swift */; };
+		28284C66281775B900B78B55 /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28284C65281775B900B78B55 /* DateFormat.swift */; };
 		282FF94726EF100E00981743 /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = 282FF94626EF100E00981743 /* Quick */; };
 		282FF94A26EF103300981743 /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = 282FF94926EF103300981743 /* Nimble */; };
 		283B4FC526F1C62400FCE3B6 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 283B4FC426F1C62400FCE3B6 /* MobileCoreServices.framework */; };
@@ -54,7 +55,9 @@
 		286353F21ED55974000B7A7F /* ErrorMocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286353F11ED55974000B7A7F /* ErrorMocker.swift */; };
 		286353F41ED55D92000B7A7F /* ResponseMocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286353F31ED55D92000B7A7F /* ResponseMocker.swift */; };
 		2878F8FF201BE3B800CB48BD /* Int+TimeFormattable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2878F8FE201BE3B800CB48BD /* Int+TimeFormattable.swift */; };
+		287AB10E2807AE7800D3557D /* Double+Mathematical.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287AB10D2807AE7700D3557D /* Double+Mathematical.swift */; };
 		287BFC5B201BEEEF003B3AE7 /* Int+TimeFormattableSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287BFC5A201BEEEF003B3AE7 /* Int+TimeFormattableSpecs.swift */; };
+		289A737B28040E00003770B3 /* NSAttributedString+Mutable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289A737A28040E00003770B3 /* NSAttributedString+Mutable.swift */; };
 		289C49942010115C00ABB4CD /* Double+UnitFormattableSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289C49932010115C00ABB4CD /* Double+UnitFormattableSpecs.swift */; };
 		28B942821ED3BD2400FFACA1 /* AppInfoAccessorSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F30E4A1E9E4CE200AC0249 /* AppInfoAccessorSpecs.swift */; };
 		28CB19361F747622006CFE05 /* String+Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CB19351F747622006CFE05 /* String+Constant.swift */; };
@@ -185,6 +188,7 @@
 		2825814721127B250033D386 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2825814821127B270033D386 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		2825814921127BB30033D386 /* Bundle+LocalizableSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+LocalizableSpecs.swift"; sourceTree = "<group>"; };
+		28284C65281775B900B78B55 /* DateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
 		283B4FC426F1C62400FCE3B6 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk/System/iOSSupport/System/Library/Frameworks/MobileCoreServices.framework; sourceTree = DEVELOPER_DIR; };
 		283B4FC626F1C65900FCE3B6 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
 		283B4FC826F1C66E00FCE3B6 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
@@ -222,7 +226,9 @@
 		286353F11ED55974000B7A7F /* ErrorMocker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorMocker.swift; sourceTree = "<group>"; };
 		286353F31ED55D92000B7A7F /* ResponseMocker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseMocker.swift; sourceTree = "<group>"; };
 		2878F8FE201BE3B800CB48BD /* Int+TimeFormattable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+TimeFormattable.swift"; sourceTree = "<group>"; };
+		287AB10D2807AE7700D3557D /* Double+Mathematical.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Mathematical.swift"; sourceTree = "<group>"; };
 		287BFC5A201BEEEF003B3AE7 /* Int+TimeFormattableSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+TimeFormattableSpecs.swift"; sourceTree = "<group>"; };
+		289A737A28040E00003770B3 /* NSAttributedString+Mutable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Mutable.swift"; sourceTree = "<group>"; };
 		289C49932010115C00ABB4CD /* Double+UnitFormattableSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+UnitFormattableSpecs.swift"; sourceTree = "<group>"; };
 		28CB19351F747622006CFE05 /* String+Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Constant.swift"; sourceTree = "<group>"; };
 		28CC3FE11EB812DB00C632A5 /* CoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
@@ -597,6 +603,7 @@
 				420F3CAC1EA0721800BAA0A4 /* Double+PercentageFormattable.swift */,
 				2817B9B9200FFE0800D0814B /* Double+UnitFormattable.swift */,
 				2817B9BF200FFF9A00D0814B /* Double.strings */,
+				287AB10D2807AE7700D3557D /* Double+Mathematical.swift */,
 			);
 			path = Double;
 			sourceTree = "<group>";
@@ -638,6 +645,7 @@
 				281881D51EA86AB800E8C85E /* String+Editable.swift */,
 				42622E8C1EA1D59A00E5D5E7 /* String+Localizable.swift */,
 				35808B18229222AF0052FFA4 /* String+Matchable.swift */,
+				289A737A28040E00003770B3 /* NSAttributedString+Mutable.swift */,
 			);
 			path = String;
 			sourceTree = "<group>";
@@ -659,6 +667,7 @@
 			children = (
 				42622EA31EA1FE3500E5D5E7 /* Date+Formattable.swift */,
 				42622EA91EA2182000E5D5E7 /* Date.strings */,
+				28284C65281775B900B78B55 /* DateFormat.swift */,
 			);
 			path = Date;
 			sourceTree = "<group>";
@@ -940,6 +949,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				287AB10E2807AE7800D3557D /* Double+Mathematical.swift in Sources */,
 				42F30E431E9E412900AC0249 /* AppInfoAccessor.swift in Sources */,
 				2803797D1EFCD75B0043682D /* Array+Accessable.swift in Sources */,
 				280CA98E2803E81000D345D8 /* UserDefaultsKeyType.swift in Sources */,
@@ -954,8 +964,10 @@
 				425336CA1EA0A9E700B6D6BF /* Double+DecimalFormattable.swift in Sources */,
 				420F3CAD1EA0721800BAA0A4 /* Double+LongNumberFormattable.swift in Sources */,
 				420F3CAE1EA0721800BAA0A4 /* Double+PercentageFormattable.swift in Sources */,
+				289A737B28040E00003770B3 /* NSAttributedString+Mutable.swift in Sources */,
 				2817B9BA200FFE0900D0814B /* Double+UnitFormattable.swift in Sources */,
 				425DCD171EB43DE200A0ED26 /* FileHelper.swift in Sources */,
+				28284C66281775B900B78B55 /* DateFormat.swift in Sources */,
 				429202721EC735DD00C4E909 /* FileInfoAccessor.swift in Sources */,
 				284EEFD41EBFF3790022EB6B /* FormData+Parsable.swift in Sources */,
 				42C13A771EBF527E000D2E50 /* FormData.swift in Sources */,
