@@ -9,6 +9,7 @@ public extension Double {
     static let defaultCurrencyFormatter: NumberFormatter = {
         let currencyFormatter = NumberFormatter()
         currencyFormatter.numberStyle = .currency
+        currencyFormatter.roundingMode = .down
         currencyFormatter.locale = Locale(identifier: Self.defaultLocaleIdentifier)
         return currencyFormatter
     }()
@@ -21,9 +22,7 @@ public extension Double {
     /// - Returns: The formatted string.
     func currencyString(withCent shouldDisplayCent: Bool? = nil,
                         numberFormatter: NumberFormatter = Self.defaultCurrencyFormatter) -> String? {
-        let number = shouldDisplayCent == false
-        ? NSNumber(value: Int(self))
-        : NSNumber(value: self)
+        let number = NSNumber(value: self)
         var hasCent = self != Double(Int(self))
         hasCent = shouldDisplayCent ?? hasCent
         let fractionDigits = hasCent ? Self.doubleCurrencyDigits : Self.intCurrencyDigits
@@ -38,7 +37,7 @@ public extension Double {
 }
 
 /// Constants
-private extension Double {
+extension Double {
     
     /// System message.
     static let numberFormatError = "The string doesn't have correct format."
