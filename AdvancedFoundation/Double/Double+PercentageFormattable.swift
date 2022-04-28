@@ -20,11 +20,19 @@ public extension Double {
     ///   - numberFormatter: The number formatter used.
     /// - Returns: The formatted string.
     func percentageString(withPrecision precision: Int? = nil,
-                          numberFormatter: NumberFormatter = Self.defaultPercentageFormatter) -> String {
+                          numberFormatter: NumberFormatter = Self.defaultPercentageFormatter) -> String? {
+        if let positivePrecision = precision, positivePrecision < 0 {
+            Logger.standard.logError(Self.precisionError, withDetail: precision)
+            return nil
+        }
         numberFormatter.maximumFractionDigits = precision ?? Self.doubleCurrencyDigits
         numberFormatter.generatesDecimalNumbers = precision != Self.intCurrencyDigits
         let number = NSNumber(value: self)
-        return numberFormatter.string(from: number) ?? .empty
+        guard let percentageString = numberFormatter.string(from: number) else {
+            Logger.standard.logError(Self.numberFormatError)
+            return nil
+        }
+        return percentageString
     }
     
     /// Read a percent string.
