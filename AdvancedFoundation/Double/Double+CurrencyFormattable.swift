@@ -1,33 +1,37 @@
 /// Double+CurrencyFormattable is used to format a number into currency string.
 ///
 /// - author: Adamas
-/// - version: 1.5.0
-/// - date: 30/03/2019
+/// - version: 1.8.0
+/// - date: 28/04/2022
 public extension Double {
-    
-    /// Symbols.
-    static let dollarSymbol = "$"
-    
+
+    /// Default currency formatter
+    static let defaultCurrencyFormatter: NumberFormatter = {
+        let currencyFormatter = NumberFormatter()
+        currencyFormatter.numberStyle = .currency
+        currencyFormatter.locale = Locale(identifier: .defaultLocaleIdentifier)
+        return currencyFormatter
+    }()
+
     /// Print the number as a string using money format. For example, $1,000,000.00.
     ///
-    /// - Parameter shouldDisplayCent: Whether the cent should be displayed or not.
+    /// - Parameters:
+    ///   - shouldDisplayCent: Whether the cent should be displayed or not. Nil will apply the cent dynamically.
+    ///   - numberFormatter: The number formatter to use.
     /// - Returns: The formatted string.
-    func moneyString(withCent shouldDisplayCent: Bool = false, withCurrencySymbol currencySymbol: String = dollarSymbol) -> String? {
-        let numberFormatter = NumberFormatter()
-        numberFormatter.currencySymbol = currencySymbol
-        numberFormatter.numberStyle = NumberFormatter.Style.currency
-        guard var moneyString = numberFormatter.string(from: NSNumber(value: self)) else {
+    func currencyString(withCent shouldDisplayCent: Bool? = nil,
+                        numberFormatter: NumberFormatter = Self.defaultCurrencyFormatter) -> String? {
+        let number = NSNumber(value: self)
+        var hasCent = self != Double(Int(self))
+        hasCent = shouldDisplayCent ?? hasCent
+        let fractionDigits = hasCent ? Self.doubleCurrencyDigits : Self.intCurrencyDigits
+        numberFormatter.maximumFractionDigits = fractionDigits
+        numberFormatter.minimumFractionDigits = fractionDigits
+        guard let currencyString = numberFormatter.string(from: number) else {
             Logger.standard.logError(Self.numberFormatError, withDetail: self)
             return nil
         }
-        guard moneyString != Self.positiveSymbol + Self.unlimitedSymbol else {
-            return Self.unlimitedSymbol
-        }
-        if !shouldDisplayCent && moneyString.contains(Self.dotSymbol),
-            let dotIndex = moneyString.range(of: Self.dotSymbol)?.lowerBound {
-            moneyString = String(moneyString[..<dotIndex])
-        }
-        return moneyString.replacingOccurrences(of: Self.space, with: String.empty)
+        return currencyString
     }
 }
 
@@ -37,14 +41,12 @@ private extension Double {
     /// System message.
     static let numberFormatError = "The string doesn't have correct format."
 
-    /// The space between the customized currency symbol and the currency since iOS 13
-    /// REF: https://developer.apple.com/forums/thread/124911
-    static let space = " "
-    
-    /// Symbols.
-    static let positiveSymbol = "+"
-    static let unlimitedSymbol = "∞"
-    static let dotSymbol = "."
+    /// Digits
+    static let intCurrencyDigits = 0
+    static let doubleCurrencyDigits = 2
+
+    /// Locale
+    static let defaultLocaleIdentifier = "en_US"
 }
 
 import Foundation

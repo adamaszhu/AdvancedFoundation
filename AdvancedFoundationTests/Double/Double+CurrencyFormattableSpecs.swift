@@ -1,4 +1,4 @@
-class DoubleCurrencyFormattableSpecs: QuickSpec {
+final class DoubleCurrencyFormattableSpecs: QuickSpec {
     
     override func spec() {
         describe("calls moneyString(withCent:withCurrencySymbol)") {
@@ -6,32 +6,17 @@ class DoubleCurrencyFormattableSpecs: QuickSpec {
                 let number = 999999.55
                 context("with cent") {
                     it("returns money string with cent") {
-                        expect(number.moneyString(withCent: true)) == "$999,999.55"
+                        expect(number.currencyString(withCent: true)) == "$999,999.55"
                     }
                 }
                 context("without cent") {
                     it("returns money string without cent") {
-                        expect(number.moneyString(withCent: false)) == "$999,999"
+                        expect(number.currencyString(withCent: false)) == "$999,999"
                     }
                 }
                 context("with default cent") {
-                    it("returns money string without cent") {
-                        expect(number.moneyString()) == "$999,999"
-                    }
-                }
-                context("with currency symbol") {
-                    it("returns money string with correct symbol") {
-                        expect(number.moneyString(withCurrencySymbol: "&")) == "&999,999"
-                    }
-                }
-                context("without currency symbol") {
-                    it("returns money string without symbol") {
-                        expect(number.moneyString(withCurrencySymbol: "")) == "999,999"
-                    }
-                }
-                context("with default currency symbol") {
-                    it("returns money string without cent") {
-                        expect(number.moneyString()) == "$999,999"
+                    it("returns money string with cent") {
+                        expect(number.currencyString()) == "$999,999.55"
                     }
                 }
             }
@@ -39,32 +24,17 @@ class DoubleCurrencyFormattableSpecs: QuickSpec {
                 let number = 999999.0
                 context("with cent") {
                     it("returns money string with cent") {
-                        expect(number.moneyString(withCent: true)) == "$999,999.00"
+                        expect(number.currencyString(withCent: true)) == "$999,999.00"
                     }
                 }
                 context("without cent") {
                     it("returns money string without cent") {
-                        expect(number.moneyString(withCent: false)) == "$999,999"
+                        expect(number.currencyString(withCent: false)) == "$999,999"
                     }
                 }
                 context("with default cent") {
                     it("returns money string without cent") {
-                        expect(number.moneyString()) == "$999,999"
-                    }
-                }
-                context("with currency symbol") {
-                    it("returns money string with correct symbol") {
-                        expect(number.moneyString(withCurrencySymbol: "&")) == "&999,999"
-                    }
-                }
-                context("without currency symbol") {
-                    it("returns money string without symbol") {
-                        expect(number.moneyString(withCurrencySymbol: "")) == "999,999"
-                    }
-                }
-                context("with default currency symbol") {
-                    it("returns money string with cent") {
-                        expect(number.moneyString()) == "$999,999"
+                        expect(number.currencyString()) == "$999,999"
                     }
                 }
             }

@@ -25,8 +25,8 @@ public extension Date {
     
     /// The object that only contains the date information of the origin object
     var date: Date {
-        let string = self.string(with: .fullDate)
-        guard let date = Date(string: string, dateFormat: .fullDate) else {
+        let string = self.string(with: DateFormat.fullDate)
+        guard let date = Date(string: string, dateFormat: DateFormat.fullDate) else {
             Logger.standard.logError(Self.patternError)
             return self
         }
@@ -129,13 +129,13 @@ private extension Date {
     static let nowTag = "Now"
     static let amSymbol = "AM"
     static let pmSymbol = "PM"
-
-    /// Locale
-    static let defaultLocaleIdentifier = "en_US_POSIX"
     
     /// System errors.
     static let precisionError = "The precision should be at least one."
     static let patternError = "The pattern is incorrect."
+
+    /// Locale
+    static let defaultLocaleIdentifier = "en_US_POSIX"
 }
 
 import Foundation
