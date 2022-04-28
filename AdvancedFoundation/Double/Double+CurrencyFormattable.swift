@@ -9,7 +9,7 @@ public extension Double {
     static let defaultCurrencyFormatter: NumberFormatter = {
         let currencyFormatter = NumberFormatter()
         currencyFormatter.numberStyle = .currency
-        currencyFormatter.locale = Locale(identifier: .defaultLocaleIdentifier)
+        currencyFormatter.locale = Locale(identifier: Self.defaultLocaleIdentifier)
         return currencyFormatter
     }()
 
@@ -21,7 +21,9 @@ public extension Double {
     /// - Returns: The formatted string.
     func currencyString(withCent shouldDisplayCent: Bool? = nil,
                         numberFormatter: NumberFormatter = Self.defaultCurrencyFormatter) -> String? {
-        let number = NSNumber(value: self)
+        let number = shouldDisplayCent == false
+        ? NSNumber(value: Int(self))
+        : NSNumber(value: self)
         var hasCent = self != Double(Int(self))
         hasCent = shouldDisplayCent ?? hasCent
         let fractionDigits = hasCent ? Self.doubleCurrencyDigits : Self.intCurrencyDigits
