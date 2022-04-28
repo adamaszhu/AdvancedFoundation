@@ -4,6 +4,27 @@
 /// - version: 1.5.0
 /// - date: 30/03/2019
 public extension Double {
+
+    /// Default long number formatter
+    static let longNumberFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.roundingMode = .down
+        formatter.maximumFractionDigits = Self.doubleCurrencyDigits
+        return formatter
+    }()
+
+    /// Format the number into a readable number format.
+    /// - Parameter numberFormatter: The number formatter applied.
+    /// - Returns: The long number string.
+    func longNumberString(numberFormatter: NumberFormatter = Self.longNumberFormatter) -> String? {
+        let number = NSNumber(value: self)
+        guard let longNumberString = numberFormatter.string(from: number) else {
+            Logger.standard.logError(Self.numberFormatError, withDetail: self)
+            return nil
+        }
+        return longNumberString
+    }
     
     /// Read a long number string.
     ///

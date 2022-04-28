@@ -598,8 +598,8 @@
 			isa = PBXGroup;
 			children = (
 				420F3CA91EA06B1B00BAA0A4 /* Double+CurrencyFormattable.swift */,
-				425336C91EA0A9E700B6D6BF /* Double+DecimalFormattable.swift */,
 				420F3CAB1EA0721800BAA0A4 /* Double+LongNumberFormattable.swift */,
+				425336C91EA0A9E700B6D6BF /* Double+DecimalFormattable.swift */,
 				420F3CAC1EA0721800BAA0A4 /* Double+PercentageFormattable.swift */,
 				2817B9B9200FFE0800D0814B /* Double+UnitFormattable.swift */,
 				2817B9BF200FFF9A00D0814B /* Double.strings */,

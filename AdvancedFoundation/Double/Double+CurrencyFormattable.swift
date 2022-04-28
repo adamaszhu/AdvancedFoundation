@@ -14,6 +14,36 @@ public extension Double {
         return currencyFormatter
     }()
 
+    /// Get the cent part of the currency string
+    ///
+    /// - Parameter numberFormatter: The number formatter to use.
+    /// - Returns: The cent string
+    func centString(numberFormatter: NumberFormatter = Self.defaultCurrencyFormatter) -> String? {
+        let currencyString = self.currencyString(withCent: true,
+                                                 numberFormatter: numberFormatter)?
+            .replacingOccurrences(of: numberFormatter.currencySymbol, with: String.empty)
+        guard let centString = currencyString?.components(separatedBy: Self.dot).last else {
+            Logger.standard.logError(Self.numberFormatError, withDetail: self)
+            return nil
+        }
+        return centString
+    }
+
+    /// Get the dollar part of the currency string
+    ///
+    /// - Parameter numberFormatter: The number formatter to use.
+    /// - Returns: The dollar string
+    func dollarString(numberFormatter: NumberFormatter = Self.defaultCurrencyFormatter) -> String? {
+        let currencyString = self.currencyString(withCent: true,
+                                                 numberFormatter: numberFormatter)?
+            .replacingOccurrences(of: numberFormatter.currencySymbol, with: String.empty)
+        guard let dollarString = currencyString?.components(separatedBy: Self.dot).first else {
+            Logger.standard.logError(Self.numberFormatError, withDetail: self)
+            return nil
+        }
+        return dollarString
+    }
+
     /// Print the number as a string using money format. For example, $1,000,000.00.
     ///
     /// - Parameters:
@@ -41,6 +71,9 @@ extension Double {
     
     /// System message.
     static let numberFormatError = "The string doesn't have correct format."
+
+    /// Symbol
+    static let dot = "."
 
     /// Digits
     static let intCurrencyDigits = 0

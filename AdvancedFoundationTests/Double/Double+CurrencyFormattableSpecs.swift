@@ -1,7 +1,35 @@
 final class DoubleCurrencyFormattableSpecs: QuickSpec {
     
     override func spec() {
-        describe("calls moneyString(withCent:withCurrencySymbol)") {
+        describe("calls centString()") {
+            context("as int") {
+                let number = 999999.0
+                it("returns the cent string") {
+                    expect(number.centString()) == "00"
+                }
+            }
+            context("as double") {
+                let number = 999999.55
+                it("returns the cent string") {
+                    expect(number.centString()) == "55"
+                }
+            }
+        }
+        describe("calls dollarString()") {
+            context("as int") {
+                let number = 999999.0
+                it("returns the dollar string") {
+                    expect(number.dollarString()) == "999,999"
+                }
+            }
+            context("as double") {
+                let number = 999999.55
+                it("returns the dollar string") {
+                    expect(number.dollarString()) == "999,999"
+                }
+            }
+        }
+        describe("calls moneyString(withCent)") {
             context("as double") {
                 let number = 999999.55
                 context("with cent") {
