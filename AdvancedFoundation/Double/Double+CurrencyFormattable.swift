@@ -72,12 +72,16 @@ extension Double {
     /// System message.
     static let numberFormatError = "The string doesn't have correct format."
 
-    /// Symbol
-    static let dot = "."
-
     /// Digits
     static let intCurrencyDigits = 0
     static let doubleCurrencyDigits = 2
+}
+
+/// Constants
+private extension Double {
+
+    /// Symbol
+    static let dot = "."
 
     /// Locale
     static let defaultLocaleIdentifier = "en_US"

@@ -44,9 +44,6 @@ public extension Double {
 
 private extension Double {
     
-    /// System message.
-    static let numberFormatError = "The string doesn't have correct format."
-    
     /// Symbols.
     static let commaSymbol = ","
 }

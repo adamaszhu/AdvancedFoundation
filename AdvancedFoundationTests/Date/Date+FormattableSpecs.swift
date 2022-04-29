@@ -1,4 +1,4 @@
-class DateFormattableSpecs: QuickSpec {
+final class DateFormattableSpecs: QuickSpec {
     
     // Cannot extract date declaration since the test should be done right after the decleration.
     override func spec() {
@@ -11,9 +11,9 @@ class DateFormattableSpecs: QuickSpec {
         var date: Date!
         describe("has date") {
             context("with the current date") {
-                it("is different with the current date") {
-                    let date = Date()
-                    expect(date.date) != date
+                let date = Date()
+                it("returns only the date") {
+                    expect(date.date.string(with: DateFormat.utc).hasSuffix("00:00:00")) == true
                 }
             }
         }
@@ -576,6 +576,59 @@ class DateFormattableSpecs: QuickSpec {
                 }
             }
         }
+        describe("calls string(with:)") {
+            let date = Date(string: "01/01/2022", dateFormat: DateFormat.fullCalendarDate)
+            context("as full calendar date") {
+                it("returns the correct string") {
+                    expect(date?.string(with: DateFormat.fullCalendarDate)) == "01/01/2022"
+                }
+            }
+            context("as short calendar date") {
+                it("returns the correct string") {
+                    expect(date?.string(with: DateFormat.shortCalendarDate)) == "01/01/22"
+                }
+            }
+            context("as reversed date") {
+                it("returns the correct string") {
+                    expect(date?.string(with: DateFormat.reversedDate)) == "2022-01-01"
+                }
+            }
+            context("as full date") {
+                it("returns the correct string") {
+                    expect(date?.string(with: DateFormat.fullDate)) == "01 January 2022"
+                }
+            }
+            context("as abbr date") {
+                it("returns the correct string") {
+                    expect(date?.string(with: DateFormat.abbrDate)) == "01 Jan 2022"
+                }
+            }
+            context("as expiry date") {
+                it("returns the correct string") {
+                    expect(date?.string(with: DateFormat.expiryDate)) == "01/22"
+                }
+            }
+            context("as formal date") {
+                it("returns the correct string") {
+                    expect(date?.string(with: DateFormat.formalDate)) == "Jan 01, 2022"
+                }
+            }
+            context("as utc") {
+                it("returns the correct string") {
+                    expect(date?.string(with: DateFormat.utc)) == "2022-01-01T00:00:00"
+                }
+            }
+            context("as long utc") {
+                it("returns the correct string") {
+                    expect(date?.string(with: DateFormat.longUTC)) == "2022-01-01T00:00:00.0"
+                }
+            }
+            context("as zero utc") {
+                it("returns the correct string") {
+                    expect(date?.string(with: DateFormat.zeroUTC)) == "2022-01-01T00:00:00+1100"
+                }
+            }
+        }
         describe("calls init(string:pattern)") {
             context("with invalid string") {
                 let string = ""
@@ -596,6 +649,128 @@ class DateFormattableSpecs: QuickSpec {
                 let pattern = Date.yearPattern
                 it("returns an date object") {
                     expect(Date(string: string, pattern: pattern)).toNot(beNil())
+                }
+            }
+        }
+        describe("calls init(string:format:)") {
+            context("as full calendar date") {
+                context("with a valid string") {
+                    it("parses the date") {
+                        expect(Date(string: "01/01/2022", dateFormat: DateFormat.fullCalendarDate)).toNot(beNil())
+                    }
+                }
+                context("with an invalid string") {
+                    it("returns nil") {
+                        expect(Date(string: "", dateFormat: DateFormat.fullCalendarDate)).to(beNil())
+                    }
+                }
+            }
+            context("as short calendar date") {
+                context("with a valid string") {
+                    it("parses the date") {
+                        expect(Date(string: "01/01/22", dateFormat: DateFormat.shortCalendarDate)).toNot(beNil())
+                    }
+                }
+                context("with an invalid string") {
+                    it("returns nil") {
+                        expect(Date(string: "", dateFormat: DateFormat.shortCalendarDate)).to(beNil())
+                    }
+                }
+            }
+            context("as reversed date") {
+                context("with a valid string") {
+                    it("parses the date") {
+                        expect(Date(string: "2022-01-01", dateFormat: DateFormat.reversedDate)).toNot(beNil())
+                    }
+                }
+                context("with an invalid string") {
+                    it("returns nil") {
+                        expect(Date(string: "", dateFormat: DateFormat.reversedDate)).to(beNil())
+                    }
+                }
+            }
+            context("as full date") {
+                context("with a valid string") {
+                    it("parses the date") {
+                        expect(Date(string: "01 January 2022", dateFormat: DateFormat.fullDate)).toNot(beNil())
+                    }
+                }
+                context("with an invalid string") {
+                    it("returns nil") {
+                        expect(Date(string: "", dateFormat: DateFormat.fullDate)).to(beNil())
+                    }
+                }
+            }
+            context("as abbr date") {
+                context("with a valid string") {
+                    it("parses the date") {
+                        expect(Date(string: "01 Jan 2022", dateFormat: DateFormat.abbrDate)).toNot(beNil())
+                    }
+                }
+                context("with an invalid string") {
+                    it("returns nil") {
+                        expect(Date(string: "", dateFormat: DateFormat.abbrDate)).to(beNil())
+                    }
+                }
+            }
+            context("as expiry date") {
+                context("with a valid string") {
+                    it("parses the date") {
+                        expect(Date(string: "01/22", dateFormat: DateFormat.expiryDate)).toNot(beNil())
+                    }
+                }
+                context("with an invalid string") {
+                    it("returns nil") {
+                        expect(Date(string: "", dateFormat: DateFormat.expiryDate)).to(beNil())
+                    }
+                }
+            }
+            context("as formal date") {
+                context("with a valid string") {
+                    it("parses the date") {
+                        expect(Date(string: "Jan 01, 2022", dateFormat: DateFormat.formalDate)).toNot(beNil())
+                    }
+                }
+                context("with an invalid string") {
+                    it("returns nil") {
+                        expect(Date(string: "", dateFormat: DateFormat.formalDate)).to(beNil())
+                    }
+                }
+            }
+            context("as utc") {
+                context("with a valid string") {
+                    it("parses the date") {
+                        expect(Date(string: "2022-01-01T00:00:00", dateFormat: DateFormat.utc)).toNot(beNil())
+                    }
+                }
+                context("with an invalid string") {
+                    it("returns nil") {
+                        expect(Date(string: "", dateFormat: DateFormat.utc)).to(beNil())
+                    }
+                }
+            }
+            context("as long utc") {
+                context("with a valid string") {
+                    it("parses the date") {
+                        expect(Date(string: "2022-01-01T00:00:00.00000", dateFormat: DateFormat.longUTC)).toNot(beNil())
+                    }
+                }
+                context("with an invalid string") {
+                    it("returns nil") {
+                        expect(Date(string: "", dateFormat: DateFormat.longUTC)).to(beNil())
+                    }
+                }
+            }
+            context("as zero utc") {
+                context("with a valid string") {
+                    it("parses the date") {
+                        expect(Date(string: "2022-01-01T00:00:00+1100", dateFormat: DateFormat.zeroUTC)).toNot(beNil())
+                    }
+                }
+                context("with an invalid string") {
+                    it("returns nil") {
+                        expect(Date(string: "", dateFormat: DateFormat.zeroUTC)).to(beNil())
+                    }
                 }
             }
         }
