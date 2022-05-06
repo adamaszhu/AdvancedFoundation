@@ -1,6 +1,26 @@
-class DoubleLongNumberFormattableSpecs: QuickSpec {
+final class DoubleLongNumberFormattableSpecs: QuickSpec {
     
     override func spec() {
+        describe("calls longNumberString()") {
+            context("with a long integer") {
+                let number = 99999.0
+                it("returns a formatted string") {
+                    expect(number.longNumberString()) == "99,999"
+                }
+            }
+            context("with a long double") {
+                let number = 99999.55
+                it("returns a formatted string") {
+                    expect(number.longNumberString()) == "99,999.55"
+                }
+            }
+            context("with a complex double") {
+                let number = 99999.555555
+                it("returns a formatted string") {
+                    expect(number.longNumberString()) == "99,999.55"
+                }
+            }
+        }
         describe("calls init(longNumber)") {
             context("with invalid character in string") {
                 it("returns invalid number") {

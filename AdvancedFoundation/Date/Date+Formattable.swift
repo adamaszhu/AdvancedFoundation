@@ -12,12 +12,21 @@ public extension Date {
     static let monthPattern = "MM"
     static let dayPattern = "dd"
     static let time12HourPattern = "hh:mma"
+
+    /// Default date formatter
+    static let defaultDateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: Self.defaultLocaleIdentifier)
+        dateFormatter.timeZone = TimeZone.current
+        dateFormatter.amSymbol = Date.amSymbol.localizedInternalString(forType: Self.self)
+        dateFormatter.pmSymbol = Date.pmSymbol.localizedInternalString(forType: Self.self)
+        return dateFormatter
+    }()
     
     /// The object that only contains the date information of the origin object
     var date: Date {
-        let datePattern = Self.dayPattern + Self.monthPattern + Self.yearPattern
-        let string = self.string(withPattern: datePattern)
-        guard let date = Date(string: string, pattern: datePattern) else {
+        let string = self.string(with: DateFormat.fullDate)
+        guard let date = Date(string: string, dateFormat: DateFormat.fullDate) else {
             Logger.standard.logError(Self.patternError)
             return self
         }
@@ -55,12 +64,27 @@ public extension Date {
     
     /// Format the date with a given pattern
     ///
-    /// - Parameter pattern: The pattern
+    /// - Parameters:
+    ///   - pattern: The pattern
+    ///   - dateFormatter: The formatter to be used
     /// - Returns: The formatted string
-    func string(withPattern pattern: String) -> String {
-        let dateFormatter = DateFormatter()
+    ///   - dateFormatter: The formatter to be used
+    func string(withPattern pattern: String,
+                dateFormatter: DateFormatter = Self.defaultDateFormatter) -> String {
         dateFormatter.dateFormat = pattern
         return dateFormatter.string(from: self)
+    }
+
+    /// Format the date with a given format
+    ///
+    /// - Parameters:
+    ///   - dateFormat: The format
+    ///   - dateFormatter: The formatter to be used
+    /// - Returns: The formatted string
+    func string(with dateFormat: DateFormatType,
+                dateFormatter: DateFormatter = Self.defaultDateFormatter) -> String {
+        string(withPattern: dateFormat.pattern,
+               dateFormatter: dateFormatter)
     }
     
     /// Initialize a date with a given string and a pattern
@@ -68,14 +92,30 @@ public extension Date {
     /// - Parameters:
     ///   - string: The string
     ///   - pattern: The pattern
-    init?(string: String, pattern: String) {
-        let dateFormatter = DateFormatter()
+    ///   - dateFormatter: The formatter to be used
+    init?(string: String,
+          pattern: String,
+          dateFormatter: DateFormatter = Self.defaultDateFormatter) {
         dateFormatter.dateFormat = pattern
         if let date = dateFormatter.date(from: string) {
             self = date
         } else {
             return nil
         }
+    }
+
+    /// Initialize a date with a given string and a pattern
+    ///
+    /// - Parameters:
+    ///   - string: The string
+    ///   - dateFormat: The format
+    ///   - dateFormatter: The formatter to be used
+    init?(string: String,
+          dateFormat: DateFormatType,
+          dateFormatter: DateFormatter = Self.defaultDateFormatter) {
+        self.init(string: string,
+                  pattern: dateFormat.pattern,
+                  dateFormatter: dateFormatter)
     }
 }
 
@@ -87,12 +127,15 @@ private extension Date {
     static let laterTag = "Later"
     static let spaceTag = "Space"
     static let nowTag = "Now"
+    static let amSymbol = "AM"
+    static let pmSymbol = "PM"
     
     /// System errors.
     static let precisionError = "The precision should be at least one."
     static let patternError = "The pattern is incorrect."
+
+    /// Locale
+    static let defaultLocaleIdentifier = "en_US_POSIX"
 }
 
 import Foundation
-
-

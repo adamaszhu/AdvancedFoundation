@@ -1,4 +1,4 @@
-class DoublePercentageFormattableSpecs: QuickSpec {
+final class DoublePercentageFormattableSpecs: QuickSpec {
     
     override func spec() {
         describe("calls percentageString(withPrecision)") {
