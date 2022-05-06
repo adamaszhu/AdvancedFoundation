@@ -10,6 +10,9 @@ public class FileInfoAccessor {
         guard !fileExtension.isEmpty else {
             return Self.defaultMIMEType
         }
+        if #available(iOS 14.0, macOS 11, *) {
+            return UTType(filenameExtension: fileExtension)?.preferredMIMEType ?? Self.defaultMIMEType
+        }
         // Decode the name of the MIME type.
         guard let uti = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, fileExtension as CFString, nil), let tag = UTTypeCopyPreferredTagWithClass(uti.takeRetainedValue(), kUTTagClassMIMEType) else {
             return Self.defaultMIMEType
@@ -51,6 +54,7 @@ private extension FileInfoAccessor {
 }
 
 import Foundation
+import UniformTypeIdentifiers
 #if !os(macOS)
 import MobileCoreServices
 #endif

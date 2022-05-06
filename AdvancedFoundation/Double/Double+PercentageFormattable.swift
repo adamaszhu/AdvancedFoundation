@@ -1,24 +1,38 @@
 /// Double+PercentageFormattable is used to format a number into a percentage format.
 ///
 /// - author: Adamas
-/// - version: 1.5.0
-/// - date: 30/03/2019
+/// - version: 1.8.0
+/// - date: 28/04/2022
 public extension Double {
-    
+
+    // Default percentage formatter
+    static let defaultPercentageFormatter: NumberFormatter = {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .percent
+        numberFormatter.roundingMode = .down
+        numberFormatter.minimumFractionDigits = Self.intCurrencyDigits
+        return numberFormatter
+    }()
+
     /// Print the number as a percentage. For example, 12.3%.
-    ///
-    /// - Rarameter precision: The precision spedified. If it is nil, the original value will be returned.
+    /// - Parameters:
+    ///   - precision: The precision spedified. If it is nil, the original value will be returned.
+    ///   - numberFormatter: The number formatter used.
     /// - Returns: The formatted string.
-    func percentageString(withPrecision precision: Int? = nil) -> String? {
+    func percentageString(withPrecision precision: Int? = nil,
+                          numberFormatter: NumberFormatter = Self.defaultPercentageFormatter) -> String? {
         if let positivePrecision = precision, positivePrecision < 0 {
             Logger.standard.logError(Self.precisionError, withDetail: precision)
             return nil
         }
-        let number = self * 100
-        guard let decimalString = number.decimalString(withPrecision: precision) else {
+        numberFormatter.maximumFractionDigits = precision ?? Self.doubleCurrencyDigits
+        numberFormatter.generatesDecimalNumbers = precision != Self.intCurrencyDigits
+        let number = NSNumber(value: self)
+        guard let percentageString = numberFormatter.string(from: number) else {
+            Logger.standard.logError(Self.numberFormatError)
             return nil
         }
-        return decimalString + Self.percentageSymbol
+        return percentageString
     }
     
     /// Read a percent string.
@@ -44,7 +58,6 @@ public extension Double {
 private extension Double {
     
     /// System message.
-    static let numberFormatError = "The string doesn't have correct format."
     static let precisionError = "The precision parameter is incorrect."
     
     /// Symbols.
