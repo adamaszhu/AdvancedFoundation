@@ -110,7 +110,7 @@ public class JSONParser {
         }
         if let pathNodeIndex = pathNode.index {
             // Get real current node from the array node.
-            guard let arrayNode = realNode as? [Any], let arrayElementNode = arrayNode.element(atIndex: pathNodeIndex) else {
+            guard let arrayNode = realNode as? [Any], let arrayElementNode = arrayNode[safe: pathNodeIndex] else {
                 return nil
             }
             realNode = arrayElementNode

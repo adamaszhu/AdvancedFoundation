@@ -5,12 +5,12 @@ class ArrayAccessableSpecs: QuickSpec {
         describe("calls element(atIndex)") {
             context("with out of range index") {
                 it("returns nil") {
-                    expect(array.element(atIndex: 3)).to(beNil())
+                    expect(array[safe: 3]).to(beNil())
                 }
             }
             context("with valid index") {
                 it("returns correct element") {
-                    expect(array.element(atIndex: 1)) == "Second"
+                    expect(array[safe: 1]) == "Second"
                 }
             }
         }
