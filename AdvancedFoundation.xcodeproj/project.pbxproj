@@ -56,6 +56,7 @@
 		286353F41ED55D92000B7A7F /* ResponseMocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286353F31ED55D92000B7A7F /* ResponseMocker.swift */; };
 		2867BA28281BAB0200495D42 /* String+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2867BA27281BAB0200495D42 /* String+Codable.swift */; };
 		2878F8FF201BE3B800CB48BD /* Int+TimeFormattable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2878F8FE201BE3B800CB48BD /* Int+TimeFormattable.swift */; };
+		287A1AA62875360100CF77E7 /* Encodable+Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287A1AA52875360100CF77E7 /* Encodable+Presentable.swift */; };
 		287AB10E2807AE7800D3557D /* Double+Mathematical.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287AB10D2807AE7700D3557D /* Double+Mathematical.swift */; };
 		287BFC5B201BEEEF003B3AE7 /* Int+TimeFormattableSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287BFC5A201BEEEF003B3AE7 /* Int+TimeFormattableSpecs.swift */; };
 		2898737B28210B430055E9E0 /* DownCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2898737A28210B420055E9E0 /* DownCounter.swift */; };
@@ -229,6 +230,7 @@
 		286353F31ED55D92000B7A7F /* ResponseMocker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseMocker.swift; sourceTree = "<group>"; };
 		2867BA27281BAB0200495D42 /* String+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Codable.swift"; sourceTree = "<group>"; };
 		2878F8FE201BE3B800CB48BD /* Int+TimeFormattable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+TimeFormattable.swift"; sourceTree = "<group>"; };
+		287A1AA52875360100CF77E7 /* Encodable+Presentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Presentable.swift"; sourceTree = "<group>"; };
 		287AB10D2807AE7700D3557D /* Double+Mathematical.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Mathematical.swift"; sourceTree = "<group>"; };
 		287BFC5A201BEEEF003B3AE7 /* Int+TimeFormattableSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+TimeFormattableSpecs.swift"; sourceTree = "<group>"; };
 		2898737A28210B420055E9E0 /* DownCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownCounter.swift; sourceTree = "<group>"; };
@@ -417,6 +419,7 @@
 		2848AAED1E9D9E4C004C6A66 /* AdvancedFoundation */ = {
 			isa = PBXGroup;
 			children = (
+				287A1AA4287535A900CF77E7 /* Codable */,
 				28F6AB362825600E00B4C5EE /* Internal */,
 				2898737928210B360055E9E0 /* Counter */,
 				42F30E401E9E412900AC0249 /* App */,
@@ -462,6 +465,14 @@
 				2848AB091E9DA039004C6A66 /* Logger.swift */,
 			);
 			path = Log;
+			sourceTree = "<group>";
+		};
+		287A1AA4287535A900CF77E7 /* Codable */ = {
+			isa = PBXGroup;
+			children = (
+				287A1AA52875360100CF77E7 /* Encodable+Presentable.swift */,
+			);
+			path = Codable;
 			sourceTree = "<group>";
 		};
 		2898737928210B360055E9E0 /* Counter */ = {
@@ -973,6 +984,7 @@
 			files = (
 				287AB10E2807AE7800D3557D /* Double+Mathematical.swift in Sources */,
 				42F30E431E9E412900AC0249 /* AppInfoAccessor.swift in Sources */,
+				287A1AA62875360100CF77E7 /* Encodable+Presentable.swift in Sources */,
 				2803797D1EFCD75B0043682D /* Array+Accessable.swift in Sources */,
 				280CA98E2803E81000D345D8 /* UserDefaultsKeyType.swift in Sources */,
 				28258143211275270033D386 /* Bundle+Localizable.swift in Sources */,
