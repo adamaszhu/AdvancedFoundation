@@ -54,6 +54,17 @@ public extension String {
         string.removePrefix(prefix)
         return string
     }
+
+    /// Trim the string to a certain length
+    /// - Parameter length: The new length
+    /// - Returns: The new string
+    func trimming(toLength length: Int) -> String {
+        guard count > length else {
+            return self
+        }
+        let index = self.index(startIndex, offsetBy: length)
+        return String(self[..<index])
+    }
     
     /// Get a string who is word uppercased. Like "apple banana" -> "Apple Banana"
     var wordUppercased: String {
