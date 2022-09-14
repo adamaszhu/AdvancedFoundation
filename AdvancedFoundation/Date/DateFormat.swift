@@ -9,13 +9,14 @@ public protocol DateFormatType {
     var pattern: String { get }
 }
 
-public enum DateFormat: String {
+public enum DateFormat: String, CaseIterable {
     case fullCalendarDate = "dd/MM/yyyy"
     case shortCalendarDate = "dd/MM/yy"
     case reversedDate = "yyyy-MM-dd"
     case fullDate = "dd MMMM yyyy"
     case abbrDate = "dd MMM yyyy"
     case expiryDate = "MM/yy"
+    case fullExpiryDate = "MM/yyyy"
     case formalDate = "MMM dd, yyyy"
     case utc = "yyyy-MM-dd'T'HH:mm:ss"
     case longUTC = "yyyy-MM-dd'T'HH:mm:ss.S"
