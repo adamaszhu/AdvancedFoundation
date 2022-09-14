@@ -94,34 +94,41 @@
     {
       "file": "/Users/adamaszhu/Documents/Project/AdvancedFoundation/AdvancedFoundation/Date/DateFormat.swift",
       "line": 19,
-      "symbol": "DateFormat.formalDate",
+      "symbol": "DateFormat.fullExpiryDate",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/adamaszhu/Documents/Project/AdvancedFoundation/AdvancedFoundation/Date/DateFormat.swift",
       "line": 20,
-      "symbol": "DateFormat.utc",
+      "symbol": "DateFormat.formalDate",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/adamaszhu/Documents/Project/AdvancedFoundation/AdvancedFoundation/Date/DateFormat.swift",
       "line": 21,
-      "symbol": "DateFormat.longUTC",
+      "symbol": "DateFormat.utc",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/adamaszhu/Documents/Project/AdvancedFoundation/AdvancedFoundation/Date/DateFormat.swift",
       "line": 22,
+      "symbol": "DateFormat.longUTC",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/adamaszhu/Documents/Project/AdvancedFoundation/AdvancedFoundation/Date/DateFormat.swift",
+      "line": 23,
       "symbol": "DateFormat.zeroUTC",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/adamaszhu/Documents/Project/AdvancedFoundation/AdvancedFoundation/Date/DateFormat.swift",
-      "line": 25,
+      "line": 26,
       "symbol": "DateFormat",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
