@@ -1,8 +1,8 @@
 /// String+Editable provides additional functions for a string object.
 ///
 /// - author: Adamas
-/// - version: 1.5.0
-/// - date: 23/03/2019
+/// - version: 1.8.5
+/// - date: 15/09/2022
 public extension String {
     
     /// Remove a specific suffix from the string.
@@ -53,6 +53,23 @@ public extension String {
         var string = self
         string.removePrefix(prefix)
         return string
+    }
+
+    /// Remove all spaces in a string
+    /// - Returns: Whether spaces are removed or not
+    @discardableResult
+    mutating func removeSpaces() -> Bool {
+        guard contains(String.space) else {
+            return false
+        }
+        self = replacingOccurrences(of: String.space, with: String.empty)
+        return true
+    }
+
+    /// Remove all spaces in a string and return a new string
+    /// - Returns: The new string
+    func removingSpaces() -> String {
+        replacingOccurrences(of: String.space, with: String.empty)
     }
 
     /// Trim the string to a certain length
