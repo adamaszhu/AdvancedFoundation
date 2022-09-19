@@ -314,6 +314,20 @@
       "symbol": "String.forwardSlash",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
+    },
+    {
+      "file": "/Users/adamaszhu/Documents/Project/AdvancedFoundation/AdvancedFoundation/String/String+Constant.swift",
+      "line": 21,
+      "symbol": "String.colon",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/adamaszhu/Documents/Project/AdvancedFoundation/AdvancedFoundation/String/String+Constant.swift",
+      "line": 22,
+      "symbol": "String.semicolon",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
     }
   ],
   "source_directory": "/Users/adamaszhu/Documents/Project/AdvancedFoundation"
