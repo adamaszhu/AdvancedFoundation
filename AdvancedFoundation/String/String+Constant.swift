@@ -18,4 +18,6 @@ public extension String {
     static let leftSquareBracket = "["
     static let rightSquareBracket = "]"
     static let forwardSlash = "/"
+    static let colon = ":"
+    static let semicolon = ";"
 }
