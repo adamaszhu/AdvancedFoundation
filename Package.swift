@@ -10,8 +10,8 @@ let package = Package(
         .library(name: "AdvancedFoundation", targets: ["AdvancedFoundation"])
     ],
     dependencies: [
-        .package(url: "https://github.com/Quick/Quick", .upToNextMajor(from: "3.0.0")),
-        .package(url: "https://github.com/Quick/Nimble", .upToNextMajor(from: "9.0.0"))
+        .package(url: "https://github.com/Quick/Quick", .upToNextMajor(from: "5.0.0")),
+        .package(url: "https://github.com/Quick/Nimble", .upToNextMajor(from: "10.0.0"))
     ],
     targets: [
         .target(name: "AdvancedFoundation", path: "AdvancedFoundation"),

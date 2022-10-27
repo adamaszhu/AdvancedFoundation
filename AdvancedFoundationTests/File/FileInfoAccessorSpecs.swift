@@ -3,7 +3,7 @@ class FileInfoAccessorSpecs: QuickSpec {
     override func spec() {
         describe("has mimeType") {
             context("as valid file with special file name") {
-                let fileInfoAccessor = FileInfoAccessor(path: "/test/.png")
+                let fileInfoAccessor = FileInfoAccessor(path: "/test/file.png")
                 it("is default type") {
                     expect(fileInfoAccessor.mimeType) == "application/octet-stream"
                 }
