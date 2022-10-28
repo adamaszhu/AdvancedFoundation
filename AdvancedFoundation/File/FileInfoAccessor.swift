@@ -10,7 +10,7 @@ public class FileInfoAccessor {
         guard !fileExtension.isEmpty else {
             return Self.defaultMIMEType
         }
-        if #available(iOS 14.0, macOS 11, *) {
+        if #available(iOS 14.0, *) {
             return UTType(filenameExtension: fileExtension)?.preferredMIMEType ?? Self.defaultMIMEType
         }
         // Decode the name of the MIME type.
