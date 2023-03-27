@@ -7,7 +7,8 @@ public extension URL {
     
     /// URL parameters
     var parameters: [String: String]? {
-        guard let components = URLComponents(url: self, resolvingAgainstBaseURL: true), let queryItems = components.queryItems else {
+        guard let components = URLComponents(url: self, resolvingAgainstBaseURL: true),
+              let queryItems = components.queryItems else {
             return nil
         }
         return queryItems.reduce(into: [String: String]()) { result, item in

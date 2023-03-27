@@ -13,7 +13,8 @@ public class JSONParser {
     /// - Parameter data: The JSON data.
     public init?(data: Data) {
         do {
-            json = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions())
+            json = try JSONSerialization.jsonObject(with: data,
+                                                    options: JSONSerialization.ReadingOptions())
         } catch let error {
             Logger.standard.log(error)
             return nil
@@ -37,7 +38,8 @@ public class JSONParser {
     ///   - path: The json path. Absolute path is equals to where the node is nil.
     ///   - node: Current node.
     /// - Returns: The array element. Nil if it cannot be found.
-    public func array(atPath path: String, fromNode node: Any? = nil) -> [Any]? {
+    public func array(atPath path: String,
+                      fromNode node: Any? = nil) -> [Any]? {
         self.node(atPath: path, fromNode: node) as? [Any]
     }
     
@@ -67,7 +69,8 @@ public class JSONParser {
     ///   - path: The json path. Absolute path is equals to where the node is nil.
     ///   - element: Current element.
     /// - Returns: The dictionary element. Nil if it cannot be found.
-    public func dictionary(atPath path: String, fromNode node: Any? = nil) -> [String: Any]? {
+    public func dictionary(atPath path: String,
+                           fromNode node: Any? = nil) -> [String: Any]? {
         self.node(atPath: path, fromNode: node) as? [String: Any]
     }
     
@@ -110,7 +113,8 @@ public class JSONParser {
         }
         if let pathNodeIndex = pathNode.index {
             // Get real current node from the array node.
-            guard let arrayNode = realNode as? [Any], let arrayElementNode = arrayNode[safe: pathNodeIndex] else {
+            guard let arrayNode = realNode as? [Any],
+                    let arrayElementNode = arrayNode[safe: pathNodeIndex] else {
                 return nil
             }
             realNode = arrayElementNode

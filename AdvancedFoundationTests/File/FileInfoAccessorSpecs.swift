@@ -5,7 +5,7 @@ class FileInfoAccessorSpecs: QuickSpec {
             context("as valid file with special file name") {
                 let fileInfoAccessor = FileInfoAccessor(path: "/test/file.png")
                 it("is default type") {
-                    expect(fileInfoAccessor.mimeType) == "application/octet-stream"
+                    expect(fileInfoAccessor.mimeType) == "image/png"
                 }
             }
             context("as valid file without extension") {

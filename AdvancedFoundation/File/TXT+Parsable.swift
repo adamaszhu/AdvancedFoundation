@@ -9,7 +9,9 @@ public extension TXT {
     ///
     /// - Parameter content: The content containing txt.
     init(content: String) {
-        let lines = content.components(separatedBy: .newlines).filter { !$0.hasPrefix(.comment) }
+        let lines = content
+            .components(separatedBy: .newlines)
+            .filter { !$0.hasPrefix(.comment) }
         self.init(lines: lines)
     }
 }

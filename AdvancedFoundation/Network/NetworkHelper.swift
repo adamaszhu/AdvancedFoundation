@@ -1,8 +1,8 @@
 /// NetowrkHelper is used to perform basic level internet connection.
 ///
 /// - author: Adamas
-/// - version: 1.5.0
-/// - date: 08/05/2019
+/// - version: 1.9.2
+/// - date: 28/03/2023
 public class NetworkHelper: NSObject {
     
     /// The default helper.
@@ -53,7 +53,8 @@ public class NetworkHelper: NSObject {
     /// - Parameter:
     ///   - identifier: The identifier used to identify the URL download session running in the background.
     ///   - cache: The cache to cache all request. Nil means use the default one.
-    public init(identifier: String = String(Date().timeIntervalSince1970), cache: URLCache = URLCache.shared) {
+    public init(identifier: String = String(Date().timeIntervalSince1970),
+                cache: URLCache = URLCache.shared) {
         tasks = []
         self.cache = cache
         super.init()
@@ -74,7 +75,11 @@ public class NetworkHelper: NSObject {
     ///   - type: The type of the request.
     ///   - isUploadTask: Whether the task should be run in the background or not.
     /// - Returns: The identifier of the task.
-    public func postData(toURL urlString: String, with body: Data, as type: NetworkBodyType, with header: NetworkRequestHeader? = nil, asUploadTask isUploadTask: Bool = false) -> String? {
+    public func postData(toURL urlString: String,
+                         with body: Data,
+                         as type: NetworkBodyType,
+                         with header: NetworkRequestHeader? = nil,
+                         asUploadTask isUploadTask: Bool = false) -> String? {
         var header = header ?? NetworkRequestHeader()
         header.contentType = type.rawValue
         header.contentLength = body.count
@@ -94,8 +99,15 @@ public class NetworkHelper: NSObject {
     ///   - formData: The form data to be posted.
     ///   - isUploadTask: Whether the task should be run in the background or not.
     /// - Returns: The identifier of the task.
-    public func postData(toURL urlString: String, with formData: FormData, with header: NetworkRequestHeader? = nil, asUploadTask isUploadTask: Bool = false) -> String? {
-        return postData(toURL: urlString, with: formData.data, as: .formData, with: header, asUploadTask: isUploadTask)
+    public func postData(toURL urlString: String,
+                         with formData: FormData,
+                         with header: NetworkRequestHeader? = nil,
+                         asUploadTask isUploadTask: Bool = false) -> String? {
+        postData(toURL: urlString,
+                 with: formData.data,
+                 as: .formData,
+                 with: header,
+                 asUploadTask: isUploadTask)
     }
     
     
@@ -106,7 +118,9 @@ public class NetworkHelper: NSObject {
     ///   - header: The header of the get.
     ///   - isDownloadTask: Whether current task is a download task or not.
     /// - Returns: The task identifier.
-    public func getData(fromURL urlString: String, with header: NetworkRequestHeader? = nil, asDownloadTask isDownloadTask: Bool = false) -> String? {
+    public func getData(fromURL urlString: String,
+                        with header: NetworkRequestHeader? = nil,
+                        asDownloadTask isDownloadTask: Bool = false) -> String? {
         let header = header ?? NetworkRequestHeader()
         guard let request = request(withURL: urlString, with: header, as: .get) else {
             return nil
@@ -121,7 +135,8 @@ public class NetworkHelper: NSObject {
     ///   - urlString: The address of the destination.
     ///   - header: The header of the delete.
     /// - Returns: The identifier of the new task.
-    public func deleteData(atURL urlString: String, with header: NetworkRequestHeader? = nil) -> String? {
+    public func deleteData(atURL urlString: String,
+                           with header: NetworkRequestHeader? = nil) -> String? {
         let header = header ?? NetworkRequestHeader()
         guard let request = request(withURL: urlString, with: header, as: .delete) else {
             return nil
@@ -196,8 +211,13 @@ public class NetworkHelper: NSObject {
     ///   - message: The error message.
     func dispatchError(for task: NetworkTask, withMessage message: String) {
         let localizedMessage = message.localizedInternalString(forType: Self.self)
-        DispatchQueue.main.async { [unowned self] in
-            self.delegate?.networkHelper(self, withIdentifier: task.identifier, didCatchError: localizedMessage)
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else {
+                return
+            }
+            self.delegate?.networkHelper(self,
+                                         withIdentifier: task.identifier,
+                                         didCatchError: localizedMessage)
         }
     }
     
@@ -208,8 +228,11 @@ public class NetworkHelper: NSObject {
     ///   - type: The method of the request.
     ///   - header: The HTTP header.
     /// - Returns: The request.
-    private func request(withURL urlString: String, with header: NetworkRequestHeader, as type: NetworkRequestType) -> URLRequest? {
-        guard let parsedURLString = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed), let url = URL(string: parsedURLString) else {
+    private func request(withURL urlString: String,
+                         with header: NetworkRequestHeader,
+                         as type: NetworkRequestType) -> URLRequest? {
+        guard let parsedURLString = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
+                let url = URL(string: parsedURLString) else {
             Logger.standard.logError(Self.urlError, withDetail: urlString)
             return nil
         }
@@ -217,7 +240,7 @@ public class NetworkHelper: NSObject {
         var request = URLRequest(url: url)
         if !isNetworkAvailable {
             // Support offline mode.
-            request.cachePolicy = URLRequest.CachePolicy.returnCacheDataElseLoad
+            request.cachePolicy = .returnCacheDataElseLoad
         }
         // Read cache related information and put it into the header
         let cachedResponse = cache.cachedResponse(for: request)
@@ -243,12 +266,18 @@ public class NetworkHelper: NSObject {
         let emptyCache = Data()
         switch type {
         case .download:
-            task = NetworkTask(task: backgroundSession.downloadTask(with: request), identifier: idGenerator.uniqueID, cache: emptyCache)
+            task = NetworkTask(task: backgroundSession.downloadTask(with: request),
+                               identifier: idGenerator.uniqueID,
+                               cache: emptyCache)
         case .data:
-            task = NetworkTask(task: normalSession.dataTask(with: request), identifier: idGenerator.uniqueID, cache: emptyCache)
+            task = NetworkTask(task: normalSession.dataTask(with: request),
+                               identifier: idGenerator.uniqueID,
+                               cache: emptyCache)
         case .upload:
             let data = request.httpBody ?? Data()
-            task = NetworkTask(task: normalSession.uploadTask(with: request, from: data), identifier: idGenerator.uniqueID, cache: emptyCache)
+            task = NetworkTask(task: normalSession.uploadTask(with: request, from: data),
+                               identifier: idGenerator.uniqueID,
+                               cache: emptyCache)
         default:
             Logger.standard.logError(Self.taskTypeError, withDetail: type)
             return nil

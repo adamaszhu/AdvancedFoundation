@@ -15,13 +15,16 @@ extension JSONNode {
             self.init(name: path, index: nil)
             return
         }
-        guard var leftBracketIndex = foundLeftBracketIndex, let rightBracketIndex = foundRightBracketIndex, leftBracketIndex < rightBracketIndex else {
+        guard var leftBracketIndex = foundLeftBracketIndex,
+                let rightBracketIndex = foundRightBracketIndex,
+                leftBracketIndex < rightBracketIndex else {
             Logger.standard.logError(JSONNode.pathFormatError, withDetail: path)
             return nil
         }
         let name = String(path[..<leftBracketIndex])
         leftBracketIndex = path.index(leftBracketIndex, offsetBy: 1)
-        let indexRange = Range<String.Index>(uncheckedBounds: (lower: leftBracketIndex, upper: rightBracketIndex))
+        let indexRange = Range<String.Index>(uncheckedBounds: (lower: leftBracketIndex,
+                                                               upper: rightBracketIndex))
         guard let index = Int(String(path[indexRange])) else {
             Logger.standard.logError(JSONNode.pathFormatError, withDetail: path)
             return nil

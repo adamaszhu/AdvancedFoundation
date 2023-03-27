@@ -8,10 +8,12 @@ public class VersionHelper {
     /// The shared helper that presents current version. It will be nil if the version cannot be retrieved.
     public static let standard: VersionHelper? = {
         let appInfoAccessor = AppInfoAccessor.standard
-        guard let version = appInfoAccessor.version, let bundleName = appInfoAccessor.bundleName else {
+        guard let version = appInfoAccessor.version,
+                let bundleName = appInfoAccessor.bundleName else {
             return nil
         }
-        return VersionHelper(version: version, versionFlag: "\(VersionHelper.versionFlagPrefix)\(bundleName)")
+        return VersionHelper(version: version,
+                             versionFlag: "\(VersionHelper.versionFlagPrefix)\(bundleName)")
     }()
     
     /// Return the grand version number.
@@ -61,7 +63,9 @@ public class VersionHelper {
     ///   - version: The version binded to the helper.
     ///   - versionFlag: The flag used to identify whether the version has been launched before or not.
     ///   - userDefaults: The UserDefaults used to store the flag.
-    public init?(version: String, versionFlag: String, userDefaults: UserDefaults = UserDefaults.standard) {
+    public init?(version: String,
+                 versionFlag: String,
+                 userDefaults: UserDefaults = .standard) {
         guard Self.versionComponents(inVersion: version) != nil else {
             return nil
         }
@@ -93,8 +97,10 @@ public class VersionHelper {
     ///   - firstVersion: The first version.
     ///   - secondVersion: The second version.
     /// - Returns: 1 if the first version is larger. 0 if versions equals to each other. -1 if the first version is smaller. nil if one of the versions is not correct. Nil will be returned if one of the versions is not formatted.
-    private static func compareVersion(_ firstVersion: String, toVersion secondVersion: String) -> Int? {
-        guard var firstVersionComponents = versionComponents(inVersion: firstVersion), var secondVersionComponents = versionComponents(inVersion: secondVersion) else {
+    private static func compareVersion(_ firstVersion: String,
+                                       toVersion secondVersion: String) -> Int? {
+        guard var firstVersionComponents = versionComponents(inVersion: firstVersion),
+                var secondVersionComponents = versionComponents(inVersion: secondVersion) else {
             return nil
         }
         // Make the component amount of two list to be equal.
@@ -128,4 +134,3 @@ private extension VersionHelper {
 }
 
 import Foundation
-

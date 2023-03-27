@@ -24,7 +24,10 @@ public struct NetworkRequestHeader {
     ///   - ifNoneMatch: If the tag doesn't match.
     ///   - contentType: The type of the body.
     ///   - contentLength: The length of the content.
-    public init(ifModifiedSince: String? = nil, ifNoneMatch: String? = nil, contentType: String? = nil, contentLength: Int? = nil) {
+    public init(ifModifiedSince: String? = nil,
+                ifNoneMatch: String? = nil,
+                contentType: String? = nil,
+                contentLength: Int? = nil) {
         self.ifModifiedSince = ifModifiedSince
         self.ifNoneMatch = ifNoneMatch
         self.contentType = contentType

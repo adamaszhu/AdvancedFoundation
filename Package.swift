@@ -6,6 +6,9 @@ import PackageDescription
 let package = Package(
     name: "AdvancedFoundation",
     defaultLocalization: "en",
+    platforms: [
+        .iOS(.v11)
+    ],
     products: [
         .library(name: "AdvancedFoundation", targets: ["AdvancedFoundation"])
     ],

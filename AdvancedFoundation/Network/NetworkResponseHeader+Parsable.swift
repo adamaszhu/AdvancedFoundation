@@ -20,7 +20,10 @@ extension NetworkResponseHeader {
         }
         let lastModified = httpResponse.allHeaderFields[Self.lastModifiedHeader] as? String
         let eTag = httpResponse.allHeaderFields[Self.eTagHeader] as? String
-        self.init(contentType: contentType, contentLength: contentLength, lastModified: lastModified, eTag: eTag)
+        self.init(contentType: contentType,
+                  contentLength: contentLength,
+                  lastModified: lastModified,
+                  eTag: eTag)
     }
 }
 

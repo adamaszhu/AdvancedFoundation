@@ -7,7 +7,8 @@ extension FormDataTextField: FormDataField {
     
     var data: Data {
         var data = Data()
-        guard let fieldPrefix = String(format: Self.fieldPrefixPattern, name, value).data(using: .utf8), let fieldSuffix = Self.fieldSuffix.data(using: .utf8) else {
+        guard let fieldPrefix = String(format: Self.fieldPrefixPattern, name, value).data(using: .utf8),
+                let fieldSuffix = Self.fieldSuffix.data(using: .utf8) else {
             Logger.standard.logInfo(Self.dataFormatError)
             return data
         }

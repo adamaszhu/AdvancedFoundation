@@ -1,11 +1,13 @@
 /// NetworkHelper+SessionTaskDelegate delegates the action for a task.
 ///
 /// - author: Adamas
-/// - version: 1.5.0
-/// - date: 08/05/2019
+/// - version: 1.9.2
+/// - date: 28/03/2023
 extension NetworkHelper: URLSessionTaskDelegate {
     
-    public func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
+    public func urlSession(_ session: URLSession,
+                           task: URLSessionTask,
+                           didCompleteWithError error: Error?) {
         guard let networkTask = self.task(of: task) else {
             task.cancel()
             return
@@ -16,13 +18,18 @@ extension NetworkHelper: URLSessionTaskDelegate {
             dispatchError(for: networkTask, withMessage: Self.internetError)
             return
         }
-        DispatchQueue.main.async { [unowned self] in
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else {
+                return
+            }
             switch networkTask.type {
             case .download:
                 // The url has been returned.
                 break
             case .upload, .data:
-                self.delegate?.networkHelper(self, withIdentifier: networkTask.identifier, didReceive: networkTask.cache)
+                self.delegate?.networkHelper(self,
+                                             withIdentifier: networkTask.identifier,
+                                             didReceive: networkTask.cache)
                 break
             default:
                 // The unsupport task won't be send.

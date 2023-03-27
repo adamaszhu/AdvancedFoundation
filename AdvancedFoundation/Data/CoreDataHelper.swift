@@ -21,9 +21,12 @@ public class CoreDataHelper {
     /// - Parameters:
     ///   - modelName: The name of the model.
     ///   - bundle: The bundle that the model belongs to.
-    public init?(modelName: String, bundle: Bundle = Bundle.main) {
+    ///   - fileManager: The file system that hosts the model.
+    public init?(modelName: String,
+                 bundle: Bundle = .main,
+                 fileManager: FileManager = .default) {
         // The directory used to store the Core Data store file. This code uses a directory in the application's documents Application Support directory.
-        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let urls = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
         guard var url = urls.last else {
             Logger.standard.logError(Self.modelNameError, withDetail: modelName)
             return nil
@@ -31,7 +34,8 @@ public class CoreDataHelper {
         url = url.appendingPathComponent(modelName)
         url = url.appendingPathExtension(Self.sqlFileSuffix)
         // The managed object model for the application. This property is not optional. It is a fatal error for the application not to be able to find and load its model.
-        guard let modelURL = bundle.url(forResource: modelName, withExtension: Self.modelFileSuffix) else {
+        guard let modelURL = bundle.url(forResource: modelName,
+                                        withExtension: Self.modelFileSuffix) else {
             Logger.standard.logError(Self.modelNameError, withDetail: modelName)
             return nil
         }
@@ -42,14 +46,18 @@ public class CoreDataHelper {
         // The persistent store coordinator for the application. This implementation creates and returns a coordinator, having added the store for the application to it. This property is optional since there are legitimate error conditions that could cause the creation of the store to fail. Create the coordinator and store
         let coordinator = NSPersistentStoreCoordinator(managedObjectModel: model)
         // Add automatic version migration.
-        let options = [NSInferMappingModelAutomaticallyOption: true, NSMigratePersistentStoresAutomaticallyOption: true]
+        let options = [NSInferMappingModelAutomaticallyOption: true,
+                 NSMigratePersistentStoresAutomaticallyOption: true]
         do {
-            try coordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: url, options: options)
+            try coordinator.addPersistentStore(ofType: NSSQLiteStoreType,
+                                               configurationName: nil,
+                                               at: url,
+                                               options: options)
         } catch let error {
             Logger.standard.log(error)
             return nil
         }
-        context = .init(concurrencyType: .mainQueueConcurrencyType)
+        context = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
         context.persistentStoreCoordinator = coordinator
     }
     
@@ -58,8 +66,8 @@ public class CoreDataHelper {
     /// - Parameter type: The class of the object that need to be inserted.
     /// - Returns: The object for insertion.
     public func object(of type: AnyClass) -> NSManagedObject {
-        let object = NSEntityDescription.insertNewObject(forEntityName: String(describing: type), into: context)
-        return object
+        NSEntityDescription.insertNewObject(forEntityName: String(describing: type),
+                                            into: context)
     }
     
     /// Get the object list of a specific class type of object.
@@ -69,7 +77,9 @@ public class CoreDataHelper {
     ///   - condition: The condition of the object.
     ///   - arguments: The list to be fit into the condition.
     /// - Returns: A list of object. Nil will be returned if there has been an error.
-    public func objects(of type: AnyClass, withCondition condition: String? = nil, withArguments arguments: [Any]? = nil) -> [NSManagedObject]? {
+    public func objects(of type: AnyClass,
+                        withCondition condition: String? = nil,
+                        withArguments arguments: [Any]? = nil) -> [NSManagedObject]? {
         do {
             let request = NSFetchRequest<NSFetchRequestResult>(entityName: String(describing: type))
             if let condition = condition {
@@ -94,8 +104,12 @@ public class CoreDataHelper {
     ///   - condition: The condition of the object.
     ///   - arguments: The list to be fit into the condition.
     /// - Returns: Whether the object exists or not. Nil will be returned if there has been an error.
-    public func isObjectExisted(of type: AnyClass, withCondition condition: String? = nil, withArguments arguments: [Any]? = nil) -> Bool? {
-        guard let objects = objects(of: type, withCondition: condition, withArguments: arguments) else {
+    public func isObjectExisted(of type: AnyClass,
+                                withCondition condition: String? = nil,
+                                withArguments arguments: [Any]? = nil) -> Bool? {
+        guard let objects = objects(of: type,
+                                    withCondition: condition,
+                                    withArguments: arguments) else {
             return nil
         }
         return objects.count > 0
@@ -175,5 +189,3 @@ private extension CoreDataHelper {
 
 import CoreData
 import Foundation
-
-
