@@ -1,11 +1,13 @@
 /// NetworkHelper+DownloadSessionDelegate delegates the action for a download task.
 ///
 // - author: Adamas
-/// - version: 1.5.0
-/// - date: 07/04/2019
+/// - version: 1.9.2
+/// - date: 28/03/2023
 extension NetworkHelper: URLSessionDownloadDelegate {
     
-    public func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
+    public func urlSession(_ session: URLSession,
+                           downloadTask: URLSessionDownloadTask,
+                           didFinishDownloadingTo location: URL) {
         guard let task = task(of: downloadTask) else {
             downloadTask.cancel()
             return
@@ -17,18 +19,32 @@ extension NetworkHelper: URLSessionDownloadDelegate {
             dispatchError(for: task, withMessage: Self.appError)
             return
         }
-        DispatchQueue.main.async { [unowned self] in
-            self.delegate?.networkHelper(self, withIdentifier: task.identifier, didDownloadToURL: destinationPath)
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else {
+                return
+            }
+            self.delegate?.networkHelper(self,
+                                         withIdentifier: task.identifier,
+                                         didDownloadToURL: destinationPath)
         }
     }
     
-    public func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
+    public func urlSession(_ session: URLSession,
+                           downloadTask: URLSessionDownloadTask,
+                           didWriteData bytesWritten: Int64,
+                           totalBytesWritten: Int64,
+                           totalBytesExpectedToWrite: Int64) {
         guard let task = task(of: downloadTask) else {
             downloadTask.cancel()
             return
         }
-        DispatchQueue.main.async { [unowned self] in
-            self.delegate?.networkHelper(self, withIdentifier: task.identifier, didDownloadPercentage: Double(totalBytesWritten) / Double(totalBytesExpectedToWrite))
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else {
+                return
+            }
+            self.delegate?.networkHelper(self,
+                                         withIdentifier: task.identifier,
+                                         didDownloadPercentage: Double(totalBytesWritten) / Double(totalBytesExpectedToWrite))
         }
     }
 }

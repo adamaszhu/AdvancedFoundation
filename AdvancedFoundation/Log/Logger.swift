@@ -2,7 +2,7 @@
 /// - author: Adamas
 /// - version: 1.5.0
 /// - date: 23/03/2019
-public class Logger {
+open class Logger {
     
     /// The default logger.
     public static let standard = Logger()
@@ -12,7 +12,7 @@ public class Logger {
     /// - Parameters:
     ///   - info: The info.
     ///   - detail: The detail of the info.
-    public func logInfo(_ info: String, withDetail detail: Any? = nil) {
+    open func logInfo(_ info: String, withDetail detail: Any? = nil) {
         logMessage(info, withTag: Self.infoTag, withDetail: detail)
     }
     
@@ -21,7 +21,7 @@ public class Logger {
     /// - Parameters:
     ///   - warning: The warning.
     ///   - detail: The detail of the warning.
-    public func logWarning(_ warning: String, withDetail detail: Any? = nil) {
+    open func logWarning(_ warning: String, withDetail detail: Any? = nil) {
         logMessage(warning, withTag: Self.warningTag, withDetail: detail)
     }
     
@@ -30,14 +30,14 @@ public class Logger {
     /// - Parameters:
     ///   - error: The error.
     ///   - detail: The detail of the error.
-    public func logError(_ error: String, withDetail detail: Any? = nil) {
+    open func logError(_ error: String, withDetail detail: Any? = nil) {
         logMessage(error, withTag: Self.errorTag, withDetail: detail)
     }
     
     /// Log an error.
     ///
     /// - Parameter error: The error.
-    public func log(_ error: Error) {
+    open func log(_ error: Error) {
         logMessage(error.localizedDescription, withTag: Self.errorTag)
     }
     

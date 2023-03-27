@@ -39,7 +39,8 @@ public extension Date {
     ///   - precision: How many units should be included.
     ///   - shouldUseAbbreviation: Whether the time description should be abbreviation or not.
     /// - Returns: The time offset string.
-    func timeOffsetString(withPrecision precision: Int = Int.max, withAbbreviation shouldUseAbbreviation: Bool = false) -> String {
+    func timeOffsetString(withPrecision precision: Int = Int.max,
+                          withAbbreviation shouldUseAbbreviation: Bool = false) -> String {
         guard precision > 0 else {
             Logger.standard.logError(Self.precisionError)
             return .empty

@@ -16,6 +16,15 @@ public class AppInfoAccessor {
         }
         return name
     }
+
+    /// The identifier of current bundle. It will be nil if the bundle identifier cannot be retrieved.
+    public var bundleIdentifier: String? {
+        guard let identifier = bundle.bundleIdentifier else {
+            Logger.standard.logError(Self.bundleIdentifierError)
+            return nil
+        }
+        return identifier
+    }
     
     /// The name being displayed in the device. It will be nil if the display name cannot be retireved.
     public var displayName: String? {
@@ -73,7 +82,7 @@ public class AppInfoAccessor {
     /// The initializer.
     ///
     /// - Parameter bundle: The bundle of the app.
-    public init(bundle: Bundle = Bundle.main) {
+    public init(bundle: Bundle = .main) {
         self.bundle = bundle
     }
 }
@@ -88,6 +97,7 @@ private extension AppInfoAccessor {
     
     /// System errors.
     static let bundleNameError = "The bundle name cannot be retrieved."
+    static let bundleIdentifierError = "The bundle identifier cannot be retrieved."
     static let displayNameError = "The display name cannot be retrieved."
     static let currentVersionError = "The version cannot be retrieved."
     static let buildNumberError = "The build number cannot be retrieved."

@@ -11,7 +11,8 @@ public extension Int {
     ///   - precision: How many units should be included.
     ///   - shouldUseAbbreviation: Whether the time description should be abbreviation or not.
     /// - Returns: The time span string.
-    func timeString(withPrecision precision: Int = Self.max, withAbbreviation shouldUseAbbreviation: Bool = false) -> String {
+    func timeString(withPrecision precision: Int = Self.max,
+                    withAbbreviation shouldUseAbbreviation: Bool = false) -> String {
         guard precision > 0 else {
             Logger.standard.logError(Self.precisionError)
             return .empty
@@ -35,16 +36,37 @@ public extension Int {
         let minute = timeSpan / Self.minuteLength
         let second = timeSpan - minute * Self.minuteLength
         let abbrTag = shouldUseAbbreviation ? Self.abbrTag : .empty
-        let yearTag = Self.tag(forUnit: year, withSingleTag: Self.yearTag, withDoubleTag: Self.yearsTag, withAbbreviationTag: abbrTag)
-        let monthTag = Self.tag(forUnit: month, withSingleTag: Self.monthTag, withDoubleTag: Self.monthsTag, withAbbreviationTag: abbrTag)
-        let dayTag = Self.tag(forUnit: day, withSingleTag: Self.dayTag, withDoubleTag: Self.daysTag, withAbbreviationTag: abbrTag)
-        let hourTag = Self.tag(forUnit: hour, withSingleTag: Self.hourTag, withDoubleTag: Self.hoursTag, withAbbreviationTag: abbrTag)
-        let minuteTag = Self.tag(forUnit: minute, withSingleTag: Self.minuteTag, withDoubleTag: Self.minutesTag, withAbbreviationTag: abbrTag)
-        let secondTag = Self.tag(forUnit: second, withSingleTag: Self.secondTag, withDoubleTag: Self.secondsTag, withAbbreviationTag: abbrTag)
-        let tags = [yearTag, monthTag, dayTag, hourTag, minuteTag, secondTag].filter { !$0.isEmpty }
+        let yearTag = Self.tag(forUnit: year,
+                               withSingleTag: Self.yearTag,
+                               withDoubleTag: Self.yearsTag,
+                               withAbbreviationTag: abbrTag)
+        let monthTag = Self.tag(forUnit: month,
+                                withSingleTag: Self.monthTag,
+                                withDoubleTag: Self.monthsTag,
+                                withAbbreviationTag: abbrTag)
+        let dayTag = Self.tag(forUnit: day,
+                              withSingleTag: Self.dayTag,
+                              withDoubleTag: Self.daysTag,
+                              withAbbreviationTag: abbrTag)
+        let hourTag = Self.tag(forUnit: hour,
+                               withSingleTag: Self.hourTag,
+                               withDoubleTag: Self.hoursTag,
+                               withAbbreviationTag: abbrTag)
+        let minuteTag = Self.tag(forUnit: minute,
+                                 withSingleTag: Self.minuteTag,
+                                 withDoubleTag: Self.minutesTag,
+                                 withAbbreviationTag: abbrTag)
+        let secondTag = Self.tag(forUnit: second,
+                                 withSingleTag: Self.secondTag,
+                                 withDoubleTag: Self.secondsTag,
+                                 withAbbreviationTag: abbrTag)
+        let tags = [yearTag, monthTag, dayTag, hourTag, minuteTag, secondTag]
+            .filter { !$0.isEmpty }
         // At least should leave one tag
         let dropAmount = tags.count > precision ? tags.count - precision : 0
-        let timeString = tags.dropLast(dropAmount).reduce(String.empty) { $0 + $1 }
+        let timeString = tags
+            .dropLast(dropAmount)
+            .reduce(String.empty) { $0 + $1 }
         return timeString.trimmingCharacters(in: CharacterSet(charactersIn: .space))
     }
     
@@ -56,7 +78,10 @@ public extension Int {
     ///   - doubleTag: The double tag attached if the unit is more than 1.
     ///   - abbreviationTag: Whether the tag should use abbreviation or not.
     /// - Returns: The unit tag.
-    private static func tag(forUnit unit: Int, withSingleTag singleTag: String, withDoubleTag doubleTag: String, withAbbreviationTag abbreviationTag: String) -> String {
+    private static func tag(forUnit unit: Int,
+                            withSingleTag singleTag: String,
+                            withDoubleTag doubleTag: String,
+                            withAbbreviationTag abbreviationTag: String) -> String {
         guard unit != 0 else {
             return .empty
         }

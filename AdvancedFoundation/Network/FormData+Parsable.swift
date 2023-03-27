@@ -8,7 +8,8 @@ extension FormData {
     /// Convert the form data to a data object.
     var data: Data {
         var data = Data()
-        guard let startSeperator = Self.startSeperator.data(using: .utf8), let endSeperator = Self.endSeperator.data(using: .utf8) else {
+        guard let startSeperator = Self.startSeperator.data(using: .utf8),
+                let endSeperator = Self.endSeperator.data(using: .utf8) else {
             Logger.standard.logError(Self.dataFormatError)
             return data
         }

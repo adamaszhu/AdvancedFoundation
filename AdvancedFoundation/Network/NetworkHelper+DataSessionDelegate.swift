@@ -1,8 +1,8 @@
 /// NetworkHelper+DataSessionDelegate delegates the action for a data task.
 ///
 /// - author: Adamas
-/// - version: 1.5.0
-/// - date: 07/04/2019
+/// - version: 1.9.2
+/// - date: 28/03/2023
 extension NetworkHelper: URLSessionDataDelegate {
     
     public func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
@@ -13,7 +13,10 @@ extension NetworkHelper: URLSessionDataDelegate {
         append(data, toCacheOf: task)
     }
     
-    public func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive response: URLResponse, completionHandler: @escaping (URLSession.ResponseDisposition) -> Void) {
+    public func urlSession(_ session: URLSession,
+                           dataTask: URLSessionDataTask,
+                           didReceive response: URLResponse,
+                           completionHandler: @escaping (URLSession.ResponseDisposition) -> Void) {
         guard let task = task(of: dataTask) else {
             dataTask.cancel()
             return
@@ -36,8 +39,14 @@ extension NetworkHelper: URLSessionDataDelegate {
             dispatchError(for: task, withMessage: Self.serverError)
             return 
         }
-        DispatchQueue.main.async { [unowned self] in
-            self.delegate?.networkHelper(self, withIdentifier: task.identifier, didReceive: header, withStatusCode: httpResponse.statusCode)
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else {
+                return
+            }
+            self.delegate?.networkHelper(self,
+                                         withIdentifier: task.identifier,
+                                         didReceive: header,
+                                         withStatusCode: httpResponse.statusCode)
         }
         let shouldContinue = delegate?.networkHelperShouldReceiveData(self, withIdentifier: task.identifier)
         if shouldContinue == false {

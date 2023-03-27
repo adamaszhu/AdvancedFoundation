@@ -14,7 +14,11 @@ public class FileInfoAccessor {
             return UTType(filenameExtension: fileExtension)?.preferredMIMEType ?? Self.defaultMIMEType
         }
         // Decode the name of the MIME type.
-        guard let uti = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, fileExtension as CFString, nil), let tag = UTTypeCopyPreferredTagWithClass(uti.takeRetainedValue(), kUTTagClassMIMEType) else {
+        guard let uti = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension,
+                                                              fileExtension as CFString,
+                                                              nil),
+                let tag = UTTypeCopyPreferredTagWithClass(uti.takeRetainedValue(),
+                                                          kUTTagClassMIMEType) else {
             return Self.defaultMIMEType
         }
         return tag.takeRetainedValue() as String
@@ -26,13 +30,14 @@ public class FileInfoAccessor {
         guard !fileExtension.isEmpty else {
             return lastPathComponent
         }
-        let fileExtensionIndex = lastPathComponent.index(lastPathComponent.endIndex, offsetBy: -fileExtension.count - 1)
+        let fileExtensionIndex = lastPathComponent.index(lastPathComponent.endIndex,
+                                                         offsetBy: -fileExtension.count - 1)
         return String(lastPathComponent[..<fileExtensionIndex])
     }
     
     /// Get the file extension.
     public var fileExtension: String {
-        return url.pathExtension
+        url.pathExtension
     }
     
     /// The url object of the file.

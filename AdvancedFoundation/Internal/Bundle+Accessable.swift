@@ -1,13 +1,9 @@
 /// Bundle+Accessable retrieves the current bundle
 ///
 /// - author: Adamas
-/// - version: 1.9.1
-/// - date: 06/05/2022
+/// - version: 1.9.2
+/// - date: 27/03/2023
 extension Bundle {
-
-    /// Constants
-    private static let bundleName = "AdvancedFoundation_AdvancedFoundation"
-    private static let bundleSuffix = ".bundle"
 
     /// Returns the resource bundle associated with the current Swift module.
     static var current: Bundle = {
@@ -25,12 +21,18 @@ extension Bundle {
 
         for candidate in candidates {
             let bundlePath = candidate?.appendingPathComponent(bundleName + bundleSuffix)
-            if let bundle = bundlePath.flatMap(Bundle.init(url:)) {
+            if let bundle = bundlePath.flatMap(Bundle.init) {
                 return bundle
             }
         }
         return Bundle(for: BundleFinder.self)
     }()
+}
+
+/// Constants
+private extension Bundle {
+    static var bundleName: String { "AdvancedFoundation_AdvancedFoundation" }
+    static var bundleSuffix: String { ".bundle" }
 }
 
 /// Class used to find the bundle
