@@ -22,7 +22,9 @@ public extension String {
     /// - Returns: The localized string.
     func localizedString(for anyClass: AnyClass) -> String {
         let bundle = Bundle(for: anyClass)
-        return NSLocalizedString(self, tableName: String(describing: anyClass), bundle: bundle, comment: .empty)
+        return NSLocalizedString(self, tableName: String(describing: anyClass),
+                                 bundle: bundle,
+                                 comment: .empty)
     }
     
     /// Localize a string using the localization file as the class name within current framework.
@@ -30,7 +32,9 @@ public extension String {
     /// - Parameter type: Any structure or class used to find the localization file.
     /// - Returns: The localized string.
     internal func localizedInternalString(forType type: Any) -> String {
-        return NSLocalizedString(self, tableName: String(describing: type), bundle: .current, comment: .empty)
+        NSLocalizedString(self, tableName: String(describing: type),
+                                 bundle: .current,
+                                 comment: .empty)
     }
 }
 

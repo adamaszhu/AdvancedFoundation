@@ -30,7 +30,9 @@ open class PathHelper: FileManager {
     public init(path: String) {
         let formalizedPath = path.removingSuffix(.forwardSlash)
         let homeDirectory = NSHomeDirectory()
-        self.path = formalizedPath.hasPrefix(.forwardSlash) ? formalizedPath : homeDirectory + .forwardSlash + formalizedPath
+        self.path = formalizedPath.hasPrefix(.forwardSlash)
+        ? formalizedPath
+        : homeDirectory + .forwardSlash + formalizedPath
         super.init()
     }
     
@@ -91,4 +93,3 @@ open class PathHelper: FileManager {
 }
 
 import Foundation
-

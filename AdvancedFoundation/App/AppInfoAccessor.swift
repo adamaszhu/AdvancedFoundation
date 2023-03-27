@@ -82,7 +82,7 @@ public class AppInfoAccessor {
     /// The initializer.
     ///
     /// - Parameter bundle: The bundle of the app.
-    public init(bundle: Bundle = Bundle.main) {
+    public init(bundle: Bundle = .main) {
         self.bundle = bundle
     }
 }
