@@ -34,7 +34,7 @@ public class NetworkHelper: NSObject {
     }
     
     /// The delegate of the Self.
-    public var delegate: NetworkHelperDelegate?
+    public weak var delegate: NetworkHelperDelegate?
     
     /// The session connecting to the network. Declare as internal is for DI.
     var normalSession: URLSession!
