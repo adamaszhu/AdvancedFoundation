@@ -3,7 +3,7 @@
 /// - author: Adamas
 /// - version: 1.5.0
 /// - date: 02/04/2019
-public protocol NetworkHelperDelegate {
+public protocol NetworkHelperDelegate: AnyObject {
     
     /// Error catched during the operation.
     ///
