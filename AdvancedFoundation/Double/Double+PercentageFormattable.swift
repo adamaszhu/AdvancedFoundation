@@ -16,7 +16,7 @@ public extension Double {
 
     /// Print the number as a percentage. For example, 12.3%.
     /// - Parameters:
-    ///   - precision: The precision spedified. If it is nil, the original value will be returned.
+    ///   - precision: The precision spedified. If it is nil, the precision will be default to 2 digits.
     ///   - numberFormatter: The number formatter used.
     /// - Returns: The formatted string.
     func percentageString(withPrecision precision: Int? = nil,

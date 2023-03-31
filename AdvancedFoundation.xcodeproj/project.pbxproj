@@ -47,6 +47,8 @@
 		285475321ED3AC0300821F83 /* NetworkTaskSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285475311ED3AC0300821F83 /* NetworkTaskSpecs.swift */; };
 		285475341ED3B02300821F83 /* NetworkResponseHeaderSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285475331ED3B02300821F83 /* NetworkResponseHeaderSpecs.swift */; };
 		285475361ED3B16C00821F83 /* NetworkRequestHeaderSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285475351ED3B16C00821F83 /* NetworkRequestHeaderSpecs.swift */; };
+		28586A2A29D7019A00611F18 /* Percentage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28586A2929D7019900611F18 /* Percentage.swift */; };
+		28586A2E29D706D200611F18 /* PercentageSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28586A2D29D706D200611F18 /* PercentageSpecs.swift */; };
 		286247231EB994DF007D531D /* NSManagedObject+Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286247221EB994DF007D531D /* NSManagedObject+Test.swift */; };
 		286353E81ED5096E000B7A7F /* IDGeneratorMocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286353E71ED5096E000B7A7F /* IDGeneratorMocker.swift */; };
 		286353EA1ED52B55000B7A7F /* URLSessionDownloadTaskMocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286353E91ED52B55000B7A7F /* URLSessionDownloadTaskMocker.swift */; };
@@ -221,6 +223,8 @@
 		285475311ED3AC0300821F83 /* NetworkTaskSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTaskSpecs.swift; sourceTree = "<group>"; };
 		285475331ED3B02300821F83 /* NetworkResponseHeaderSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkResponseHeaderSpecs.swift; sourceTree = "<group>"; };
 		285475351ED3B16C00821F83 /* NetworkRequestHeaderSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRequestHeaderSpecs.swift; sourceTree = "<group>"; };
+		28586A2929D7019900611F18 /* Percentage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Percentage.swift; sourceTree = "<group>"; };
+		28586A2D29D706D200611F18 /* PercentageSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PercentageSpecs.swift; sourceTree = "<group>"; };
 		286247221EB994DF007D531D /* NSManagedObject+Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+Test.swift"; sourceTree = "<group>"; };
 		286353E71ED5096E000B7A7F /* IDGeneratorMocker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDGeneratorMocker.swift; sourceTree = "<group>"; };
 		286353E91ED52B55000B7A7F /* URLSessionDownloadTaskMocker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionDownloadTaskMocker.swift; sourceTree = "<group>"; };
@@ -419,6 +423,7 @@
 		2848AAED1E9D9E4C004C6A66 /* AdvancedFoundation */ = {
 			isa = PBXGroup;
 			children = (
+				28586A2B29D7065600611F18 /* Number */,
 				287A1AA4287535A900CF77E7 /* Codable */,
 				28F6AB362825600E00B4C5EE /* Internal */,
 				2898737928210B360055E9E0 /* Counter */,
@@ -450,6 +455,7 @@
 				42DAF4E31EA3A08E00DE6B70 /* File */,
 				4289A3A122503B9E004579EE /* Int */,
 				28E703BA1EBAE4F9002BEDFC /* Network */,
+				28586A2C29D7066A00611F18 /* Number */,
 				42D342741EB4D54600064B1C /* Parser */,
 				42DAF4DB1EA3847A00DE6B70 /* Resource */,
 				42622E971EA1E50200E5D5E7 /* String */,
@@ -465,6 +471,22 @@
 				2848AB091E9DA039004C6A66 /* Logger.swift */,
 			);
 			path = Log;
+			sourceTree = "<group>";
+		};
+		28586A2B29D7065600611F18 /* Number */ = {
+			isa = PBXGroup;
+			children = (
+				28586A2929D7019900611F18 /* Percentage.swift */,
+			);
+			path = Number;
+			sourceTree = "<group>";
+		};
+		28586A2C29D7066A00611F18 /* Number */ = {
+			isa = PBXGroup;
+			children = (
+				28586A2D29D706D200611F18 /* PercentageSpecs.swift */,
+			);
+			path = Number;
 			sourceTree = "<group>";
 		};
 		287A1AA4287535A900CF77E7 /* Codable */ = {
@@ -1007,6 +1029,7 @@
 				284EEFD61EBFFEE30022EB6B /* FormDataField.swift in Sources */,
 				284EEFDE1EC001CF0022EB6B /* FormDataFileField+Field.swift in Sources */,
 				284EEFE01EC029050022EB6B /* FormDataFileField.swift in Sources */,
+				28586A2A29D7019A00611F18 /* Percentage.swift in Sources */,
 				284EEFDC1EC001C30022EB6B /* FormDataTextField+Field.swift in Sources */,
 				284EEFDA1EC001A50022EB6B /* FormDataTextField.swift in Sources */,
 				42C13A6D1EBCC345000D2E50 /* IDGenerator.swift in Sources */,
@@ -1100,6 +1123,7 @@
 				285475341ED3B02300821F83 /* NetworkResponseHeaderSpecs.swift in Sources */,
 				284EF0081EC28F440022EB6B /* NetworkTask+EquatableSpecs.swift in Sources */,
 				285475321ED3AC0300821F83 /* NetworkTaskSpecs.swift in Sources */,
+				28586A2E29D706D200611F18 /* PercentageSpecs.swift in Sources */,
 				286247231EB994DF007D531D /* NSManagedObject+Test.swift in Sources */,
 				35EF429B2300E96C00EB9182 /* OptionalJSON.swift in Sources */,
 				42F1B2A11ED1631E00788234 /* PathHelperSpecs.swift in Sources */,
