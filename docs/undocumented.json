@@ -232,6 +232,41 @@
       "warning": "undocumented"
     },
     {
+      "file": "/Users/adamaszhu/Documents/Project/AdvancedFoundation/AdvancedFoundation/Number/Percentage.swift",
+      "line": 15,
+      "symbol": "Percentage.wrappedValue",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/adamaszhu/Documents/Project/AdvancedFoundation/AdvancedFoundation/Number/Percentage.swift",
+      "line": 31,
+      "symbol": "Percentage.projectedValue",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/adamaszhu/Documents/Project/AdvancedFoundation/AdvancedFoundation/String/PhraseUppercased.swift",
+      "line": 9,
+      "symbol": "PhraseUppercased.init(wrappedValue:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/adamaszhu/Documents/Project/AdvancedFoundation/AdvancedFoundation/String/PhraseUppercased.swift",
+      "line": 13,
+      "symbol": "PhraseUppercased.wrappedValue",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/adamaszhu/Documents/Project/AdvancedFoundation/AdvancedFoundation/String/PhraseUppercased.swift",
+      "line": 15,
+      "symbol": "PhraseUppercased.projectedValue",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/adamaszhu/Documents/Project/AdvancedFoundation/AdvancedFoundation/String/String+Constant.swift",
       "line": 9,
       "symbol": "String.space",
