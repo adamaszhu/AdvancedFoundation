@@ -47,6 +47,10 @@
 		285475321ED3AC0300821F83 /* NetworkTaskSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285475311ED3AC0300821F83 /* NetworkTaskSpecs.swift */; };
 		285475341ED3B02300821F83 /* NetworkResponseHeaderSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285475331ED3B02300821F83 /* NetworkResponseHeaderSpecs.swift */; };
 		285475361ED3B16C00821F83 /* NetworkRequestHeaderSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285475351ED3B16C00821F83 /* NetworkRequestHeaderSpecs.swift */; };
+		28586A2A29D7019A00611F18 /* Percentage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28586A2929D7019900611F18 /* Percentage.swift */; };
+		28586A2E29D706D200611F18 /* PercentageSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28586A2D29D706D200611F18 /* PercentageSpecs.swift */; };
+		28586A3029D995BE00611F18 /* PhraseUppercased.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28586A2F29D995BE00611F18 /* PhraseUppercased.swift */; };
+		28586A3229D9961900611F18 /* PhraseUppercasedSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28586A3129D9961900611F18 /* PhraseUppercasedSpecs.swift */; };
 		286247231EB994DF007D531D /* NSManagedObject+Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286247221EB994DF007D531D /* NSManagedObject+Test.swift */; };
 		286353E81ED5096E000B7A7F /* IDGeneratorMocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286353E71ED5096E000B7A7F /* IDGeneratorMocker.swift */; };
 		286353EA1ED52B55000B7A7F /* URLSessionDownloadTaskMocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286353E91ED52B55000B7A7F /* URLSessionDownloadTaskMocker.swift */; };
@@ -221,6 +225,10 @@
 		285475311ED3AC0300821F83 /* NetworkTaskSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTaskSpecs.swift; sourceTree = "<group>"; };
 		285475331ED3B02300821F83 /* NetworkResponseHeaderSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkResponseHeaderSpecs.swift; sourceTree = "<group>"; };
 		285475351ED3B16C00821F83 /* NetworkRequestHeaderSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRequestHeaderSpecs.swift; sourceTree = "<group>"; };
+		28586A2929D7019900611F18 /* Percentage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Percentage.swift; sourceTree = "<group>"; };
+		28586A2D29D706D200611F18 /* PercentageSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PercentageSpecs.swift; sourceTree = "<group>"; };
+		28586A2F29D995BE00611F18 /* PhraseUppercased.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseUppercased.swift; sourceTree = "<group>"; };
+		28586A3129D9961900611F18 /* PhraseUppercasedSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseUppercasedSpecs.swift; sourceTree = "<group>"; };
 		286247221EB994DF007D531D /* NSManagedObject+Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+Test.swift"; sourceTree = "<group>"; };
 		286353E71ED5096E000B7A7F /* IDGeneratorMocker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDGeneratorMocker.swift; sourceTree = "<group>"; };
 		286353E91ED52B55000B7A7F /* URLSessionDownloadTaskMocker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionDownloadTaskMocker.swift; sourceTree = "<group>"; };
@@ -419,6 +427,7 @@
 		2848AAED1E9D9E4C004C6A66 /* AdvancedFoundation */ = {
 			isa = PBXGroup;
 			children = (
+				28586A2B29D7065600611F18 /* Number */,
 				287A1AA4287535A900CF77E7 /* Codable */,
 				28F6AB362825600E00B4C5EE /* Internal */,
 				2898737928210B360055E9E0 /* Counter */,
@@ -450,6 +459,7 @@
 				42DAF4E31EA3A08E00DE6B70 /* File */,
 				4289A3A122503B9E004579EE /* Int */,
 				28E703BA1EBAE4F9002BEDFC /* Network */,
+				28586A2C29D7066A00611F18 /* Number */,
 				42D342741EB4D54600064B1C /* Parser */,
 				42DAF4DB1EA3847A00DE6B70 /* Resource */,
 				42622E971EA1E50200E5D5E7 /* String */,
@@ -465,6 +475,22 @@
 				2848AB091E9DA039004C6A66 /* Logger.swift */,
 			);
 			path = Log;
+			sourceTree = "<group>";
+		};
+		28586A2B29D7065600611F18 /* Number */ = {
+			isa = PBXGroup;
+			children = (
+				28586A2929D7019900611F18 /* Percentage.swift */,
+			);
+			path = Number;
+			sourceTree = "<group>";
+		};
+		28586A2C29D7066A00611F18 /* Number */ = {
+			isa = PBXGroup;
+			children = (
+				28586A2D29D706D200611F18 /* PercentageSpecs.swift */,
+			);
+			path = Number;
 			sourceTree = "<group>";
 		};
 		287A1AA4287535A900CF77E7 /* Codable */ = {
@@ -679,6 +705,7 @@
 				42622E8C1EA1D59A00E5D5E7 /* String+Localizable.swift */,
 				35808B18229222AF0052FFA4 /* String+Matchable.swift */,
 				2867BA27281BAB0200495D42 /* String+Codable.swift */,
+				28586A2F29D995BE00611F18 /* PhraseUppercased.swift */,
 			);
 			path = String;
 			sourceTree = "<group>";
@@ -691,6 +718,7 @@
 				42622E981EA1E51100E5D5E7 /* String+LocalizableSpecs.swift */,
 				35808B1B229228A60052FFA4 /* String+MatchableSpecs.swift */,
 				42622E9C1EA1ECB200E5D5E7 /* StringLocalizableSpecs.strings */,
+				28586A3129D9961900611F18 /* PhraseUppercasedSpecs.swift */,
 			);
 			path = String;
 			sourceTree = "<group>";
@@ -1007,6 +1035,7 @@
 				284EEFD61EBFFEE30022EB6B /* FormDataField.swift in Sources */,
 				284EEFDE1EC001CF0022EB6B /* FormDataFileField+Field.swift in Sources */,
 				284EEFE01EC029050022EB6B /* FormDataFileField.swift in Sources */,
+				28586A2A29D7019A00611F18 /* Percentage.swift in Sources */,
 				284EEFDC1EC001C30022EB6B /* FormDataTextField+Field.swift in Sources */,
 				284EEFDA1EC001A50022EB6B /* FormDataTextField.swift in Sources */,
 				42C13A6D1EBCC345000D2E50 /* IDGenerator.swift in Sources */,
@@ -1015,6 +1044,7 @@
 				42D342711EB4CFB800064B1C /* JSONNode.swift in Sources */,
 				42D3426D1EB4AFB700064B1C /* JSONParser.swift in Sources */,
 				42D3427A1EB54E7E00064B1C /* JSONPath+Parsable.swift in Sources */,
+				28586A3029D995BE00611F18 /* PhraseUppercased.swift in Sources */,
 				42D3426F1EB4CFAD00064B1C /* JSONPath.swift in Sources */,
 				35094C2822FBBAC80071D0D1 /* KeyedDecodingContainer+Decodable.swift in Sources */,
 				35094C6522FCF9A30071D0D1 /* KeyedEncodingContainer+Encodable.swift in Sources */,
@@ -1074,6 +1104,7 @@
 				35094C3722FBC85E0071D0D1 /* Exception+Inspectable.swift in Sources */,
 				425DCD181EB43DE700A0ED26 /* FileHelperSpecs.swift in Sources */,
 				429202711EC7358200C4E909 /* FileInfoAccessorSpecs.swift in Sources */,
+				28586A3229D9961900611F18 /* PhraseUppercasedSpecs.swift in Sources */,
 				284EEFE41EC04D640022EB6B /* FormData+ParsableSpecs.swift in Sources */,
 				284EEFE81EC137500022EB6B /* FormDataFileField+ParsableSpecs.swift in Sources */,
 				2854752E1ED3A6D000821F83 /* FormDataFileFieldSpecs.swift in Sources */,
@@ -1100,6 +1131,7 @@
 				285475341ED3B02300821F83 /* NetworkResponseHeaderSpecs.swift in Sources */,
 				284EF0081EC28F440022EB6B /* NetworkTask+EquatableSpecs.swift in Sources */,
 				285475321ED3AC0300821F83 /* NetworkTaskSpecs.swift in Sources */,
+				28586A2E29D706D200611F18 /* PercentageSpecs.swift in Sources */,
 				286247231EB994DF007D531D /* NSManagedObject+Test.swift in Sources */,
 				35EF429B2300E96C00EB9182 /* OptionalJSON.swift in Sources */,
 				42F1B2A11ED1631E00788234 /* PathHelperSpecs.swift in Sources */,

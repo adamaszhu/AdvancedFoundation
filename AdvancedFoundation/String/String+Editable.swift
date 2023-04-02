@@ -84,6 +84,7 @@ public extension String {
     }
     
     /// Get a string who is word uppercased. Like "apple banana" -> "Apple Banana"
+    @available(*, deprecated, message: "Use capitalized instead.")
     var wordUppercased: String {
         var words = lowercased().components(separatedBy: .whitespacesAndNewlines)
         words = words.map { word in
