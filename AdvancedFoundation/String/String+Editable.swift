@@ -1,8 +1,8 @@
 /// String+Editable provides additional functions for a string object.
 ///
 /// - author: Adamas
-/// - version: 1.8.5
-/// - date: 15/09/2022
+/// - version: 1.9.5
+/// - date: 11/05/2023
 public extension String {
     
     /// Remove a specific suffix from the string.
@@ -71,6 +71,12 @@ public extension String {
     func removingSpaces() -> String {
         replacingOccurrences(of: String.space, with: String.empty)
     }
+    
+    /// Combine all sequencial spaces into one. Like "This     is      a test." -> "This is a test"
+    /// - Returns: A new string with no sequencial spaces
+    func combineSpaces() -> String {
+        replacingOccurrences(of: Self.sequencialSpacesRegex, with: String.space, options: .regularExpression)
+    }
 
     /// Trim the string to a certain length
     /// - Parameter length: The new length
@@ -108,6 +114,13 @@ public extension String {
         let firstCharacter = String(string.removeFirst())
         return firstCharacter.uppercased() + string
     }
+}
+
+/// Constants
+private extension String {
+
+    /// Regex for two or more sequencial spaces
+    static let sequencialSpacesRegex = "\\s{2,}"
 }
 
 import Foundation
