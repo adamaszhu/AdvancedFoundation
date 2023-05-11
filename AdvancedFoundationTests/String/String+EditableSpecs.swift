@@ -98,6 +98,29 @@ class StringEditableSpecs: QuickSpec {
                 }
             }
         }
+        describe("calls combineSpaces()") {
+            context("with sequencial spaces in the string") {
+                it("combines sequencial spaces") {
+                    string = "This   is a    test."
+                    let newString = string.combineSpaces()
+                    expect(newString) == "This is a test."
+                }
+            }
+            context("with single spaces in the string") {
+                it("returns the string") {
+                    string = "This is a test."
+                    let newString = string.combineSpaces()
+                    expect(newString) == "This is a test."
+                }
+            }
+            context("with no space in the string") {
+                it("returns the string") {
+                    string = "test"
+                    let newString = string.combineSpaces()
+                    expect(newString) == "test"
+                }
+            }
+        }
         describe("has phraseUppercased") {
             context("with lowercased string") {
                 it("returns phrase uppercased string") {
