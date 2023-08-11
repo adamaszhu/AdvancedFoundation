@@ -15,7 +15,16 @@ public extension Locale {
             format: Self.identifierPattern,
             language.rawValue,
             region.rawValue)
-        Language
+        self.init(identifier: identifier)
+    }
+
+    /// Create a locale based on the language
+    /// - Parameter language: The language
+    init(language: AdvancedFoundation.Language) {
+        let identifier = String(
+            format: Self.identifierPattern,
+            language.rawValue,
+            language.defaultRegion.rawValue)
         self.init(identifier: identifier)
     }
 }
