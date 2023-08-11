@@ -157,6 +157,33 @@ final class DoubleCurrencyFormattableSpecs: QuickSpec {
                 }
             }
         }
+        describe("calls init(currency)") {
+            context("with invalid currency string") {
+                it("returns nil") {
+                    expect(Double(currency: "Test")) == nil
+                }
+            }
+            context("with dollar currency string") {
+                it("creates the number") {
+                    expect(Double(currency: "$1")) == 1
+                }
+            }
+            context("with decimal currency string") {
+                it("creates the number") {
+                    expect(Double(currency: "$1.50")) == 1.5
+                }
+            }
+            context("with long currency string") {
+                it("creates the number") {
+                    expect(Double(currency: "$1,000.50")) == 1000.5
+                }
+            }
+            context("with currency symbol in another locale") {
+                it("returns nil") {
+                    expect(Double(currency: "$¥1")) == nil
+                }
+            }
+        }
     }
 }
 

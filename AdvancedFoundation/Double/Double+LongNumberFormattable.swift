@@ -35,7 +35,7 @@ public extension Double {
         let formatter = NumberFormatter()
         formatter.numberStyle = NumberFormatter.Style.decimal
         guard let number = formatter.number(from: formattedLongNumberString) else {
-            Logger.standard.logError(Self.numberFormatError, withDetail: longNumber)
+            Logger.standard.logInfo(Self.numberFormatError, withDetail: longNumber)
             return nil
         }
         self = number.doubleValue

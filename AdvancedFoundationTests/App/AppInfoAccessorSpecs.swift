@@ -36,7 +36,7 @@ class AppInfoAccessorSpecs: QuickSpec {
         describe("has version") {
             context("with valid bundle") {
                 it("is correct version") {
-                    expect(appInfoAccessor.version) == "1.9.3"
+                    expect(appInfoAccessor.version) == "1.9.5"
                 }
             }
             context("with invalid bundle") {
