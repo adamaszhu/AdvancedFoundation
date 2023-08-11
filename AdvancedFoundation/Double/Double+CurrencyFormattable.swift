@@ -6,13 +6,7 @@
 public extension Double {
 
     /// Default currency formatter
-    static let defaultCurrencyFormatter: NumberFormatter = {
-        let currencyFormatter = NumberFormatter()
-        currencyFormatter.numberStyle = .currency
-        currencyFormatter.roundingMode = .down
-        currencyFormatter.locale = Locale(identifier: Self.defaultLocaleIdentifier)
-        return currencyFormatter
-    }()
+    static let defaultCurrencyFormatter = NumberFormatterFactory.currencyFormatter(for: .english)
 
     /// Get the cent part of the currency string
     ///
@@ -96,9 +90,6 @@ private extension Double {
 
     /// Symbol
     static let dot = "."
-
-    /// Locale
-    static let defaultLocaleIdentifier = "en_US"
 }
 
 import Foundation
