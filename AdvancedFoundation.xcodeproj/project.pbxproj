@@ -162,6 +162,11 @@
 		42F30E431E9E412900AC0249 /* AppInfoAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F30E411E9E412900AC0249 /* AppInfoAccessor.swift */; };
 		42F30E441E9E412900AC0249 /* VersionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F30E421E9E412900AC0249 /* VersionHelper.swift */; };
 		42F30E471E9E413400AC0249 /* VersionHelperSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F30E461E9E413400AC0249 /* VersionHelperSpecs.swift */; };
+		B2822E392A864A0A00259F20 /* Locale+Accessible.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2822E382A864A0A00259F20 /* Locale+Accessible.swift */; };
+		B2822E3B2A864A2900259F20 /* NumberFormatterFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2822E3A2A864A2900259F20 /* NumberFormatterFactory.swift */; };
+		B2822E3D2A864E7300259F20 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2822E3C2A864E7300259F20 /* Language.swift */; };
+		B2822E3F2A864E8800259F20 /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2822E3E2A864E8800259F20 /* Region.swift */; };
+		B2822E422A8651F300259F20 /* LocaleSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2822E412A8651F300259F20 /* LocaleSpecs.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -346,6 +351,11 @@
 		42F30E421E9E412900AC0249 /* VersionHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersionHelper.swift; sourceTree = "<group>"; };
 		42F30E461E9E413400AC0249 /* VersionHelperSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersionHelperSpecs.swift; sourceTree = "<group>"; };
 		42F30E4A1E9E4CE200AC0249 /* AppInfoAccessorSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppInfoAccessorSpecs.swift; sourceTree = "<group>"; };
+		B2822E382A864A0A00259F20 /* Locale+Accessible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Locale+Accessible.swift"; sourceTree = "<group>"; };
+		B2822E3A2A864A2900259F20 /* NumberFormatterFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormatterFactory.swift; sourceTree = "<group>"; };
+		B2822E3C2A864E7300259F20 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
+		B2822E3E2A864E8800259F20 /* Region.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
+		B2822E412A8651F300259F20 /* LocaleSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaleSpecs.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -439,6 +449,7 @@
 				42DAF4E21EA3A07D00DE6B70 /* File */,
 				4289A3A022503B78004579EE /* Int */,
 				28F6AB362825600E00B4C5EE /* Internal */,
+				B2822E372A8649FE00259F20 /* Locale */,
 				2848AB081E9DA039004C6A66 /* Log */,
 				28E703AB1EBADEB5002BEDFC /* Network */,
 				28586A2B29D7065600611F18 /* Number */,
@@ -460,6 +471,7 @@
 				420F3CAF1EA0759500BAA0A4 /* Double */,
 				42DAF4E31EA3A08E00DE6B70 /* File */,
 				4289A3A122503B9E004579EE /* Int */,
+				B2822E402A8651E400259F20 /* Locale */,
 				28E703BA1EBAE4F9002BEDFC /* Network */,
 				28586A2C29D7066A00611F18 /* Number */,
 				42D342741EB4D54600064B1C /* Parser */,
@@ -665,6 +677,7 @@
 				420F3CAC1EA0721800BAA0A4 /* Double+PercentageFormattable.swift */,
 				2817B9B9200FFE0800D0814B /* Double+UnitFormattable.swift */,
 				2817B9BF200FFF9A00D0814B /* Double.strings */,
+				B2822E3A2A864A2900259F20 /* NumberFormatterFactory.swift */,
 			);
 			path = Double;
 			sourceTree = "<group>";
@@ -845,6 +858,24 @@
 				42F30E461E9E413400AC0249 /* VersionHelperSpecs.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		B2822E372A8649FE00259F20 /* Locale */ = {
+			isa = PBXGroup;
+			children = (
+				B2822E3C2A864E7300259F20 /* Language.swift */,
+				B2822E382A864A0A00259F20 /* Locale+Accessible.swift */,
+				B2822E3E2A864E8800259F20 /* Region.swift */,
+			);
+			path = Locale;
+			sourceTree = "<group>";
+		};
+		B2822E402A8651E400259F20 /* Locale */ = {
+			isa = PBXGroup;
+			children = (
+				B2822E412A8651F300259F20 /* LocaleSpecs.swift */,
+			);
+			path = Locale;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1051,6 +1082,8 @@
 				42D3426F1EB4CFAD00064B1C /* JSONPath.swift in Sources */,
 				35094C2822FBBAC80071D0D1 /* KeyedDecodingContainer+Decodable.swift in Sources */,
 				35094C6522FCF9A30071D0D1 /* KeyedEncodingContainer+Encodable.swift in Sources */,
+				B2822E3D2A864E7300259F20 /* Language.swift in Sources */,
+				B2822E392A864A0A00259F20 /* Locale+Accessible.swift in Sources */,
 				2848AB0A1E9DA039004C6A66 /* Logger.swift in Sources */,
 				28E703BE1EBBF1BA002BEDFC /* NetworkBodyType.swift in Sources */,
 				28E703B51EBADFE3002BEDFC /* NetworkHelper+DataSessionDelegate.swift in Sources */,
@@ -1066,9 +1099,11 @@
 				42C13A751EBEC130000D2E50 /* NetworkTask+Equatable.swift in Sources */,
 				28451A191EBC463300793441 /* NetworkTask.swift in Sources */,
 				28451A171EBC45FA00793441 /* NetworkTaskType.swift in Sources */,
+				B2822E3B2A864A2900259F20 /* NumberFormatterFactory.swift in Sources */,
 				28525CB41EAD7C20006F6FDE /* PathHelper.swift in Sources */,
 				28586A2A29D7019A00611F18 /* Percentage.swift in Sources */,
 				28586A3029D995BE00611F18 /* PhraseUppercased.swift in Sources */,
+				B2822E3F2A864E8800259F20 /* Region.swift in Sources */,
 				42D3424F1EB4792E00064B1C /* ResourceHelper.swift in Sources */,
 				280CA9922803EA8900D345D8 /* SettingManager.swift in Sources */,
 				2867BA28281BAB0200495D42 /* String+Codable.swift in Sources */,
@@ -1125,6 +1160,7 @@
 				28E7039E1EBAA0A3002BEDFC /* JSONPathSpecs.swift in Sources */,
 				35094C2B22FBBD4C0071D0D1 /* KeyedDecodingContainerDecodableSpecs.swift in Sources */,
 				35094C6722FCF9DA0071D0D1 /* KeyedEncodingContainerEncodableSpecs.swift in Sources */,
+				B2822E422A8651F300259F20 /* LocaleSpecs.swift in Sources */,
 				429202841EC8167B00C4E909 /* NetworkHelperSpecs+Delegate.swift in Sources */,
 				28E703BC1EBAE504002BEDFC /* NetworkHelperSpecs.swift in Sources */,
 				429202861EC81CA700C4E909 /* NetworkHelperSpecsTask.swift in Sources */,
