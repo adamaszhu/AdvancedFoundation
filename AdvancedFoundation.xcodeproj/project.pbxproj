@@ -167,6 +167,7 @@
 		B2822E3D2A864E7300259F20 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2822E3C2A864E7300259F20 /* Language.swift */; };
 		B2822E3F2A864E8800259F20 /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2822E3E2A864E8800259F20 /* Region.swift */; };
 		B2822E422A8651F300259F20 /* LocaleSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2822E412A8651F300259F20 /* LocaleSpecs.swift */; };
+		B2822E442A8655F100259F20 /* NumberFormatterFactorySpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2822E432A8655F100259F20 /* NumberFormatterFactorySpecs.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -356,6 +357,7 @@
 		B2822E3C2A864E7300259F20 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		B2822E3E2A864E8800259F20 /* Region.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
 		B2822E412A8651F300259F20 /* LocaleSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaleSpecs.swift; sourceTree = "<group>"; };
+		B2822E432A8655F100259F20 /* NumberFormatterFactorySpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormatterFactorySpecs.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -494,6 +496,7 @@
 		28586A2B29D7065600611F18 /* Number */ = {
 			isa = PBXGroup;
 			children = (
+				B2822E3A2A864A2900259F20 /* NumberFormatterFactory.swift */,
 				28586A2929D7019900611F18 /* Percentage.swift */,
 			);
 			path = Number;
@@ -502,6 +505,7 @@
 		28586A2C29D7066A00611F18 /* Number */ = {
 			isa = PBXGroup;
 			children = (
+				B2822E432A8655F100259F20 /* NumberFormatterFactorySpecs.swift */,
 				28586A2D29D706D200611F18 /* PercentageSpecs.swift */,
 			);
 			path = Number;
@@ -677,7 +681,6 @@
 				420F3CAC1EA0721800BAA0A4 /* Double+PercentageFormattable.swift */,
 				2817B9B9200FFE0800D0814B /* Double+UnitFormattable.swift */,
 				2817B9BF200FFF9A00D0814B /* Double.strings */,
-				B2822E3A2A864A2900259F20 /* NumberFormatterFactory.swift */,
 			);
 			path = Double;
 			sourceTree = "<group>";
@@ -1171,6 +1174,7 @@
 				284EF0081EC28F440022EB6B /* NetworkTask+EquatableSpecs.swift in Sources */,
 				285475321ED3AC0300821F83 /* NetworkTaskSpecs.swift in Sources */,
 				286247231EB994DF007D531D /* NSManagedObject+Test.swift in Sources */,
+				B2822E442A8655F100259F20 /* NumberFormatterFactorySpecs.swift in Sources */,
 				35EF429B2300E96C00EB9182 /* OptionalJSON.swift in Sources */,
 				42F1B2A11ED1631E00788234 /* PathHelperSpecs.swift in Sources */,
 				28586A2E29D706D200611F18 /* PercentageSpecs.swift in Sources */,
