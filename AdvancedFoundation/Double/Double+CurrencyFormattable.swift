@@ -64,6 +64,20 @@ public extension Double {
         }
         return currencyString
     }
+
+    /// Read a currency string.
+    ///
+    /// - Parameters:
+    ///   - currency: The string to be rendered.
+    ///   - numberFormatter: The number format used to detect the currency string
+    init?(currency: String,
+          numberFormatter: NumberFormatter = Self.defaultCurrencyFormatter) {
+        guard let currency = numberFormatter.number(from: currency) else {
+            Logger.standard.logInfo(Self.numberFormatError, withDetail: currency)
+            return nil
+        }
+        self = currency.doubleValue
+    }
 }
 
 /// Constants

@@ -40,14 +40,14 @@ public extension Double {
     /// - Parameter percentage: The string to be rendered.
     init?(percentage: String) {
         guard percentage.contains(Self.percentageSymbol) else {
-            Logger.standard.logError(Self.numberFormatError, withDetail: percentage)
+            Logger.standard.logInfo(Self.numberFormatError, withDetail: percentage)
             return nil
         }
         let formattedPercentageString = percentage.replacingOccurrences(of: Self.percentageSymbol, with: String.empty)
         let formatter = NumberFormatter()
         formatter.numberStyle = NumberFormatter.Style.decimal
         guard let number = formatter.number(from: formattedPercentageString) else {
-            Logger.standard.logError(Self.numberFormatError, withDetail: percentage)
+            Logger.standard.logInfo(Self.numberFormatError, withDetail: percentage)
             return nil
         }
         self = number.doubleValue / 100
