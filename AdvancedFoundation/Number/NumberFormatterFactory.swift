@@ -15,6 +15,14 @@ public struct NumberFormatterFactory {
         currencyFormatter.locale = Locale(language: language)
         return currencyFormatter
     }
+
+    /// Create a decimal formatter
+    /// - Returns: The formatter
+    public static func decimalFormatter() -> NumberFormatter {
+        let decimalFormatter = NumberFormatter()
+        decimalFormatter.numberStyle = .decimal
+        return decimalFormatter
+    }
 }
 
 import Foundation
