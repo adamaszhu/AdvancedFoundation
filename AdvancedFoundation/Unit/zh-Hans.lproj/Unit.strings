@@ -33,3 +33,9 @@
 "monthAbbr" = "月";
 "year" = "年";
 "yearAbbr" = "年";
+
+// Count unit
+"each" = "个";
+"eachAbbr" = "个";
+"package" = "包";
+"packageAbbr" = "包";

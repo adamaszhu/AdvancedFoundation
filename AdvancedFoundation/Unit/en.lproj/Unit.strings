@@ -33,3 +33,9 @@
 "monthAbbr" = "mon";
 "year" = "year";
 "yearAbbr" = "y";
+
+// Count unit
+"each" = "each";
+"eachAbbr" = "ea";
+"package" = "package";
+"packageAbbr" = "pk";

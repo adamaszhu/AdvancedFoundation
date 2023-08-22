@@ -163,6 +163,7 @@
 		42F30E441E9E412900AC0249 /* VersionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F30E421E9E412900AC0249 /* VersionHelper.swift */; };
 		42F30E471E9E413400AC0249 /* VersionHelperSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F30E461E9E413400AC0249 /* VersionHelperSpecs.swift */; };
 		B20AB0922A94B44C00712825 /* Unit.strings in Resources */ = {isa = PBXBuildFile; fileRef = B20AB0942A94B44C00712825 /* Unit.strings */; };
+		B20AB0972A94BCF400712825 /* CountUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20AB0962A94BCF400712825 /* CountUnit.swift */; };
 		B2822E392A864A0A00259F20 /* Locale+Accessible.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2822E382A864A0A00259F20 /* Locale+Accessible.swift */; };
 		B2822E3B2A864A2900259F20 /* NumberFormatterFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2822E3A2A864A2900259F20 /* NumberFormatterFactory.swift */; };
 		B2822E3D2A864E7300259F20 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2822E3C2A864E7300259F20 /* Language.swift */; };
@@ -360,6 +361,7 @@
 		42F30E4A1E9E4CE200AC0249 /* AppInfoAccessorSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppInfoAccessorSpecs.swift; sourceTree = "<group>"; };
 		B20AB0932A94B44C00712825 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Unit.strings; sourceTree = "<group>"; };
 		B20AB0952A94B45000712825 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Unit.strings"; sourceTree = "<group>"; };
+		B20AB0962A94BCF400712825 /* CountUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountUnit.swift; sourceTree = "<group>"; };
 		B2822E382A864A0A00259F20 /* Locale+Accessible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Locale+Accessible.swift"; sourceTree = "<group>"; };
 		B2822E3A2A864A2900259F20 /* NumberFormatterFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormatterFactory.swift; sourceTree = "<group>"; };
 		B2822E3C2A864E7300259F20 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
@@ -904,6 +906,7 @@
 				B2A2EBD82A8EE0AE00BD9A46 /* Unit.swift */,
 				B2A2EBDE2A8EE13A00BD9A46 /* VolumeUnit.swift */,
 				B2A2EBDC2A8EE0F800BD9A46 /* WeightUnit.swift */,
+				B20AB0962A94BCF400712825 /* CountUnit.swift */,
 			);
 			path = Unit;
 			sourceTree = "<group>";
@@ -1094,6 +1097,7 @@
 				420F3CAE1EA0721800BAA0A4 /* Double+PercentageFormattable.swift in Sources */,
 				2817B9BA200FFE0900D0814B /* Double+UnitFormattable.swift in Sources */,
 				2898737B28210B430055E9E0 /* DownCounter.swift in Sources */,
+				B20AB0972A94BCF400712825 /* CountUnit.swift in Sources */,
 				287A1AA62875360100CF77E7 /* Encodable+Presentable.swift in Sources */,
 				425DCD171EB43DE200A0ED26 /* FileHelper.swift in Sources */,
 				429202721EC735DD00C4E909 /* FileInfoAccessor.swift in Sources */,
