@@ -398,6 +398,118 @@
       "symbol": "String.semicolon",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
+    },
+    {
+      "file": "/Users/adamaszhu/Documents/Projects/AdvancedFoundation/AdvancedFoundation/Unit/CountUnit.swift",
+      "line": 7,
+      "symbol": "CountUnit.each",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/adamaszhu/Documents/Projects/AdvancedFoundation/AdvancedFoundation/Unit/CountUnit.swift",
+      "line": 8,
+      "symbol": "CountUnit.package",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/adamaszhu/Documents/Projects/AdvancedFoundation/AdvancedFoundation/Unit/LengthUnit.swift",
+      "line": 7,
+      "symbol": "LengthUnit.centimeter",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/adamaszhu/Documents/Projects/AdvancedFoundation/AdvancedFoundation/Unit/LengthUnit.swift",
+      "line": 8,
+      "symbol": "LengthUnit.meter",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/adamaszhu/Documents/Projects/AdvancedFoundation/AdvancedFoundation/Unit/LengthUnit.swift",
+      "line": 9,
+      "symbol": "LengthUnit.kilometer",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/adamaszhu/Documents/Projects/AdvancedFoundation/AdvancedFoundation/Unit/TimeUnit.swift",
+      "line": 7,
+      "symbol": "TimeUnit.millisecond",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/adamaszhu/Documents/Projects/AdvancedFoundation/AdvancedFoundation/Unit/TimeUnit.swift",
+      "line": 8,
+      "symbol": "TimeUnit.second",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/adamaszhu/Documents/Projects/AdvancedFoundation/AdvancedFoundation/Unit/TimeUnit.swift",
+      "line": 9,
+      "symbol": "TimeUnit.minute",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/adamaszhu/Documents/Projects/AdvancedFoundation/AdvancedFoundation/Unit/TimeUnit.swift",
+      "line": 10,
+      "symbol": "TimeUnit.hour",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/adamaszhu/Documents/Projects/AdvancedFoundation/AdvancedFoundation/Unit/TimeUnit.swift",
+      "line": 11,
+      "symbol": "TimeUnit.day",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/adamaszhu/Documents/Projects/AdvancedFoundation/AdvancedFoundation/Unit/TimeUnit.swift",
+      "line": 12,
+      "symbol": "TimeUnit.month",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/adamaszhu/Documents/Projects/AdvancedFoundation/AdvancedFoundation/Unit/TimeUnit.swift",
+      "line": 13,
+      "symbol": "TimeUnit.year",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/adamaszhu/Documents/Projects/AdvancedFoundation/AdvancedFoundation/Unit/VolumeUnit.swift",
+      "line": 7,
+      "symbol": "VolumeUnit.milliliter",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/adamaszhu/Documents/Projects/AdvancedFoundation/AdvancedFoundation/Unit/VolumeUnit.swift",
+      "line": 8,
+      "symbol": "VolumeUnit.liter",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/adamaszhu/Documents/Projects/AdvancedFoundation/AdvancedFoundation/Unit/WeightUnit.swift",
+      "line": 7,
+      "symbol": "WeightUnit.gram",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/adamaszhu/Documents/Projects/AdvancedFoundation/AdvancedFoundation/Unit/WeightUnit.swift",
+      "line": 8,
+      "symbol": "WeightUnit.kilogram",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
     }
   ],
   "source_directory": "/Users/adamaszhu/Documents/Projects/AdvancedFoundation"
