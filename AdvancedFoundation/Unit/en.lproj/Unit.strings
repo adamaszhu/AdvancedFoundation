@@ -1,0 +1,35 @@
+// Volume units
+"milliliter" = "milliliter";
+"milliliterAbbr" = "ml";
+"liter" = "liter";
+"literAbbr" = "l";
+
+// Weight units
+"gram" = "gram";
+"gramAbbr" = "g";
+"kilogram" = "kilogram";
+"kilogramAbbr" = "kg";
+
+// Length units
+"centimeter" = "centimeter";
+"centimeterAbbr" = "cm";
+"meter" = "meter";
+"meterAbbr" = "m";
+"kilometer" = "kilometer";
+"kilometerAbbr" = "km";
+
+// Time unit
+"millisecond" = "millisecond";
+"millisecondAbbr" = "ms";
+"second" = "second";
+"secondAbbr" = "s";
+"minute" = "minute";
+"minuteAbbr" = "min";
+"hour" = "hour";
+"hourAbbr" = "h";
+"day" = "day";
+"dayAbbr" = "d";
+"month" = "month";
+"monthAbbr" = "mon";
+"year" = "year";
+"yearAbbr" = "y";
