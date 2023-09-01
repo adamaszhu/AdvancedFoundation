@@ -414,6 +414,27 @@
       "warning": "undocumented"
     },
     {
+      "file": "/Users/adamaszhu/Documents/Projects/AdvancedFoundation/AdvancedFoundation/Unit/CurrencyUnit.swift",
+      "line": 7,
+      "symbol": "CurrencyUnit.australianDollar",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/adamaszhu/Documents/Projects/AdvancedFoundation/AdvancedFoundation/Unit/CurrencyUnit.swift",
+      "line": 8,
+      "symbol": "CurrencyUnit.chineseYuan",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/adamaszhu/Documents/Projects/AdvancedFoundation/AdvancedFoundation/Unit/CurrencyUnit.swift",
+      "line": 9,
+      "symbol": "CurrencyUnit.dollar",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/adamaszhu/Documents/Projects/AdvancedFoundation/AdvancedFoundation/Unit/LengthUnit.swift",
       "line": 7,
       "symbol": "LengthUnit.centimeter",
