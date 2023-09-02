@@ -1,6 +1,27 @@
 {
   "warnings": [
     {
+      "file": "/Users/adamaszhu/Documents/Projects/AdvancedFoundation/AdvancedFoundation/Currency/Currency.swift",
+      "line": 7,
+      "symbol": "Currency.australianDollar",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/adamaszhu/Documents/Projects/AdvancedFoundation/AdvancedFoundation/Currency/Currency.swift",
+      "line": 8,
+      "symbol": "Currency.chineseYuan",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/adamaszhu/Documents/Projects/AdvancedFoundation/AdvancedFoundation/Currency/Currency.swift",
+      "line": 9,
+      "symbol": "Currency.dollar",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/adamaszhu/Documents/Projects/AdvancedFoundation/AdvancedFoundation/Data/UserDefaultsKeyType.swift",
       "line": 8,
       "symbol": "UserDefaultsKeyType.Value",
@@ -410,27 +431,6 @@
       "file": "/Users/adamaszhu/Documents/Projects/AdvancedFoundation/AdvancedFoundation/Unit/CountUnit.swift",
       "line": 8,
       "symbol": "CountUnit.package",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/adamaszhu/Documents/Projects/AdvancedFoundation/AdvancedFoundation/Unit/CurrencyUnit.swift",
-      "line": 7,
-      "symbol": "CurrencyUnit.australianDollar",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/adamaszhu/Documents/Projects/AdvancedFoundation/AdvancedFoundation/Unit/CurrencyUnit.swift",
-      "line": 8,
-      "symbol": "CurrencyUnit.chineseYuan",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/adamaszhu/Documents/Projects/AdvancedFoundation/AdvancedFoundation/Unit/CurrencyUnit.swift",
-      "line": 9,
-      "symbol": "CurrencyUnit.dollar",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
