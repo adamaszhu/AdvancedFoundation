@@ -39,11 +39,3 @@
 "eachAbbr" = "ea";
 "package" = "package";
 "packageAbbr" = "pk";
-
-// Currency unit
-"australianDollar" = "AUD";
-"australianDollarAbbr" = "AU$";
-"chineseYuan" = "CNY";
-"chineseYuanAbbr" = "¥";
-"dollar" = "USD";
-"dollarAbbr" = "$";
