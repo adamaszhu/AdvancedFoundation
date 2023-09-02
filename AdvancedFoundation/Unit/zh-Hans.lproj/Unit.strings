@@ -39,11 +39,3 @@
 "eachAbbr" = "个";
 "package" = "包";
 "packageAbbr" = "包";
-
-// Currency unit
-"australianDollar" = "澳元";
-"australianDollarAbbr" = "AU$";
-"chineseYuan" = "人名币";
-"chineseYuanAbbr" = "¥";
-"dollar" = "美元";
-"dollarAbbr" = "$";
