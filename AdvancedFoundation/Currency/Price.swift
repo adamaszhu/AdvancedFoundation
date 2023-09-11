@@ -6,10 +6,10 @@
 public struct Price {
 
     /// The currency of the price
-    let currency: Currency
+    public let currency: Currency
 
     /// The amount
-    let amount: Double
+    public let amount: Double
 
     /// Initialize the price
     /// - Parameters:
