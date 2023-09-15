@@ -671,10 +671,10 @@
 		35094C2622FBBA830071D0D1 /* Codable */ = {
 			isa = PBXGroup;
 			children = (
+				B2DF83D32AB139BF00689826 /* AnyCodable.swift */,
 				35094C3E22FBDC250071D0D1 /* CodableOperator.swift */,
 				35094C2722FBBAC80071D0D1 /* KeyedDecodingContainer+Decodable.swift */,
 				35094C6422FCF9A30071D0D1 /* KeyedEncodingContainer+Encodable.swift */,
-				B2DF83D32AB139BF00689826 /* AnyCodable.swift */,
 			);
 			path = Codable;
 			sourceTree = "<group>";
@@ -1100,6 +1100,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2DF83D42AB139BF00689826 /* AnyCodable.swift in Sources */,
 				42F30E431E9E412900AC0249 /* AppInfoAccessor.swift in Sources */,
 				2803797D1EFCD75B0043682D /* Array+Accessable.swift in Sources */,
 				28F6AB382825602100B4C5EE /* Bundle+Accessable.swift in Sources */,
@@ -1152,7 +1153,6 @@
 				28E703C01EBBF237002BEDFC /* NetworkHelperDelegate.swift in Sources */,
 				42C13A731EBEA04F000D2E50 /* NetworkRequestHeader+Parsable.swift in Sources */,
 				28E703C61EBC3103002BEDFC /* NetworkRequestHeader.swift in Sources */,
-				B2DF83D42AB139BF00689826 /* AnyCodable.swift in Sources */,
 				28451A151EBC3E7800793441 /* NetworkRequestType.swift in Sources */,
 				42C13A711EBE9F41000D2E50 /* NetworkResponseHeader+Parsable.swift in Sources */,
 				42C13A6F1EBE9D0C000D2E50 /* NetworkResponseHeader.swift in Sources */,
