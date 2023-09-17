@@ -3,7 +3,7 @@
 /// - author: Adamas
 /// - version: 1.9.8
 /// - date: 22/08/2023
-public protocol Unit {
+public protocol Unit: CaseIterable {
 
     /// The key of a unit
     var key: String { get }
