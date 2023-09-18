@@ -18,7 +18,7 @@ public extension Unit {
 
     /// The abbr of the unit
     var abbr: String {
-        (key + Self.abbrKeySuffix).localizedInternalString(forType: Self.self)
+        (key + Self.abbrKeySuffix).localizedInternalString(forType: (any Unit).self)
     }
 }
 
