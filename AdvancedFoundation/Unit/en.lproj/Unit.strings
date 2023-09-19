@@ -39,3 +39,7 @@
 "eachAbbr" = "ea";
 "package" = "package";
 "packageAbbr" = "pk";
+"capsule" = "capsule";
+"capsulePlural" = "capsules";
+"capsuleAbbr" = "cap";
+"capsulePluralAbbr" = "caps";

@@ -16,13 +16,33 @@ public extension Unit {
         key.localizedInternalString(forType: Self.self)
     }
 
+    /// Plural name
+    var pluralName: String {
+        localizedString(withSuffix: Self.pluralKeySuffix)
+    }
+
     /// The abbr of the unit
     var abbr: String {
-        (key + Self.abbrKeySuffix).localizedInternalString(forType: (any Unit).self)
+        localizedString(withSuffix: Self.abbrKeySuffix)
+    }
+
+    /// The abbr plural of the unit
+    var pluralAbbr: String {
+        localizedString(withSuffix: Self.pluralAbbrKeySuffix)
+    }
+
+    /// Get a localized string with the provided key suffix.
+    /// - Parameter suffix: The key suffix
+    /// - Returns: The localized string. Default to name if no localized string is there
+    private func localizedString(withSuffix suffix: String) -> String {
+        let string = (key + suffix).localizedInternalString(forType: (any Unit).self)
+        return string == key ? name : string
     }
 }
 
 /// Constants
 private extension Unit {
+    static var pluralKeySuffix: String { "Plural" }
     static var abbrKeySuffix: String { "Abbr" }
+    static var pluralAbbrKeySuffix: String { "PluralAbbr" }
 }

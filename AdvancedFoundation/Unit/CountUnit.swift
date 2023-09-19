@@ -6,6 +6,7 @@
 public enum CountUnit: String {
     case each
     case package
+    case capsule
 }
 
 extension CountUnit: Unit {
