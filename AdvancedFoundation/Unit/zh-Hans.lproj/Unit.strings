@@ -1,41 +1,26 @@
 // Volume units
 "milliliter" = "毫升";
-"milliliterAbbr" = "毫升";
 "liter" = "升";
-"literAbbr" = "升";
 
 // Weight units
 "gram" = "克";
-"gramAbbr" = "克";
 "kilogram" = "千克";
-"kilogramAbbr" = "千克";
 
 // Length units
 "centimeter" = "厘米";
-"centimeterAbbr" = "厘米";
 "meter" = "米";
-"meterAbbr" = "米";
 "kilometer" = "千米";
-"kilometerAbbr" = "千米";
 
 // Time unit
 "millisecond" = "毫秒";
-"millisecondAbbr" = "毫秒";
 "second" = "秒";
-"secondAbbr" = "秒";
 "minute" = "分";
-"minuteAbbr" = "分";
 "hour" = "时";
-"hourAbbr" = "时";
 "day" = "日";
-"dayAbbr" = "日";
 "month" = "月";
-"monthAbbr" = "月";
 "year" = "年";
-"yearAbbr" = "年";
 
 // Count unit
 "each" = "个";
-"eachAbbr" = "个";
 "package" = "包";
-"packageAbbr" = "包";
+"capsule" = "粒";
