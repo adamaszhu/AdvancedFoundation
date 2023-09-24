@@ -35,7 +35,8 @@ public extension Unit {
     /// - Parameter suffix: The key suffix
     /// - Returns: The localized string. Default to name if no localized string is there
     private func localizedString(withSuffix suffix: String) -> String {
-        let string = (key + suffix).localizedInternalString(forType: (any Unit).self)
+        let key = key + suffix
+        let string = key.localizedInternalString(forType: (any Unit).self)
         return string == key ? name : string
     }
 }
