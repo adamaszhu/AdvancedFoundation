@@ -3,7 +3,7 @@
 /// - author: Adamas
 /// - version: 1.9.10
 /// - date: 02/09/2023
-public struct Price {
+public struct Price: Equatable {
 
     /// The currency of the price
     public let currency: Currency
