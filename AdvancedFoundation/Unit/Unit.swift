@@ -7,6 +7,9 @@ public protocol Unit: CaseIterable {
 
     /// The key of a unit
     var key: String { get }
+
+    /// Convert the current unit to the min unit
+    var equivalentMinUnit: (amount: Double, unit: Self) { get }
 }
 
 public extension Unit {
