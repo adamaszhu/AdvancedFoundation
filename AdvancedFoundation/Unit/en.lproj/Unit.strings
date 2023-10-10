@@ -43,3 +43,9 @@
 "capsulePlural" = "capsules";
 "capsuleAbbr" = "cap";
 "capsulePluralAbbr" = "caps";
+"dose" = "dose";
+"dosePlural" = "doses";
+"can" = "can";
+"canPlural" = "cans";
+"bottle" = "bottle";
+"bottlePlural" = "bottles";

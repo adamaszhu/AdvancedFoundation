@@ -7,9 +7,16 @@ public enum CountUnit: String {
     case each
     case package
     case capsule
+    case dose
+    case can
+    case bottle
 }
 
 extension CountUnit: Unit {
+
+    public var equivalentMinUnit: (amount: Double, unit: CountUnit) {
+        (1, self)
+    }
 
     public var key: String {
         rawValue
