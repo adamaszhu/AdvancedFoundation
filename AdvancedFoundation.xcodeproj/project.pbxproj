@@ -164,6 +164,8 @@
 		42F30E471E9E413400AC0249 /* VersionHelperSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F30E461E9E413400AC0249 /* VersionHelperSpecs.swift */; };
 		B20AB0922A94B44C00712825 /* Unit.strings in Resources */ = {isa = PBXBuildFile; fileRef = B20AB0942A94B44C00712825 /* Unit.strings */; };
 		B20AB0972A94BCF400712825 /* CountUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20AB0962A94BCF400712825 /* CountUnit.swift */; };
+		B27B45C72AD8A604001D9D2C /* Array+Mutable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27B45C62AD8A604001D9D2C /* Array+Mutable.swift */; };
+		B27B45C92AD8AA19001D9D2C /* Array+MutableSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27B45C82AD8AA19001D9D2C /* Array+MutableSpecs.swift */; };
 		B2822E392A864A0A00259F20 /* Locale+Accessible.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2822E382A864A0A00259F20 /* Locale+Accessible.swift */; };
 		B2822E3B2A864A2900259F20 /* NumberFormatterFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2822E3A2A864A2900259F20 /* NumberFormatterFactory.swift */; };
 		B2822E3D2A864E7300259F20 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2822E3C2A864E7300259F20 /* Language.swift */; };
@@ -366,6 +368,8 @@
 		B20AB0932A94B44C00712825 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Unit.strings; sourceTree = "<group>"; };
 		B20AB0952A94B45000712825 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Unit.strings"; sourceTree = "<group>"; };
 		B20AB0962A94BCF400712825 /* CountUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountUnit.swift; sourceTree = "<group>"; };
+		B27B45C62AD8A604001D9D2C /* Array+Mutable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Mutable.swift"; sourceTree = "<group>"; };
+		B27B45C82AD8AA19001D9D2C /* Array+MutableSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+MutableSpecs.swift"; sourceTree = "<group>"; };
 		B2822E382A864A0A00259F20 /* Locale+Accessible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Locale+Accessible.swift"; sourceTree = "<group>"; };
 		B2822E3A2A864A2900259F20 /* NumberFormatterFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormatterFactory.swift; sourceTree = "<group>"; };
 		B2822E3C2A864E7300259F20 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
@@ -419,6 +423,7 @@
 			isa = PBXGroup;
 			children = (
 				2803797C1EFCD75B0043682D /* Array+Accessable.swift */,
+				B27B45C62AD8A604001D9D2C /* Array+Mutable.swift */,
 			);
 			path = Array;
 			sourceTree = "<group>";
@@ -427,6 +432,7 @@
 			isa = PBXGroup;
 			children = (
 				2803797F1EFCDE2F0043682D /* Array+AccessableSpecs.swift */,
+				B27B45C82AD8AA19001D9D2C /* Array+MutableSpecs.swift */,
 			);
 			path = Array;
 			sourceTree = "<group>";
@@ -1103,6 +1109,7 @@
 				B2DF83D42AB139BF00689826 /* AnyCodable.swift in Sources */,
 				42F30E431E9E412900AC0249 /* AppInfoAccessor.swift in Sources */,
 				2803797D1EFCD75B0043682D /* Array+Accessable.swift in Sources */,
+				B27B45C72AD8A604001D9D2C /* Array+Mutable.swift in Sources */,
 				28F6AB382825602100B4C5EE /* Bundle+Accessable.swift in Sources */,
 				28258143211275270033D386 /* Bundle+Localizable.swift in Sources */,
 				35094C3F22FBDC250071D0D1 /* CodableOperator.swift in Sources */,
@@ -1193,6 +1200,7 @@
 				286353F01ED54306000B7A7F /* APIMocker.swift in Sources */,
 				28B942821ED3BD2400FFACA1 /* AppInfoAccessorSpecs.swift in Sources */,
 				280379801EFCDE2F0043682D /* Array+AccessableSpecs.swift in Sources */,
+				B27B45C92AD8AA19001D9D2C /* Array+MutableSpecs.swift in Sources */,
 				2825814A21127BB30033D386 /* Bundle+LocalizableSpecs.swift in Sources */,
 				28DC77CB26EF84E300B3F121 /* CoreDataHelperSpecs.swift in Sources */,
 				42A163401F1655D5004C04E9 /* CSV+ParsableSpecs.swift in Sources */,
