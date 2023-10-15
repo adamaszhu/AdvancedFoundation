@@ -7,13 +7,12 @@ public extension Array where Element : Equatable {
 
     /// Remove duplicates in the array
     mutating func removeDuplicates() {
-        for element in self.reversed() {
-            guard let firstIndex = firstIndex(of: element),
+        for element in self {
+            while let firstIndex = firstIndex(of: element),
                   let lastIndex = lastIndex(of: element),
-                  firstIndex != lastIndex else {
-                return
+                  firstIndex != lastIndex {
+                remove(at: lastIndex)
             }
-            remove(at: lastIndex)
         }
     }
 
