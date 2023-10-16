@@ -10,12 +10,12 @@ public enum WeightUnit: String {
 
 extension WeightUnit: Unit {
 
-    public var equivalentMinUnit: (amount: Double, unit: WeightUnit) {
+    public var standardUnit: (amount: Double, unit: WeightUnit) {
         switch self {
         case .gram:
-            return (1, .gram)
+            return (0.001, .kilogram)
         case .kilogram:
-            return (1000, .gram)
+            return (1, .kilogram)
         }
     }
 
