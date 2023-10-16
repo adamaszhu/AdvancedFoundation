@@ -15,7 +15,7 @@ public enum CountUnit: String {
 
 extension CountUnit: Unit {
 
-    public var equivalentMinUnit: (amount: Double, unit: CountUnit) {
+    public var standardUnit: (amount: Double, unit: CountUnit) {
         (1, self)
     }
 

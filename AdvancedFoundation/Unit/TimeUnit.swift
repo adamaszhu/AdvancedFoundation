@@ -17,7 +17,7 @@ extension TimeUnit: Unit {
 
     public var minUnit: TimeUnit { .millisecond }
 
-    public var equivalentMinUnit: (amount: Double, unit: TimeUnit) {
+    public var standardUnit: (amount: Double, unit: TimeUnit) {
         switch self {
         case .millisecond:
             return (0.001, .second)
