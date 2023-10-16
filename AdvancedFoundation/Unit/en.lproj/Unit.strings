@@ -49,3 +49,5 @@
 "canPlural" = "cans";
 "bottle" = "bottle";
 "bottlePlural" = "bottles";
+"tablet" = "tablet";
+"tabletPlural" = "tablets";
