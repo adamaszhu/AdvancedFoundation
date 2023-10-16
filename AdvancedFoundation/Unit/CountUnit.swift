@@ -10,6 +10,7 @@ public enum CountUnit: String {
     case dose
     case can
     case bottle
+    case tablet
 }
 
 extension CountUnit: Unit {
