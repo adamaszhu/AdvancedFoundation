@@ -10,12 +10,12 @@ public enum VolumeUnit: String {
 
 extension VolumeUnit: Unit {
 
-    public var equivalentMinUnit: (amount: Double, unit: VolumeUnit) {
+    public var standardUnit: (amount: Double, unit: VolumeUnit) {
         switch self {
         case .milliliter:
-            return (1, .milliliter)
+            return (0.001, .liter)
         case .liter:
-            return (1000, .milliliter)
+            return (1, .liter)
         }
     }
 

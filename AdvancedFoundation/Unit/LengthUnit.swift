@@ -11,14 +11,14 @@ public enum LengthUnit: String {
 
 extension LengthUnit: Unit {
 
-    public var equivalentMinUnit: (amount: Double, unit: LengthUnit) {
+    public var standardUnit: (amount: Double, unit: LengthUnit) {
         switch self {
         case .centimeter:
-            return (1, .centimeter)
+            return (0.01, .meter)
         case .meter:
-            return (100, .centimeter)
+            return (1, .meter)
         case .kilometer:
-            return (1000 * 100, .centimeter)
+            return (1000, .meter)
         }
     }
 
